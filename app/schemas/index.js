@@ -4,6 +4,7 @@ const houseSchema = require("./houseSchema");
 const animalSchema = require("./animalSchema");
 const absenteeSchema = require("./absenteeSchema");
 const photoSchema = require("./photoSchema");
+const plantSchema = require("./plantSchema");
 
 module.exports = {
 	paramsSchema,
@@ -12,4 +13,5 @@ module.exports = {
 	...animalSchema,
 	...absenteeSchema,
 	...photoSchema,
+	...plantSchema,
 };

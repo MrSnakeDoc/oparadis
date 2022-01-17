@@ -12,6 +12,8 @@ const {
 	update_absentee,
 	add_photo,
 	update_photo,
+	add_plant,
+	update_plant,
 } = require("../schemas/");
 
 module.exports = {
@@ -24,7 +26,9 @@ module.exports = {
 	add_absenteeValidation: validateBody(add_absentee),
 	update_absenteeValidation: validateBody(update_absentee),
 	add_photoValidation: validateBody(add_photo),
-	update_photoValidation: validateBody(update_photo),
+	update_photoValidation: validateBody(update_photo),	
+	add_plantValidation: validateBody(add_plant),
+	update_plantValidation: validateBody(update_plant),
 	bodyValidation: validateBody(bodySchema),
 	paramsValidation: validateParams(paramsSchema),
 };

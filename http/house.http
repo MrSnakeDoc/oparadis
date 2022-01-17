@@ -11,21 +11,31 @@ POST {{host}}/houses HTTP/1.1
 content-type: application/json
 
     {
-        adress: "19 rue du boulet",
-        zip_code: "75 010 CEDEX",
-        city: "Montcuq",
-        country:"France",
-        type: "Maison",
-        title: "Maison bleu",
-        nb_rooms: 2,
-        nb_bedrooms: 4,
-        surface: 187,
-        area: 666,
-        floor: 3,
-        description: "C'est une maison bleue Adossée à la colline On y vient à pied, on ne frappe pas Ceux qui vivent là, ont jeté la clé",
-        latitude: "48.099071531610875",
-        longitude: "-0.748887016329141",
-        map: "https://maps.google.com/maps?q=48.099071531610875,-0.7488870163291419"
+        "adress": "19 rue du boulet",
+        "zip_code": "75 010 CEDEX",
+        "city": "Montcuq",
+        "country":"France",
+        "type": "Maison",
+        "title": "Maison bleu",
+        "nb_rooms": 2,
+        "nb_bedrooms": 4,
+        "surface": 187,
+        "area": 666,
+        "floor": 3,
+        "description": "C'est une maison bleue Adossée à la colline On y vient à pied, on ne frappe pas Ceux qui vivent là, ont jeté la clé",
+        "latitude": "48.099071531610875",
+        "longitude": "-0.748887016329141",
+        "map": "https://maps.google.com/maps?q=48.099071531610875,-0.7488870163291419",
+         "internet": false,
+        "washing_machine": false,
+        "tv": false,
+        "hoven": false,
+        "microwave": false,
+        "dishwasher": false,
+        "bathtub": false,
+        "shower": false,
+        "parking": false,
+        "validation": true
     }
 
 ###
@@ -33,21 +43,31 @@ PATCH {{host}}/houses/id HTTP/1.1
 content-type: application/json
 
     {
-        adress: "19 rue du Pierre",
-        zip_code: "75 010 CEDEX",
-        city: "Montcuq",
-        country:"France",
-        type: "Maison",
-        title: "Maison bleu",
-        nb_rooms: 2,
-        nb_bedrooms: 4,
-        surface: 187,
-        area: 666,
-        floor: 3,
-        description: "C'est une maison bleue Adossée à la colline On y vient à pied, on ne frappe pas Ceux qui vivent là, ont jeté la clé",
-        latitude: "48.099071531610875",
-        longitude: "-0.748887016329141",
-        map: "https://maps.google.com/maps?q=48.099071531610875,-0.7488870163291419"
+        "adress": "19 rue du Pierre",
+        "zip_code": "75 010 CEDEX",
+        "city": "Montcuq",
+        "country":"France",
+        "type": "Maison",
+        "title": "Maison bleu",
+        "nb_rooms": 2,
+        "nb_bedrooms": 4,
+        "surface": 187,
+        "area": 666,
+        "floor": 3,
+        "description": "C'est une maison bleue Adossée à la colline On y vient à pied, on ne frappe pas Ceux qui vivent là, ont jeté la clé",
+        "latitude": "48.099071531610875",
+        "longitude": "-0.748887016329141",
+        "map": "https://maps.google.com/maps?q=48.099071531610875,-0.7488870163291419",
+        "internet": true,
+        "washing_machine": true,
+        "tv": true,
+        "hoven": true,
+        "microwave": true,
+        "dishwasher": true,
+        "bathtub": true,
+        "shower": true,
+        "parking": true,
+        "validation": true
     }
 
 ###

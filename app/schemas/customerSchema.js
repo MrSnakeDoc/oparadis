@@ -20,6 +20,7 @@ module.exports = {
 		firstname: Joi.string().required(),
 		lastname: Joi.string().required(),
 		phone_number: Joi.string().pattern(re_phone).required(),
+		photo: Joi.binary().encoding('base64'),
 	}),
 	update_customer: Joi.object({
 		id: Joi.number().integer().min(1).required(),
@@ -37,6 +38,7 @@ module.exports = {
 		firstname: Joi.string().required(),
 		lastname: Joi.string().required(),
 		phone_number: Joi.string().pattern(re_phone).required(),
+		photo: Joi.binary().encoding('base64'),
 	}),
 };
 

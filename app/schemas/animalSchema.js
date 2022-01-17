@@ -6,7 +6,8 @@ module.exports = {
 		race: Joi.string().max(20),
 		diseases: Joi.string().max(70),
 		notes: Joi.string().max(300),
-		photo_url: Joi.string(),
+		photo: Joi.binary().encoding('base64'),
+		Validation: Joi.boolean()
 	}),
 
 	update_animal: Joi.object({
@@ -14,6 +15,7 @@ module.exports = {
 		race: Joi.string().max(20),
 		diseases: Joi.string().max(70),
 		notes: Joi.string().max(300),
-		photo_url: Joi.string(),
+		photo: Joi.binary().encoding('base64'),
+		Validation: Joi.boolean()
 	}),
 };
