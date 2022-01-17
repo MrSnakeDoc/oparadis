@@ -1,0 +1,50 @@
+@host = http://localhost:5000
+
+# CUSTOMER
+###
+GET http://localhost:5000/customers/full/ HTTP/1.1
+content-type: application/json
+
+###
+GET http://localhost:5000/customers/full/17 HTTP/1.1
+content-type: application/json
+
+###
+GET {{host}}/customers/1 HTTP/1.1
+content-type: application/json
+
+###
+GET {{host}}/customers/ HTTP/1.1
+content-type: application/json
+
+###
+POST {{host}}/customers HTTP/1.1
+content-type: application/json
+
+    {
+        "email": "jemoustique@gmail.com",
+        "password": "land",
+		"repeat_password": "land",
+        "firstname": "Jules-Edouard",
+        "lastname": "Moustique",
+        "phone_number": "0175492412",
+        "customer_url":"/src/customer_photos/customer123.jpg"
+    }
+
+###
+PATCH {{host}}/customers/101 HTTP/1.1
+content-type: application/json
+
+{
+    "email": "jemoustique@gmail.com",
+    "password": "landrover",
+	"repeat_password": "landrover",
+    "firstname": "Jules-Edouard",
+    "lastname": "Moustique",
+    "phone_number": "0175492412",
+    "customer_url":"/src/customer_photos/customer123.jpg"
+}
+
+###
+DELETE {{host}}/customers/17 HTTP/1.1
+content-type: application/json

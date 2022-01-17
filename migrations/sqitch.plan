@@ -1,0 +1,5 @@
+%syntax-version=1.0.0
+%project=oparadis
+
+init 2022-01-12T15:53:40Z MrSnakeDoc <selabbadi@gmail.com> # tables creation
+function 2022-01-13T13:01:00Z Miguelito <leahcim60@outlook.fr> # create function

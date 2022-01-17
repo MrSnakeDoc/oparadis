@@ -1,0 +1,29 @@
+@host = http://localhost:5000
+
+###
+GET {{host}}/absentee/ HTTP/1.1
+content-type: application/json
+###
+GET {{host}}/absentee/1 HTTP/1.1
+content-type: application/json
+###
+POST {{host}}/absentee HTTP/1.1
+content-type: application/json
+
+    {
+        starting_date: "2022-03-10 00:00:00+00",
+        ending_date: "2023-12-08 00:00:00+00"
+    }
+
+###
+PATCH {{host}}/absentee/id HTTP/1.1
+content-type: application/json
+
+    {
+        starting_date: "2022-10-10 00:00:00+00",
+        ending_date: "2023-10-08 00:00:00+00"
+    }
+    
+###
+DELETE {{host}}/absentee/id HTTP/1.1
+content-type: application/json

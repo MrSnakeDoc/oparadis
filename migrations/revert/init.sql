@@ -1,0 +1,7 @@
+-- Revert oparadis:init from pg
+
+BEGIN;
+
+DROP TABLE IF EXISTS CUSTOMER, CONNECTION, ANIMAL, house_type, HOUSE, PLANT, PHOTO, ABSENTEE, house_type CASCADE;
+
+COMMIT;
