@@ -32,10 +32,8 @@ CREATE TABLE ANIMAL (
     diseases text,
     notes text,
     photo text,
-    created_at timestamptz NOT NULL DEFAULT NOW(),
-    updated_at timestamptz DEFAULT NOW(),
     validation BOOLEAN NOT NULL DEFAULT false,
-    customer_id int not null REFERENCES customer(id) ON DELETE CASCADE
+    house_id int not null REFERENCES house(id) ON DELETE CASCADE
 );
 
 CREATE TABLE house_type (
@@ -80,17 +78,13 @@ CREATE TABLE PLANT (
     type TEXT NOT NULL,
     notes text,
     photo text,
-    created_at timestamptz NOT NULL DEFAULT NOW(),
-    updated_at timestamptz DEFAULT NOW(),
     validation BOOLEAN NOT NULL DEFAULT false,
-    customer_id INT NOT NULL REFERENCES customer(id) on delete cascade
+    house_id INT NOT NULL REFERENCES house(id) on delete cascade
 );
 
 CREATE TABLE PHOTO (
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     photo text not null,
-    created_at timestamptz NOT NULL DEFAULT NOW(),
-    updated_at timestamptz DEFAULT NOW(),
     validation BOOLEAN NOT NULL DEFAULT false,
     house_id int not null REFERENCES house(id) ON DELETE CASCADE
 );

@@ -230,6 +230,16 @@ module.exports = {
 						description: "The created_at of the house",
 						example: "2022-03-10 00:00:00+00",
 					},
+					updated_at: {
+						type: "timestamptz",
+						description: "The updated_at of the house",
+						example: "2022-03-10 00:00:00+00",
+					},
+					validation: {
+						type: "boolean",
+						description: "The validation of the house",
+						example: true,
+					},
 				},
 				example: {
 					id: 2,
@@ -259,6 +269,8 @@ module.exports = {
 					shower: true,
 					parking: false,
 					created_at: "2022-03-10 00:00:00+00",
+					updated_at: "2022-03-10 00:00:00+00",
+					validation: true,
 					customer_id: 22,
 				},
 			},
@@ -298,6 +310,21 @@ module.exports = {
 						description: "The photo of the animal",
 						example: "/src/animal_photos/customer123/animal22.jpg",
 					},
+					created_at: {
+						type: "timestamptz",
+						description: "The created_at of the animal",
+						example: "2022-03-10 00:00:00+00",
+					},
+					updated_at: {
+						type: "timestamptz",
+						description: "The updated_at of the animal",
+						example: "2022-03-10 00:00:00+00",
+					},
+					validation: {
+						type: "boolean",
+						description: "The validation of the animal",
+						example: false,
+					},
 					customer_id: {
 						type: "integer",
 						description: "The id of the customer the animal belongs to",
@@ -312,6 +339,9 @@ module.exports = {
 					diseases: "Renal failure",
 					notes: "Garfield is very cute, large and very very cuddly",
 					photo: "/src/animal_photos/customer123/animal22.jpg",
+					created_at: "2022-03-10 00:00:00+00",
+					updated_at: "2022-03-10 00:00:00+00",
+					validation: true,
 					customer_id: 22,
 				},
 			},
@@ -333,14 +363,27 @@ module.exports = {
 					notes: {
 						type: "string",
 						description: "The notes of plant",
-						required: true,
 						example: "Water 3 by day",
 					},
 					photo: {
 						type: "string",
 						description: "The photo of plant",
-						required: true,
 						example: "/src/photo/customer123/plantl22.jpg",
+					},
+					created_at: {
+						type: "timestamptz",
+						description: "The created_at of the plant",
+						example: "2022-03-10 00:00:00+00",
+					},
+					updated_at: {
+						type: "timestamptz",
+						description: "The updated_at of the plant",
+						example: "2022-03-10 00:00:00+00",
+					},
+					validation: {
+						type: "boolean",
+						description: "The validation of the plant",
+						example: false,
 					},
 				},
 				example: {
@@ -348,6 +391,9 @@ module.exports = {
 					type: "Rose",
 					notes: "Water 3 by day",
 					photo: "/src/photo/customer123/plantl22.jpg",
+					created_at: "2022-03-10 00:00:00+00",
+					updated_at: "2022-03-10 00:00:00+00",
+					validation: true,
 					customer_id: 22,
 				},
 			},
@@ -422,6 +468,21 @@ module.exports = {
 						required: true,
 						example: "/src/house_photos/house22/house_22-123.jpg",
 					},
+					created_at: {
+						type: "timestamptz",
+						description: "The created_at of the photo",
+						example: "2022-03-10 00:00:00+00",
+					},
+					updated_at: {
+						type: "timestamptz",
+						description: "The updated_at of the photo",
+						example: "2022-03-10 00:00:00+00",
+					},
+					validation: {
+						type: "boolean",
+						description: "The validation of the photo",
+						example: false,
+					},
 					house_id: {
 						type: "integer",
 						description: "The id of the house the photo belongs to",
@@ -432,6 +493,9 @@ module.exports = {
 				example: {
 					id: 5,
 					photo: "/src/house_photos/house22/house_22-123.jpg",
+					created_at: "2022-03-10 00:00:00+00",
+					updated_at: "2022-03-10 00:00:00+00",
+					validation: false,
 					house_id: 22,
 				},
 			},
