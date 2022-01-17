@@ -1,0 +1,288 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="500" height="931" view_box="0 0 500 931"
+xmlns="http://www.w3.org/2000/svg"
+xmlns:link="http://www.w3.org/1999/xlink">\n\n<desc>Généré par Mocodo 2.3.7 le Mon, 17 Jan 2022 10:00:17</desc>
+
+<rect id="frame" x="0" y="0" width="500" height="931" fill="#ffffbf" stroke="none" stroke-width="0"/>
+
+<!-- Association role_customer -->
+<line x1="63" y1="728" x2="197" y2="728" stroke="#66c2a5" stroke-width="2"/>
+<text x="119" y="745.0" fill="#d53e4f" font-family="Verdana" font-size="12">1,1</text>
+<line x1="197" y1="863" x2="197" y2="728" stroke="#66c2a5" stroke-width="2"/>
+<text x="202.0" y="821" fill="#d53e4f" font-family="Verdana" font-size="12">1,1</text>
+<g id="association-role_customer">
+	<path d="M 234 703 a 14 14 90 0 1 14 14 V 728 h -102 V 717 a 14 14 90 0 1 14 -14" fill="#abdda4" stroke="#abdda4" stroke-width="0"/>
+	<path d="M 248 728.0 v 11 a 14 14 90 0 1 -14 14 H 160 a 14 14 90 0 1 -14 -14 V 728.0 H 102" fill="#e6f598" stroke="#e6f598" stroke-width="0"/>
+	<rect x="146" y="703" width="102" height="50" fill="none" rx="14" stroke="#66c2a5" stroke-width="2"/>
+	<line x1="146" y1="728" x2="248" y2="728" stroke="#66c2a5" stroke-width="1"/>
+	<text x="153" y="720.7" fill="#000000" font-family="Verdana" font-size="12">role_customer</text>
+</g>
+
+<!-- Association A HOMESITTER -->
+<path d="M63 728 C 105.666666667 813.0 105.666666667 858.0 63 863" fill="none" stroke="#66c2a5" stroke-width="2"/>
+<text x="67.0" y="830" fill="#d53e4f" font-family="Verdana" font-size="12">0,N</text>
+<path d="M63 728 C 20.3333333333 813.0 20.3333333333 858.0 63 863" fill="none" stroke="#66c2a5" stroke-width="2"/>
+<text x="37.0" y="830" fill="#d53e4f" font-family="Verdana" font-size="12" onmouseover="show(evt,'homesitter')" onmouseout="hide(evt)" style="cursor: pointer;">0,N</text>
+<path d="M 31.9466557503 813.002707988 L 36.2068158554 825.72477684 L 30.8261894457 820.923854071 L 24.3250967316 824.044077383 Z" fill="#66c2a5" stroke-width="0"/>
+<g id="association-A HOMESITTER">
+	<path d="M 103 838 a 14 14 90 0 1 14 14 V 863 h -108 V 852 a 14 14 90 0 1 14 -14" fill="#abdda4" stroke="#abdda4" stroke-width="0"/>
+	<path d="M 117 863.0 v 11 a 14 14 90 0 1 -14 14 H 23 a 14 14 90 0 1 -14 -14 V 863.0 H 108" fill="#e6f598" stroke="#e6f598" stroke-width="0"/>
+	<rect x="9" y="838" width="108" height="50" fill="none" rx="14" stroke="#66c2a5" stroke-width="2"/>
+	<line x1="9" y1="863" x2="117" y2="863" stroke="#66c2a5" stroke-width="1"/>
+	<text x="16" y="855.7" fill="#000000" font-family="Verdana" font-size="12">A HOMESITTER</text>
+</g>
+
+<!-- Association can have -->
+<line x1="315" y1="432" x2="315" y2="85" stroke="#66c2a5" stroke-width="2"/>
+<text x="320.0" y="178" fill="#d53e4f" font-family="Verdana" font-size="12">0,N</text>
+<line x1="197" y1="85" x2="315" y2="85" stroke="#66c2a5" stroke-width="2"/>
+<text x="240" y="102.0" fill="#d53e4f" font-family="Verdana" font-size="12">1,1</text>
+<g id="association-can have">
+	<path d="M 336 60 a 14 14 90 0 1 14 14 V 85 h -70 V 74 a 14 14 90 0 1 14 -14" fill="#abdda4" stroke="#abdda4" stroke-width="0"/>
+	<path d="M 350 85.0 v 11 a 14 14 90 0 1 -14 14 H 294 a 14 14 90 0 1 -14 -14 V 85.0 H 70" fill="#e6f598" stroke="#e6f598" stroke-width="0"/>
+	<rect x="280" y="60" width="70" height="50" fill="none" rx="14" stroke="#66c2a5" stroke-width="2"/>
+	<line x1="280" y1="85" x2="350" y2="85" stroke="#66c2a5" stroke-width="1"/>
+	<text x="287" y="77.7" fill="#000000" font-family="Verdana" font-size="12">can have</text>
+</g>
+
+<!-- Association DF1 -->
+<line x1="315" y1="432" x2="438" y2="728" stroke="#66c2a5" stroke-width="2"/>
+<text x="380" y="571.644908008" fill="#d53e4f" font-family="Verdana" font-size="12">1,1</text>
+<line x1="438" y1="863" x2="438" y2="728" stroke="#66c2a5" stroke-width="2"/>
+<text x="443.0" y="821" fill="#d53e4f" font-family="Verdana" font-size="12">1,N</text>
+<g id="association-DF1">
+	<circle cx="438" cy="728" r="16" stroke="#66c2a5" stroke-width="2" fill="#abdda4"/>
+	<text x="429" y="732.0" fill="#000000" font-family="Verdana" font-size="12">DF</text>
+</g>
+
+<!-- Association can be -->
+<line x1="63" y1="728" x2="63" y2="432" stroke="#66c2a5" stroke-width="2"/>
+<text x="36.0" y="635" fill="#d53e4f" font-family="Verdana" font-size="12">0,N</text>
+<line x1="63" y1="85" x2="63" y2="432" stroke="#66c2a5" stroke-width="2"/>
+<text x="68.0" y="144" fill="#d53e4f" font-family="Verdana" font-size="12">1,1</text>
+<g id="association-can be">
+	<path d="M 77 407 a 14 14 90 0 1 14 14 V 432 h -56 V 421 a 14 14 90 0 1 14 -14" fill="#abdda4" stroke="#abdda4" stroke-width="0"/>
+	<path d="M 91 432.0 v 11 a 14 14 90 0 1 -14 14 H 49 a 14 14 90 0 1 -14 -14 V 432.0 H 56" fill="#e6f598" stroke="#e6f598" stroke-width="0"/>
+	<rect x="35" y="407" width="56" height="50" fill="none" rx="14" stroke="#66c2a5" stroke-width="2"/>
+	<line x1="35" y1="432" x2="91" y2="432" stroke="#66c2a5" stroke-width="1"/>
+	<text x="42" y="424.7" fill="#000000" font-family="Verdana" font-size="12">can be</text>
+</g>
+
+<!-- Association can have1 -->
+<line x1="315" y1="432" x2="315" y2="728" stroke="#66c2a5" stroke-width="2"/>
+<text x="288.0" y="695" fill="#d53e4f" font-family="Verdana" font-size="12">0,N</text>
+<line x1="315" y1="863" x2="315" y2="728" stroke="#66c2a5" stroke-width="2"/>
+<text x="320.0" y="796" fill="#d53e4f" font-family="Verdana" font-size="12">1,1</text>
+<g id="association-can have1">
+	<path d="M 336 703 a 14 14 90 0 1 14 14 V 728 h -70 V 717 a 14 14 90 0 1 14 -14" fill="#abdda4" stroke="#abdda4" stroke-width="0"/>
+	<path d="M 350 728.0 v 11 a 14 14 90 0 1 -14 14 H 294 a 14 14 90 0 1 -14 -14 V 728.0 H 70" fill="#e6f598" stroke="#e6f598" stroke-width="0"/>
+	<rect x="280" y="703" width="70" height="50" fill="none" rx="14" stroke="#66c2a5" stroke-width="2"/>
+	<line x1="280" y1="728" x2="350" y2="728" stroke="#66c2a5" stroke-width="1"/>
+	<text x="287" y="720.7" fill="#000000" font-family="Verdana" font-size="12">can have</text>
+</g>
+
+<!-- Association has -->
+<line x1="63" y1="728" x2="197" y2="432" stroke="#66c2a5" stroke-width="2"/>
+<text x="79.0252235746" y="635" fill="#d53e4f" font-family="Verdana" font-size="12">1,1</text>
+<line x1="315" y1="432" x2="197" y2="432" stroke="#66c2a5" stroke-width="2"/>
+<text x="229" y="449.0" fill="#d53e4f" font-family="Verdana" font-size="12">1,1</text>
+<g id="association-has">
+	<path d="M 201 407 a 14 14 90 0 1 14 14 V 432 h -36 V 421 a 14 14 90 0 1 14 -14" fill="#abdda4" stroke="#abdda4" stroke-width="0"/>
+	<path d="M 215 432.0 v 11 a 14 14 90 0 1 -14 14 H 193 a 14 14 90 0 1 -14 -14 V 432.0 H 36" fill="#e6f598" stroke="#e6f598" stroke-width="0"/>
+	<rect x="179" y="407" width="36" height="50" fill="none" rx="14" stroke="#66c2a5" stroke-width="2"/>
+	<line x1="179" y1="432" x2="215" y2="432" stroke="#66c2a5" stroke-width="1"/>
+	<text x="186" y="424.7" fill="#000000" font-family="Verdana" font-size="12">has</text>
+</g>
+
+<!-- Association possess -->
+<line x1="315" y1="432" x2="438" y2="432" stroke="#66c2a5" stroke-width="2"/>
+<text x="380" y="424.0" fill="#d53e4f" font-family="Verdana" font-size="12">0,N</text>
+<line x1="438" y1="85" x2="438" y2="432" stroke="#66c2a5" stroke-width="2"/>
+<text x="443.0" y="144" fill="#d53e4f" font-family="Verdana" font-size="12">1,1</text>
+<g id="association-possess">
+	<path d="M 455 407 a 14 14 90 0 1 14 14 V 432 h -62 V 421 a 14 14 90 0 1 14 -14" fill="#abdda4" stroke="#abdda4" stroke-width="0"/>
+	<path d="M 469 432.0 v 11 a 14 14 90 0 1 -14 14 H 421 a 14 14 90 0 1 -14 -14 V 432.0 H 62" fill="#e6f598" stroke="#e6f598" stroke-width="0"/>
+	<rect x="407" y="407" width="62" height="50" fill="none" rx="14" stroke="#66c2a5" stroke-width="2"/>
+	<line x1="407" y1="432" x2="469" y2="432" stroke="#66c2a5" stroke-width="1"/>
+	<text x="414" y="424.7" fill="#000000" font-family="Verdana" font-size="12">possess</text>
+</g>
+
+<!-- Entity customer -->
+<g id="entity-customer">
+	<g id="frame-customer">
+		<rect x="12" y="643" width="102" height="25" fill="#fdae61" stroke="#fdae61" stroke-width="0"/>
+		<rect x="12" y="668.0" width="102" height="145" fill="#fee08b" stroke="#fee08b" stroke-width="0"/>
+		<rect x="12" y="643" width="102" height="170" fill="none" stroke="#f46d43" stroke-width="2"/>
+		<line x1="12" y1="668" x2="114" y2="668" stroke="#f46d43" stroke-width="1"/>
+	</g>
+	<text x="34" y="660.7" fill="#000000" font-family="Verdana" font-size="12">customer</text>
+	<text x="17" y="685.7" fill="#000000" font-family="Verdana" font-size="12">ref_customer</text>
+	<line x1="17" y1="688" x2="98" y2="688" stroke="#000000" stroke-width="1"/>
+	<text x="17" y="702.7" fill="#000000" font-family="Verdana" font-size="12">email</text>
+	<text x="17" y="719.7" fill="#000000" font-family="Verdana" font-size="12">password</text>
+	<text x="17" y="736.8" fill="#000000" font-family="Verdana" font-size="12">firstname</text>
+	<text x="17" y="753.8" fill="#000000" font-family="Verdana" font-size="12">lastname</text>
+	<text x="17" y="770.8" fill="#000000" font-family="Verdana" font-size="12">phone_number</text>
+	<text x="17" y="787.8" fill="#000000" font-family="Verdana" font-size="12">photo</text>
+	<text x="17" y="804.8" fill="#000000" font-family="Verdana" font-size="12">created_at</text>
+</g>
+
+<!-- Entity plant -->
+<g id="entity-plant">
+	<g id="frame-plant">
+		<rect x="280" y="804" width="70" height="25" fill="#fdae61" stroke="#fdae61" stroke-width="0"/>
+		<rect x="280" y="829.0" width="70" height="93" fill="#fee08b" stroke="#fee08b" stroke-width="0"/>
+		<rect x="280" y="804" width="70" height="118" fill="none" stroke="#f46d43" stroke-width="2"/>
+		<line x1="280" y1="829" x2="350" y2="829" stroke="#f46d43" stroke-width="1"/>
+	</g>
+	<text x="299" y="821.7" fill="#000000" font-family="Verdana" font-size="12">plant</text>
+	<text x="285" y="846.7" fill="#000000" font-family="Verdana" font-size="12">ref_plant</text>
+	<line x1="285" y1="849" x2="340" y2="849" stroke="#000000" stroke-width="1"/>
+	<text x="285" y="863.8" fill="#000000" font-family="Verdana" font-size="12">type</text>
+	<text x="285" y="880.8" fill="#000000" font-family="Verdana" font-size="12">notes</text>
+	<text x="285" y="897.8" fill="#000000" font-family="Verdana" font-size="12">photo</text>
+	<text x="285" y="914.8" fill="#000000" font-family="Verdana" font-size="12">validation</text>
+</g>
+
+<!-- Entity photo -->
+<g id="entity-photo">
+	<g id="frame-photo">
+		<rect x="403" y="43" width="70" height="25" fill="#fdae61" stroke="#fdae61" stroke-width="0"/>
+		<rect x="403" y="68.0" width="70" height="59" fill="#fee08b" stroke="#fee08b" stroke-width="0"/>
+		<rect x="403" y="43" width="70" height="84" fill="none" stroke="#f46d43" stroke-width="2"/>
+		<line x1="403" y1="68" x2="473" y2="68" stroke="#f46d43" stroke-width="1"/>
+	</g>
+	<text x="420" y="60.7" fill="#000000" font-family="Verdana" font-size="12">photo</text>
+	<text x="408" y="85.8" fill="#000000" font-family="Verdana" font-size="12">ref_photo</text>
+	<line x1="408" y1="88" x2="468" y2="88" stroke="#000000" stroke-width="1"/>
+	<text x="408" y="102.8" fill="#000000" font-family="Verdana" font-size="12">photo</text>
+	<text x="408" y="119.8" fill="#000000" font-family="Verdana" font-size="12">validation</text>
+</g>
+
+<!-- Entity role -->
+<g id="entity-role">
+	<g id="frame-role">
+		<rect x="168" y="829" width="58" height="25" fill="#fdae61" stroke="#fdae61" stroke-width="0"/>
+		<rect x="168" y="854.0" width="58" height="43" fill="#fee08b" stroke="#fee08b" stroke-width="0"/>
+		<rect x="168" y="829" width="58" height="68" fill="none" stroke="#f46d43" stroke-width="2"/>
+		<line x1="168" y1="854" x2="226" y2="854" stroke="#f46d43" stroke-width="1"/>
+	</g>
+	<text x="185" y="846.7" fill="#000000" font-family="Verdana" font-size="12">role</text>
+	<text x="173" y="871.8" fill="#000000" font-family="Verdana" font-size="12">ref_role</text>
+	<line x1="173" y1="874" x2="221" y2="874" stroke="#000000" stroke-width="1"/>
+	<text x="173" y="888.8" fill="#000000" font-family="Verdana" font-size="12">role</text>
+</g>
+
+<!-- Entity animal -->
+<g id="entity-animal">
+	<g id="frame-animal">
+		<rect x="159" y="9" width="76" height="25" fill="#fdae61" stroke="#fdae61" stroke-width="0"/>
+		<rect x="159" y="34.0" width="76" height="127" fill="#fee08b" stroke="#fee08b" stroke-width="0"/>
+		<rect x="159" y="9" width="76" height="152" fill="none" stroke="#f46d43" stroke-width="2"/>
+		<line x1="159" y1="34" x2="235" y2="34" stroke="#f46d43" stroke-width="1"/>
+	</g>
+	<text x="176" y="26.7" fill="#000000" font-family="Verdana" font-size="12">animal</text>
+	<text x="164" y="51.7" fill="#000000" font-family="Verdana" font-size="12">ref_animal</text>
+	<line x1="164" y1="54" x2="229" y2="54" stroke="#000000" stroke-width="1"/>
+	<text x="164" y="68.7" fill="#000000" font-family="Verdana" font-size="12">type</text>
+	<text x="164" y="85.8" fill="#000000" font-family="Verdana" font-size="12">race</text>
+	<text x="164" y="102.8" fill="#000000" font-family="Verdana" font-size="12">diseases</text>
+	<text x="164" y="119.8" fill="#000000" font-family="Verdana" font-size="12">notes</text>
+	<text x="164" y="136.8" fill="#000000" font-family="Verdana" font-size="12">photo</text>
+	<text x="164" y="153.8" fill="#000000" font-family="Verdana" font-size="12">validation</text>
+</g>
+
+<!-- Entity house -->
+<g id="entity-house">
+	<g id="frame-house">
+		<rect x="255" y="186" width="120" height="25" fill="#fdae61" stroke="#fdae61" stroke-width="0"/>
+		<rect x="255" y="211.0" width="120" height="467" fill="#fee08b" stroke="#fee08b" stroke-width="0"/>
+		<rect x="255" y="186" width="120" height="492" fill="none" stroke="#f46d43" stroke-width="2"/>
+		<line x1="255" y1="211" x2="375" y2="211" stroke="#f46d43" stroke-width="1"/>
+	</g>
+	<text x="296" y="203.7" fill="#000000" font-family="Verdana" font-size="12">house</text>
+	<text x="260" y="228.7" fill="#000000" font-family="Verdana" font-size="12">ref_house</text>
+	<line x1="260" y1="231" x2="321" y2="231" stroke="#000000" stroke-width="1"/>
+	<text x="260" y="245.7" fill="#000000" font-family="Verdana" font-size="12">address</text>
+	<text x="260" y="262.7" fill="#000000" font-family="Verdana" font-size="12">zip_code</text>
+	<text x="260" y="279.7" fill="#000000" font-family="Verdana" font-size="12">city</text>
+	<text x="260" y="296.7" fill="#000000" font-family="Verdana" font-size="12">type</text>
+	<text x="260" y="313.7" fill="#000000" font-family="Verdana" font-size="12">title</text>
+	<text x="260" y="330.7" fill="#000000" font-family="Verdana" font-size="12">nb_rooms</text>
+	<text x="260" y="347.7" fill="#000000" font-family="Verdana" font-size="12">nb_bedrooms</text>
+	<text x="260" y="364.7" fill="#000000" font-family="Verdana" font-size="12">surface</text>
+	<text x="260" y="381.7" fill="#000000" font-family="Verdana" font-size="12">area</text>
+	<text x="260" y="398.7" fill="#000000" font-family="Verdana" font-size="12">floor</text>
+	<text x="260" y="415.7" fill="#000000" font-family="Verdana" font-size="12">description</text>
+	<text x="260" y="432.8" fill="#000000" font-family="Verdana" font-size="12">latitude</text>
+	<text x="260" y="449.8" fill="#000000" font-family="Verdana" font-size="12">longitude</text>
+	<text x="260" y="466.8" fill="#000000" font-family="Verdana" font-size="12">map</text>
+	<text x="260" y="483.8" fill="#000000" font-family="Verdana" font-size="12">internet</text>
+	<text x="260" y="500.8" fill="#000000" font-family="Verdana" font-size="12">washing_machine</text>
+	<text x="260" y="517.8" fill="#000000" font-family="Verdana" font-size="12">tv</text>
+	<text x="260" y="534.8" fill="#000000" font-family="Verdana" font-size="12">hoven</text>
+	<text x="260" y="551.8" fill="#000000" font-family="Verdana" font-size="12">microwave</text>
+	<text x="260" y="568.8" fill="#000000" font-family="Verdana" font-size="12">dishwasher</text>
+	<text x="260" y="585.8" fill="#000000" font-family="Verdana" font-size="12">bathtub</text>
+	<text x="260" y="602.8" fill="#000000" font-family="Verdana" font-size="12">shower</text>
+	<text x="260" y="619.8" fill="#000000" font-family="Verdana" font-size="12">parking</text>
+	<text x="260" y="636.8" fill="#000000" font-family="Verdana" font-size="12">created_at</text>
+	<text x="260" y="653.8" fill="#000000" font-family="Verdana" font-size="12">update_at</text>
+	<text x="260" y="670.8" fill="#000000" font-family="Verdana" font-size="12">validation</text>
+</g>
+
+<!-- Entity house_type -->
+<g id="entity-house_type">
+	<g id="frame-house_type">
+		<rect x="385" y="829" width="106" height="25" fill="#fdae61" stroke="#fdae61" stroke-width="0"/>
+		<rect x="385" y="854.0" width="106" height="43" fill="#fee08b" stroke="#fee08b" stroke-width="0"/>
+		<rect x="385" y="829" width="106" height="68" fill="none" stroke="#f46d43" stroke-width="2"/>
+		<line x1="385" y1="854" x2="491" y2="854" stroke="#f46d43" stroke-width="1"/>
+	</g>
+	<text x="402" y="846.7" fill="#000000" font-family="Verdana" font-size="12">house_type</text>
+	<text x="390" y="871.8" fill="#000000" font-family="Verdana" font-size="12">ref_house_type</text>
+	<line x1="390" y1="874" x2="485" y2="874" stroke="#000000" stroke-width="1"/>
+	<text x="390" y="888.8" fill="#000000" font-family="Verdana" font-size="12">type</text>
+</g>
+
+<!-- Entity absentee -->
+<g id="entity-absentee">
+	<g id="frame-absentee">
+		<rect x="17" y="43" width="92" height="25" fill="#fdae61" stroke="#fdae61" stroke-width="0"/>
+		<rect x="17" y="68.0" width="92" height="59" fill="#fee08b" stroke="#fee08b" stroke-width="0"/>
+		<rect x="17" y="43" width="92" height="84" fill="none" stroke="#f46d43" stroke-width="2"/>
+		<line x1="17" y1="68" x2="109" y2="68" stroke="#f46d43" stroke-width="1"/>
+	</g>
+	<text x="35" y="60.7" fill="#000000" font-family="Verdana" font-size="12">absentee</text>
+	<text x="22" y="85.8" fill="#000000" font-family="Verdana" font-size="12">ref_absentee</text>
+	<line x1="22" y1="88" x2="102" y2="88" stroke="#000000" stroke-width="1"/>
+	<text x="22" y="102.8" fill="#000000" font-family="Verdana" font-size="12">starting_date</text>
+	<text x="22" y="119.8" fill="#000000" font-family="Verdana" font-size="12">ending_date</text>
+</g>
+
+<!-- Annotations -->
+<script type="text/ecmascript">
+<![CDATA[
+	function show(evt, text) {
+		var pos = (evt.target.getAttribute("y") < 886) ? "bottom" : "top"
+		var annotation = document.getElementById(pos + "_annotation_G6ydNdXR")
+		annotation.textContent = text
+		annotation.setAttributeNS(null, "visibility", "visible");
+		document.getElementById(pos + "_overlay_G6ydNdXR").setAttributeNS(null, "visibility", "visible");
+	}
+	function hide(evt) {
+		document.getElementById("top_annotation_G6ydNdXR").setAttributeNS(null, "visibility", "hidden");
+		document.getElementById("top_overlay_G6ydNdXR").setAttributeNS(null, "visibility", "hidden");
+		document.getElementById("bottom_annotation_G6ydNdXR").setAttributeNS(null, "visibility", "hidden");
+		document.getElementById("bottom_overlay_G6ydNdXR").setAttributeNS(null, "visibility", "hidden");
+	}
+]]>
+</script>
+<rect id="top_overlay_G6ydNdXR" x="0" y="0" width="500" height="40" fill="#3288bd" stroke-width="0" opacity="0.9" visibility="hidden"/>
+<text id="top_annotation_G6ydNdXR" text-anchor="middle" x="250.0" y="24" fill="#ffffbf" font-family="Verdana" font-size="14" visibility="hidden"></text>
+<rect id="bottom_overlay_G6ydNdXR" x="0" y="891" width="500" height="40" fill="#3288bd" stroke-width="0" opacity="0.9" visibility="hidden"/>
+<text id="bottom_annotation_G6ydNdXR" text-anchor="middle" x="250.0" y="915" fill="#ffffbf" font-family="Verdana" font-size="14" visibility="hidden"></text>
+</svg>

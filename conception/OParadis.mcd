@@ -1,0 +1,19 @@
+absentee: ref_absentee, starting_date, ending_date
+animal: ref_animal, type, race, diseases, notes, photo, validation
+can have, 0N house, 11 animal
+photo: ref_photo, photo, validation
+
+can be, 0N customer, 11 absentee
+has, 11 customer, 11 house
+house: ref_house, address, zip_code, city, type, title, nb_rooms, nb_bedrooms, surface, area, floor, description, latitude, longitude, map, internet, washing_machine, tv, hoven, microwave, dishwasher, bathtub, shower, parking, created_at, update_at, validation
+possess, 0N house, 11 photo
+
+customer: ref_customer, email, password, firstname, lastname, phone_number, photo, created_at
+role_customer, 11 customer, 11 role
+can have1, 0N house, 11 plant
+DF1, 11 house, 1N house_type
+
+A HOMESITTER, 0N customer, 0N> [homesitter] customer
+role: ref_role, role
+plant: ref_plant, type, notes, photo, validation
+house_type: ref_house_type, type

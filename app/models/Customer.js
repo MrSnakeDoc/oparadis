@@ -57,7 +57,7 @@ module.exports = class Customer {
 				ORDER BY animal.id asc)
 				FROM animal WHERE animal.customer_id= customer.id)
 				AS animals,
-				 (SELECT array_agg(json_build_object(
+				(SELECT array_agg(json_build_object(
 					'id', photo.id,
 					'url', photo.url)
 				ORDER BY photo.id asc)
