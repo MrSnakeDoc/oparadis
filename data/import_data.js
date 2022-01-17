@@ -7,6 +7,7 @@ let conf = {
 };
 
 const client = new Pool(conf);
+const fs = require("fs");
 
 (async () => {
 	try {
@@ -21,6 +22,18 @@ const client = new Pool(conf);
 				if (table === "house") {
 					fullData[table].forEach((element) => {
 						element.map = `https://maps.google.com/maps?q=${element.latitude},${element.longitude}`;
+					});
+				}
+				if (table === "photo") {
+					fullData[table].forEach((element) => {
+						files = fs.readdirSync("./photos/").map((file) => {
+							return `${file}`;
+						});
+						let file = files[Math.floor(Math.random() * files.length)];
+						const base64str =
+							"data:image/jpg;base64," +
+							fs.readFileSync(`./photos/${file}`, "base64");
+						element.photo = base64str;
 					});
 				}
 				const keysArray = Object.keys(fullData[table][0]).map((key) => key); //? output : [name, age, address]

@@ -15,7 +15,7 @@ CREATE TABLE CUSTOMER (
     lastname text not null,
     phone_number text not null,
     photo text,
-    role int NOT NULL references role(id) default 1,
+    role_id int NOT NULL references role(id) default 1,
     created_at timestamptz NOT NULL DEFAULT NOW()
 );
 
@@ -23,17 +23,6 @@ CREATE TABLE CONNECTION (
     home_owner int not null REFERENCES customer(id) ON DELETE CASCADE,
     home_sitter int not null REFERENCES customer(id) ON DELETE CASCADE,
     PRIMARY KEY (home_owner,home_sitter)
-);
-
-CREATE TABLE ANIMAL (
-    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "type" text not null,
-    race text,
-    diseases text,
-    notes text,
-    photo text,
-    validation BOOLEAN NOT NULL DEFAULT false,
-    house_id int not null REFERENCES house(id) ON DELETE CASCADE
 );
 
 CREATE TABLE house_type (
@@ -71,6 +60,16 @@ CREATE TABLE HOUSE (
     updated_at timestamptz DEFAULT NOW(),
     validation BOOLEAN NOT NULL DEFAULT false,
     customer_id int not null REFERENCES customer(id) ON DELETE CASCADE
+);
+CREATE TABLE ANIMAL (
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    "type" text not null,
+    race text,
+    diseases text,
+    notes text,
+    photo text,
+    validation BOOLEAN NOT NULL DEFAULT false,
+    house_id int not null REFERENCES house(id) ON DELETE CASCADE
 );
 
 CREATE TABLE PLANT (
