@@ -28,7 +28,7 @@ content-type: application/json
         "firstname": "Jules-Edouard",
         "lastname": "Moustique",
         "phone_number": "0175492412",
-        "photo":"/src/customer_photos/customer123.jpg",
+        "photo":"/src/customer_photos/customer123.jpg"
     }
 
 ###
@@ -42,7 +42,8 @@ content-type: application/json
     "firstname": "Jules-Edouard",
     "lastname": "Moustique",
     "phone_number": "0175492412",
-    "photo":"/src/customer_photos/customer123.jpg"
+    "photo":"/src/customer_photos/customer123.jpg",
+    "updated_at": "2023-12-08 00:00:00+00"
 }
 
 ###

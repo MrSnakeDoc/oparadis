@@ -7,7 +7,7 @@ const client = require("../database.js");
  * @property {string} race
  * @property {string} diseases
  * @property {string} notes
- * @property {string} photo_url
+ * @property {string} photo
  */
 module.exports = class Animal {
 	constructor(obj = {}) {
