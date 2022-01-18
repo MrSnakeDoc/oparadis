@@ -3,4 +3,3 @@ node_modules/
 .prettierignore
 .eslintrc
 data/script.js
-photos/

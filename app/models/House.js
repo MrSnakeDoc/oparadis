@@ -95,6 +95,11 @@ module.exports = class House {
 	 * @throws {Error} An error
 	 */
 	async update() {
+		//TODO verify modified field and update validation to true if certain fields are modified.
+
+		// const tata = await House.findOne(this.id)
+
+		// if ()...
 		try {
 			const { rows } = await client.query("SELECT * FROM update_house($1)", [
 				this,

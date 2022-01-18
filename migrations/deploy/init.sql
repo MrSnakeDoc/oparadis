@@ -16,7 +16,8 @@ CREATE TABLE CUSTOMER (
     phone_number text not null,
     photo text,
     role_id int NOT NULL references role(id) default 1,
-    created_at timestamptz NOT NULL DEFAULT NOW()
+    created_at timestamptz NOT NULL DEFAULT NOW(),
+    updated_at timestamptz NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE CONNECTION (
@@ -57,10 +58,11 @@ CREATE TABLE HOUSE (
     shower BOOLEAN NOT NULL DEFAULT false,
     parking BOOLEAN NOT NULL DEFAULT false,
     created_at timestamptz NOT NULL DEFAULT NOW(),
-    updated_at timestamptz DEFAULT NOW(),
+    updated_at timestamptz NOT NULL DEFAULT NOW(),
     validation BOOLEAN NOT NULL DEFAULT false,
     customer_id int not null REFERENCES customer(id) ON DELETE CASCADE
 );
+
 CREATE TABLE ANIMAL (
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "type" text not null,
@@ -68,8 +70,10 @@ CREATE TABLE ANIMAL (
     diseases text,
     notes text,
     photo text,
+    created_at timestamptz NOT NULL DEFAULT NOW(),
+    updated_at timestamptz NOT NULL DEFAULT NOW(),
     validation BOOLEAN NOT NULL DEFAULT false,
-    house_id int not null REFERENCES house(id) ON DELETE CASCADE
+    customer_id int not null REFERENCES customer(id) ON DELETE CASCADE
 );
 
 CREATE TABLE PLANT (
@@ -77,13 +81,17 @@ CREATE TABLE PLANT (
     type TEXT NOT NULL,
     notes text,
     photo text,
+    created_at timestamptz NOT NULL DEFAULT NOW(),
+    updated_at timestamptz NOT NULL DEFAULT NOW(),
     validation BOOLEAN NOT NULL DEFAULT false,
-    house_id INT NOT NULL REFERENCES house(id) on delete cascade
+    customer_id INT NOT NULL REFERENCES customer(id) on delete cascade
 );
 
 CREATE TABLE PHOTO (
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     photo text not null,
+    created_at timestamptz NOT NULL DEFAULT NOW(),
+    updated_at timestamptz NOT NULL DEFAULT NOW(),
     validation BOOLEAN NOT NULL DEFAULT false,
     house_id int not null REFERENCES house(id) ON DELETE CASCADE
 );
@@ -94,5 +102,33 @@ CREATE TABLE ABSENTEE (
     ending_date TIMESTAMPTZ not null check (starting_date < ending_date),
     customer_id int not null REFERENCES customer(id) ON DELETE CASCADE
 );
+
+CREATE OR REPLACE FUNCTION trigger_set_timestamp()
+RETURNS TRIGGER AS $$
+BEGIN
+  NEW.updated_at = NOW();
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER set_timestamp
+BEFORE UPDATE ON house
+FOR EACH ROW
+EXECUTE PROCEDURE trigger_set_timestamp();
+
+CREATE TRIGGER set_timestamp
+BEFORE UPDATE ON ANIMAL
+FOR EACH ROW
+EXECUTE PROCEDURE trigger_set_timestamp();
+
+CREATE TRIGGER set_timestamp
+BEFORE UPDATE ON PLANT
+FOR EACH ROW
+EXECUTE PROCEDURE trigger_set_timestamp();
+
+CREATE TRIGGER set_timestamp
+BEFORE UPDATE ON PHOTO
+FOR EACH ROW
+EXECUTE PROCEDURE trigger_set_timestamp();
 
 COMMIT;

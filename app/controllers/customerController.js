@@ -10,13 +10,12 @@ module.exports = {
 		}
 	},
 	async findOneFull(req, res) {
-		console.log(req.body);
-		// try {
-		// 	const customer = await Customer.findOneFull(+req.params.id);
-		// 	res.json(customer);
-		// } catch (err) {
-		// 	res.json(new BaseError(err));
-		// }
+		try {
+			const customer = await Customer.findOneFull(+req.params.id);
+			res.json(customer);
+		} catch (err) {
+			res.json(new BaseError(err));
+		}
 	},
 	async findAll(_, res) {
 		try {
