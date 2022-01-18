@@ -1,11 +1,13 @@
 const client = require("../database.js");
 
 /**
- * @typedef {Object} Animal
+ * @typedef {Object} Plant
  * @property {number} id
+ * @property {string} type
+ * @property {string} notes
  * @property {string} photo
  */
-module.exports = class Photo {
+module.exports = class Plant {
 	constructor(obj = {}) {
 		for (const prop in obj) {
 			this[prop] = obj[prop];
@@ -13,16 +15,16 @@ module.exports = class Photo {
 	}
 
 	/**
-	 * Retrieves all Photos from database
+	 * Retrieves all Plants from database
 	 * @static
 	 * @async
-	 * @returns {Array<Photo>} All Photos in database
+	 * @returns {Array<Plant>} All Plants in database
 	 * @throws {Error} An error
 	 */
 	static async findAll() {
 		try {
-			const { rows } = await client.query("SELECT * FROM photo");
-			return rows.map((row) => new Photo(row));
+			const { rows } = await client.query("SELECT * FROM plant");
+			return rows.map((row) => new Plant(row));
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -32,18 +34,19 @@ module.exports = class Photo {
 	}
 
 	/**
-	 * Retrieves one Photo from database
+	 * Retrieves one Plant from database
 	 * @static
 	 * @async
-	 * @returns {Object<Photo>} One Photo in database
+	 * @returns {Object<Plant>} One Plant in database
 	 * @throws {Error} An error
 	 */
 	static async findOne(id) {
 		try {
-			const { rows } = await client.query("SELECT * FROM photo WHERE id=$1", [
-				id,
-			]);
-			return rows[0] ? new Photo(rows) : undefined;
+			const { rows } = await client.query(
+				"SELECT * FROM plant WHERE post.id=$1",
+				[id]
+			);
+			return rows[0] ? new Plant(rows) : undefined;
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -53,17 +56,17 @@ module.exports = class Photo {
 	}
 
 	/**
-	 * Creates a new Photo in database
+	 * Creates a new Plant in database
 	 * @async
-	 * @returns {Object<Photo>} Creates a new Photo in database
+	 * @returns {Object<Plant>} Creates a new Plant in database
 	 * @throws {Error} An error
 	 */
 	async save() {
 		try {
-			const { rows } = await client.query("SELECT * FROM add_photo($1)", [
+			const { rows } = await client.query("SELECT * FROM add_plant($1)", [
 				this,
 			]);
-			return rows[0] ? new Photo(rows) : undefined;
+			return rows[0] ? new Plant(rows) : undefined;
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -73,17 +76,17 @@ module.exports = class Photo {
 	}
 
 	/**
-	 * Updates a Photo in database
+	 * Updates a Plant in database
 	 * @async
-	 * @returns {Object<Photo>} Updates a Photo in database
+	 * @returns {Object<Plant>} Updates a Plant in database
 	 * @throws {Error} An error
 	 */
 	async update() {
 		try {
-			const { rows } = await client.query("SELECT * FROM update_photo($1)", [
+			const { rows } = await client.query("SELECT * FROM update_plant($1)", [
 				this,
 			]);
-			return rows[0] ? new Photo(rows) : undefined;
+			return rows[0] ? new Plant(rows) : undefined;
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -92,14 +95,14 @@ module.exports = class Photo {
 		}
 	}
 	/**
-	 * Delete a Photo in database
+	 * Delete a Plant in database
 	 * @async
-	 * @returns {Object<Photo>} Delete a Photo in database
+	 * @returns {Object<Plant>} Delete a Plant in database
 	 * @throws {Error} An error
 	 */
 	static async delete(id) {
 		try {
-			await client.query("delete from photo where id = $1", [id]);
+			await client.query("delete from plant where id = $1", [id]);
 			return;
 		} catch (error) {
 			if (error.detail) {

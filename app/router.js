@@ -5,6 +5,7 @@ const {
 	animalController,
 	photoController,
 	absenteeController,
+	plantController,
 } = require("./controllers/");
 const { cache, flush } = require("./services/cache");
 const {
@@ -19,6 +20,8 @@ const {
 	update_absenteeValidation,
 	add_photoValidation,
 	update_photoValidation,
+	add_plantValidation,
+	update_plantValidation,
 	paramsValidation,
 } = require("./middlewares/");
 const router = Router();
@@ -113,6 +116,23 @@ router
 	.delete(
 		"/absentees/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		absenteeController.delete
+	);
+
+router
+	.get("/plants", plantController.findAll)
+	.get(
+		"/plants/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		plantController.findOne
+	)
+	.post("/plants", add_plantValidation, plantController.save)
+	.patch(
+		"plantls/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		update_plantValidation,
+		plantController.update
+	)
+	.delete(
+		"plantls/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		plantController.delete
 	);
 
 module.exports = router;
