@@ -126,12 +126,12 @@ router
 	)
 	.post("/plants", add_plantValidation, plantController.save)
 	.patch(
-		"plantls/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		"plants/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		update_plantValidation,
 		plantController.update
 	)
 	.delete(
-		"plantls/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		"plants/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		plantController.delete
 	);
 
