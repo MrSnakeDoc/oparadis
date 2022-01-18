@@ -98,7 +98,7 @@ module.exports = class Customer {
 		try {
 			const { rows } = await client.query(
 				`
-			SELECT customer.id, customer.email, customer.firstname, customer.lastname, customer.phone_number,customer.customer_url,
+			SELECT customer.email, customer.firstname, customer.lastname, customer.phone_number, customer.photo, customer.created_at, customer.updated_at
 				(SELECT array_agg(json_build_object(
 					'id', house.id,
 					'title', house.title,
@@ -115,9 +115,19 @@ module.exports = class Customer {
 					'description', house.description,
 					'latitude', house.latitude,
 					'longitude', house.longitude,
-					'map', house.map) 
-					ORDER BY house.id asc)
-				FROM house WHERE house.customer_id= customer.id)
+					'map', house.map
+					'internet', house.internet,
+					'washing_machine', house.washing_machine,
+					'TV', house.TV,
+					'hoven', house.microwave,
+					'dishwasher', house.diswasher,
+					'bathtub', house.bathtube,
+					'shower', house.shower,
+					'parking', house.parking,
+					'created_at', house.created_at,
+					'updated_at', house.updated_at,
+					'validation', house.validation))
+				FROM house WHERE house.customer_id = customer.id)
 				AS house,
 				(SELECT array_agg(json_build_object(
 					'id', animal.id,
@@ -125,13 +135,30 @@ module.exports = class Customer {
 					'race', animal.race,
 					'diseases', animal.diseases,
 					'notes', animal.notes,
-					'photo_url', animal.photo_url)
+					'photo', animal.photo
+					'created_at', animal.created_at,
+					'updated_at', animal.updated_at,
+					'validation', animal.validation)
 				ORDER BY animal.id asc)
 				FROM animal WHERE animal.customer_id= customer.id)
 				AS animals,
 				(SELECT array_agg(json_build_object(
+					'id', plant.id,
+					'type', plant.type,
+					'notes', plant.notes,
+					'photo', plant.photo
+					'created_at', plant.created_at,
+					'updated_at', plant.updated_at,
+					'validation', plant.validation)
+				ORDER BY plant.id asc)
+				FROM plant WHERE plant.customer_id = customer.id)
+				AS plant,
+				(SELECT array_agg(json_build_object(
 					'id', photo.id,
-					'url', photo.url)
+					'url', photo.url,
+					'created_at', photo.created_at,
+					'updated_at', photo.updated_at,
+					'validation', photo.validation)
 				ORDER BY photo.id asc)
 				FROM photo JOIN house ON house.customer_id = customer.id
 				WHERE photo.house_id = house.id)
@@ -146,6 +173,7 @@ module.exports = class Customer {
 			FROM customer
 			full outer JOIN house ON house.customer_id = customer.id
 			full outer JOIN animal ON animal.customer_id = customer.id
+			full outer JOIN plant ON animal.customer_id = customer.id
 			full outer JOIN photo ON photo.house_id = house.id
 			full outer JOIN absentee ON absentee.customer_id = customer.id
 			WHERE customer.id = $1
