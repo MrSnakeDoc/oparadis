@@ -1,11 +1,14 @@
 module.exports = [
-  {
-    role: 'basic',
-  },
-  {
-    role: 'premium',
-  },
-  {
-    role: 'admin',
-  },
+	{
+		role: "locked",
+	},
+	{
+		role: "basic",
+	},
+	{
+		role: "premium",
+	},
+	{
+		role: "admin",
+	},
 ];
