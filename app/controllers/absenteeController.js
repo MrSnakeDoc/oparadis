@@ -21,7 +21,10 @@ module.exports = {
 
 	async save(req, res) {
 		try {
-			const absentee = await new Absentee(req.body).save();
+			const absentee = await new Absentee({
+				id: +req.params.id,
+				...req.body,
+			}).save();
 			res.json(absentee);
 		} catch (err) {
 			res.json(new BaseError(err));
@@ -29,7 +32,10 @@ module.exports = {
 	},
 	async update(req, res) {
 		try {
-			const absentee = await new Absentee(req.body).update();
+			const absentee = await new Absentee({
+				id: +req.params.id,
+				...req.body,
+			}).update();
 			res.json(absentee);
 		} catch (err) {
 			res.json(new BaseError(err));

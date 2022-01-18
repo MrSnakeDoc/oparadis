@@ -21,7 +21,10 @@ module.exports = {
 
 	async save(req, res) {
 		try {
-			const animal = await new Animal(req.body).save();
+			const animal = await new Animal({
+				id: +req.params.id,
+				...req.body,
+			}).save();
 			res.json(animal);
 		} catch (err) {
 			res.json(new BaseError(err));
@@ -29,7 +32,10 @@ module.exports = {
 	},
 	async update(req, res) {
 		try {
-			const animal = await new Animal(req.body).update();
+			const animal = await new Animal({
+				id: +req.params.id,
+				...req.body,
+			}).update();
 			res.json(animal);
 		} catch (err) {
 			res.json(new BaseError(err));

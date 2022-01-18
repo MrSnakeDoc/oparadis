@@ -21,7 +21,7 @@ module.exports = {
 
 	async save(req, res) {
 		try {
-			const photo = await new Photo(req.body).save();
+			const photo = await new Photo({ id: +req.params.id, ...req.body }).save();
 			res.json(photo);
 		} catch (err) {
 			res.json(new BaseError(err));
@@ -29,7 +29,10 @@ module.exports = {
 	},
 	async update(req, res) {
 		try {
-			const photo = await new Photo(req.body).update();
+			const photo = await new Photo({
+				id: +req.params.id,
+				...req.body,
+			}).update();
 			res.json(photo);
 		} catch (err) {
 			res.json(new BaseError(err));

@@ -19,7 +19,10 @@ module.exports = {
 	},
 	async save(req, res) {
 		try {
-			const customer = await new Customer(req.body).save();
+			const customer = await new Customer({
+				id: +req.params.id,
+				...req.body,
+			}).save();
 			res.json(customer);
 		} catch (err) {
 			res.json(new BaseError(err));
@@ -27,7 +30,8 @@ module.exports = {
 	},
 	async update(req, res) {
 		try {
-			const customer = await new Customer(req.body).update;
+			const customer = await new Customer({ id: +req.params.id, ...req.body })
+				.update;
 			res.json(customer);
 		} catch (err) {
 			res.json(new BaseError(err));
