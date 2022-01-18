@@ -35,7 +35,6 @@ module.exports = {
 	},
 	async save(req, res) {
 		try {
-			// console.log(req.body);
 			const customer = await new Customer(req.body).save();
 			res.json(customer);
 		} catch (err) {
