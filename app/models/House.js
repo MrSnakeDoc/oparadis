@@ -29,6 +29,221 @@ module.exports = class House {
 	}
 
 	/**
+	 * Retrieves all Customer with their houses, animals, and abscenses from database
+	 * @static
+	 * @async
+	 * @returns {Array<Customer>} all Customers with their houses, animals, and abscenses in database
+	 * @throws {Error} An error
+	 */
+	static async findAllFull() {
+		try {
+			const { rows } = await client.query(`
+			SELECT house.id,
+				house.title,
+				house.address,
+				house.zip_code,
+				house.city,
+				house.country,
+				house.type,
+				house.nb_rooms,
+				house.nb_bedrooms,
+				house.surface,
+				house.area,
+				house.floor,
+				house.description,
+				house.latitude,
+				house.longitude,
+				house.map,
+				house.internet,
+				house.washing_machine,
+				house.TV,
+				house.microwave,
+				house.dishwasher,
+				house.bathtub,
+				house.shower,
+				house.parking,
+				house.created_at,
+				house.updated_at,
+				house.validation,
+				(SELECT array_agg(json_build_object(
+					'email', customer.email,
+					'firstname', customer.firstname,
+					'lastname', customer.lastname,
+					'phone_number', customer.phone_number,
+					'photo', customer.photo, 
+					'created_at', customer.created_at, 
+					'updated_at', customer.updated_at))
+				FROM customer WHERE customer.id = house.customer_id)
+				AS customer,
+				(SELECT array_agg(json_build_object(
+					'id', animal.id,
+					'type', animal.type,
+					'race', animal.race,
+					'diseases', animal.diseases,
+					'notes', animal.notes,
+					'photo', animal.photo,
+					'created_at', animal.created_at,
+					'updated_at', animal.updated_at,
+					'validation', animal.validation)
+				ORDER BY animal.id asc)
+				FROM animal WHERE animal.customer_id = customer.id)
+				AS animals,
+				(SELECT array_agg(json_build_object(
+					'id', plant.id,
+					'type', plant.type,
+					'notes', plant.notes,
+					'photo', plant.photo,
+					'created_at', plant.created_at,
+					'updated_at', plant.updated_at,
+					'validation', plant.validation)
+				ORDER BY plant.id asc)
+				FROM plant WHERE plant.customer_id = customer.id)
+				AS plant,
+				(SELECT array_agg(json_build_object(
+					'id', photo.id,
+					'photo', photo.photo,
+					'created_at', photo.created_at,
+					'updated_at', photo.updated_at,
+					'validation', photo.validation)
+				ORDER BY photo.id asc)
+				FROM photo JOIN house ON house.customer_id = customer.id
+				WHERE photo.house_id = house.id)
+				AS photos,
+				(SELECT array_agg(json_build_object(
+					'id', id,
+					'starting_date', starting_date,
+					'ending_date', ending_date)
+				ORDER BY absentee.id asc)
+				FROM absentee WHERE absentee.customer_id= customer.id)
+				AS absentee
+			FROM house
+			full outer JOIN customer ON customer.id = house.customer_id
+			full outer JOIN animal ON animal.customer_id = customer.id
+			full outer JOIN plant ON plant.customer_id = customer.id
+			full outer JOIN photo ON photo.house_id = house.id
+			full outer JOIN absentee ON absentee.customer_id = customer.id
+			GROUP BY customer.id, house.id
+			ORDER BY house.id;`);
+			return rows.map((row) => new House(row));
+		} catch (error) {
+			if (error.detail) {
+				throw new Error(error.detail);
+			}
+			throw error;
+		}
+	}
+
+	/**
+	 * Retrieves one Customer with his house, animals, and abscenses from database
+	 * @static
+	 * @async
+	 * @returns {Object<Customer>} One Customer with his house, animals, and abscenses in database
+	 * @throws {Error} An error
+	 */
+	static async findOneFull(id) {
+		try {
+			const { rows } = await client.query(
+				`
+				SELECT house.id,
+				house.title,
+				house.address,
+				house.zip_code,
+				house.city,
+				house.country,
+				house.type,
+				house.nb_rooms,
+				house.nb_bedrooms,
+				house.surface,
+				house.area,
+				house.floor,
+				house.description,
+				house.latitude,
+				house.longitude,
+				house.map,
+				house.internet,
+				house.washing_machine,
+				house.TV,
+				house.microwave,
+				house.dishwasher,
+				house.bathtub,
+				house.shower,
+				house.parking,
+				house.created_at,
+				house.updated_at,
+				house.validation,
+				(SELECT array_agg(json_build_object(
+					'email', customer.email,
+					'firstname', customer.firstname,
+					'lastname', customer.lastname,
+					'phone_number', customer.phone_number,
+					'photo', customer.photo, 
+					'created_at', customer.created_at, 
+					'updated_at', customer.updated_at))
+				FROM customer WHERE customer.id = house.customer_id)
+				AS customer,
+				(SELECT array_agg(json_build_object(
+					'id', animal.id,
+					'type', animal.type,
+					'race', animal.race,
+					'diseases', animal.diseases,
+					'notes', animal.notes,
+					'photo', animal.photo,
+					'created_at', animal.created_at,
+					'updated_at', animal.updated_at,
+					'validation', animal.validation)
+				ORDER BY animal.id asc)
+				FROM animal WHERE animal.customer_id = customer.id)
+				AS animals,
+				(SELECT array_agg(json_build_object(
+					'id', plant.id,
+					'type', plant.type,
+					'notes', plant.notes,
+					'photo', plant.photo,
+					'created_at', plant.created_at,
+					'updated_at', plant.updated_at,
+					'validation', plant.validation)
+				ORDER BY plant.id asc)
+				FROM plant WHERE plant.customer_id = customer.id)
+				AS plant,
+				(SELECT array_agg(json_build_object(
+					'id', photo.id,
+					'photo', photo.photo,
+					'created_at', photo.created_at,
+					'updated_at', photo.updated_at,
+					'validation', photo.validation)
+				ORDER BY photo.id asc)
+				FROM photo JOIN house ON house.customer_id = customer.id
+				WHERE photo.house_id = house.id)
+				AS photos,
+				(SELECT array_agg(json_build_object(
+					'id', id,
+					'starting_date', starting_date,
+					'ending_date', ending_date)
+				ORDER BY absentee.id asc)
+				FROM absentee WHERE absentee.customer_id= customer.id)
+				AS absentee
+			FROM house
+			full outer JOIN customer ON customer.id = house.customer_id
+			full outer JOIN animal ON animal.customer_id = customer.id
+			full outer JOIN plant ON plant.customer_id = customer.id
+			full outer JOIN photo ON photo.house_id = house.id
+			full outer JOIN absentee ON absentee.customer_id = customer.id
+			WHERE house.id = $1
+			GROUP BY customer.id, house.id
+			ORDER BY house.id;`,
+				[id]
+			);
+			return rows[0] ? new House(rows) : undefined;
+		} catch (error) {
+			console.log(error);
+			if (error.detail) {
+				throw new Error(error.detail);
+			}
+			throw error;
+		}
+	}
+
+	/**
 	 * Retrieves all Houses from database
 	 * @static
 	 * @async

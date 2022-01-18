@@ -1,13 +1,6 @@
 @host = http://localhost:5000
 
 # CUSTOMER
-###
-GET http://localhost:5000/customers/full/ HTTP/1.1
-content-type: application/json
-
-###
-GET http://localhost:5000/customers/full/17 HTTP/1.1
-content-type: application/json
 
 ###
 GET {{host}}/customers/1 HTTP/1.1

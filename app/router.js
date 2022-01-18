@@ -27,12 +27,6 @@ const {
 const router = Router();
 
 router
-	.get("/customers/full", customerController.findAllFull)
-	.get(
-		"/customers/full/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
-		paramsValidation,
-		customerController.findOneFull
-	)
 	.get("/customers", customerController.findAll)
 	.get(
 		"/customers/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
@@ -51,6 +45,12 @@ router
 	);
 
 router
+	.get("/houses/full", houseController.findAllFull)
+	.get(
+		"/houses/full/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		paramsValidation,
+		houseController.findOneFull
+	)
 	.get("/houses", houseController.findAll)
 	.get(
 		"/houses/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",

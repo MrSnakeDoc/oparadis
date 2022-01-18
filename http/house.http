@@ -1,5 +1,14 @@
 @host = http://localhost:5000
 
+
+###
+GET {{host}}/houses/full/ HTTP/1.1
+content-type: application/json
+
+###
+GET {{host}}/houses/full/24 HTTP/1.1
+content-type: application/json
+
 ###
 GET {{host}}/houses HTTP/1.1
 content-type: application/json

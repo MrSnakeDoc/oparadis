@@ -1,6 +1,24 @@
 const { House, BaseError } = require("../models");
 
 module.exports = {
+	async findAllFull(_, res) {
+		try {
+			const houses = await House.findAllFull();
+			res.json(houses);
+		} catch (err) {
+			res.json(new BaseError(err));
+		}
+	},
+
+	async findOneFull(req, res) {
+		try {
+			const house = await House.findOneFull(+req.params.id);
+			res.json(house);
+		} catch (err) {
+			res.json(new BaseError(err));
+		}
+	},
+
 	async findAll(_, res) {
 		try {
 			const house = await House.findAll();

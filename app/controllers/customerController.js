@@ -1,22 +1,6 @@
 const { Customer, BaseError } = require("../models");
 
 module.exports = {
-	async findAllFull(_, res) {
-		try {
-			const customers = await Customer.findAllFull();
-			res.json(customers);
-		} catch (err) {
-			res.json(new BaseError(err));
-		}
-	},
-	async findOneFull(req, res) {
-		try {
-			const customer = await Customer.findOneFull(+req.params.id);
-			res.json(customer);
-		} catch (err) {
-			res.json(new BaseError(err));
-		}
-	},
 	async findAll(_, res) {
 		try {
 			const customers = await Customer.findAll();
