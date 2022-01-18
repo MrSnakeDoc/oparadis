@@ -12,7 +12,7 @@ module.exports = {
 
     async findOne(req, res) {
         try {
-            const plant =  await new Plant.findOne(+req.params.id);
+            const plant =  await Plant.findOne(+req.params.id);
             res.json(plant);
         } catch (err) {
 			res.json(new BaseError(err));
@@ -21,7 +21,7 @@ module.exports = {
 
     async save(req, res) {
         try {
-            const plant =  await Plant(req.body).save();
+            const plant =  await new Plant(req.body).save();
             res.json(plant);
         } catch (err) {
 			res.json(new BaseError(err));
