@@ -7,7 +7,7 @@ const client = require("../database.js");
  * @property {string} firstname
  * @property {string} lastname
  * @property {string} phone_number
- * @property {string} customer_url
+ * @property {string} photo
  */
 module.exports = class Customer {
 	constructor(obj = {}) {

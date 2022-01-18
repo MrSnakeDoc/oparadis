@@ -16,7 +16,6 @@ content-type: application/json
         "type": "Rosier",
         "notes": "Arroser 1 fois par jour",
         "photo":"/src/animal_photos/customer123/animal22.jpg",
-        "validation": false
     }
     
 ###
@@ -27,7 +26,7 @@ content-type: application/json
         "type": "Menthe",
         "notes": "Arroser 1 fois tous les deux jours",
         "photo":"/src/animal_photos/customer123/animal22.jpg",
-        "validation": false
+        "updated_at": "2023-12-08 00:00:00+00"
     }
     
 ###

@@ -3,7 +3,7 @@ const client = require("../database.js");
 /**
  * @typedef {Object} Animal
  * @property {number} id
- * @property {string} url
+ * @property {string} photo
  */
 module.exports = class Photo {
 	constructor(obj = {}) {
