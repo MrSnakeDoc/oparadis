@@ -313,7 +313,7 @@ module.exports = class House {
 		//TODO verify modified field and update validation to true if certain fields are modified.
 
 		// const tata = await House.findOne(this.id)
-
+		console.log('model', this);
 		// if ()...
 		try {
 			const { rows } = await client.query("SELECT * FROM update_house($1)", [
@@ -321,6 +321,7 @@ module.exports = class House {
 			]);
 			return rows[0] ? new House(rows) : undefined;
 		} catch (error) {
+			console.log(error);
 			if (error.detail) {
 				throw new Error(error.detail);
 			}

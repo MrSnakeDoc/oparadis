@@ -47,7 +47,10 @@ module.exports = {
 	},
 	async update(req, res) {
 		try {
-			const house = await new House(req.body).update();
+			const house = await new House({
+				id: +req.params.id,
+				...req.body
+			}).update();
 			res.json(house);
 		} catch (err) {
 			res.json(new BaseError(err));
@@ -55,8 +58,8 @@ module.exports = {
 	},
 	async delete(req, res) {
 		try {
-			await House.delete(+req.parmas.id);
-			res.json("Photo Deleted");
+			await House.delete(+req.params.id);
+			res.json("House Deleted");
 		} catch (err) {
 			res.json(new BaseError(err));
 		}

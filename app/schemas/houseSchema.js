@@ -2,11 +2,11 @@ const Joi = require("joi");
 
 module.exports = {
 	add_house: Joi.object({
-		adress: Joi.string().required(),
+		address: Joi.string().required(),
 		zip_code: Joi.string().required(),
 		city: Joi.string().max(70).required(),
 		country: Joi.string().max(45).required(),
-		type: Joi.string().required(),
+		type: Joi.number().integer().required(),
 		title: Joi.string().max(30),
 		nb_rooms: Joi.number().integer(),
 		nb_bedrooms: Joi.number().integer(),
@@ -19,22 +19,23 @@ module.exports = {
 		map: Joi.string().required(),
 		internet: Joi.boolean(),
 		washing_machine: Joi.boolean(),
-		tv: Joi.boolean(),
+		TV: Joi.boolean(),
 		hoven: Joi.boolean(),
 		microwave: Joi.boolean(),
 		dishwasher: Joi.boolean(),
 		bathtub: Joi.boolean(),
 		shower: Joi.boolean(),
 		parking: Joi.boolean(),
-		validation: Joi.boolean(),
+		customer_id: Joi.number().integer()
+		// validation: Joi.boolean(),
 }),
 
 	update_house: Joi.object({
-		adress: Joi.string().required(),
+		address: Joi.string().required(),
 		zip_code: Joi.string().required(),
 		city: Joi.string().max(70).required(),
 		country: Joi.string().max(45).required(),
-		type: Joi.string().required(),
+		type: Joi.number().integer().required(),
 		title: Joi.string().max(30),
 		nb_rooms: Joi.number().integer(),
 		nb_bedrooms: Joi.number().integer(),
@@ -47,13 +48,14 @@ module.exports = {
 		map: Joi.string().required(),
 		internet: Joi.boolean(),
 		washing_machine: Joi.boolean(),
-		tv: Joi.boolean(),
+		TV: Joi.boolean(),
 		hoven: Joi.boolean(),
 		microwave: Joi.boolean(),
 		dishwasher: Joi.boolean(),
 		bathtub: Joi.boolean(),
 		shower: Joi.boolean(),
 		parking: Joi.boolean(),
-		validation: Joi.boolean(),
+		customer_id: Joi.number().integer()
+		// validation: Joi.boolean(),
 	}),
 };

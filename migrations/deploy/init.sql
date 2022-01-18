@@ -37,7 +37,7 @@ CREATE TABLE HOUSE (
     zip_code text not null,
     city text not null,
     country text not null,
-    "type" int not null REFERENCES house_type(id) on delete cascade,
+    "type" int not null REFERENCES house_type(id),
     title text,
     nb_rooms int,
     nb_bedrooms int,
