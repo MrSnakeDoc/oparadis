@@ -11,11 +11,11 @@ POST {{host}}/houses HTTP/1.1
 content-type: application/json
 
     {
-        "adress": "19 rue du boulet",
+        "address": "19 rue du boulet",
         "zip_code": "75 010 CEDEX",
         "city": "Montcuq",
         "country":"France",
-        "type": "Maison",
+        "type": 2,
         "title": "Maison bleu",
         "nb_rooms": 2,
         "nb_bedrooms": 4,
@@ -28,25 +28,26 @@ content-type: application/json
         "map": "https://maps.google.com/maps?q=48.099071531610875,-0.7488870163291419",
          "internet": false,
         "washing_machine": false,
-        "tv": false,
+        "TV": false,
         "hoven": false,
         "microwave": false,
         "dishwasher": false,
         "bathtub": false,
         "shower": false,
         "parking": false,
+        "customer_id": 1
     }
 
 ###
-PATCH {{host}}/houses/id HTTP/1.1
+PATCH {{host}}/houses/1 HTTP/1.1
 content-type: application/json
 
     {
-        "adress": "19 rue du Pierre",
+        "address": "19 rue du Pierre",
         "zip_code": "75 010 CEDEX",
         "city": "Montcuq",
         "country":"France",
-        "type": "Maison",
+        "type": 2,
         "title": "Maison bleu",
         "nb_rooms": 2,
         "nb_bedrooms": 4,
@@ -59,16 +60,16 @@ content-type: application/json
         "map": "https://maps.google.com/maps?q=48.099071531610875,-0.7488870163291419",
         "internet": true,
         "washing_machine": true,
-        "tv": true,
+        "TV": true,
         "hoven": true,
         "microwave": true,
         "dishwasher": true,
         "bathtub": true,
         "shower": true,
         "parking": true,
-        "updated_at": "2023-12-08 00:00:00+00"
+        "customer_id": 1
     }
 
 ###
-DELETE {{host}}/houses/id HTTP/1.1
+DELETE {{host}}/houses/101 HTTP/1.1
 content-type: application/json

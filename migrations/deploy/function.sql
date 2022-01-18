@@ -15,8 +15,7 @@ create or replace function update_customer(json) returns customer as $$
 		lastname = $1->>'lastname',
 		phone_number = $1->>'phone_number',
 		photo = $1->>'photo',
-		role_id = ($1->>'role_id')::int,
-		updated_at = ($1->>'updated_at')::date
+		role_id = ($1->>'role_id')::int
     where id = ($1->>'id')::int returning *;
 $$ language sql strict;
 
@@ -32,7 +31,6 @@ create or replace function update_animal(json) returns animal as $$
 		diseases = $1->>'diseases',
 		notes = $1->>'notes',
 		photo = $1->>'photo',
-		updated_at = ($1->>'updated_at')::date,
 		customer_id = ($1->>'customer_id')::int
     where id = ($1->>'id')::int returning *;
 $$ language sql strict;
@@ -92,7 +90,6 @@ create or replace function update_house(json) returns house as $$
 		bathtub = ($1->>'bathtub')::BOOLEAN,
 		shower = ($1->>'shower')::BOOLEAN,
 		parking = ($1->>'parking')::BOOLEAN,
-		updated_at = ($1->>'updated_at')::date,
 		customer_id = ($1->>'customer_id')::int
     where id = ($1->>'id')::int returning *;
 $$ language sql strict;
@@ -132,7 +129,6 @@ create or replace function update_plant(json) returns plant as $$
 		type = $1->>'type',
 		notes = $1->>'notes',
 		photo = $1->>'photo',
-		updated_at = ($1->>'updated_at')::date,
 		customer_id = ($1->>'customer_id')::int
     where id = ($1->>'id')::int returning *;
 $$ language sql strict;
