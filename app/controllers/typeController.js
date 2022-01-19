@@ -45,8 +45,8 @@ module.exports = {
 
 	async delete(req, res) {
 		try {
-			await Type.delete(+req.parmas.id);
-			res.json("Type Deleted");
+			const message = await Type.delete(+req.params.id);
+			res.json(message);
 		} catch (err) {
 			res.json(new BaseError(err));
 		}

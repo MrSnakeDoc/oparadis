@@ -6,6 +6,7 @@ const {
 	photoController,
 	absenteeController,
 	plantController,
+	typeController,
 } = require("./controllers/");
 const { cache, flush } = require("./services/cache");
 const {
@@ -23,6 +24,8 @@ const {
 	add_plantValidation,
 	update_plantValidation,
 	paramsValidation,
+	add_typeValidation,
+	update_typeValidation,
 } = require("./middlewares/");
 const router = Router();
 
@@ -136,20 +139,20 @@ router
 	);
 
 router
-	.get("/types", animalController.findAll)
+	.get("/types", typeController.findAll)
 	.get(
 		"/types/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
-		animalController.findOne
+		typeController.findOne
 	)
-	.post("/types", add_animalValidation, animalController.save)
+	.post("/types", add_typeValidation, typeController.save)
 	.patch(
 		"/types/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
-		update_animalValidation,
-		animalController.update
+		update_typeValidation,
+		typeController.update
 	)
 	.delete(
 		"/types/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
-		animalController.delete
+		typeController.delete
 	);
 
 module.exports = router;

@@ -25,7 +25,7 @@ module.exports = class Type {
 	 */
 	static async findAll() {
 		try {
-			const { rows } = await client.query("SELECT * FROM type");
+			const { rows } = await client.query("SELECT * FROM house_type");
 			return rows.map((row) => new Type(row));
 		} catch (error) {
 			if (error.detail) {
@@ -44,9 +44,10 @@ module.exports = class Type {
 	 */
 	static async findOne(id) {
 		try {
-			const { rows } = await client.query("SELECT * FROM type WHERE id=$1", [
-				id,
-			]);
+			const { rows } = await client.query(
+				"SELECT * FROM house_type WHERE id=$1",
+				[id]
+			);
 			return rows[0] ? new Type(rows) : undefined;
 		} catch (error) {
 			if (error.detail) {
@@ -101,8 +102,8 @@ module.exports = class Type {
 	 */
 	static async delete(id) {
 		try {
-			await client.query("delete from type where id = $1", [id]);
-			return;
+			await client.query("delete from house_type where id = $1", [id]);
+			return "Type deleted successfully";
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);

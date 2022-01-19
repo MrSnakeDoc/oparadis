@@ -133,4 +133,14 @@ create or replace function update_plant(json) returns plant as $$
     where id = ($1->>'id')::int returning *;
 $$ language sql strict;
 
+create or replace function add_type(json) returns house_type as $$
+	insert into "house_type"(type) values ($1->>'type') returning *;
+$$ language sql strict;
+
+create or replace function update_type(json) returns house_type as $$
+	update "house_type" set 
+		type = $1->>'type'
+    where id = ($1->>'id')::int returning *;
+$$ language sql strict;
+
 COMMIT;

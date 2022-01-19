@@ -5,7 +5,7 @@ GET {{host}}/types/ HTTP/1.1
 content-type: application/json
 
 ###
-GET {{host}}/types/1 HTTP/1.1
+GET {{host}}/types/11 HTTP/1.1
 content-type: application/json
 
 ###
@@ -13,17 +13,17 @@ POST {{host}}/types HTTP/1.1
 content-type: application/json
 
     {
-        "type": "Caddie",
+        "type": "Caddie"
     }
     
 ###
-PATCH {{host}}/types/id HTTP/1.1
+PATCH {{host}}/types/11 HTTP/1.1
 content-type: application/json
 
     {
-        "type": "Caravane",
+        "type": "Caravane"
     }
     
 ###
-DELETE {{host}}/types/id HTTP/1.1
+DELETE {{host}}/types/11 HTTP/1.1
 content-type: application/json
