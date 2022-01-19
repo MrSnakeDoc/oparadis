@@ -3,8 +3,8 @@
 BEGIN;
 
 create or replace function add_customer(json) returns customer as $$
-	insert into "customer"(email, password, firstname, lastname, phone_number, photo, role_id)
-		values ($1->>'email', $1->>'password', $1->>'firstname', $1->>'lastname', $1->>'phone_number', $1->>'photo', ($1->>'role_id')::int) returning *;
+	insert into "customer"(email, password, firstname, lastname, pseudo, phone_number, photo, role_id)
+		values ($1->>'email', $1->>'password', $1->>'firstname', $1->>'lastname', $1->>'pseudo', $1->>'phone_number', $1->>'photo', ($1->>'role_id')::int) returning *;
 $$ language sql strict;
 
 create or replace function update_customer(json) returns customer as $$
@@ -13,6 +13,7 @@ create or replace function update_customer(json) returns customer as $$
     	password = $1->>'password',
 		firstname = $1->>'firstname',
 		lastname = $1->>'lastname',
+		pseudo = $1->>'pseudo',
 		phone_number = $1->>'phone_number',
 		photo = $1->>'photo',
 		role_id = ($1->>'role_id')::int

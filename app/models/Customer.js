@@ -6,6 +6,7 @@ const client = require("../database.js");
  * @property {string} email
  * @property {string} firstname
  * @property {string} lastname
+ * @property {string} pseudo
  * @property {string} phone_number
  * @property {string} photo
  */
@@ -71,6 +72,7 @@ module.exports = class Customer {
 			return rows[0] ? new Customer(rows) : undefined;
 		} catch (error) {
 			if (error.detail) {
+				console.log(error);
 				throw new Error(error.detail);
 			}
 			throw error;

@@ -29,6 +29,7 @@ module.exports = {
 	async update(req, res) {
 		try {
 			delete req.body.repeat_password;
+			if(req.body.pseudo === '') delete req.body.pseudo;
 			const customer = await new Customer({ id: +req.params.id, ...req.body })
 			.update();
 			res.json(customer);
