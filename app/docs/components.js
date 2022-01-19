@@ -38,7 +38,7 @@ module.exports = {
 					photo: {
 						type: "string",
 						description: "The photo of the customer",
-						example: "/src/photos/customer123.jpg",
+						example: "base64 photo",
 					},
 					created_at: {
 						type: "timestamptz",
@@ -52,7 +52,7 @@ module.exports = {
 					firstname: "Jules-Edouard",
 					lastname: "Moustique",
 					phone_number: "0175492412",
-					photo: "/src/photos/customer123.jpg",
+					photo: "base64 photo",
 					created_at: "2023-12-08 00:00:00+00",
 				},
 			},
@@ -308,7 +308,7 @@ module.exports = {
 					photo: {
 						type: "string",
 						description: "The photo of the animal",
-						example: "/src/animal_photos/customer123/animal22.jpg",
+						example: "base64 photo",
 					},
 					validation: {
 						type: "boolean",
@@ -328,7 +328,7 @@ module.exports = {
 					race: "main coon",
 					diseases: "Renal failure",
 					notes: "Garfield is very cute, large and very very cuddly",
-					photo: "/src/animal_photos/customer123/animal22.jpg",
+					photo: "base64 photo",
 					validation: true,
 					customer_id: 22,
 				},
@@ -356,7 +356,7 @@ module.exports = {
 					photo: {
 						type: "string",
 						description: "The photo of plant",
-						example: "/src/photo/customer123/plantl22.jpg",
+						example: "base64 photo",
 					},
 					validation: {
 						type: "boolean",
@@ -368,7 +368,7 @@ module.exports = {
 					id: 5,
 					type: "Rose",
 					notes: "Water 3 by day",
-					photo: "/src/photo/customer123/plantl22.jpg",
+					photo: "base64 photo",
 					validation: true,
 					customer_id: 22,
 				},
@@ -442,7 +442,7 @@ module.exports = {
 						type: "string",
 						description: "The photo of the photo",
 						required: true,
-						example: "/src/house_photos/house22/house_22-123.jpg",
+						example: "base64 photo",
 					},
 					validation: {
 						type: "boolean",
@@ -451,14 +451,14 @@ module.exports = {
 					},
 					house_id: {
 						type: "integer",
-						description: "The id of the house the photo belongs to",
+						description: "The id of the house it belongs to",
 						required: true,
 						example: 22,
 					},
 				},
 				example: {
 					id: 5,
-					photo: "/src/house_photos/house22/house_22-123.jpg",
+					photo: "base64 photo",
 					validation: false,
 					house_id: 22,
 				},
