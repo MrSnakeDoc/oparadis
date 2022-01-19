@@ -1,0 +1,134 @@
+<html>
+<head>
+<meta charset='utf-8'>
+<style>
+  #mld .relation { font-variant: small-caps; font-weight: bold }
+  #mld .primary { text-decoration: underline }
+  #mld .foreign { font-style: oblique }
+  #mld .normal { }
+</style>
+</head>
+<body>
+<div id='mld'>
+<div>
+  <span class='relation'>PHOTO</span> (
+    <span class='primary'>ref_photo</span>,
+    <span class='normal'>photo</span>,
+    <span class='normal'>created_at</span>,
+    <span class='normal'>update_at</span>,
+    <span class='normal'>validation</span>,
+    <span class='foreign'>ref_house</span>
+  )
+</div>
+<div>
+  <span class='relation'>A HOMESITTER</span> (
+    <span class='foreign primary'>ref_customer</span>,
+    <span class='foreign primary'>ref_customer homesitter</span>
+  )
+</div>
+<div>
+  <span class='relation'>PLANT</span> (
+    <span class='primary'>ref_plant</span>,
+    <span class='normal'>type</span>,
+    <span class='normal'>notes</span>,
+    <span class='normal'>photo</span>,
+    <span class='normal'>created_at</span>,
+    <span class='normal'>update_at</span>,
+    <span class='normal'>validation</span>,
+    <span class='foreign'>ref_customer</span>
+  )
+</div>
+<div>
+  <span class='relation'>HOUSE</span> (
+    <span class='primary'>ref_house</span>,
+    <span class='normal'>address</span>,
+    <span class='normal'>zip_code</span>,
+    <span class='normal'>city</span>,
+    <span class='normal'>country</span>,
+    <span class='normal'>type</span>,
+    <span class='normal'>title</span>,
+    <span class='normal'>nb_rooms</span>,
+    <span class='normal'>nb_bedrooms</span>,
+    <span class='normal'>surface</span>,
+    <span class='normal'>area</span>,
+    <span class='normal'>floor</span>,
+    <span class='normal'>description</span>,
+    <span class='normal'>latitude</span>,
+    <span class='normal'>longitude</span>,
+    <span class='normal'>map</span>,
+    <span class='normal'>internet</span>,
+    <span class='normal'>washing_machine</span>,
+    <span class='normal'>tv</span>,
+    <span class='normal'>hoven</span>,
+    <span class='normal'>microwave</span>,
+    <span class='normal'>dishwasher</span>,
+    <span class='normal'>bathtub</span>,
+    <span class='normal'>shower</span>,
+    <span class='normal'>parking</span>,
+    <span class='normal'>created_at</span>,
+    <span class='normal'>update_at</span>,
+    <span class='normal'>validation</span>,
+    <span class='foreign'>ref_house_type</span>,
+    <span class='foreign'>ref_country</span>
+  )
+</div>
+<div>
+  <span class='relation'>CUSTOMER</span> (
+    <span class='primary'>ref_customer</span>,
+    <span class='normal'>email</span>,
+    <span class='normal'>password</span>,
+    <span class='normal'>firstname</span>,
+    <span class='normal'>lastname</span>,
+    <span class='normal'>pseudo</span>,
+    <span class='normal'>phone_number</span>,
+    <span class='normal'>photo</span>,
+    <span class='normal'>role_id</span>,
+    <span class='normal'>created_at</span>,
+    <span class='normal'>update_at</span>,
+    <span class='foreign'>ref_role</span>,
+    <span class='foreign'>ref_house</span>
+  )
+</div>
+<div>
+  <span class='relation'>COUNTRY</span> (
+    <span class='primary'>ref_country</span>,
+    <span class='normal'>country</span>
+  )
+</div>
+<div>
+  <span class='relation'>HOUSE_TYPE</span> (
+    <span class='primary'>ref_house_type</span>,
+    <span class='normal'>type</span>
+  )
+</div>
+<div>
+  <span class='relation'>ANIMAL</span> (
+    <span class='primary'>ref_animal</span>,
+    <span class='normal'>type</span>,
+    <span class='normal'>race</span>,
+    <span class='normal'>diseases</span>,
+    <span class='normal'>notes</span>,
+    <span class='normal'>photo</span>,
+    <span class='normal'>created_at</span>,
+    <span class='normal'>update_at</span>,
+    <span class='normal'>validation</span>,
+    <span class='foreign'>ref_customer</span>
+  )
+</div>
+<div>
+  <span class='relation'>ROLE</span> (
+    <span class='primary'>ref_role</span>,
+    <span class='normal'>role</span>
+  )
+</div>
+<div>
+  <span class='relation'>ABSENTEE</span> (
+    <span class='primary'>ref_absentee</span>,
+    <span class='normal'>starting_date</span>,
+    <span class='normal'>ending_date</span>,
+    <span class='foreign'>ref_customer</span>
+  )
+</div>
+</div>
+</body>
+</html>

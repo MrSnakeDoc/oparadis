@@ -150,7 +150,9 @@ module.exports = class House {
 				house.zip_code,
 				house.city,
 				house.country,
-				house.type,
+				(select house_type.type
+					where house_type.house.id = $1
+				) as type,
 				house.nb_rooms,
 				house.nb_bedrooms,
 				house.surface,
@@ -228,6 +230,7 @@ module.exports = class House {
 			full outer JOIN plant ON plant.customer_id = customer.id
 			full outer JOIN photo ON photo.house_id = house.id
 			full outer JOIN absentee ON absentee.customer_id = customer.id
+			JOIN house_type ON house_type.house_id = house.id
 			WHERE house.id = $1
 			GROUP BY customer.id, house.id
 			ORDER BY house.id;`,
@@ -313,7 +316,7 @@ module.exports = class House {
 		//TODO verify modified field and update validation to true if certain fields are modified.
 
 		// const tata = await House.findOne(this.id)
-		console.log('model', this);
+		console.log("model", this);
 		// if ()...
 		try {
 			const { rows } = await client.query("SELECT * FROM update_house($1)", [

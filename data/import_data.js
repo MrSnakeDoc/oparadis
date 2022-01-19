@@ -24,18 +24,6 @@ const fs = require("fs");
 						element.map = `https://maps.google.com/maps?q=${element.latitude},${element.longitude}`;
 					});
 				}
-				// if (table === "photo") {
-				// 	fullData[table].forEach((element) => {
-				// 		files = fs.readdirSync("./photos/").map((file) => {
-				// 			return `${file}`;
-				// 		});
-				// 		let file = files[Math.floor(Math.random() * files.length)];
-				// 		const base64str =
-				// 			"data:image/jpg;base64," +
-				// 			fs.readFileSync(`./photos/${file}`, "base64");
-				// 		element.photo = base64str;
-				// 	});
-				// }
 				const keysArray = Object.keys(fullData[table][0]).map((key) => key); //? output : [name, age, address]
 				const keys = keysArray.join(", ");
 				const values = keysArray

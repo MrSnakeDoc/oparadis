@@ -36,7 +36,7 @@ CREATE TABLE HOUSE (
     address text not null,
     zip_code text not null,
     city text not null,
-    country text not null,
+    country int not null REFERENCES country(id),
     "type" int not null REFERENCES house_type(id),
     title text,
     nb_rooms int,

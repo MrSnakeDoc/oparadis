@@ -5,6 +5,7 @@ const photoController = require("./photoController");
 const absenteeController = require("./absenteeController");
 const plantController = require("./plantController");
 const typeController = require("./typeController");
+const countryController = require("./countryController");
 
 module.exports = {
 	customerController,
@@ -14,4 +15,5 @@ module.exports = {
 	absenteeController,
 	plantController,
 	typeController,
+	countryController,
 };
