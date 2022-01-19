@@ -1,0 +1,29 @@
+@host = http://localhost:5000
+
+###
+GET {{host}}/types/ HTTP/1.1
+content-type: application/json
+
+###
+GET {{host}}/types/1 HTTP/1.1
+content-type: application/json
+
+###
+POST {{host}}/types HTTP/1.1
+content-type: application/json
+
+    {
+        "type": "Caddie",
+    }
+    
+###
+PATCH {{host}}/types/id HTTP/1.1
+content-type: application/json
+
+    {
+        "type": "Caravane",
+    }
+    
+###
+DELETE {{host}}/types/id HTTP/1.1
+content-type: application/json

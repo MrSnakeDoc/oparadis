@@ -135,4 +135,21 @@ router
 		plantController.delete
 	);
 
+router
+	.get("/types", animalController.findAll)
+	.get(
+		"/types/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		animalController.findOne
+	)
+	.post("/types", add_animalValidation, animalController.save)
+	.patch(
+		"/types/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		update_animalValidation,
+		animalController.update
+	)
+	.delete(
+		"/types/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		animalController.delete
+	);
+
 module.exports = router;
