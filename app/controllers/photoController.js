@@ -21,7 +21,7 @@ module.exports = {
 
 	async save(req, res) {
 		try {
-			const photo = await new Photo({ id: +req.params.id, ...req.body }).save();
+			const photo = await new Photo(req.body).save();
 			res.json(photo);
 		} catch (err) {
 			res.json(new BaseError(err));
@@ -40,7 +40,7 @@ module.exports = {
 	},
 	async delete(req, res) {
 		try {
-			await Photo.delete(+req.parmas.id);
+			await Photo.delete(+req.params.id);
 			res.json("Photo Deleted");
 		} catch (err) {
 			res.json(new BaseError(err));

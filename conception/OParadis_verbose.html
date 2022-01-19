@@ -1,0 +1,178 @@
+<html>
+<head>
+<meta charset='utf-8'>
+<style>
+  #mld .relation { font-variant: small-caps; font-weight: bold }
+  #mld .primary { text-decoration: underline }
+  #mld .foreign { font-style: oblique }
+  #mld .normal { }
+  #mld strong { font-weight: bold }
+  #mld i { font-style: italic }
+  #mld ul { list-style-type:square; margin: 0 0 1em 2em }
+</style>
+</head>
+<body>
+<div id='mld'>
+<div>
+  <span class='relation'>PHOTO</span> (
+    <span class='primary'>ref_photo</span>,
+    <span class='normal'>photo</span>,
+    <span class='normal'>created_at</span>,
+    <span class='normal'>update_at</span>,
+    <span class='normal'>validation</span>,
+    <span class='foreign'>ref_house</span>
+  )
+  <ul>
+    <li>Le champ <i>ref_photo</i> constitue la clef primaire de la table. C'était déjà un identifiant de l'entité <i>PHOTO</i>.</li>
+    <li>Les champs <i>photo</i>, <i>created_at</i>, <i>update_at</i> et <i>validation</i> étaient déjà de simples attributs de l'entité <i>PHOTO</i>.</li>
+    <li>Le champ <i>ref_house</i> est une clef étrangère. Il a migré à partir de l'entité <i>HOUSE</i> par l'association de dépendance fonctionnelle <i>POSSESS</i> en perdant son caractère identifiant.</li>
+  </ul>
+</div>
+
+<div>
+  <span class='relation'>PLANT</span> (
+    <span class='primary'>ref_plant</span>,
+    <span class='normal'>type</span>,
+    <span class='normal'>notes</span>,
+    <span class='normal'>photo</span>,
+    <span class='normal'>created_at</span>,
+    <span class='normal'>update_at</span>,
+    <span class='normal'>validation</span>,
+    <span class='foreign'>ref_customer</span>
+  )
+  <ul>
+    <li>Le champ <i>ref_plant</i> constitue la clef primaire de la table. C'était déjà un identifiant de l'entité <i>PLANT</i>.</li>
+    <li>Les champs <i>type</i>, <i>notes</i>, <i>photo</i>, <i>created_at</i>, <i>update_at</i> et <i>validation</i> étaient déjà de simples attributs de l'entité <i>PLANT</i>.</li>
+    <li>Le champ <i>ref_customer</i> est une clef étrangère. Il a migré à partir de l'entité <i>CUSTOMER</i> par l'association de dépendance fonctionnelle <i>CAN HAVE</i> en perdant son caractère identifiant.</li>
+  </ul>
+</div>
+
+<div>
+  <span class='relation'>ROLE</span> (
+    <span class='primary'>ref_role</span>,
+    <span class='normal'>role</span>
+  )
+  <ul>
+    <li>Le champ <i>ref_role</i> constitue la clef primaire de la table. C'était déjà un identifiant de l'entité <i>ROLE</i>.</li>
+    <li>Le champ <i>role</i> était déjà un simple attribut de l'entité <i>ROLE</i>.</li>
+  </ul>
+</div>
+
+<div>
+  <span class='relation'>ANIMAL</span> (
+    <span class='primary'>ref_animal</span>,
+    <span class='normal'>type</span>,
+    <span class='normal'>race</span>,
+    <span class='normal'>diseases</span>,
+    <span class='normal'>notes</span>,
+    <span class='normal'>photo</span>,
+    <span class='normal'>created_at</span>,
+    <span class='normal'>update_at</span>,
+    <span class='normal'>validation</span>,
+    <span class='foreign'>ref_customer</span>
+  )
+  <ul>
+    <li>Le champ <i>ref_animal</i> constitue la clef primaire de la table. C'était déjà un identifiant de l'entité <i>ANIMAL</i>.</li>
+    <li>Les champs <i>type</i>, <i>race</i>, <i>diseases</i>, <i>notes</i>, <i>photo</i>, <i>created_at</i>, <i>update_at</i> et <i>validation</i> étaient déjà de simples attributs de l'entité <i>ANIMAL</i>.</li>
+    <li>Le champ <i>ref_customer</i> est une clef étrangère. Il a migré à partir de l'entité <i>CUSTOMER</i> par l'association de dépendance fonctionnelle <i>CAN HAVE</i> en perdant son caractère identifiant.</li>
+  </ul>
+</div>
+
+<div>
+  <span class='relation'>HOUSE</span> (
+    <span class='primary'>ref_house</span>,
+    <span class='normal'>address</span>,
+    <span class='normal'>zip_code</span>,
+    <span class='normal'>city</span>,
+    <span class='normal'>type</span>,
+    <span class='normal'>title</span>,
+    <span class='normal'>nb_rooms</span>,
+    <span class='normal'>nb_bedrooms</span>,
+    <span class='normal'>surface</span>,
+    <span class='normal'>area</span>,
+    <span class='normal'>floor</span>,
+    <span class='normal'>description</span>,
+    <span class='normal'>latitude</span>,
+    <span class='normal'>longitude</span>,
+    <span class='normal'>map</span>,
+    <span class='normal'>internet</span>,
+    <span class='normal'>washing_machine</span>,
+    <span class='normal'>tv</span>,
+    <span class='normal'>hoven</span>,
+    <span class='normal'>microwave</span>,
+    <span class='normal'>dishwasher</span>,
+    <span class='normal'>bathtub</span>,
+    <span class='normal'>shower</span>,
+    <span class='normal'>parking</span>,
+    <span class='normal'>created_at</span>,
+    <span class='normal'>update_at</span>,
+    <span class='normal'>validation</span>,
+    <span class='foreign'>ref_house_type</span>
+  )
+  <ul>
+    <li>Le champ <i>ref_house</i> constitue la clef primaire de la table. C'était déjà un identifiant de l'entité <i>HOUSE</i>.</li>
+    <li>Les champs <i>address</i>, <i>zip_code</i>, <i>city</i>, <i>type</i>, <i>title</i>, <i>nb_rooms</i>, <i>nb_bedrooms</i>, <i>surface</i>, <i>area</i>, <i>floor</i>, <i>description</i>, <i>latitude</i>, <i>longitude</i>, <i>map</i>, <i>internet</i>, <i>washing_machine</i>, <i>tv</i>, <i>hoven</i>, <i>microwave</i>, <i>dishwasher</i>, <i>bathtub</i>, <i>shower</i>, <i>parking</i>, <i>created_at</i>, <i>update_at</i> et <i>validation</i> étaient déjà de simples attributs de l'entité <i>HOUSE</i>.</li>
+    <li>Le champ <i>ref_house_type</i> est une clef étrangère. Il a migré à partir de l'entité <i>HOUSE_TYPE</i> par l'association de dépendance fonctionnelle <i>DF</i> en perdant son caractère identifiant.</li>
+  </ul>
+</div>
+
+<div>
+  <span class='relation'>CUSTOMER</span> (
+    <span class='primary'>ref_customer</span>,
+    <span class='normal'>email</span>,
+    <span class='normal'>password</span>,
+    <span class='normal'>firstname</span>,
+    <span class='normal'>lastname</span>,
+    <span class='normal'>phone_number</span>,
+    <span class='normal'>photo</span>,
+    <span class='normal'>created_at</span>,
+    <span class='normal'>update_at</span>,
+    <span class='foreign'>ref_role</span>,
+    <span class='foreign'>ref_house</span>
+  )
+  <ul>
+    <li>Le champ <i>ref_customer</i> constitue la clef primaire de la table. C'était déjà un identifiant de l'entité <i>CUSTOMER</i>.</li>
+    <li>Les champs <i>email</i>, <i>password</i>, <i>firstname</i>, <i>lastname</i>, <i>phone_number</i>, <i>photo</i>, <i>created_at</i> et <i>update_at</i> étaient déjà de simples attributs de l'entité <i>CUSTOMER</i>.</li>
+    <li>Le champ <i>ref_role</i> est une clef étrangère. Il a migré à partir de l'entité <i>ROLE</i> par l'association de dépendance fonctionnelle <i>ROLE_CUSTOMER</i> en perdant son caractère identifiant.</li>
+    <li>Le champ <i>ref_house</i> est une clef étrangère. Il a migré à partir de l'entité <i>HOUSE</i> par l'association de dépendance fonctionnelle <i>HAS</i> en perdant son caractère identifiant.</li>
+  </ul>
+</div>
+
+<div>
+  <span class='relation'>HOUSE_TYPE</span> (
+    <span class='primary'>ref_house_type</span>,
+    <span class='normal'>type</span>
+  )
+  <ul>
+    <li>Le champ <i>ref_house_type</i> constitue la clef primaire de la table. C'était déjà un identifiant de l'entité <i>HOUSE_TYPE</i>.</li>
+    <li>Le champ <i>type</i> était déjà un simple attribut de l'entité <i>HOUSE_TYPE</i>.</li>
+  </ul>
+</div>
+
+<div>
+  <span class='relation'>A HOMESITTER</span> (
+    <span class='foreign primary'>ref_customer</span>,
+    <span class='foreign primary'>ref_customer homesitter</span>
+  )
+  <ul>
+    <li>Les champs <i>ref_customer</i> et <i>ref_customer homesitter</i> constituent la clef primaire de la table. Ce sont des clefs étrangères qui ont migré directement à partir de l'entité <i>CUSTOMER</i>.</li>
+  </ul>
+</div>
+
+<div>
+  <span class='relation'>ABSENTEE</span> (
+    <span class='primary'>ref_absentee</span>,
+    <span class='normal'>starting_date</span>,
+    <span class='normal'>ending_date</span>,
+    <span class='foreign'>ref_customer</span>
+  )
+  <ul>
+    <li>Le champ <i>ref_absentee</i> constitue la clef primaire de la table. C'était déjà un identifiant de l'entité <i>ABSENTEE</i>.</li>
+    <li>Les champs <i>starting_date</i> et <i>ending_date</i> étaient déjà de simples attributs de l'entité <i>ABSENTEE</i>.</li>
+    <li>Le champ <i>ref_customer</i> est une clef étrangère. Il a migré à partir de l'entité <i>CUSTOMER</i> par l'association de dépendance fonctionnelle <i>CAN BE</i> en perdant son caractère identifiant.</li>
+  </ul>
+</div>
+
+</div>
+</body>
+</html>

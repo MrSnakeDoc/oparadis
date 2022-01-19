@@ -4,6 +4,8 @@ const Animal = require("./Animal");
 const Photo = require("./Photo");
 const House = require("./House");
 const Type = require("./Type");
+const Plant = require("./Plant");
+const Absentee = require("./Absentee");
 
 module.exports = {
 	BaseError,
@@ -12,4 +14,6 @@ module.exports = {
 	Photo,
 	House,
 	Type,
+	Plant,
+	Absentee
 };

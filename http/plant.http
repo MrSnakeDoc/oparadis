@@ -16,19 +16,20 @@ content-type: application/json
         "type": "Rosier",
         "notes": "Arroser 1 fois par jour",
         "photo":"/src/animal_photos/customer123/animal22.jpg",
+        "customer_id": 1
     }
     
 ###
-PATCH {{host}}/plants/id HTTP/1.1
+PATCH {{host}}/plants/101 HTTP/1.1
 content-type: application/json
 
     {
         "type": "Menthe",
         "notes": "Arroser 1 fois tous les deux jours",
         "photo":"/src/animal_photos/customer123/animal22.jpg",
-        "updated_at": "2023-12-08 00:00:00+00"
+        "customer_id": 1
     }
     
 ###
-DELETE {{host}}/plants/id HTTP/1.1
+DELETE {{host}}/plants/101 HTTP/1.1
 content-type: application/json

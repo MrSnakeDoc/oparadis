@@ -17,11 +17,12 @@ content-type: application/json
         "race": "main coon",
         "diseases": "Renal failure",
         "notes": "Garfield is very cute, large and very very cuddly",
-        "photo":"/src/animal_photos/customer123/animal22.jpg"
+        "photo":"/src/animal_photos/customer123/animal22.jpg",
+        "customer_id": 1
     }
     
 ###
-PATCH {{host}}/animals/id HTTP/1.1
+PATCH {{host}}/animals/103 HTTP/1.1
 content-type: application/json
 
     {
@@ -30,9 +31,9 @@ content-type: application/json
         "diseases": "Renal failure",
         "notes": "Garfield is very cute, large and very very cuddly",
         "photo":"/src/animal_photos/customer123/animal22.jpg",
-        "updated_at": "2023-12-08 00:00:00+00"
+        "customer_id": 1
     }
     
 ###
-DELETE {{host}}/animals/id HTTP/1.1
+DELETE {{host}}/animals/103 HTTP/1.1
 content-type: application/json

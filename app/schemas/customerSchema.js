@@ -21,9 +21,9 @@ module.exports = {
 		lastname: Joi.string().required(),
 		phone_number: Joi.string().pattern(re_phone).required(),
 		photo: Joi.binary().encoding('base64'),
+		role_id: Joi.number().integer()
 	}),
 	update_customer: Joi.object({
-		id: Joi.number().integer().min(1).required(),
 		email: Joi.string()
 			.email({
 				minDomainSegments: 2,
@@ -39,6 +39,7 @@ module.exports = {
 		lastname: Joi.string().required(),
 		phone_number: Joi.string().pattern(re_phone).required(),
 		photo: Joi.binary().encoding('base64'),
+		role_id: Joi.number().integer()
 	}),
 };
 

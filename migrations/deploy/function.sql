@@ -121,12 +121,12 @@ create or replace function update_absentee(json) returns absentee as $$
 $$ language sql strict;
 
 create or replace function add_plant(json) returns plant as $$
-	insert into "plant"(type, notes, photo) values ($1->>'type', $1->>'notes', $1->>'photo') returning *;
+	insert into "plant"("type", notes, photo, customer_id) values ($1->>'type', $1->>'notes', $1->>'photo', ($1->>'customer_id')::int) returning *;
 $$ language sql strict;
 
 create or replace function update_plant(json) returns plant as $$
 	update "plant" set 
-		type = $1->>'type',
+		"type" = $1->>'type',
 		notes = $1->>'notes',
 		photo = $1->>'photo',
 		customer_id = ($1->>'customer_id')::int
