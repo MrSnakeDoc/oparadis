@@ -1,7 +1,34 @@
 module.exports = {
 	paths: {
-		//? POSTS
-		"/posts": {
+		//? CUSTOMERS
+		"/customers": {
+			get: {
+				tags: ["Customer CRUD operations"],
+				description: "Retrieve a list of all customers",
+				summary: "Return a list of all customers",
+				parameters: [],
+				responses: {
+					200: {
+						description: "Posts were obtained",
+						content: {
+							"application/json": {
+								schema: {
+									type: "array",
+									items: {
+										$ref: "#/components/schemas/Customer",
+									},
+								},
+							},
+						},
+					},
+					404: {
+						description: "List of customers not found",
+					},
+				},
+			},
+			post: {},
+		},
+		"/customers/{id}": {
 			get: {
 				tags: ["Customer CRUD operations"],
 				description: "Retrieve a list of all posts with category associated",
@@ -21,9 +48,12 @@ module.exports = {
 							},
 						},
 					},
+					404: {
+						description: "Customer with the specified ID was not found.",
+					},
 				},
 			},
-			post: {
+			update: {
 				tags: ["Posts CRUD operations"],
 				description: "Return the created post",
 				summary: "Return the post newly created",

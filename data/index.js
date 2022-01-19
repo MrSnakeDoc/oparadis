@@ -1,6 +1,7 @@
 const role = require("./role");
 const customer = require("./customer");
 const connection = require("./connection");
+const country = require("./country");
 const house = require("./house");
 const house_type = require("./house_type");
 const animal = require("./animal");
@@ -13,6 +14,7 @@ module.exports = {
 	customer,
 	connection,
 	house_type,
+	country,
 	house,
 	animal,
 	plant,

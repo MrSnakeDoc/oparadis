@@ -6,6 +6,7 @@ const House = require("./House");
 const Type = require("./Type");
 const Plant = require("./Plant");
 const Absentee = require("./Absentee");
+const Country = require("./Country");
 
 module.exports = {
 	BaseError,
@@ -15,5 +16,6 @@ module.exports = {
 	House,
 	Type,
 	Plant,
-	Absentee
+	Absentee,
+	Country,
 };

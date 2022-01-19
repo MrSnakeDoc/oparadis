@@ -7,6 +7,7 @@ const {
 	absenteeController,
 	plantController,
 	typeController,
+	countryController,
 } = require("./controllers/");
 const { cache, flush } = require("./services/cache");
 const {
@@ -33,6 +34,7 @@ router
 	.get("/customers", customerController.findAll)
 	.get(
 		"/customers/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		paramsValidation,
 		customerController.findOne
 	)
 	.post("/customers", add_customerValidation, customerController.save)
@@ -44,6 +46,7 @@ router
 	)
 	.delete(
 		"/customers/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		paramsValidation,
 		customerController.delete
 	);
 
@@ -57,16 +60,19 @@ router
 	.get("/houses", houseController.findAll)
 	.get(
 		"/houses/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		paramsValidation,
 		houseController.findOne
 	)
 	.post("/houses", add_houseValidation, houseController.save)
 	.patch(
 		"/houses/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		paramsValidation,
 		update_houseValidation,
 		houseController.update
 	)
 	.delete(
 		"/houses/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		paramsValidation,
 		houseController.delete
 	);
 
@@ -74,16 +80,19 @@ router
 	.get("/animals", animalController.findAll)
 	.get(
 		"/animals/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		paramsValidation,
 		animalController.findOne
 	)
 	.post("/animals", add_animalValidation, animalController.save)
 	.patch(
 		"/animals/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		paramsValidation,
 		update_animalValidation,
 		animalController.update
 	)
 	.delete(
 		"/animals/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		paramsValidation,
 		animalController.delete
 	);
 
@@ -91,16 +100,19 @@ router
 	.get("/photos", photoController.findAll)
 	.get(
 		"/photos/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		paramsValidation,
 		photoController.findOne
 	)
 	.post("/photos", add_photoValidation, photoController.save)
 	.patch(
 		"/photos/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		paramsValidation,
 		update_photoValidation,
 		photoController.update
 	)
 	.delete(
 		"/photos/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		paramsValidation,
 		photoController.delete
 	);
 
@@ -108,16 +120,19 @@ router
 	.get("/absentees", absenteeController.findAll)
 	.get(
 		"/absentees/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		paramsValidation,
 		absenteeController.findOne
 	)
 	.post("/absentees", add_absenteeValidation, absenteeController.save)
 	.patch(
 		"/absentees/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		paramsValidation,
 		update_absenteeValidation,
 		absenteeController.update
 	)
 	.delete(
 		"/absentees/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		paramsValidation,
 		absenteeController.delete
 	);
 
@@ -125,11 +140,13 @@ router
 	.get("/plants", plantController.findAll)
 	.get(
 		"/plants/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		paramsValidation,
 		plantController.findOne
 	)
 	.post("/plants", add_plantValidation, plantController.save)
 	.patch(
 		"/plants/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		paramsValidation,
 		update_plantValidation,
 		plantController.update
 	)
@@ -142,17 +159,27 @@ router
 	.get("/types", typeController.findAll)
 	.get(
 		"/types/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		paramsValidation,
 		typeController.findOne
 	)
 	.post("/types", add_typeValidation, typeController.save)
 	.patch(
 		"/types/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		paramsValidation,
 		update_typeValidation,
 		typeController.update
 	)
 	.delete(
 		"/types/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		typeController.delete
+	);
+
+router
+	.get("/types", countryController.findAll)
+	.get(
+		"/types/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		paramsValidation,
+		countryController.findOne
 	);
 
 module.exports = router;

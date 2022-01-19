@@ -1,0 +1,23 @@
+PHOTO: ref_photo, photo, created_at, update_at, validation
+POSSESS, 0N HOUSE, 11 PHOTO
+:
+A HOMESITTER, 0N CUSTOMER, 0N> [homesitter] CUSTOMER
+PLANT: ref_plant, type, notes, photo, created_at, update_at, validation
+
+DF2, 11 HOUSE, 1N COUNTRY
+HOUSE: ref_house, address, zip_code, city, country, type, title, nb_rooms, nb_bedrooms, surface, area, floor, description, latitude, longitude, map, internet, washing_machine, tv, hoven, microwave, dishwasher, bathtub, shower, parking, created_at, update_at, validation
+HAS, 11 CUSTOMER, 11 HOUSE
+CUSTOMER: ref_customer, email, password, firstname, lastname, pseudo, phone_number, photo, role_id,created_at, update_at
+CAN HAVE1, 0N CUSTOMER, 11 PLANT
+
+COUNTRY: ref_country, country
+DF1, 11 HOUSE, 1N HOUSE_TYPE
+CAN HAVE, 0N CUSTOMER, 11 ANIMAL
+ROLE_CUSTOMER, 11 CUSTOMER, 1N ROLE
+CAN BE, 0N CUSTOMER, 11 ABSENTEE
+
+:
+HOUSE_TYPE: ref_house_type, type
+ANIMAL: ref_animal, type, race, diseases, notes, photo, created_at, update_at, validation
+ROLE: ref_role, role
+ABSENTEE: ref_absentee, starting_date, ending_date
