@@ -14,11 +14,12 @@ module.exports = {
 			})
 			.required(),
 		password: Joi.string()
-			.pattern(new RegExp(/^[a-zA-Z0-9-_$@#!?.]{8,30}$/))
+			.pattern(new RegExp(/^[a-zA-Z0-9-_$@#!?]{8,30}$/))
 			.required(),
 		repeat_password: Joi.ref("password"),
 		firstname: Joi.string().required(),
 		lastname: Joi.string().required(),
+		pseudo: Joi.string().empty(''),
 		phone_number: Joi.string().pattern(re_phone).required(),
 		photo: Joi.binary().encoding('base64'),
 		role_id: Joi.number().integer()
@@ -32,11 +33,12 @@ module.exports = {
 			})
 			.required(),
 		password: Joi.string()
-			.pattern(/^[a-zA-Z0-9-_$@#!?.]{8,30}$/)
+			.pattern(/^[a-zA-Z0-9-_$@#!?]{8,30}$/)
 			.required(),
 		repeat_password: Joi.ref("password"),
 		firstname: Joi.string().required(),
 		lastname: Joi.string().required(),
+		pseudo: Joi.string().empty(''),
 		phone_number: Joi.string().pattern(re_phone).required(),
 		photo: Joi.binary().encoding('base64'),
 		role_id: Joi.number().integer()

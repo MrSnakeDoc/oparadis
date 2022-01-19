@@ -13,9 +13,10 @@ CREATE TABLE CUSTOMER (
     password text not null,
     firstname text not null,
     lastname text not null,
+    pseudo text DEFAULT null,
     phone_number text not null,
     photo text,
-    role_id int NOT NULL references role(id) default 1,
+    role_id int NOT NULL references role(id) default 2,
     created_at timestamptz NOT NULL DEFAULT NOW(),
     updated_at timestamptz NOT NULL DEFAULT NOW()
 );
@@ -29,6 +30,11 @@ CREATE TABLE CONNECTION (
 CREATE TABLE house_type (
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "type" text not null unique
+);
+
+CREATE TABLE "COUNTRY" (
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    country text not null unique
 );
 
 CREATE TABLE HOUSE (
@@ -130,5 +136,18 @@ CREATE TRIGGER set_timestamp
 BEFORE UPDATE ON PHOTO
 FOR EACH ROW
 EXECUTE PROCEDURE trigger_set_timestamp();
+
+-- CREATE OR REPLACE FUNCTION trigger_set_pseudo()
+-- RETURNS TRIGGER AS $$
+-- BEGIN
+
+--   RETURN NEW;
+-- END;
+-- $$ LANGUAGE plpgsql;
+
+-- CREATE TRIGGER set_pseudo
+-- AFTER INSERT ON CUSTOMER
+-- FOR EACH ROW
+-- EXECUTE PROCEDURE trigger_set_pseudo();
 
 COMMIT;
