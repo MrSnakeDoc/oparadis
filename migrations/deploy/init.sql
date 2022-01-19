@@ -32,7 +32,7 @@ CREATE TABLE house_type (
     "type" text not null unique
 );
 
-CREATE TABLE "COUNTRY" (
+CREATE TABLE COUNTRY (
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     country text not null unique
 );

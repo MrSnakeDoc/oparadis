@@ -18,6 +18,7 @@ const fs = require("fs");
 			`TRUNCATE ${tables.join(", ")} RESTART IDENTITY cascade`
 		);
 		for (table of tables) {
+			console.log("table =>", table);
 			for (elem of fullData[table]) {
 				if (table === "house") {
 					fullData[table].forEach((element) => {
