@@ -21,10 +21,7 @@ module.exports = {
 
 	async save(req, res) {
 		try {
-			const animal = await new Animal({
-				id: +req.params.id,
-				...req.body,
-			}).save();
+			const animal = await new Animal(req.body).save();
 			res.json(animal);
 		} catch (err) {
 			res.json(new BaseError(err));
@@ -43,7 +40,7 @@ module.exports = {
 	},
 	async delete(req, res) {
 		try {
-			await animal.delete(+req.parmas.id);
+			await Animal.delete(+req.params.id);
 			res.json("Animal Deleted");
 		} catch (err) {
 			res.json(new BaseError(err));

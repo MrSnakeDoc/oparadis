@@ -19,10 +19,8 @@ module.exports = {
 	},
 	async save(req, res) {
 		try {
-			const customer = await new Customer({
-				id: +req.params.id,
-				...req.body,
-			}).save();
+			delete req.body.repeat_password;
+			const customer = await new Customer(req.body).save();
 			res.json(customer);
 		} catch (err) {
 			res.json(new BaseError(err));
@@ -30,8 +28,9 @@ module.exports = {
 	},
 	async update(req, res) {
 		try {
+			delete req.body.repeat_password;
 			const customer = await new Customer({ id: +req.params.id, ...req.body })
-				.update;
+			.update();
 			res.json(customer);
 		} catch (err) {
 			res.json(new BaseError(err));

@@ -45,7 +45,7 @@ module.exports = class Animal {
 	static async findOne(id) {
 		try {
 			const { rows } = await client.query(
-				"SELECT * FROM animal WHERE post.id=$1",
+				"SELECT * FROM animal WHERE id=$1",
 				[id]
 			);
 			return rows[0] ? new Animal(rows) : undefined;

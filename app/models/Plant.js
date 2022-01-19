@@ -43,7 +43,7 @@ module.exports = class Plant {
 	static async findOne(id) {
 		try {
 			const { rows } = await client.query(
-				"SELECT * FROM plant WHERE post.id=$1",
+				"SELECT * FROM plant WHERE id=$1",
 				[id]
 			);
 			return rows[0] ? new Plant(rows) : undefined;

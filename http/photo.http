@@ -12,17 +12,18 @@ content-type: application/json
 
     {
         "photo":"/src/house_photos/house22/house_22-123.jpg",
+        "house_id": 1
     }
     
 ###
-PATCH {{host}}/photos/id HTTP/1.1
+PATCH {{host}}/photos/101 HTTP/1.1
 content-type: application/json
 
     {
-        "photo":"/src/house_photos/house22/house_22-123.jpg",
-        "updated_at": "2023-12-08 00:00:00+00"
+        "photo":"/src/house_photos/house22/housetest.jpg",
+        "house_id": 1
     }
     
 ###
-DELETE {{host}}/photos/id HTTP/1.1
+DELETE {{host}}/photos/101 HTTP/1.1
 content-type: application/json

@@ -42,7 +42,7 @@ module.exports = class Absentee {
 	static async findOne(id) {
 		try {
 			const { rows } = await client.query(
-				"SELECT * FROM absentee WHERE post.id=$1",
+				"SELECT * FROM absentee WHERE id=$1",
 				[id]
 			);
 			return rows[0] ? new Absentee(rows) : undefined;

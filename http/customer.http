@@ -16,29 +16,30 @@ content-type: application/json
 
     {
         "email": "jemoustique@gmail.com",
-        "password": "land",
-		"repeat_password": "land",
+        "password": "landrover",
+		"repeat_password": "landrover",
         "firstname": "Jules-Edouard",
         "lastname": "Moustique",
         "phone_number": "0175492412",
-        "photo":"/src/customer_photos/customer123.jpg"
+        "photo":"/src/customer_photos/customer123.jpg",
+        "role_id": 1
     }
 
 ###
-PATCH {{host}}/customers/101 HTTP/1.1
+PATCH {{host}}/customers/106 HTTP/1.1
 content-type: application/json
 
-{
+{   
     "email": "jemoustique@gmail.com",
-    "password": "landrover",
-	"repeat_password": "landrover",
+    "password": "landrover69D-_$@#!?.",
+	"repeat_password": "landrover69D-_$@#!?.",
     "firstname": "Jules-Edouard",
     "lastname": "Moustique",
     "phone_number": "0175492412",
     "photo":"/src/customer_photos/customer123.jpg",
-    "updated_at": "2023-12-08 00:00:00+00"
+	"role_id": 1
 }
 
 ###
-DELETE {{host}}/customers/17 HTTP/1.1
+DELETE {{host}}/customers/106 HTTP/1.1
 content-type: application/json
