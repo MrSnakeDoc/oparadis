@@ -6,13 +6,13 @@
 | Utilisateur       | S'enregister sur le site                                      | De se créer un profil                                            |              |
 | Utilisateur       | Se connecter avec son tout nouveau compte                     | De se créer/modifier un profil ou rechercher des homes libres    |              |
 | Utilisateur       | Rechercher un logement                                        | partir en vacances et gardienner la maison et les animaux        |              |
-| Utilisateur       | Ajouter un logement                                           | creer un logement                                                |              |
+| Utilisateur       | Ajouter un logement                                           | Proposer son logement en gardiennage                             |              |
 | Utilisateur       | modifier un logement                                          | mettre a jour un logement(nbre de piece, surface,...)            |              |
 | Utilisateur       | supprimer un logment                                          | supprimer un logement                                            |              |
 | Utilisateur       | Ajouter un ou plusieurs animaux                               | creer un ou plusieurs animaux (photo, type, race,...)            |              |
 | Utilisateur       | modifier un ou plusieurs animaux                              | mettre a jour le ou les animaux                                  |              |
 | Utilisateur       | supprimer un ou plusieurs animaux                             | retirer un ou des animaux                                        |              |
-| Utilisateur       | ajouter une date d'absence ou reservation sur le calendrier   | ajouter une ou dates (début, arrivée)                            |              |
+| Utilisateur       | ajouter une date d'absence ou reservation sur le calendrier   | ajouter une ou des dates (début, arrivée)                        |              |
 | Utilisateur       | modifier une date d'absence ou reservation sur le calendrier  | mettre a jour des dates                                          |              |
 | Utilisateur       | supprimer une date d'absence ou reservation sur le calendrier | retirer des dates                                                |              |
 | Utilisateur       | recherhe avec filtre                                          | recherche filtrer type animal date                               |              |

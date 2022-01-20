@@ -29,10 +29,10 @@ module.exports = class House {
 	}
 
 	/**
-	 * Retrieves all Customer with their houses, animals, and abscenses from database
+	 * Retrieves all Houses with their owner, animals, and abscenses from database
 	 * @static
 	 * @async
-	 * @returns {Array<Customer>} all Customers with their houses, animals, and abscenses in database
+	 * @returns {Array<House>} all Houses with their owner, animals, and abscenses in database
 	 * @throws {Error} An error
 	 */
 	static async findAllFull() {
@@ -43,8 +43,10 @@ module.exports = class House {
 				house.address,
 				house.zip_code,
 				house.city,
-				house.country,
-				house.type,
+				(select json_agg(json_build_object(country.id,country.country)) from country
+					where house.country = country.id) as country,
+				(select json_agg(json_build_object(house_type.id,house_type.type)) from house_type
+					where house_type.id = house.type) as type,
 				house.nb_rooms,
 				house.nb_bedrooms,
 				house.surface,
@@ -66,6 +68,7 @@ module.exports = class House {
 				house.updated_at,
 				house.validation,
 				(SELECT array_agg(json_build_object(
+					'id', customer.id,
 					'email', customer.email,
 					'firstname', customer.firstname,
 					'lastname', customer.lastname,
@@ -122,6 +125,8 @@ module.exports = class House {
 			full outer JOIN plant ON plant.customer_id = customer.id
 			full outer JOIN photo ON photo.house_id = house.id
 			full outer JOIN absentee ON absentee.customer_id = customer.id
+			JOIN house_type ON house_type.id = house.type
+			JOIN country ON country.id = house.country
 			GROUP BY customer.id, house.id
 			ORDER BY house.id;`);
 			return rows.map((row) => new House(row));
@@ -134,10 +139,10 @@ module.exports = class House {
 	}
 
 	/**
-	 * Retrieves one Customer with his house, animals, and abscenses from database
+	 * Retrieves one House with his owner, animals, and abscenses from database
 	 * @static
 	 * @async
-	 * @returns {Object<Customer>} One Customer with his house, animals, and abscenses in database
+	 * @returns {Object<Customer>} One House with his owner, animals, and abscenses in database
 	 * @throws {Error} An error
 	 */
 	static async findOneFull(id) {
@@ -149,10 +154,10 @@ module.exports = class House {
 				house.address,
 				house.zip_code,
 				house.city,
-				house.country,
-				(select house_type.type
-					where house_type.house.id = $1
-				) as type,
+				(select json_agg(json_build_object(country.id,country.country)) from country
+					where house.country = country.id) as country,
+				(select json_agg(json_build_object(house_type.id,house_type.type)) from house_type
+					where house_type.id = house.type) as type,
 				house.nb_rooms,
 				house.nb_bedrooms,
 				house.surface,
@@ -174,6 +179,7 @@ module.exports = class House {
 				house.updated_at,
 				house.validation,
 				(SELECT array_agg(json_build_object(
+					'id', customer.id,
 					'email', customer.email,
 					'firstname', customer.firstname,
 					'lastname', customer.lastname,
@@ -230,7 +236,8 @@ module.exports = class House {
 			full outer JOIN plant ON plant.customer_id = customer.id
 			full outer JOIN photo ON photo.house_id = house.id
 			full outer JOIN absentee ON absentee.customer_id = customer.id
-			JOIN house_type ON house_type.house_id = house.id
+			JOIN house_type ON house_type.id = house.type
+			JOIN country ON country.id = house.country
 			WHERE house.id = $1
 			GROUP BY customer.id, house.id
 			ORDER BY house.id;`,

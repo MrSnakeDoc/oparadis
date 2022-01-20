@@ -15,7 +15,7 @@ module.exports = {
 			const house = await House.findOneFull(+req.params.id);
 			res.json(house);
 		} catch (err) {
-			res.json(new BaseError(err));
+			res.status().json(new BaseError(err));
 		}
 	},
 
@@ -49,7 +49,7 @@ module.exports = {
 		try {
 			const house = await new House({
 				id: +req.params.id,
-				...req.body
+				...req.body,
 			}).update();
 			res.json(house);
 		} catch (err) {
