@@ -262,7 +262,35 @@ module.exports = class House {
 	 */
 	static async findAll() {
 		try {
-			const { rows } = await client.query("SELECT * FROM house");
+			const { rows } = await client.query(`SELECT house.id,
+			house.title,
+			house.address,
+			house.zip_code,
+			house.city,
+			(select json_agg(json_build_object(country.id,country.country)) from country
+				where house.country = country.id) as country,
+			(select json_agg(json_build_object(house_type.id,house_type.type)) from house_type
+				where house_type.id = house.type) as type,
+			house.nb_rooms,
+			house.nb_bedrooms,
+			house.surface,
+			house.area,
+			house.floor,
+			house.description,
+			house.latitude,
+			house.longitude,
+			house.map,
+			house.internet,
+			house.washing_machine,
+			house.TV,
+			house.microwave,
+			house.dishwasher,
+			house.bathtub,
+			house.shower,
+			house.parking,
+			house.created_at,
+			house.updated_at,
+			house.validation FROM house`);
 			return rows.map((row) => new House(row));
 		} catch (error) {
 			if (error.detail) {
@@ -281,9 +309,38 @@ module.exports = class House {
 	 */
 	static async findOne(id) {
 		try {
-			const { rows } = await client.query("SELECT * FROM house WHERE id=$1", [
-				id,
-			]);
+			const { rows } = await client.query(
+				`select house.id,
+			house.title,
+			house.address,
+			house.zip_code,
+			house.city,
+			(select json_agg(json_build_object(country.id,country.country)) from country
+				where house.country = country.id) as country,
+			(select json_agg(json_build_object(house_type.id,house_type.type)) from house_type
+				where house_type.id = house.type) as type,
+			house.nb_rooms,
+			house.nb_bedrooms,
+			house.surface,
+			house.area,
+			house.floor,
+			house.description,
+			house.latitude,
+			house.longitude,
+			house.map,
+			house.internet,
+			house.washing_machine,
+			house.TV,
+			house.microwave,
+			house.dishwasher,
+			house.bathtub,
+			house.shower,
+			house.parking,
+			house.created_at,
+			house.updated_at,
+			house.validation from house where id = $1`,
+				[id]
+			);
 			return rows[0] ? new House(rows) : undefined;
 		} catch (error) {
 			if (error.detail) {
@@ -326,7 +383,7 @@ module.exports = class House {
 		console.log("model", this);
 		// if ()...
 		try {
-			const { rows } = await client.query("SELECT * FROM update_house($1)", [
+			const { rows } = await client.query(`SELECT * FROM update_house($1)`, [
 				this,
 			]);
 			return rows[0] ? new House(rows) : undefined;
