@@ -23,7 +23,7 @@ content-type: application/json
         "pseudo": "Cobra",
         "phone_number": "0175492412",
         "photo":"/src/customer_photos/customer123.jpg",
-        "role_id": 1
+        "role_id": 2
     }
 
 ###
@@ -31,7 +31,7 @@ PATCH {{host}}/customers/101 HTTP/1.1
 content-type: application/json
 
 {   
-    "email": "jemoustique@gmail.com",
+    "email": "ml@gmail.com",
     "password": "landrover69D-_$@#!?",
 	"repeat_password": "landrover69D-_$@#!?",
     "firstname": "Jules-Edouard",
@@ -39,7 +39,7 @@ content-type: application/json
     "pseudo": "",
     "phone_number": "0175492412",
     "photo":"/src/customer_photos/customer123.jpg",
-	"role_id": 1
+	"role_id": 2
 }
 
 ###

@@ -18,7 +18,7 @@ CREATE TABLE CUSTOMER (
     photo text,
     role_id int NOT NULL references role(id) default 2,
     created_at timestamptz NOT NULL DEFAULT NOW(),
-    updated_at timestamptz NOT NULL DEFAULT NOW()
+    updated_at timestamptz
 );
 
 CREATE TABLE CONNECTION (
@@ -64,7 +64,7 @@ CREATE TABLE HOUSE (
     shower BOOLEAN NOT NULL DEFAULT false,
     parking BOOLEAN NOT NULL DEFAULT false,
     created_at timestamptz NOT NULL DEFAULT NOW(),
-    updated_at timestamptz NOT NULL DEFAULT NOW(),
+    updated_at timestamptz,
     validation BOOLEAN NOT NULL DEFAULT false,
     customer_id int not null REFERENCES customer(id) ON DELETE CASCADE
 );
@@ -77,7 +77,7 @@ CREATE TABLE ANIMAL (
     notes text,
     photo text,
     created_at timestamptz NOT NULL DEFAULT NOW(),
-    updated_at timestamptz NOT NULL DEFAULT NOW(),
+    updated_at timestamptz,
     validation BOOLEAN NOT NULL DEFAULT false,
     customer_id int not null REFERENCES customer(id) ON DELETE CASCADE
 );
@@ -88,7 +88,7 @@ CREATE TABLE PLANT (
     notes text,
     photo text,
     created_at timestamptz NOT NULL DEFAULT NOW(),
-    updated_at timestamptz NOT NULL DEFAULT NOW(),
+    updated_at timestamptz,
     validation BOOLEAN NOT NULL DEFAULT false,
     customer_id INT NOT NULL REFERENCES customer(id) on delete cascade
 );
@@ -97,7 +97,7 @@ CREATE TABLE PHOTO (
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     photo text not null,
     created_at timestamptz NOT NULL DEFAULT NOW(),
-    updated_at timestamptz NOT NULL DEFAULT NOW(),
+    updated_at timestamptz,
     validation BOOLEAN NOT NULL DEFAULT false,
     house_id int not null REFERENCES house(id) ON DELETE CASCADE
 );
@@ -118,35 +118,40 @@ END;
 $$ LANGUAGE plpgsql;
 
 CREATE TRIGGER set_timestamp
-BEFORE UPDATE ON house
+BEFORE UPDATE OR INSERT ON CUSTOMER
 FOR EACH ROW
 EXECUTE PROCEDURE trigger_set_timestamp();
 
 CREATE TRIGGER set_timestamp
-BEFORE UPDATE ON ANIMAL
+BEFORE UPDATE OR INSERT ON HOUSE
 FOR EACH ROW
 EXECUTE PROCEDURE trigger_set_timestamp();
 
 CREATE TRIGGER set_timestamp
-BEFORE UPDATE ON PLANT
+BEFORE UPDATE OR INSERT ON ANIMAL
 FOR EACH ROW
 EXECUTE PROCEDURE trigger_set_timestamp();
 
 CREATE TRIGGER set_timestamp
-BEFORE UPDATE ON PHOTO
+BEFORE UPDATE OR INSERT ON PLANT
+FOR EACH ROW
+EXECUTE PROCEDURE trigger_set_timestamp();
+
+CREATE TRIGGER set_timestamp
+BEFORE UPDATE OR INSERT ON PHOTO
 FOR EACH ROW
 EXECUTE PROCEDURE trigger_set_timestamp();
 
 -- CREATE OR REPLACE FUNCTION trigger_set_pseudo()
--- RETURNS TRIGGER AS $$
+-- RETURNS TRIGGER AS $BODY$
 -- BEGIN
-
+--     INSERT INTO CUSTOMER(pseudo) VALUES ('user');
 --   RETURN NEW;
 -- END;
--- $$ LANGUAGE plpgsql;
+-- $BODY$ LANGUAGE plpgsql;
 
 -- CREATE TRIGGER set_pseudo
--- AFTER INSERT ON CUSTOMER
+-- AFTER INSERT OR UPDATE ON CUSTOMER
 -- FOR EACH ROW
 -- EXECUTE PROCEDURE trigger_set_pseudo();
 
