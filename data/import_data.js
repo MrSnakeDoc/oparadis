@@ -7,7 +7,6 @@ let conf = {
 };
 
 const client = new Pool(conf);
-const fs = require("fs");
 
 (async () => {
 	try {

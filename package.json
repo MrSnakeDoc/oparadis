@@ -11,14 +11,14 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/O-clock-XIII/projet-16-coin-de-paradis.git"
+		"url": "git+https://github.com/O-clock-XIII/projet-16-oparadis-back.git"
 	},
 	"author": "",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/O-clock-XIII/projet-16-coin-de-paradis/issues"
+		"url": "https://github.com/O-clock-XIII/projet-16-oparadis-back/issues"
 	},
-	"homepage": "https://github.com/O-clock-XIII/projet-16-coin-de-paradis#readme",
+	"homepage": "https://github.com/O-clock-XIII/projet-16-oparadis-back#readme",
 	"dependencies": {
 		"bcrypt": "^5.0.1",
 		"cors": "^2.8.5",
