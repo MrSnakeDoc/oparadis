@@ -1,6 +1,8 @@
 require("dotenv").config();
 const { Pool } = require("pg");
+const bcrypt = require("bcrypt");
 const fullData = require("../data/");
+const salt = 10;
 
 let conf = {
 	connectionString: process.env.PG_URL,
@@ -19,10 +21,11 @@ const client = new Pool(conf);
 		for (table of tables) {
 			console.log("table =>", table);
 			for (elem of fullData[table]) {
+				if (table === "customer") {
+					elem.password = bcrypt.hashSync(elem.password, salt);
+				}
 				if (table === "house") {
-					fullData[table].forEach((element) => {
-						element.map = `https://maps.google.com/maps?q=${element.latitude},${element.longitude}`;
-					});
+					elem.map = `https://maps.google.com/maps?q=${elem.latitude},${elem.longitude}`;
 				}
 				const keysArray = Object.keys(fullData[table][0]).map((key) => key); //? output : [name, age, address]
 				const keys = keysArray.join(", ");
