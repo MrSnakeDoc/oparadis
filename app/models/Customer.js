@@ -92,6 +92,7 @@ module.exports = class Customer {
 			]);
 			return rows[0] ? new Customer(rows) : undefined;
 		} catch (error) {
+			console.log(error);
 			if (error.detail) {
 				throw new Error(error.detail);
 			}
