@@ -142,17 +142,19 @@ BEFORE UPDATE OR INSERT ON PHOTO
 FOR EACH ROW
 EXECUTE PROCEDURE trigger_set_timestamp();
 
--- CREATE OR REPLACE FUNCTION trigger_set_pseudo()
--- RETURNS TRIGGER AS $BODY$
--- BEGIN
---     INSERT INTO CUSTOMER(pseudo) VALUES ('user');
---   RETURN NEW;
--- END;
--- $BODY$ LANGUAGE plpgsql;
+--? PSEUDO trigger
 
--- CREATE TRIGGER set_pseudo
--- AFTER INSERT OR UPDATE ON CUSTOMER
--- FOR EACH ROW
--- EXECUTE PROCEDURE trigger_set_pseudo();
+CREATE OR REPLACE FUNCTION trigger_set_pseudo() RETURNS trigger AS $$
+    BEGIN
+        NEW.pseudo := NEW.firstname;
+        RETURN NEW;
+    END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER set_pseudo
+    BEFORE INSERT OR UPDATE ON CUSTOMER
+    FOR EACH ROW
+    WHEN (NEW.pseudo IS NULL OR NEW.pseudo = '')
+    EXECUTE PROCEDURE trigger_set_pseudo();
 
 COMMIT;

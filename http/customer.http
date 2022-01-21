@@ -20,7 +20,7 @@ content-type: application/json
 		"repeat_password": "landrover",
         "firstname": "Jules-Edouard",
         "lastname": "Moustique",
-        "pseudo": "Cobra",
+        "pseudo": "",
         "phone_number": "0175492412",
         "photo":"/src/customer_photos/customer123.jpg",
         "role_id": 2
