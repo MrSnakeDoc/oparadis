@@ -8,6 +8,7 @@ const {
 	plantController,
 	typeController,
 	countryController,
+	authController,
 } = require("./controllers/");
 const { cache, flush } = require("./services/cache");
 const {
@@ -31,21 +32,28 @@ const {
 const router = Router();
 
 router
-	.get("/customers", customerController.findAll)
+	.post("/signup", add_customerValidation, customerController.save)
+	.post("/token", authController.refreshToken)
+	.get("/signin", authController.signin);
+
+router
+	.get("/customers", jwtMW, customerController.findAll)
 	.get(
 		"/customers/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		jwtMW,
 		paramsValidation,
 		customerController.findOne
 	)
-	.post("/customers", add_customerValidation, customerController.save)
 	.patch(
 		"/customers/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		jwtMW,
 		paramsValidation,
 		// update_customerValidation,
 		customerController.update
 	)
 	.delete(
 		"/customers/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		jwtMW,
 		paramsValidation,
 		customerController.delete
 	);

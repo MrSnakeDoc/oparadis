@@ -49,7 +49,22 @@ module.exports = class Customer {
 				"SELECT * FROM customer where id = $1",
 				[id]
 			);
-			return rows[0] ? new Customer(rows) : undefined;
+			return rows[0] ? new Customer(rows[0]) : undefined;
+		} catch (error) {
+			if (error.detail) {
+				throw new Error(error.detail);
+			}
+			throw error;
+		}
+	}
+
+	static async authFindOne(email) {
+		try {
+			const { rows } = await client.query(
+				"SELECT * FROM customer where email = $1",
+				[email]
+			);
+			return rows[0] ? new Customer(rows[0]) : undefined;
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);

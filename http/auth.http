@@ -1,0 +1,32 @@
+@host = http://localhost:5000
+
+###
+POST {{host}}/signup HTTP/1.1
+content-type: application/json
+
+    {
+        "email": "a@a.com",
+        "password": "Paradis13$",
+		"repeat_password": "Paradis13$",
+        "firstname": "a",
+        "lastname": "a",
+        "pseudo": "Abdul",
+        "phone_number": "0134538467",
+        "photo":"/src/customer_photos/customer123.jpg",
+        "role_id": 2
+    }
+
+###
+POST {{host}}/signin HTTP/1.1
+content-type: application/json
+Authorization: Bearer 
+
+{
+    "email": "a@a.com",
+    "password": "Paradis13$"
+}
+
+###
+POST {{host}}/token HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDMsImlhdCI6MTY0Mjg5Mzc1OSwiZXhwIjoxNjQyOTAwOTU5fQ.jpm7nE-2Usm6QybuBGhKpbe1tl7Ept4sWaB7yzKkvZ0

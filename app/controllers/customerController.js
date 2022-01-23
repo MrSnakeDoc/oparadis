@@ -1,4 +1,5 @@
 const { Customer, BaseError } = require("../models");
+const { encrypt } = require("../services/encrypt");
 
 module.exports = {
 	async findAll(_, res) {
@@ -20,6 +21,7 @@ module.exports = {
 	async save(req, res) {
 		try {
 			delete req.body.repeat_password;
+			req.body.password = await encrypt(req.body.password);
 			const customer = await new Customer(req.body).save();
 			res.json(customer);
 		} catch (err) {
@@ -29,9 +31,11 @@ module.exports = {
 	async update(req, res) {
 		try {
 			delete req.body.repeat_password;
-			if(req.body.pseudo === '') delete req.body.pseudo;
-			const customer = await new Customer({ id: +req.params.id, ...req.body })
-			.update();
+			if (req.body.pseudo === "") delete req.body.pseudo;
+			const customer = await new Customer({
+				id: +req.params.id,
+				...req.body,
+			}).update();
 			res.json(customer);
 		} catch (err) {
 			res.json(new BaseError(err));

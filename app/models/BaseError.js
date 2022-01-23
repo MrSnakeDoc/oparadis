@@ -6,7 +6,6 @@ class BaseError extends Error {
 		super(message);
 		this.error = "ERROR";
 		this.message = message;
-		this.stack = stack;
 		this.code = httpCode;
 	}
 }
