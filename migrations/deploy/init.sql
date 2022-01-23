@@ -2,11 +2,6 @@
 
 BEGIN;
 
-CREATE TABLE ROLE (
-    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    role TEXT NOT NULL unique
-);
-
 CREATE TABLE CUSTOMER (
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     email text not null unique,
@@ -16,7 +11,7 @@ CREATE TABLE CUSTOMER (
     pseudo text DEFAULT null,
     phone_number text not null,
     photo text,
-    role_id int NOT NULL references role(id) default 2,
+    isAdmin Boolean NOT NULL DEFAULT FALSE,
     created_at timestamptz NOT NULL DEFAULT NOW(),
     updated_at timestamptz
 );
@@ -99,7 +94,7 @@ CREATE TABLE PHOTO (
     created_at timestamptz NOT NULL DEFAULT NOW(),
     updated_at timestamptz,
     validation BOOLEAN NOT NULL DEFAULT false,
-    house_id int not null REFERENCES house(id) ON DELETE CASCADE
+    customer_id int not null REFERENCES customer(id) ON DELETE CASCADE
 );
 
 CREATE TABLE ABSENTEE (

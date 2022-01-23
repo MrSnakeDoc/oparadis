@@ -84,7 +84,7 @@ CREATE VIEW house_view as
 				'validation', photo.validation)
 			ORDER BY photo.id asc)
 			FROM photo JOIN house ON house.customer_id = customer.id
-			WHERE photo.house_id = house.id)
+			WHERE photo.customer_id = house.id)
 			AS photos,
 			(SELECT array_agg(json_build_object(
 				'id', id,
@@ -97,7 +97,7 @@ CREATE VIEW house_view as
 	full outer JOIN customer ON customer.id = house.customer_id
 	full outer JOIN animal ON animal.customer_id = customer.id
 	full outer JOIN plant ON plant.customer_id = customer.id
-	full outer JOIN photo ON photo.house_id = house.id
+	full outer JOIN photo ON photo.customer_id = customer.id
 	full outer JOIN absentee ON absentee.customer_id = customer.id
 	JOIN house_type ON house_type.id = house.type
 	JOIN country ON country.id = house.country
@@ -177,7 +177,7 @@ CREATE VIEW house_view as
 -- 				'validation', photo.validation)
 -- 			ORDER BY photo.id asc)
 -- 			FROM photo JOIN house ON house.customer_id = customer.id
--- 			WHERE photo.house_id = house.id)
+-- 			WHERE photo.customer_id = house.id)
 -- 			AS photos,
 -- 			(SELECT array_agg(json_build_object(
 -- 				'id', id,
@@ -190,7 +190,7 @@ CREATE VIEW house_view as
 -- 	full outer JOIN customer ON customer.id = house.customer_id
 -- 	full outer JOIN animal ON animal.customer_id = customer.id
 -- 	full outer JOIN plant ON plant.customer_id = customer.id
--- 	full outer JOIN photo ON photo.house_id = house.id
+-- 	full outer JOIN photo ON photo.customer_id = customer.id
 -- 	full outer JOIN absentee ON absentee.customer_id = customer.id
 -- 	JOIN house_type ON house_type.id = house.type
 -- 	JOIN country ON country.id = house.country

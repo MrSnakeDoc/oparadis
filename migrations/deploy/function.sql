@@ -3,8 +3,8 @@
 BEGIN;
 
 create or replace function add_customer(json) returns customer as $$
-	insert into "customer"(email, password, firstname, lastname, pseudo, phone_number, photo, role_id)
-		values ($1->>'email', $1->>'password', $1->>'firstname', $1->>'lastname', $1->>'pseudo', $1->>'phone_number', $1->>'photo', ($1->>'role_id')::int) returning *;
+	insert into "customer"(email, password, firstname, lastname, pseudo, phone_number, photo, isAdmin)
+		values ($1->>'email', $1->>'password', $1->>'firstname', $1->>'lastname', $1->>'pseudo', $1->>'phone_number', $1->>'photo', ($1->>'isAdmin')::boolean) returning *;
 $$ language sql strict;
 
 create or replace function update_customer(json) returns customer as $$
@@ -16,7 +16,7 @@ create or replace function update_customer(json) returns customer as $$
 		pseudo = $1->>'pseudo',
 		phone_number = $1->>'phone_number',
 		photo = $1->>'photo',
-		role_id = ($1->>'role_id')::int
+		isAdmin = ($1->>'isAdmin')::boolean
     where id = ($1->>'id')::int returning *;
 $$ language sql strict;
 
@@ -96,15 +96,14 @@ create or replace function update_house(json) returns house as $$
 $$ language sql strict;
 
 create or replace function add_photo(json) returns photo as $$
-	insert into "photo"(photo, house_id)
-		values ($1->>'photo',($1->>'house_id')::int) returning *;
+	insert into "photo"(photo, customer_id)
+		values ($1->>'photo',($1->>'customer_id')::int) returning *;
 $$ language sql strict;
 
 create or replace function update_photo(json) returns photo as $$
 	update "photo" set 
 		photo = $1->>'photo',
-		updated_at = ($1->>'updated_at')::date,
-		house_id = ($1->>'house_id')::int
+		customer_id = ($1->>'customer_id')::int
     where id = ($1->>'id')::int returning *;
 $$ language sql strict;
 

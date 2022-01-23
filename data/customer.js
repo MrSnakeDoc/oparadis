@@ -6,8 +6,7 @@ module.exports = [
 		lastname: "Renault",
 		pseudo: "Machisteamort",
 		phone_number: "9761135139",
-		role_id: 1,
-		created_at: "2021-08-30",
+		isAdmin: false,
 	},
 	{
 		email: "Zackery65@hotmail.com",
@@ -16,8 +15,7 @@ module.exports = [
 		lastname: "Giraud",
 		pseudo: "",
 		phone_number: "2479300513",
-		role_id: 1,
-		created_at: "2021-10-02",
+		isAdmin: false,
 	},
 	{
 		email: "Bettie_Kuhn99@hotmail.com",
@@ -26,8 +24,7 @@ module.exports = [
 		lastname: "Renaud",
 		pseudo: null,
 		phone_number: "6675072761",
-		role_id: 1,
-		created_at: "2021-03-18",
+		isAdmin: false,
 	},
 	{
 		email: "Albin_Haag@hotmail.com",
@@ -36,8 +33,7 @@ module.exports = [
 		lastname: "Brun",
 		pseudo: null,
 		phone_number: "5570130169",
-		role_id: 1,
-		created_at: "2021-12-19",
+		isAdmin: false,
 	},
 	{
 		email: "Candelario_Thompson@yahoo.com",
@@ -46,8 +42,7 @@ module.exports = [
 		lastname: "Cousin",
 		pseudo: null,
 		phone_number: "9825850995",
-		role_id: 1,
-		created_at: "2021-06-10",
+		isAdmin: false,
 	},
 	{
 		email: "Kariane_Bernhard@gmail.com",
@@ -56,8 +51,7 @@ module.exports = [
 		lastname: "Dumont",
 		pseudo: null,
 		phone_number: "2096382825",
-		role_id: 1,
-		created_at: "2021-07-13",
+		isAdmin: false,
 	},
 	{
 		email: "Sim_Simonis44@yahoo.com",
@@ -66,8 +60,7 @@ module.exports = [
 		lastname: "Gaillard",
 		pseudo: null,
 		phone_number: "8727453053",
-		role_id: 1,
-		created_at: "2021-07-15",
+		isAdmin: false,
 	},
 	{
 		email: "Evan99@gmail.com",
@@ -76,8 +69,7 @@ module.exports = [
 		lastname: "Jean",
 		pseudo: null,
 		phone_number: "6991358403",
-		role_id: 1,
-		created_at: "2021-08-27",
+		isAdmin: false,
 	},
 	{
 		email: "Myriam_Bechtelar@hotmail.com",
@@ -86,8 +78,7 @@ module.exports = [
 		lastname: "Remy",
 		pseudo: null,
 		phone_number: "8084149734",
-		role_id: 1,
-		created_at: "2021-07-21",
+		isAdmin: false,
 	},
 	{
 		email: "Vivianne_Aufderhar51@gmail.com",
@@ -96,8 +87,7 @@ module.exports = [
 		lastname: "Brun",
 		pseudo: null,
 		phone_number: "9220269146",
-		role_id: 1,
-		created_at: "2021-08-06",
+		isAdmin: false,
 	},
 	{
 		email: "Abby88@hotmail.com",
@@ -106,8 +96,7 @@ module.exports = [
 		lastname: "Blanchard",
 		pseudo: null,
 		phone_number: "4937035445",
-		role_id: 1,
-		created_at: "2021-08-10",
+		isAdmin: false,
 	},
 	{
 		email: "Pablo75@hotmail.com",
@@ -116,8 +105,7 @@ module.exports = [
 		lastname: "Robert",
 		pseudo: null,
 		phone_number: "4806910041",
-		role_id: 1,
-		created_at: "2021-04-12",
+		isAdmin: false,
 	},
 	{
 		email: "Anastasia_Raynor@yahoo.com",
@@ -126,8 +114,7 @@ module.exports = [
 		lastname: "Caron",
 		pseudo: null,
 		phone_number: "8123106986",
-		role_id: 1,
-		created_at: "2021-10-01",
+		isAdmin: false,
 	},
 	{
 		email: "Emory_Becker28@gmail.com",
@@ -136,8 +123,7 @@ module.exports = [
 		lastname: "Roger",
 		pseudo: null,
 		phone_number: "9317430874",
-		role_id: 1,
-		created_at: "2021-01-25",
+		isAdmin: false,
 	},
 	{
 		email: "Eliane_Blanda@gmail.com",
@@ -146,8 +132,7 @@ module.exports = [
 		lastname: "Huet",
 		pseudo: null,
 		phone_number: "8404106738",
-		role_id: 1,
-		created_at: "2021-11-02",
+		isAdmin: false,
 	},
 	{
 		email: "Leonie39@hotmail.com",
@@ -156,8 +141,7 @@ module.exports = [
 		lastname: "Noel",
 		pseudo: null,
 		phone_number: "7141152378",
-		role_id: 1,
-		created_at: "2021-03-11",
+		isAdmin: false,
 	},
 	{
 		email: "Vena_Kemmer78@hotmail.com",
@@ -166,8 +150,7 @@ module.exports = [
 		lastname: "Francois",
 		pseudo: null,
 		phone_number: "6006025415",
-		role_id: 1,
-		created_at: "2021-10-06",
+		isAdmin: false,
 	},
 	{
 		email: "Edwina49@gmail.com",
@@ -176,8 +159,7 @@ module.exports = [
 		lastname: "Perrot",
 		pseudo: null,
 		phone_number: "8107194872",
-		role_id: 1,
-		created_at: "2021-04-26",
+		isAdmin: false,
 	},
 	{
 		email: "Katheryn_DuBuque@yahoo.com",
@@ -186,8 +168,7 @@ module.exports = [
 		lastname: "Fournier",
 		pseudo: null,
 		phone_number: "1013491046",
-		role_id: 1,
-		created_at: "2021-03-11",
+		isAdmin: false,
 	},
 	{
 		email: "Marquis90@yahoo.com",
@@ -196,8 +177,7 @@ module.exports = [
 		lastname: "Laine",
 		pseudo: null,
 		phone_number: "7364278775",
-		role_id: 1,
-		created_at: "2021-11-19",
+		isAdmin: false,
 	},
 	{
 		email: "Raven27@yahoo.com",
@@ -206,8 +186,7 @@ module.exports = [
 		lastname: "Nguyen",
 		pseudo: null,
 		phone_number: "2222237832",
-		role_id: 1,
-		created_at: "2021-02-13",
+		isAdmin: false,
 	},
 	{
 		email: "Manuela83@yahoo.com",
@@ -216,8 +195,7 @@ module.exports = [
 		lastname: "Lemaire",
 		pseudo: null,
 		phone_number: "6124491148",
-		role_id: 1,
-		created_at: "2021-09-21",
+		isAdmin: false,
 	},
 	{
 		email: "Glenna7@yahoo.com",
@@ -226,8 +204,7 @@ module.exports = [
 		lastname: "Perrot",
 		pseudo: null,
 		phone_number: "7377257646",
-		role_id: 1,
-		created_at: "2021-12-27",
+		isAdmin: false,
 	},
 	{
 		email: "Aniyah92@yahoo.com",
@@ -236,8 +213,7 @@ module.exports = [
 		lastname: "Roussel",
 		pseudo: null,
 		phone_number: "0945079619",
-		role_id: 1,
-		created_at: "2021-04-13",
+		isAdmin: false,
 	},
 	{
 		email: "Maybell.Miller38@hotmail.com",
@@ -246,8 +222,7 @@ module.exports = [
 		lastname: "Charles",
 		pseudo: null,
 		phone_number: "3674569916",
-		role_id: 1,
-		created_at: "2021-02-09",
+		isAdmin: false,
 	},
 	{
 		email: "Rahsaan.Simonis@gmail.com",
@@ -256,8 +231,7 @@ module.exports = [
 		lastname: "Moreau",
 		pseudo: null,
 		phone_number: "8075295492",
-		role_id: 1,
-		created_at: "2021-09-11",
+		isAdmin: false,
 	},
 	{
 		email: "Elvie_Corwin@hotmail.com",
@@ -266,8 +240,7 @@ module.exports = [
 		lastname: "Guerin",
 		pseudo: null,
 		phone_number: "2133561399",
-		role_id: 1,
-		created_at: "2021-06-10",
+		isAdmin: false,
 	},
 	{
 		email: "Justice62@gmail.com",
@@ -276,8 +249,7 @@ module.exports = [
 		lastname: "Sanchez",
 		pseudo: null,
 		phone_number: "2512091847",
-		role_id: 1,
-		created_at: "2021-01-29",
+		isAdmin: false,
 	},
 	{
 		email: "Linnie.Huels23@gmail.com",
@@ -286,8 +258,7 @@ module.exports = [
 		lastname: "Gerard",
 		pseudo: null,
 		phone_number: "4661744509",
-		role_id: 1,
-		created_at: "2021-01-29",
+		isAdmin: false,
 	},
 	{
 		email: "Elaina.Marks77@gmail.com",
@@ -296,8 +267,7 @@ module.exports = [
 		lastname: "Fontaine",
 		pseudo: null,
 		phone_number: "7863956310",
-		role_id: 1,
-		created_at: "2021-09-12",
+		isAdmin: false,
 	},
 	{
 		email: "Jacey90@gmail.com",
@@ -306,8 +276,7 @@ module.exports = [
 		lastname: "Leroy",
 		pseudo: null,
 		phone_number: "2622996953",
-		role_id: 1,
-		created_at: "2021-09-10",
+		isAdmin: false,
 	},
 	{
 		email: "Josephine37@gmail.com",
@@ -316,8 +285,7 @@ module.exports = [
 		lastname: "Durand",
 		pseudo: null,
 		phone_number: "4069785018",
-		role_id: 1,
-		created_at: "2021-05-02",
+		isAdmin: false,
 	},
 	{
 		email: "Victoria28@gmail.com",
@@ -326,8 +294,7 @@ module.exports = [
 		lastname: "Barbier",
 		pseudo: null,
 		phone_number: "6301398406",
-		role_id: 1,
-		created_at: "2021-06-09",
+		isAdmin: false,
 	},
 	{
 		email: "Sasha.Schmidt@hotmail.com",
@@ -336,8 +303,7 @@ module.exports = [
 		lastname: "Leroux",
 		pseudo: null,
 		phone_number: "0184884873",
-		role_id: 1,
-		created_at: "2021-10-12",
+		isAdmin: false,
 	},
 	{
 		email: "Weldon96@gmail.com",
@@ -346,8 +312,7 @@ module.exports = [
 		lastname: "Marchand",
 		pseudo: null,
 		phone_number: "8247664273",
-		role_id: 1,
-		created_at: "2021-03-18",
+		isAdmin: false,
 	},
 	{
 		email: "Wiley.OKon@gmail.com",
@@ -356,8 +321,7 @@ module.exports = [
 		lastname: "Joly",
 		pseudo: null,
 		phone_number: "5664686106",
-		role_id: 1,
-		created_at: "2021-06-16",
+		isAdmin: false,
 	},
 	{
 		email: "Erna75@hotmail.com",
@@ -366,8 +330,7 @@ module.exports = [
 		lastname: "Muller",
 		pseudo: null,
 		phone_number: "8702797471",
-		role_id: 1,
-		created_at: "2021-11-19",
+		isAdmin: false,
 	},
 	{
 		email: "Dawson.Weimann@gmail.com",
@@ -376,8 +339,7 @@ module.exports = [
 		lastname: "Nicolas",
 		pseudo: null,
 		phone_number: "9485894901",
-		role_id: 1,
-		created_at: "2021-01-03",
+		isAdmin: false,
 	},
 	{
 		email: "Elouise_Fahey@gmail.com",
@@ -386,8 +348,7 @@ module.exports = [
 		lastname: "Rolland",
 		pseudo: null,
 		phone_number: "8167725978",
-		role_id: 1,
-		created_at: "2021-02-19",
+		isAdmin: false,
 	},
 	{
 		email: "Verlie_Ryan@hotmail.com",
@@ -396,8 +357,7 @@ module.exports = [
 		lastname: "Barbier",
 		pseudo: null,
 		phone_number: "0932559311",
-		role_id: 1,
-		created_at: "2021-07-02",
+		isAdmin: false,
 	},
 	{
 		email: "Andres.Cummerata79@yahoo.com",
@@ -406,8 +366,7 @@ module.exports = [
 		lastname: "Breton",
 		pseudo: null,
 		phone_number: "4233527917",
-		role_id: 1,
-		created_at: "2021-04-14",
+		isAdmin: false,
 	},
 	{
 		email: "Arturo.Macejkovic96@gmail.com",
@@ -416,8 +375,7 @@ module.exports = [
 		lastname: "Gaillard",
 		pseudo: null,
 		phone_number: "6262691267",
-		role_id: 1,
-		created_at: "2021-06-22",
+		isAdmin: false,
 	},
 	{
 		email: "Maya.Runolfsson57@gmail.com",
@@ -426,8 +384,7 @@ module.exports = [
 		lastname: "Cousin",
 		pseudo: null,
 		phone_number: "3775713591",
-		role_id: 1,
-		created_at: "2021-10-23",
+		isAdmin: false,
 	},
 	{
 		email: "Elnora_Torphy@hotmail.com",
@@ -436,8 +393,7 @@ module.exports = [
 		lastname: "Leclercq",
 		pseudo: null,
 		phone_number: "0646528092",
-		role_id: 1,
-		created_at: "2021-03-22",
+		isAdmin: false,
 	},
 	{
 		email: "Karine.Anderson@hotmail.com",
@@ -446,8 +402,7 @@ module.exports = [
 		lastname: "Roche",
 		pseudo: null,
 		phone_number: "1107548058",
-		role_id: 1,
-		created_at: "2021-05-19",
+		isAdmin: false,
 	},
 	{
 		email: "Kelsi_Kshlerin@gmail.com",
@@ -456,8 +411,7 @@ module.exports = [
 		lastname: "Mercier",
 		pseudo: null,
 		phone_number: "9001184373",
-		role_id: 1,
-		created_at: "2021-03-21",
+		isAdmin: false,
 	},
 	{
 		email: "Wilfredo.Effertz@hotmail.com",
@@ -466,8 +420,7 @@ module.exports = [
 		lastname: "Guillaume",
 		pseudo: null,
 		phone_number: "6348574540",
-		role_id: 1,
-		created_at: "2021-05-03",
+		isAdmin: false,
 	},
 	{
 		email: "Ford_Stoltenberg12@hotmail.com",
@@ -476,8 +429,7 @@ module.exports = [
 		lastname: "Morin",
 		pseudo: null,
 		phone_number: "1628616282",
-		role_id: 1,
-		created_at: "2021-01-09",
+		isAdmin: false,
 	},
 	{
 		email: "Nova.Bednar27@yahoo.com",
@@ -486,8 +438,7 @@ module.exports = [
 		lastname: "Dupont",
 		pseudo: null,
 		phone_number: "3874091623",
-		role_id: 1,
-		created_at: "2021-07-05",
+		isAdmin: false,
 	},
 	{
 		email: "Jaden.Emmerich6@yahoo.com",
@@ -496,8 +447,7 @@ module.exports = [
 		lastname: "Olivier",
 		pseudo: null,
 		phone_number: "2619065668",
-		role_id: 1,
-		created_at: "2021-09-16",
+		isAdmin: false,
 	},
 	{
 		email: "Darron.Jakubowski50@gmail.com",
@@ -506,8 +456,7 @@ module.exports = [
 		lastname: "Thomas",
 		pseudo: null,
 		phone_number: "4090879156",
-		role_id: 1,
-		created_at: "2021-03-18",
+		isAdmin: false,
 	},
 	{
 		email: "Nella_Rohan86@gmail.com",
@@ -516,8 +465,7 @@ module.exports = [
 		lastname: "Dumont",
 		pseudo: null,
 		phone_number: "1662159857",
-		role_id: 1,
-		created_at: "2021-01-28",
+		isAdmin: false,
 	},
 	{
 		email: "Josue_Gleichner@yahoo.com",
@@ -526,8 +474,7 @@ module.exports = [
 		lastname: "Roux",
 		pseudo: null,
 		phone_number: "9814395943",
-		role_id: 1,
-		created_at: "2021-10-20",
+		isAdmin: false,
 	},
 	{
 		email: "Marquise_Auer19@gmail.com",
@@ -536,8 +483,7 @@ module.exports = [
 		lastname: "Da silva",
 		pseudo: null,
 		phone_number: "4492536911",
-		role_id: 1,
-		created_at: "2021-01-31",
+		isAdmin: false,
 	},
 	{
 		email: "Dennis.Osinski@yahoo.com",
@@ -546,8 +492,7 @@ module.exports = [
 		lastname: "Deschamps",
 		pseudo: null,
 		phone_number: "7653406130",
-		role_id: 1,
-		created_at: "2021-05-29",
+		isAdmin: false,
 	},
 	{
 		email: "Madisyn.Towne@hotmail.com",
@@ -556,8 +501,7 @@ module.exports = [
 		lastname: "Pons",
 		pseudo: null,
 		phone_number: "7777313203",
-		role_id: 1,
-		created_at: "2021-05-12",
+		isAdmin: false,
 	},
 	{
 		email: "Sincere94@hotmail.com",
@@ -566,8 +510,7 @@ module.exports = [
 		lastname: "Renard",
 		pseudo: null,
 		phone_number: "1979413674",
-		role_id: 1,
-		created_at: "2021-02-23",
+		isAdmin: false,
 	},
 	{
 		email: "Rollin_Hamill@hotmail.com",
@@ -576,8 +519,7 @@ module.exports = [
 		lastname: "Olivier",
 		pseudo: null,
 		phone_number: "4363070908",
-		role_id: 1,
-		created_at: "2021-12-27",
+		isAdmin: false,
 	},
 	{
 		email: "Moshe.Smith@yahoo.com",
@@ -586,8 +528,7 @@ module.exports = [
 		lastname: "Francois",
 		pseudo: null,
 		phone_number: "8962289146",
-		role_id: 1,
-		created_at: "2021-06-19",
+		isAdmin: false,
 	},
 	{
 		email: "Maximus6@gmail.com",
@@ -596,8 +537,7 @@ module.exports = [
 		lastname: "Rodriguez",
 		pseudo: null,
 		phone_number: "4480681805",
-		role_id: 1,
-		created_at: "2021-12-21",
+		isAdmin: false,
 	},
 	{
 		email: "Jordon_Murray@gmail.com",
@@ -606,8 +546,7 @@ module.exports = [
 		lastname: "Petit",
 		pseudo: null,
 		phone_number: "0646059640",
-		role_id: 1,
-		created_at: "2021-05-30",
+		isAdmin: false,
 	},
 	{
 		email: "Bradley.Kuhic2@yahoo.com",
@@ -616,8 +555,7 @@ module.exports = [
 		lastname: "Mathieu",
 		pseudo: null,
 		phone_number: "0101932254",
-		role_id: 1,
-		created_at: "2021-04-16",
+		isAdmin: false,
 	},
 	{
 		email: "Valentin_Casper@hotmail.com",
@@ -626,8 +564,7 @@ module.exports = [
 		lastname: "Leclerc",
 		pseudo: null,
 		phone_number: "2067650980",
-		role_id: 1,
-		created_at: "2021-03-05",
+		isAdmin: false,
 	},
 	{
 		email: "Juliana.Ferry92@gmail.com",
@@ -636,8 +573,7 @@ module.exports = [
 		lastname: "Dumas",
 		pseudo: null,
 		phone_number: "5386718817",
-		role_id: 1,
-		created_at: "2021-05-09",
+		isAdmin: false,
 	},
 	{
 		email: "Gavin70@hotmail.com",
@@ -646,8 +582,7 @@ module.exports = [
 		lastname: "Meyer",
 		pseudo: null,
 		phone_number: "6604459225",
-		role_id: 1,
-		created_at: "2021-10-01",
+		isAdmin: false,
 	},
 	{
 		email: "Claudie.McKenzie@yahoo.com",
@@ -656,8 +591,7 @@ module.exports = [
 		lastname: "Lucas",
 		pseudo: null,
 		phone_number: "4475464007",
-		role_id: 1,
-		created_at: "2021-07-02",
+		isAdmin: false,
 	},
 	{
 		email: "Rose.Wolff44@gmail.com",
@@ -666,8 +600,7 @@ module.exports = [
 		lastname: "Colin",
 		pseudo: null,
 		phone_number: "4252497912",
-		role_id: 1,
-		created_at: "2021-10-31",
+		isAdmin: false,
 	},
 	{
 		email: "Meghan_Jast@yahoo.com",
@@ -676,8 +609,7 @@ module.exports = [
 		lastname: "Aubry",
 		pseudo: null,
 		phone_number: "4994526014",
-		role_id: 1,
-		created_at: "2021-11-23",
+		isAdmin: false,
 	},
 	{
 		email: "Alayna_Rosenbaum67@gmail.com",
@@ -686,8 +618,7 @@ module.exports = [
 		lastname: "Guyot",
 		pseudo: null,
 		phone_number: "4018314393",
-		role_id: 1,
-		created_at: "2021-09-18",
+		isAdmin: false,
 	},
 	{
 		email: "Kelli.Maggio@gmail.com",
@@ -696,8 +627,7 @@ module.exports = [
 		lastname: "Bertrand",
 		pseudo: null,
 		phone_number: "5110896351",
-		role_id: 1,
-		created_at: "2021-08-10",
+		isAdmin: false,
 	},
 	{
 		email: "Lenna.Dietrich75@yahoo.com",
@@ -706,8 +636,7 @@ module.exports = [
 		lastname: "Legrand",
 		pseudo: null,
 		phone_number: "5346697039",
-		role_id: 1,
-		created_at: "2021-04-21",
+		isAdmin: false,
 	},
 	{
 		email: "Justina_Weber24@hotmail.com",
@@ -716,8 +645,7 @@ module.exports = [
 		lastname: "Philippe",
 		pseudo: null,
 		phone_number: "1821441711",
-		role_id: 1,
-		created_at: "2021-03-25",
+		isAdmin: false,
 	},
 	{
 		email: "Flossie44@yahoo.com",
@@ -726,8 +654,7 @@ module.exports = [
 		lastname: "Perrin",
 		pseudo: null,
 		phone_number: "3143833050",
-		role_id: 1,
-		created_at: "2021-03-28",
+		isAdmin: false,
 	},
 	{
 		email: "Stephanie.Littel@gmail.com",
@@ -736,8 +663,7 @@ module.exports = [
 		lastname: "Fontaine",
 		pseudo: null,
 		phone_number: "5711358994",
-		role_id: 1,
-		created_at: "2021-01-25",
+		isAdmin: false,
 	},
 	{
 		email: "Lillian_Kling@hotmail.com",
@@ -746,8 +672,7 @@ module.exports = [
 		lastname: "Dupont",
 		pseudo: null,
 		phone_number: "7922515449",
-		role_id: 1,
-		created_at: "2021-08-29",
+		isAdmin: false,
 	},
 	{
 		email: "Fannie.Dickens@hotmail.com",
@@ -756,8 +681,7 @@ module.exports = [
 		lastname: "Roy",
 		pseudo: null,
 		phone_number: "8518211617",
-		role_id: 1,
-		created_at: "2021-10-16",
+		isAdmin: false,
 	},
 	{
 		email: "Bertha.Kassulke@gmail.com",
@@ -766,8 +690,7 @@ module.exports = [
 		lastname: "Paul",
 		pseudo: null,
 		phone_number: "1804791030",
-		role_id: 1,
-		created_at: "2021-08-01",
+		isAdmin: false,
 	},
 	{
 		email: "Rahsaan33@yahoo.com",
@@ -776,8 +699,7 @@ module.exports = [
 		lastname: "Chevalier",
 		pseudo: null,
 		phone_number: "6184034263",
-		role_id: 1,
-		created_at: "2021-08-06",
+		isAdmin: false,
 	},
 	{
 		email: "Morton30@yahoo.com",
@@ -786,8 +708,7 @@ module.exports = [
 		lastname: "Marty",
 		pseudo: null,
 		phone_number: "5252045800",
-		role_id: 1,
-		created_at: "2021-11-03",
+		isAdmin: false,
 	},
 	{
 		email: "Lyla_Streich60@gmail.com",
@@ -796,8 +717,7 @@ module.exports = [
 		lastname: "Martinez",
 		pseudo: null,
 		phone_number: "0563103305",
-		role_id: 1,
-		created_at: "2021-12-09",
+		isAdmin: false,
 	},
 	{
 		email: "Carolina_King82@yahoo.com",
@@ -806,8 +726,7 @@ module.exports = [
 		lastname: "Prevost",
 		pseudo: null,
 		phone_number: "9915324248",
-		role_id: 1,
-		created_at: "2021-12-16",
+		isAdmin: false,
 	},
 	{
 		email: "Abel_Wuckert35@yahoo.com",
@@ -816,8 +735,7 @@ module.exports = [
 		lastname: "Laurent",
 		pseudo: null,
 		phone_number: "3835047079",
-		role_id: 1,
-		created_at: "2021-10-10",
+		isAdmin: false,
 	},
 	{
 		email: "Titus_Jones98@hotmail.com",
@@ -826,8 +744,7 @@ module.exports = [
 		lastname: "Perez",
 		pseudo: null,
 		phone_number: "7119237828",
-		role_id: 1,
-		created_at: "2021-05-23",
+		isAdmin: false,
 	},
 	{
 		email: "Stacey18@hotmail.com",
@@ -836,8 +753,7 @@ module.exports = [
 		lastname: "Petit",
 		pseudo: null,
 		phone_number: "5931223191",
-		role_id: 1,
-		created_at: "2021-09-04",
+		isAdmin: false,
 	},
 	{
 		email: "Elton86@hotmail.com",
@@ -846,8 +762,7 @@ module.exports = [
 		lastname: "Roussel",
 		pseudo: null,
 		phone_number: "8363148783",
-		role_id: 1,
-		created_at: "2021-07-06",
+		isAdmin: false,
 	},
 	{
 		email: "Rebeca_Kertzmann@gmail.com",
@@ -856,8 +771,7 @@ module.exports = [
 		lastname: "Joly",
 		pseudo: null,
 		phone_number: "4988985690",
-		role_id: 1,
-		created_at: "2021-11-19",
+		isAdmin: false,
 	},
 	{
 		email: "Helena.White73@yahoo.com",
@@ -866,8 +780,7 @@ module.exports = [
 		lastname: "Girard",
 		pseudo: null,
 		phone_number: "2168917528",
-		role_id: 1,
-		created_at: "2021-04-13",
+		isAdmin: false,
 	},
 	{
 		email: "Gabriel.Collier@hotmail.com",
@@ -876,8 +789,7 @@ module.exports = [
 		lastname: "Gaillard",
 		pseudo: null,
 		phone_number: "9072849643",
-		role_id: 1,
-		created_at: "2021-08-16",
+		isAdmin: false,
 	},
 	{
 		email: "Clifton_Abernathy@yahoo.com",
@@ -886,8 +798,7 @@ module.exports = [
 		lastname: "Laurent",
 		pseudo: null,
 		phone_number: "5754624595",
-		role_id: 1,
-		created_at: "2021-12-04",
+		isAdmin: false,
 	},
 	{
 		email: "Florian62@gmail.com",
@@ -896,8 +807,7 @@ module.exports = [
 		lastname: "Carre",
 		pseudo: null,
 		phone_number: "0640512543",
-		role_id: 1,
-		created_at: "2021-11-24",
+		isAdmin: false,
 	},
 	{
 		email: "Ronny38@hotmail.com",
@@ -906,8 +816,7 @@ module.exports = [
 		lastname: "Lefevre",
 		pseudo: null,
 		phone_number: "8260115741",
-		role_id: 1,
-		created_at: "2021-09-02",
+		isAdmin: false,
 	},
 	{
 		email: "Ollie_Welch34@hotmail.com",
@@ -916,8 +825,7 @@ module.exports = [
 		lastname: "Guerin",
 		pseudo: null,
 		phone_number: "2349823694",
-		role_id: 1,
-		created_at: "2021-03-30",
+		isAdmin: false,
 	},
 	{
 		email: "Tierra.Ondricka@yahoo.com",
@@ -926,8 +834,7 @@ module.exports = [
 		lastname: "Laurent",
 		pseudo: null,
 		phone_number: "6060180429",
-		role_id: 1,
-		created_at: "2021-08-15",
+		isAdmin: false,
 	},
 	{
 		email: "Dana.Wolf@yahoo.com",
@@ -936,8 +843,7 @@ module.exports = [
 		lastname: "Richard",
 		pseudo: null,
 		phone_number: "0578193891",
-		role_id: 1,
-		created_at: "2021-01-27",
+		isAdmin: false,
 	},
 	{
 		email: "Freda_Lockman91@gmail.com",
@@ -946,8 +852,7 @@ module.exports = [
 		lastname: "Roger",
 		pseudo: null,
 		phone_number: "8471418025",
-		role_id: 1,
-		created_at: "2021-01-26",
+		isAdmin: false,
 	},
 	{
 		email: "Erica_Donnelly60@hotmail.com",
@@ -956,8 +861,7 @@ module.exports = [
 		lastname: "Roux",
 		pseudo: null,
 		phone_number: "7674724156",
-		role_id: 1,
-		created_at: "2021-09-22",
+		isAdmin: false,
 	},
 	{
 		email: "Shania25@hotmail.com",
@@ -966,8 +870,7 @@ module.exports = [
 		lastname: "Mercier",
 		pseudo: null,
 		phone_number: "9989734492",
-		role_id: 1,
-		created_at: "2021-09-19",
+		isAdmin: false,
 	},
 	{
 		email: "Yolanda.Rice75@hotmail.com",
@@ -976,8 +879,7 @@ module.exports = [
 		lastname: "Gautier",
 		pseudo: null,
 		phone_number: "3543281298",
-		role_id: 1,
-		created_at: "2021-03-16",
+		isAdmin: false,
 	},
 	{
 		email: "Kiarra30@yahoo.com",
@@ -986,8 +888,7 @@ module.exports = [
 		lastname: "Collet",
 		pseudo: null,
 		phone_number: "0739009532",
-		role_id: 1,
-		created_at: "2021-08-17",
+		isAdmin: false,
 	},
 	{
 		email: "Odell94@yahoo.com",
@@ -996,7 +897,6 @@ module.exports = [
 		lastname: "Roussel",
 		pseudo: null,
 		phone_number: "9632003903",
-		role_id: 1,
-		created_at: "2021-04-02",
+		isAdmin: false,
 	},
 ];

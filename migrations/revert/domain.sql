@@ -2,6 +2,8 @@
 
 BEGIN;
 
+DROP VIEW IF EXISTS house_view;
+
 ALTER TABLE HOUSE 
     ALTER COLUMN nb_rooms TYPE int,
     ALTER COLUMN nb_bedrooms TYPE int,
@@ -10,7 +12,5 @@ ALTER TABLE HOUSE
     ALTER COLUMN "floor" TYPE int;
 
 DROP DOMAIN posint;
-
-DROP VIEW IF EXISTS house_view;
 
 COMMIT;

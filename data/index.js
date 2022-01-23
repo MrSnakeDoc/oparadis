@@ -1,4 +1,3 @@
-const role = require("./role");
 const customer = require("./customer");
 const connection = require("./connection");
 const country = require("./country");
@@ -10,7 +9,6 @@ const absentee = require("./absentee");
 const photo = require("./photo");
 
 module.exports = {
-	role,
 	customer,
 	connection,
 	house_type,
