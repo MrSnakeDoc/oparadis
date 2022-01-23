@@ -1,5 +1,9 @@
 @host = http://localhost:5000
 
+@access_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDIsImlhdCI6MTY0Mjk1MTA3OSwiZXhwIjoxNjQyOTUyODc5fQ.nBxtvr5CoLc2fH1SqAxZeBmY9JKk3Nic8mMUrqliiWY
+
+@refresh_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDIsImlhdCI6MTY0Mjk1MTA3OSwiZXhwIjoxNjQyOTU4Mjc5fQ.tnkNtSjTZai1jDj_XKts-Ds3kRJHYj3hlmcBhXbL-S0
+
 ###
 POST {{host}}/signup HTTP/1.1
 content-type: application/json
@@ -13,13 +17,12 @@ content-type: application/json
         "pseudo": "Abdul",
         "phone_number": "0134538467",
         "photo":"/src/customer_photos/customer123.jpg",
-        "role_id": 2
+        "isAdmin": false
     }
 
 ###
 POST {{host}}/signin HTTP/1.1
 content-type: application/json
-Authorization: Bearer 
 
 {
     "email": "a@a.com",
@@ -29,4 +32,4 @@ Authorization: Bearer
 ###
 POST {{host}}/token HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDMsImlhdCI6MTY0Mjg5Mzc1OSwiZXhwIjoxNjQyOTAwOTU5fQ.jpm7nE-2Usm6QybuBGhKpbe1tl7Ept4sWaB7yzKkvZ0
+Authorization: Bearer {{access_token}}

@@ -19,10 +19,10 @@ module.exports = {
 		repeat_password: Joi.ref("password"),
 		firstname: Joi.string().required(),
 		lastname: Joi.string().required(),
-		pseudo: Joi.string().empty(''),
+		pseudo: Joi.string().empty(""),
 		phone_number: Joi.string().pattern(re_phone).required(),
-		photo: Joi.binary().encoding('base64'),
-		role_id: Joi.number().integer()
+		photo: Joi.string(),
+		isAdmin: Joi.boolean(),
 	}),
 	update_customer: Joi.object({
 		email: Joi.string()
@@ -38,10 +38,10 @@ module.exports = {
 		repeat_password: Joi.ref("password"),
 		firstname: Joi.string().required(),
 		lastname: Joi.string().required(),
-		pseudo: Joi.string().empty(''),
+		pseudo: Joi.string().empty(""),
 		phone_number: Joi.string().pattern(re_phone).required(),
-		photo: Joi.binary().encoding('base64'),
-		role_id: Joi.number().integer()
+		photo: Joi.string(),
+		isAdmin: Joi.boolean(),
 	}),
 };
 

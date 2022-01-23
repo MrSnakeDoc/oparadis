@@ -7,7 +7,7 @@ module.exports = {
 		try {
 			return jwt.sign({ data: id }, jwt_secret, {
 				algorithm: "HS256",
-				expiresIn: "120s",
+				expiresIn: "1800s",
 			});
 		} catch (error) {
 			throw error;

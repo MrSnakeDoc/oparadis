@@ -34,7 +34,7 @@ const router = Router();
 router
 	.post("/signup", add_customerValidation, customerController.save)
 	.post("/token", authController.refreshToken)
-	.get("/signin", authController.signin);
+	.post("/signin", authController.signin);
 
 router
 	.get("/customers", jwtMW, customerController.findAll)

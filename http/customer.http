@@ -1,31 +1,38 @@
 @host = http://localhost:5000
+@access_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDIsImlhdCI6MTY0Mjk1MTA3OSwiZXhwIjoxNjQyOTUyODc5fQ.nBxtvr5CoLc2fH1SqAxZeBmY9JKk3Nic8mMUrqliiWY
 
 # CUSTOMER
 
 ###
 GET {{host}}/customers HTTP/1.1
 content-type: application/json
+Authorization: Bearer {{access_token}}
+
 
 ###
 GET {{host}}/customers/1 HTTP/1.1
 content-type: application/json
+Authorization: Bearer {{access_token}}
+
 
 ###
 PATCH {{host}}/customers/101 HTTP/1.1
 content-type: application/json
+Authorization: Bearer {{access_token}}
 
-{   
-        "email": "juleedouardmousitque@gmail.com",
-        "password": "landrover",
-		"repeat_password": "landrover",
-        "firstname": "Jules-Edouard",
-        "lastname": "Moustique",
-        "pseudo": "",
-        "phone_number": "0175492412",
-        "photo":"/src/customer_photos/customer123.jpg",
-        "role_id": 2
+{
+    "email": "a@a.com",
+    "password": "Paradis13$",
+    "repeat_password": "Paradis13$",
+    "firstname": "Misa",
+    "lastname": "JarJar Binks",
+    "pseudo": "Kerstone",
+    "phone_number": "0134538467",
+    "photo":"/src/customer_photos/customer25.jpg",
+    "isAdmin": true
 }
 
 ###
 DELETE {{host}}/customers/101 HTTP/1.1
 content-type: application/json
+Authorization: Bearer {{access_token}}

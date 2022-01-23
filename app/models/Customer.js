@@ -1,4 +1,5 @@
 const client = require("../database.js");
+const CoreModel = require("./CoreModel");
 
 /**
  * @typedef {Object} Customer
@@ -26,8 +27,8 @@ module.exports = class Customer {
 	 */
 	static async findAll() {
 		try {
-			const { rows } = await client.query("SELECT * FROM customer");
-			return rows.map((row) => new Customer(row));
+			const results = await CoreModel.getArray("SELECT * FROM customer");
+			return results.map((result) => new Customer(result));
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -45,11 +46,11 @@ module.exports = class Customer {
 	 */
 	static async findOne(id) {
 		try {
-			const { rows } = await client.query(
+			const results = await CoreModel.getRow(
 				"SELECT * FROM customer where id = $1",
 				[id]
 			);
-			return rows[0] ? new Customer(rows[0]) : undefined;
+			return results ? new Customer(results) : undefined;
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -60,11 +61,11 @@ module.exports = class Customer {
 
 	static async authFindOne(email) {
 		try {
-			const { rows } = await client.query(
+			const results = await CoreModel.getRow(
 				"SELECT * FROM customer where email = $1",
 				[email]
 			);
-			return rows[0] ? new Customer(rows[0]) : undefined;
+			return results ? new Customer(results) : undefined;
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -81,10 +82,10 @@ module.exports = class Customer {
 	 */
 	async save() {
 		try {
-			const { rows } = await client.query("SELECT * FROM add_customer($1)", [
+			const result = await CoreModel.getRow("SELECT * FROM add_customer($1)", [
 				this,
 			]);
-			return rows[0] ? new Customer(rows) : undefined;
+			return result ? new Customer(result) : undefined;
 		} catch (error) {
 			if (error.detail) {
 				console.log(error);
@@ -102,10 +103,11 @@ module.exports = class Customer {
 	 */
 	async update() {
 		try {
-			const { rows } = await client.query("SELECT * FROM update_customer($1)", [
-				this,
-			]);
-			return rows[0] ? new Customer(rows) : undefined;
+			const result = await CoreModel.getRow(
+				"SELECT * FROM update_customer($1)",
+				[this]
+			);
+			return result ? new Customer(result) : undefined;
 		} catch (error) {
 			console.log(error);
 			if (error.detail) {
@@ -122,7 +124,7 @@ module.exports = class Customer {
 	 */
 	static async delete(id) {
 		try {
-			await client.query("delete from customer where id = $1", [id]);
+			await CoreModel.getRow("delete from customer where id = $1", [id]);
 			return;
 		} catch (error) {
 			if (error.detail) {
