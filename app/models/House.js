@@ -33,7 +33,7 @@ module.exports = class House {
 	 * @static
 	 * @async
 	 * @returns {Array<House>} all Houses with their owner, animals, and abscenses in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async findAllFull() {
 		try {
@@ -55,7 +55,7 @@ module.exports = class House {
 	 * @static
 	 * @async
 	 * @returns {Object<Customer>} One House with his owner, animals, and abscenses in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async findOneFull(id) {
 		try {
@@ -78,7 +78,7 @@ module.exports = class House {
 	 * @static
 	 * @async
 	 * @returns {Array<House>} All Houses in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async findAll() {
 		try {
@@ -97,7 +97,7 @@ module.exports = class House {
 	 * @static
 	 * @async
 	 * @returns {Object<House>} One House in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async findOne(id) {
 		try {
@@ -118,14 +118,14 @@ module.exports = class House {
 	 * Creates a new House in database
 	 * @async
 	 * @returns {Object<House>} Creates a new House in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	async save() {
 		try {
-			const results = await CoreModel.getRow("SELECT * FROM add_house($1)", [
+			const result = await CoreModel.getRow("SELECT * FROM add_house($1)", [
 				this,
 			]);
-			return results ? new House(results) : undefined;
+			return result ? new House(result) : undefined;
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -138,14 +138,14 @@ module.exports = class House {
 	 * Updates a House in database
 	 * @async
 	 * @returns {Object<House>} Updates a House in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	async update() {
 		try {
-			const results = await CoreModel.getRow(`SELECT * FROM update_house($1)`, [
+			const result = await CoreModel.getRow(`SELECT * FROM update_house($1)`, [
 				this,
 			]);
-			return results ? new House(results) : undefined;
+			return result ? new House(result) : undefined;
 		} catch (error) {
 			console.log(error);
 			if (error.detail) {
@@ -158,7 +158,7 @@ module.exports = class House {
 	 * Delete a House in database
 	 * @async
 	 * @returns {Object<House>} Delete a House in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async delete(id) {
 		try {

@@ -22,7 +22,7 @@ content-type: application/json
     }
     
 ###
-PATCH {{host}}/animals/103 HTTP/1.1
+PATCH {{host}}/animals/101 HTTP/1.1
 content-type: application/json
 
     {
@@ -35,5 +35,5 @@ content-type: application/json
     }
     
 ###
-DELETE {{host}}/animals/103 HTTP/1.1
+DELETE {{host}}/animals/101 HTTP/1.1
 content-type: application/json

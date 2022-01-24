@@ -1,4 +1,4 @@
-const client = require("../database.js");
+const CoreModel = require("./CoreModel");
 
 /**
  * @typedef {Object} Animal
@@ -21,12 +21,12 @@ module.exports = class Animal {
 	 * @static
 	 * @async
 	 * @returns {Array<Animal>} All Animals in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async findAll() {
 		try {
-			const { rows } = await client.query("SELECT * FROM animal");
-			return rows.map((row) => new Animal(row));
+			const results = await CoreModel.getArray("SELECT * FROM animal");
+			return results.map((result) => new Animal(result));
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -40,15 +40,16 @@ module.exports = class Animal {
 	 * @static
 	 * @async
 	 * @returns {Object<Animal>} One Animal in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async findOne(id) {
 		try {
-			const { rows } = await client.query(
+			const result = await CoreModel.getRow(
+				
 				"SELECT * FROM animal WHERE id=$1",
 				[id]
 			);
-			return rows[0] ? new Animal(rows) : undefined;
+			return result ? new Animal(result) : undefined;
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -61,14 +62,14 @@ module.exports = class Animal {
 	 * Creates a new Animal in database
 	 * @async
 	 * @returns {Object<Animal>} Creates a new Animal in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	async save() {
 		try {
-			const { rows } = await client.query("SELECT * FROM add_animal($1)", [
+			const result = await CoreModel.getRow("SELECT * FROM add_animal($1)", [
 				this,
 			]);
-			return rows[0] ? new Animal(rows) : undefined;
+			return result ? new Animal(result) : undefined;
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -81,14 +82,14 @@ module.exports = class Animal {
 	 * Updates a Animal in database
 	 * @async
 	 * @returns {Object<Animal>} Updates a Animal in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	async update() {
 		try {
-			const { rows } = await client.query("SELECT * FROM update_animal($1)", [
+			const result = await CoreModel.getRow("SELECT * FROM update_animal($1)", [
 				this,
 			]);
-			return rows[0] ? new Animal(rows) : undefined;
+			return result ? new Animal(result) : undefined;
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -100,11 +101,11 @@ module.exports = class Animal {
 	 * Delete a Animal in database
 	 * @async
 	 * @returns {Object<Animal>} Delete a Animal in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async delete(id) {
 		try {
-			await client.query("delete from animal where id = $1", [id]);
+			await CoreModel.getRow("delete from animal where id = $1", [id]);
 			return;
 		} catch (error) {
 			if (error.detail) {

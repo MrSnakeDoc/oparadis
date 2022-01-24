@@ -80,5 +80,5 @@ content-type: application/json
     }
 
 ###
-DELETE {{host}}/houses/10 HTTP/1.1
+DELETE {{host}}/houses/101 HTTP/1.1
 content-type: application/json

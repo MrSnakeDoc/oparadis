@@ -1,4 +1,4 @@
-const client = require("../database.js");
+const CoreModel = require("./CoreModel");
 
 /**
  * @typedef {Object} Animal
@@ -21,12 +21,12 @@ module.exports = class Country {
 	 * @static
 	 * @async
 	 * @returns {Array<Country>} All Country in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async findAll() {
 		try {
-			const { rows } = await client.query("SELECT * FROM country");
-			return rows.map((row) => new Country(row));
+			const results = await CoreModel.getArray("SELECT * FROM country");
+			return results.map((result) => new Country(result));
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -40,14 +40,14 @@ module.exports = class Country {
 	 * @static
 	 * @async
 	 * @returns {Object<Type>} One Country in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async findOne(id) {
 		try {
-			const { rows } = await client.query("SELECT * FROM country WHERE id=$1", [
+			const result = await CoreModel.getRow("SELECT * FROM country WHERE id=$1", [
 				id,
 			]);
-			return rows[0] ? new Country(rows) : undefined;
+			return result ? new Country(result) : undefined;
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);

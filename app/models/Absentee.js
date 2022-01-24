@@ -1,4 +1,4 @@
-const client = require("../database.js");
+const CoreModel = require("./CoreModel");
 
 /**
  * @typedef {Object} Absentee
@@ -18,12 +18,12 @@ module.exports = class Absentee {
 	 * @static
 	 * @async
 	 * @returns {Array<Absentee>} All Absentees in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async findAll() {
 		try {
-			const { rows } = await client.query("SELECT * FROM absentee");
-			return rows.map((row) => new Absentee(row));
+			const results = await CoreModel.getArray("SELECT * FROM absentee");
+			return results.map((result) => new Absentee(result));
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -37,15 +37,15 @@ module.exports = class Absentee {
 	 * @static
 	 * @async
 	 * @returns {Object<Absentee>} One Absentee in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async findOne(id) {
 		try {
-			const { rows } = await client.query(
+			const results = await CoreModel.getRow(
 				"SELECT * FROM absentee WHERE id=$1",
 				[id]
 			);
-			return rows[0] ? new Absentee(rows) : undefined;
+			return results ? new Absentee(results) : undefined;
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -58,14 +58,14 @@ module.exports = class Absentee {
 	 * Creates a new Absentee in database
 	 * @async
 	 * @returns {Object<Absentee>} Creates a new Absentee in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	async save() {
 		try {
-			const { rows } = await client.query("SELECT * FROM add_absentee($1)", [
+			const results = await CoreModel.getRow("SELECT * FROM add_absentee($1)", [
 				this,
 			]);
-			return rows[0] ? new Absentee(rows) : undefined;
+			return results ? new Absentee(results) : undefined;
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -78,14 +78,14 @@ module.exports = class Absentee {
 	 * Updates a Absentee in database
 	 * @async
 	 * @returns {Object<Absentee>} Updates a Absentee in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	async update() {
 		try {
-			const { rows } = await client.query("SELECT * FROM update_absentee($1)", [
+			const results = await CoreModel.getRow("SELECT * FROM update_absentee($1)", [
 				this,
 			]);
-			return rows[0] ? new Absentee(rows) : undefined;
+			return results ? new Absentee(results) : undefined;
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -97,11 +97,11 @@ module.exports = class Absentee {
 	 * Delete a Absentee in database
 	 * @async
 	 * @returns {Object<Absentee>} Delete a Absentee in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async delete(id) {
 		try {
-			await client.query("delete from absentee where id = $1", [id]);
+			await CoreModel.getRow("delete from absentee where id = $1", [id]);
 			return;
 		} catch (error) {
 			if (error.detail) {

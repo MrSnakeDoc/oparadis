@@ -1,4 +1,4 @@
-const client = require("../database.js");
+const CoreModel = require("./CoreModel");
 
 /**
  * @typedef {Object} Plant
@@ -19,12 +19,12 @@ module.exports = class Plant {
 	 * @static
 	 * @async
 	 * @returns {Array<Plant>} All Plants in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async findAll() {
 		try {
-			const { rows } = await client.query("SELECT * FROM plant");
-			return rows.map((row) => new Plant(row));
+			const results = await CoreModel.getArray("SELECT * FROM plant");
+			return results.map((result) => new Plant(result));
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -38,15 +38,15 @@ module.exports = class Plant {
 	 * @static
 	 * @async
 	 * @returns {Object<Plant>} One Plant in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async findOne(id) {
 		try {
-			const { rows } = await client.query(
+			const result = await CoreModel.getRow(
 				"SELECT * FROM plant WHERE id=$1",
 				[id]
 			);
-			return rows[0] ? new Plant(rows) : undefined;
+			return result ? new Plant(result) : undefined;
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -59,14 +59,14 @@ module.exports = class Plant {
 	 * Creates a new Plant in database
 	 * @async
 	 * @returns {Object<Plant>} Creates a new Plant in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	async save() {
 		try {
-			const { rows } = await client.query("SELECT * FROM add_plant($1)", [
+			const result = await CoreModel.getRow("SELECT * FROM add_plant($1)", [
 				this,
 			]);
-			return rows[0] ? new Plant(rows) : undefined;
+			return result ? new Plant(result) : undefined;
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -79,14 +79,14 @@ module.exports = class Plant {
 	 * Updates a Plant in database
 	 * @async
 	 * @returns {Object<Plant>} Updates a Plant in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	async update() {
 		try {
-			const { rows } = await client.query("SELECT * FROM update_plant($1)", [
+			const result = await CoreModel.getRow("SELECT * FROM update_plant($1)", [
 				this,
 			]);
-			return rows[0] ? new Plant(rows) : undefined;
+			return result ? new Plant(result) : undefined;
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -98,11 +98,11 @@ module.exports = class Plant {
 	 * Delete a Plant in database
 	 * @async
 	 * @returns {Object<Plant>} Delete a Plant in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async delete(id) {
 		try {
-			await client.query("delete from plant where id = $1", [id]);
+			await CoreModel.getRow("delete from plant where id = $1", [id]);
 			return;
 		} catch (error) {
 			if (error.detail) {
