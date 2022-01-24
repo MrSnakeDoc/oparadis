@@ -1,14 +1,16 @@
-const { pg_url } = require("./config");
+require("dotenv").config();
 const { Pool } = require("pg");
+let conf;
 
-let conf = {
-	connectionString: pg_url,
-};
-
-if (process.env.NODE_ENV === "prod") {
-	conf.ssl = {
-		rejectUnauthorized: false,
-	};
-}
+process.env.NODE_ENV === "prod"
+	? (conf = {
+			connectionString: process.env.DATABASE_URL,
+			ssl: {
+				rejectUnauthorized: false,
+			},
+	  })
+	: (conf = {
+			connectionString: process.env.PG_URL,
+	  });
 
 module.exports = new Pool(conf);

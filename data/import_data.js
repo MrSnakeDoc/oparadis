@@ -1,16 +1,11 @@
 require("dotenv").config();
-const { Pool } = require("pg");
+const client = require("../app/database");
 const bcrypt = require("bcrypt");
 const fullData = require("../data/");
 const salt = 10;
+const env = process.env.NODE_ENV;
 
-let conf = {
-	connectionString: process.env.PG_URL,
-};
-
-const client = new Pool(conf);
-
-(async () => {
+const import_data = async () => {
 	try {
 		const tables = Object.keys(fullData).map((key) => key); //? output : [customer, document, login, appointment, treatment]
 		//? tables.join(', ') => Output: 'customer, document, login, appointment, treatment'
@@ -39,7 +34,7 @@ const client = new Pool(conf);
 				);
 			}
 		}
-		client.end();
+		if (!process.env.NODE_ENV) client.end();
 	} catch (err) {
 		if (err.code === "42P01") {
 			console.log(`Query error, undefined table!, ${err.message}`);
@@ -47,4 +42,15 @@ const client = new Pool(conf);
 			console.log(err.message);
 		}
 	}
-})();
+};
+
+switch (env) {
+	case "development":
+	case "dev":
+	case "production":
+	case "prod":
+		module.exports = import_data;
+		break;
+	default:
+		import_data();
+}
