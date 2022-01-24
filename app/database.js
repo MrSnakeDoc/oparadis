@@ -13,6 +13,4 @@ process.env.ONLINE === "true" || process.env.NODE_ENV === "prod"
 			connectionString: process.env.PG_URL,
 	  });
 
-console.log(conf);
-
 module.exports = new Pool(conf);
