@@ -93,7 +93,7 @@ module.exports = class House {
 					'firstname', customer.firstname,
 					'lastname', customer.lastname,
 					'phone_number', customer.phone_number,
-					'photo', customer.photo, 
+					'avatar', customer.avatar,
 					'created_at', customer.created_at, 
 					'updated_at', customer.updated_at))
 				FROM customer WHERE customer.id = house.customer_id)
@@ -130,7 +130,7 @@ module.exports = class House {
 					'validation', photo.validation)
 				ORDER BY photo.id asc)
 				FROM photo JOIN house ON house.customer_id = customer.id
-				WHERE photo.house_id = house.id)
+				WHERE photo.customer_id = customer.id)
 				AS photos,
 				(SELECT array_agg(json_build_object(
 					'id', id,
@@ -143,7 +143,7 @@ module.exports = class House {
 		full outer JOIN customer ON customer.id = house.customer_id
 		full outer JOIN animal ON animal.customer_id = customer.id
 		full outer JOIN plant ON plant.customer_id = customer.id
-		full outer JOIN photo ON photo.house_id = house.id
+		full outer JOIN photo ON photo.customer_id = customer.id
 		full outer JOIN absentee ON absentee.customer_id = customer.id
 		JOIN house_type ON house_type.id = house.type
 		JOIN country ON country.id = house.country

@@ -47,7 +47,7 @@ CREATE VIEW house_view as
 				'firstname', customer.firstname,
 				'lastname', customer.lastname,
 				'phone_number', customer.phone_number,
-				'photo', customer.photo, 
+				'avatar', customer.avatar,
 				'created_at', customer.created_at, 
 				'updated_at', customer.updated_at))
 			FROM customer WHERE customer.id = house.customer_id)

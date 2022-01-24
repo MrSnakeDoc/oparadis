@@ -10,7 +10,7 @@ CREATE TABLE CUSTOMER (
     lastname text not null,
     pseudo text DEFAULT null,
     phone_number text not null,
-    photo text,
+    avatar text,
     isAdmin Boolean NOT NULL DEFAULT FALSE,
     created_at timestamptz NOT NULL DEFAULT NOW(),
     updated_at timestamptz
