@@ -18,7 +18,7 @@ app.use(bodySanitizer);
 app.use(router);
 
 app.use((_, res) => {
-    res.status(404).send('404 not found');
+	res.status(404).send("404 not found");
 });
 
 module.exports = app;
