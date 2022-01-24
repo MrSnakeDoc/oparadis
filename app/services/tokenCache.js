@@ -7,13 +7,32 @@ const timeout = 7200;
 
 module.exports = {
 	async cache(id, refreshToken) {
-		const key = `${prefix}${id}`;
-		await db.set(key, refreshToken, { EX: timeout, NX: true });
-		return;
+		try {
+			const key = `${prefix}${id}`;
+			await db.set(key, refreshToken, { EX: timeout, NX: true });
+			return;
+		} catch (err) {
+			console.log(err);
+			throw err;
+		}
 	},
 
 	async verifyToken(id, token) {
-		const verifiedToken = await db.get(`${prefix}${id}`);
-		return verifiedToken === token ? true : undefined;
+		try {
+			const verifiedToken = await db.get(`${prefix}${id}`);
+			return verifiedToken === token ? true : undefined;
+		} catch (err) {
+			console.log(err);
+			throw err;
+		}
+	},
+	async deleteToken(id) {
+		try {
+			await db.del(`${prefix}${id}`);
+			return true;
+		} catch (err) {
+			console.log(err);
+			throw err;
+		}
 	},
 };

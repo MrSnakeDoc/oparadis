@@ -10,7 +10,7 @@ module.exports = (req, res, next) => {
 		if (!payload.data) {
 			res.sendStatus(403);
 		}
-		req.userId = payload.userId;
+		req.userId = payload.data;
 		next();
 	} catch (error) {
 		console.log(error);

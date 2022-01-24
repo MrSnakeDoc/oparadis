@@ -7,7 +7,7 @@ module.exports = {
 		try {
 			return jwt.sign({ data: id }, jwt_secret, {
 				algorithm: "HS256",
-				expiresIn: "1800s",
+				expiresIn: "30s",
 			});
 		} catch (error) {
 			throw error;
@@ -25,7 +25,7 @@ module.exports = {
 		try {
 			return jwt.sign({ data: id }, refresh_jwt_secret, {
 				algorithm: "HS256",
-				expiresIn: "7200s",
+				expiresIn: "3600s",
 			});
 		} catch (error) {
 			throw error;
