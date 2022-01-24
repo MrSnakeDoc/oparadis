@@ -6,25 +6,26 @@ module.exports = {
 			const absentee = await Absentee.findAll();
 			res.json(absentee);
 		} catch (err) {
-			res.json(new BaseError(err));
+			res.status(500).json(new BaseError(err));
 		}
 	},
 
 	async findOne(req, res) {
 		try {
 			const absentee = await Absentee.findOne(+req.params.id);
+			if(!absentee.id) res.status(204);
 			res.json(absentee);
 		} catch (err) {
-			res.json(new BaseError(err));
+			res.status(500).json(new BaseError(err));
 		}
 	},
 
 	async save(req, res) {
 		try {
 			const absentee = await new Absentee(req.body).save();
-			res.json(absentee);
+			res.status(201).json(absentee);
 		} catch (err) {
-			res.json(new BaseError(err));
+			res.status(500).json(new BaseError(err));
 		}
 	},
 	async update(req, res) {
@@ -35,7 +36,7 @@ module.exports = {
 			}).update();
 			res.json(absentee);
 		} catch (err) {
-			res.json(new BaseError(err));
+			res.status(500).json(new BaseError(err));
 		}
 	},
 	async delete(req, res) {
@@ -43,7 +44,7 @@ module.exports = {
 			await Absentee.delete(+req.params.id);
 			res.json("Absentee Deleted");
 		} catch (err) {
-			res.json(new BaseError(err));
+			res.status(500).json(new BaseError(err));
 		}
 	},
 };

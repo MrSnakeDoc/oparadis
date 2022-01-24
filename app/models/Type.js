@@ -103,7 +103,7 @@ module.exports = class Type {
 	static async delete(id) {
 		try {
 			await CoreModel.getRow("delete from house_type where id = $1", [id]);
-			return "Type deleted successfully";
+			return;
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);

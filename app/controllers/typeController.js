@@ -6,16 +6,17 @@ module.exports = {
 			const types = await Type.findAll();
 			res.json(types);
 		} catch (err) {
-			res.json(new BaseError(err));
+			res.status(500).json(new BaseError(err));
 		}
 	},
 
 	async findOne(req, res) {
 		try {
 			const type = await Type.findOne(+req.params.id);
+			if(!type.id) res.status(204);
 			res.json(type);
 		} catch (err) {
-			res.json(new BaseError(err));
+			res.status(500).json(new BaseError(err));
 		}
 	},
 
@@ -25,9 +26,9 @@ module.exports = {
 				id: +req.params.id,
 				...req.body,
 			}).save();
-			res.json(type);
+			res.status(201).json(type);
 		} catch (err) {
-			res.json(new BaseError(err));
+			res.status(500).json(new BaseError(err));
 		}
 	},
 
@@ -39,16 +40,16 @@ module.exports = {
 			}).update();
 			res.json(type);
 		} catch (err) {
-			res.json(new BaseError(err));
+			res.status(500).json(new BaseError(err));
 		}
 	},
 
 	async delete(req, res) {
 		try {
-			const message = await Type.delete(+req.params.id);
-			res.json(message);
+			await Type.delete(+req.params.id);
+			res.json("Type deleted successfully");
 		} catch (err) {
-			res.json(new BaseError(err));
+			res.status(500).json(new BaseError(err));
 		}
 	},
 };
