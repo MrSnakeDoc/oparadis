@@ -15,12 +15,6 @@ app.use(cors());
 
 app.use(express.json());
 
-console.log(process.env.IMPORT_DATA);
-
-if (process.env.IMPORT_DATA === true) {
-	import_data();
-}
-
 app.use(bodySanitizer);
 
 app.use(router);

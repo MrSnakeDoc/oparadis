@@ -3,9 +3,8 @@ const client = require("../app/database");
 const bcrypt = require("bcrypt");
 const fullData = require("../data/");
 const salt = 10;
-const env = process.env.NODE_ENV;
 
-const import_data = async () => {
+(async () => {
 	try {
 		const tables = Object.keys(fullData).map((key) => key); //? output : [customer, document, login, appointment, treatment]
 		//? tables.join(', ') => Output: 'customer, document, login, appointment, treatment'
@@ -34,7 +33,7 @@ const import_data = async () => {
 				);
 			}
 		}
-		if (!process.env.NODE_ENV) client.end();
+		client.end();
 	} catch (err) {
 		if (err.code === "42P01") {
 			console.log(`Query error, undefined table!, ${err.message}`);
@@ -42,15 +41,4 @@ const import_data = async () => {
 			console.log(err.message);
 		}
 	}
-};
-
-switch (env) {
-	case "development":
-	case "dev":
-	case "production":
-	case "prod":
-		module.exports = import_data;
-		break;
-	default:
-		import_data();
-}
+})();
