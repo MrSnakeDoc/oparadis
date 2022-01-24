@@ -2,7 +2,13 @@
 
 BEGIN;
 
-DROP VIEW IF EXISTS house_view;
+DROP FUNCTION IF EXISTS house_find_one(int);
+
+DROP FUNCTION IF EXISTS house_full_find_one(int);
+
+DROP VIEW IF EXISTS house_full_find_all;
+
+DROP VIEW IF EXISTS house_find_all;
 
 ALTER TABLE HOUSE 
     ALTER COLUMN nb_rooms TYPE int,
