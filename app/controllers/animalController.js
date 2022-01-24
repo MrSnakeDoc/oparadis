@@ -6,25 +6,26 @@ module.exports = {
 			const animal = await Animal.findAll();
 			res.json(animal);
 		} catch (err) {
-			res.json(new BaseError(err));
+			res.status(500).json(new BaseError(err));
 		}
 	},
 
 	async findOne(req, res) {
 		try {
 			const animal = await Animal.findOne(+req.params.id);
+			if(!animal.id) res.status(204);
 			res.json(animal);
 		} catch (err) {
-			res.json(new BaseError(err));
+			res.status(500).json(new BaseError(err));
 		}
 	},
 
 	async save(req, res) {
 		try {
 			const animal = await new Animal(req.body).save();
-			res.json(animal);
+			res.status(201).json(animal);
 		} catch (err) {
-			res.json(new BaseError(err));
+			res.status(500).json(new BaseError(err));
 		}
 	},
 	async update(req, res) {
@@ -35,7 +36,7 @@ module.exports = {
 			}).update();
 			res.json(animal);
 		} catch (err) {
-			res.json(new BaseError(err));
+			res.status(500).json(new BaseError(err));
 		}
 	},
 	async delete(req, res) {
@@ -43,7 +44,7 @@ module.exports = {
 			await Animal.delete(+req.params.id);
 			res.json("Animal Deleted");
 		} catch (err) {
-			res.json(new BaseError(err));
+			res.status(500).json(new BaseError(err));
 		}
 	},
 };

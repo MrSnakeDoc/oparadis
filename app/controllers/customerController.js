@@ -7,15 +7,16 @@ module.exports = {
 			const customers = await Customer.findAll();
 			res.json(customers);
 		} catch (err) {
-			res.json(new BaseError(err));
+			res.status(500).json(new BaseError(err));
 		}
 	},
 	async findOne(req, res) {
 		try {
 			const customer = await Customer.findOne(+req.params.id);
+			if(!customer.id) res.status(204);
 			res.json(customer);
 		} catch (err) {
-			res.json(new BaseError(err));
+			res.status(500).json(new BaseError(err));
 		}
 	},
 	async save(req, res) {
@@ -23,9 +24,9 @@ module.exports = {
 			delete req.body.repeat_password;
 			req.body.password = await encrypt(req.body.password);
 			const customer = await new Customer(req.body).save();
-			res.json(customer);
+			res.status(201).json(customer);
 		} catch (err) {
-			res.json(new BaseError(err));
+			res.status(500).json(new BaseError(err));
 		}
 	},
 	async update(req, res) {
@@ -39,7 +40,7 @@ module.exports = {
 			}).update();
 			res.json(customer);
 		} catch (err) {
-			res.json(new BaseError(err));
+			res.status(500).json(new BaseError(err));
 		}
 	},
 	async delete(req, res) {
@@ -47,7 +48,7 @@ module.exports = {
 			await Customer.delete(+req.params.id);
 			res.json("Customer Deleted");
 		} catch (err) {
-			res.json(new BaseError(err));
+			res.status(500).json(new BaseError(err));
 		}
 	},
 };
