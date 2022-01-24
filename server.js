@@ -3,7 +3,6 @@ const express = require("express");
 const cors = require("cors");
 const swaggerUi = require("swagger-ui-express");
 const bodySanitizer = require("./app/middlewares/bodySanitizer");
-const import_data = require("./data/import_data");
 const router = require("./app/router.js");
 const docs = require("./app/docs/");
 

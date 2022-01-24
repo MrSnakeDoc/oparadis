@@ -33,7 +33,7 @@ const salt = 10;
 				);
 			}
 		}
-		client.end();
+		if (process.env.ONLINE !== true) client.end();
 	} catch (err) {
 		if (err.code === "42P01") {
 			console.log(`Query error, undefined table!, ${err.message}`);
