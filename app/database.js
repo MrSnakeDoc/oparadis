@@ -2,7 +2,7 @@ require("dotenv").config();
 const { Pool } = require("pg");
 let conf;
 
-process.env.ONLINE === "true" || process.env.ONLINE === true
+process.env.ONLINE === "true" || process.env.NODE_ENV === "prod"
 	? (conf = {
 			connectionString: process.env.DATABASE_URL,
 			ssl: {
