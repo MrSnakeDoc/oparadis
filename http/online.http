@@ -1,0 +1,6 @@
+@host = https://oparadisapi.herokuapp.com
+
+
+###
+GET {{host}}/houses/1 HTTP/1.1
+content-type: application/json
