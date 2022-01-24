@@ -183,9 +183,17 @@ router
 	);
 
 router
-	.get("/types", countryController.findAll)
+	.get("/types", typeController.findAll)
 	.get(
 		"/types/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		paramsValidation,
+		typeController.findOne
+	);
+
+router
+	.get("/countries", countryController.findAll)
+	.get(
+		"/countries/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		countryController.findOne
 	);

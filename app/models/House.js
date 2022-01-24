@@ -1,4 +1,4 @@
-const client = require("../database.js");
+const CoreModel = require("./CoreModel");
 
 /**
  * @typedef {Object} House
@@ -33,12 +33,12 @@ module.exports = class House {
 	 * @static
 	 * @async
 	 * @returns {Array<House>} all Houses with their owner, animals, and abscenses in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async findAllFull() {
 		try {
-			const { rows } = await client.query(`select * from house_view`);
-			return rows.map((row) => new House(row));
+			const results = await CoreModel.getArray(`select * from house_view`);
+			return results.map((result) => new House(result));
 		} catch (error) {
 			console.log(error);
 			if (error.detail) {
@@ -53,11 +53,11 @@ module.exports = class House {
 	 * @static
 	 * @async
 	 * @returns {Object<Customer>} One House with his owner, animals, and abscenses in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async findOneFull(id) {
 		try {
-			const { rows } = await client.query(
+			const results = await CoreModel.getArray(
 				`SELECT house.id,
 				house.title,
 				house.address,
@@ -152,7 +152,7 @@ module.exports = class House {
 		ORDER BY house.id;`,
 				[id]
 			);
-			return rows[0] ? new House(rows) : undefined;
+			return results ? new House(results) : undefined;
 		} catch (error) {
 			console.log(error);
 			if (error.detail) {
@@ -167,11 +167,11 @@ module.exports = class House {
 	 * @static
 	 * @async
 	 * @returns {Array<House>} All Houses in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async findAll() {
 		try {
-			const { rows } = await client.query(`SELECT house.id,
+			const results = await CoreModel.getArray(`SELECT house.id,
 			house.title,
 			house.address,
 			house.zip_code,
@@ -200,7 +200,7 @@ module.exports = class House {
 			house.created_at,
 			house.updated_at,
 			house.validation FROM house`);
-			return rows.map((row) => new House(row));
+			return results.map((result) => new House(result));
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -214,11 +214,11 @@ module.exports = class House {
 	 * @static
 	 * @async
 	 * @returns {Object<House>} One House in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async findOne(id) {
 		try {
-			const { rows } = await client.query(
+			const result = await CoreModel.getRow(
 				`select house.id,
 			house.title,
 			house.address,
@@ -250,7 +250,7 @@ module.exports = class House {
 			house.validation from house where id = $1`,
 				[id]
 			);
-			return rows[0] ? new House(rows) : undefined;
+			return result ? new House(result) : undefined;
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -263,14 +263,14 @@ module.exports = class House {
 	 * Creates a new House in database
 	 * @async
 	 * @returns {Object<House>} Creates a new House in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	async save() {
 		try {
-			const { rows } = await client.query("SELECT * FROM add_house($1)", [
+			const result = await CoreModel.getRow("SELECT * FROM add_house($1)", [
 				this,
 			]);
-			return rows[0] ? new House(rows) : undefined;
+			return result ? new House(result) : undefined;
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -283,7 +283,7 @@ module.exports = class House {
 	 * Updates a House in database
 	 * @async
 	 * @returns {Object<House>} Updates a House in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	async update() {
 		//TODO verify modified field and update validation to true if certain fields are modified.
@@ -292,10 +292,10 @@ module.exports = class House {
 		console.log("model", this);
 		// if ()...
 		try {
-			const { rows } = await client.query(`SELECT * FROM update_house($1)`, [
+			const result = await CoreModel.getRow(`SELECT * FROM update_house($1)`, [
 				this,
 			]);
-			return rows[0] ? new House(rows) : undefined;
+			return result ? new House(result) : undefined;
 		} catch (error) {
 			console.log(error);
 			if (error.detail) {
@@ -308,11 +308,11 @@ module.exports = class House {
 	 * Delete a House in database
 	 * @async
 	 * @returns {Object<House>} Delete a House in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async delete(id) {
 		try {
-			await client.query("delete from house where id = $1", [id]);
+			await CoreModel.getRow("delete from house where id = $1", [id]);
 			return;
 		} catch (error) {
 			if (error.detail) {

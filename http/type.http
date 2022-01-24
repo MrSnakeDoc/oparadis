@@ -5,7 +5,7 @@ GET {{host}}/types/ HTTP/1.1
 content-type: application/json
 
 ###
-GET {{host}}/types/11 HTTP/1.1
+GET {{host}}/types/10 HTTP/1.1
 content-type: application/json
 
 ###

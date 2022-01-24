@@ -1,4 +1,3 @@
-const client = require("../database.js");
 const CoreModel = require("./CoreModel");
 
 /**
@@ -23,7 +22,7 @@ module.exports = class Customer {
 	 * @static
 	 * @async
 	 * @returns {Array<Customer>} All Customers in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async findAll() {
 		try {
@@ -42,7 +41,7 @@ module.exports = class Customer {
 	 * @static
 	 * @async
 	 * @returns {Object<Customer>} One Customer in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async findOne(id) {
 		try {
@@ -78,7 +77,7 @@ module.exports = class Customer {
 	 * Creates a new Customer in database
 	 * @async
 	 * @returns {Object<Customer>} Creates a new Customer in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	async save() {
 		try {
@@ -99,7 +98,7 @@ module.exports = class Customer {
 	 * Updates a Customer in database
 	 * @async
 	 * @returns {Object<Customer>} Updates a Customer in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	async update() {
 		try {
@@ -120,7 +119,7 @@ module.exports = class Customer {
 	 * Delete a Customer in database
 	 * @async
 	 * @returns {String} Delete a Customer in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async delete(id) {
 		try {

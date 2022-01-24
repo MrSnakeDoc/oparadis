@@ -3,13 +3,13 @@ const Joi = require("joi");
 module.exports = {
 	add_photo: Joi.object({
 		photo: Joi.binary().encoding('base64'),
-        house_id: Joi.number().integer(),
+        customer_id: Joi.number().integer(),
 		Validation: Joi.boolean()
 	}),
 
 	update_photo: Joi.object({
 		photo: Joi.binary().encoding('base64'),
-        house_id: Joi.number().integer(),
+        customer_id: Joi.number().integer(),
 		Validation: Joi.boolean()
 	}),
 };

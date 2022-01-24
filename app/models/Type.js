@@ -1,4 +1,4 @@
-const client = require("../database.js");
+const CoreModel = require("./CoreModel");
 
 /**
  * @typedef {Object} Animal
@@ -21,12 +21,12 @@ module.exports = class Type {
 	 * @static
 	 * @async
 	 * @returns {Array<Type>} All Types in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async findAll() {
 		try {
-			const { rows } = await client.query("SELECT * FROM house_type");
-			return rows.map((row) => new Type(row));
+			const results = await CoreModel.getArray("SELECT * FROM house_type");
+			return results.map((result) => new Type(result));
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -40,15 +40,15 @@ module.exports = class Type {
 	 * @static
 	 * @async
 	 * @returns {Object<Type>} One Type in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async findOne(id) {
 		try {
-			const { rows } = await client.query(
+			const result = await CoreModel.getRow(
 				"SELECT * FROM house_type WHERE id=$1",
 				[id]
 			);
-			return rows[0] ? new Type(rows) : undefined;
+			return result ? new Type(result) : undefined;
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -61,12 +61,12 @@ module.exports = class Type {
 	 * Creates a new Type in database
 	 * @async
 	 * @returns {Object<Type>} Creates a new Type in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	async save() {
 		try {
-			const { rows } = await client.query("SELECT * FROM add_type($1)", [this]);
-			return rows[0] ? new Type(rows) : undefined;
+			const result = await CoreModel.getRow("SELECT * FROM add_type($1)", [this]);
+			return result ? new Type(result) : undefined;
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -79,14 +79,14 @@ module.exports = class Type {
 	 * Updates a Type in database
 	 * @async
 	 * @returns {Object<Type>} Updates a Type in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	async update() {
 		try {
-			const { rows } = await client.query("SELECT * FROM update_type($1)", [
+			const result = await CoreModel.getRow("SELECT * FROM update_type($1)", [
 				this,
 			]);
-			return rows[0] ? new Type(rows) : undefined;
+			return result ? new Type(result) : undefined;
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -98,11 +98,11 @@ module.exports = class Type {
 	 * Delete a Type in database
 	 * @async
 	 * @returns {Object<Type>} Delete a Type in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async delete(id) {
 		try {
-			await client.query("delete from house_type where id = $1", [id]);
+			await CoreModel.getRow("delete from house_type where id = $1", [id]);
 			return "Type deleted successfully";
 		} catch (error) {
 			if (error.detail) {

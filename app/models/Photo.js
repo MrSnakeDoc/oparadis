@@ -1,4 +1,4 @@
-const client = require("../database.js");
+const CoreModel = require("./CoreModel");
 
 /**
  * @typedef {Object} Animal
@@ -17,12 +17,12 @@ module.exports = class Photo {
 	 * @static
 	 * @async
 	 * @returns {Array<Photo>} All Photos in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async findAll() {
 		try {
-			const { rows } = await client.query("SELECT * FROM photo");
-			return rows.map((row) => new Photo(row));
+			const results = await CoreModel.getArray("SELECT * FROM photo");
+			return results.map((result) => new Photo(result));
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -36,14 +36,14 @@ module.exports = class Photo {
 	 * @static
 	 * @async
 	 * @returns {Object<Photo>} One Photo in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async findOne(id) {
 		try {
-			const { rows } = await client.query("SELECT * FROM photo WHERE id=$1", [
+			const result = await CoreModel.getRow("SELECT * FROM photo WHERE id=$1", [
 				id,
 			]);
-			return rows[0] ? new Photo(rows) : undefined;
+			return result ? new Photo(result) : undefined;
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -56,14 +56,14 @@ module.exports = class Photo {
 	 * Creates a new Photo in database
 	 * @async
 	 * @returns {Object<Photo>} Creates a new Photo in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	async save() {
 		try {
-			const { rows } = await client.query("SELECT * FROM add_photo($1)", [
+			const result = await CoreModel.getRow("SELECT * FROM add_photo($1)", [
 				this,
 			]);
-			return rows[0] ? new Photo(rows) : undefined;
+			return result ? new Photo(result) : undefined;
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -76,14 +76,14 @@ module.exports = class Photo {
 	 * Updates a Photo in database
 	 * @async
 	 * @returns {Object<Photo>} Updates a Photo in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	async update() {
 		try {
-			const { rows } = await client.query("SELECT * FROM update_photo($1)", [
+			const result = await CoreModel.getRow("SELECT * FROM update_photo($1)", [
 				this,
 			]);
-			return rows[0] ? new Photo(rows) : undefined;
+			return result ? new Photo(result) : undefined;
 		} catch (error) {
 			if (error.detail) {
 				throw new Error(error.detail);
@@ -95,11 +95,11 @@ module.exports = class Photo {
 	 * Delete a Photo in database
 	 * @async
 	 * @returns {Object<Photo>} Delete a Photo in database
-	 * @throws {Error} An error
+	 * @throw {Error} An error
 	 */
 	static async delete(id) {
 		try {
-			await client.query("delete from photo where id = $1", [id]);
+			await CoreModel.getRow("delete from photo where id = $1", [id]);
 			return;
 		} catch (error) {
 			if (error.detail) {
