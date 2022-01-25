@@ -2,6 +2,15 @@ const { Customer, BaseError } = require("../models");
 const { encrypt } = require("../services/encrypt");
 
 module.exports = {
+	async isAdmin(req, res) {
+		try {
+			const customer = await Customer.isAdmin(+req.params.id);
+			if (!customer.id) res.status(204);
+			res.json(customer);
+		} catch (err) {
+			res.status(500).json(new BaseError(err));
+		}
+	},
 	async findAll(_, res) {
 		try {
 			const customers = await Customer.findAll();
@@ -13,7 +22,7 @@ module.exports = {
 	async findOne(req, res) {
 		try {
 			const customer = await Customer.findOne(+req.params.id);
-			if(!customer.id) res.status(204);
+			if (!customer.id) res.status(204);
 			res.json(customer);
 		} catch (err) {
 			res.status(500).json(new BaseError(err));

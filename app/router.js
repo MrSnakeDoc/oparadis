@@ -38,6 +38,7 @@ router
 	.delete("/logout", authController.disconnect);
 
 router
+	.get("/isAdmin", jwtMW, customerController.isAdmin)
 	.get("/customers", jwtMW, customerController.findAll)
 	.get(
 		"/customers/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
@@ -49,7 +50,7 @@ router
 		"/customers/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		jwtMW,
 		paramsValidation,
-		// update_customerValidation,
+		update_customerValidation,
 		customerController.update
 	)
 	.delete(

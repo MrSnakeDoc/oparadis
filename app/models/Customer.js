@@ -24,6 +24,27 @@ module.exports = class Customer {
 	 * @returns {Array<Customer>} All Customers in database
 	 * @throw {Error} An error
 	 */
+	static async isAdmin() {
+		try {
+			const results = await CoreModel.getArray(
+				"SELECT id, isAdmin FROM customer"
+			);
+			return results ? new Customer(results) : undefined;
+		} catch (error) {
+			if (error.detail) {
+				throw new Error(error.detail);
+			}
+			throw error;
+		}
+	}
+
+	/**
+	 * Retrieves all Customers from database
+	 * @static
+	 * @async
+	 * @returns {Array<Customer>} All Customers in database
+	 * @throw {Error} An error
+	 */
 	static async findAll() {
 		try {
 			const results = await CoreModel.getArray("SELECT * FROM customer");
