@@ -3,3 +3,4 @@ node_modules/
 .prettierignore
 .eslintrc
 data/script.js
+Code-status.md

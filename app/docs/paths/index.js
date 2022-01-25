@@ -6,8 +6,10 @@ const absentee = require("./absenteePaths");
 const type = require("./typePaths");
 const photo = require("./photoPaths");
 const country = require("./countryPaths");
+const auth = require("./authPaths");
 
 module.exports = {
+	...auth,
 	...customers,
 	...houses,
 	...animals,

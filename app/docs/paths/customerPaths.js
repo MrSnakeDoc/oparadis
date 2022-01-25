@@ -1,5 +1,5 @@
 module.exports = {
-	"/customers": {
+	"/isAdmin": {
 		get: {
 			tags: ["Customer CRUD operations"],
 			description: "Retrieve a list of all customers",
@@ -30,26 +30,20 @@ module.exports = {
 				},
 			},
 		},
-		post: {
+	},
+	"/customers": {
+		get: {
 			tags: ["Customer CRUD operations"],
-			description: "Return the created customer",
-			summary: "Return the customer newly created",
-			requestBody: {
-				content: {
-					"application/json": {
-						schema: {
-							type: "object",
-							$ref: "#/components/schemas/Customer",
-						},
-					},
-				},
-			},
+			description: "Retrieve a list of all customers",
+			summary: "Return a list of all customers",
+			parameters: [],
 			responses: {
 				200: {
-					description: "Customer was created",
+					description: "Customers were obtained",
 					content: {
 						"application/json": {
 							schema: {
+								type: "array",
 								items: {
 									$ref: "#/components/schemas/Customer",
 								},
@@ -58,13 +52,13 @@ module.exports = {
 					},
 				},
 				400: {
-					description: "Some fields cannot be empty",
+					description: "Bad request",
 				},
 				403: {
 					description: "Forbidden",
 				},
 				404: {
-					description: "Ressources not found",
+					description: "List of customers not found",
 				},
 			},
 		},
