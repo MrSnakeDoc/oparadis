@@ -1,14 +1,10 @@
-CREATE DATABASE CUSTOMERS;
-\c CUSTOMERS;
+CREATE DATABASE OPARADIS;
+\c OPARADIS;
 
-CREATE TABLE PHOTO (
-  ref_photo VARCHAR(42),
-  photo VARCHAR(42),
-  created_at VARCHAR(42),
-  update_at VARCHAR(42),
-  validation VARCHAR(42),
-  ref_house VARCHAR(42),
-  PRIMARY KEY (ref_photo)
+CREATE TABLE HOUSE_TYPE (
+  ref_house_type VARCHAR(42),
+  type VARCHAR(42),
+  PRIMARY KEY (ref_house_type)
 );
 
 CREATE TABLE A_HOMESITTER (
@@ -17,16 +13,14 @@ CREATE TABLE A_HOMESITTER (
   PRIMARY KEY (ref_customer, ref_customer homesitter)
 );
 
-CREATE TABLE PLANT (
-  ref_plant VARCHAR(42),
-  type VARCHAR(42),
-  notes VARCHAR(42),
+CREATE TABLE PHOTO (
+  ref_photo VARCHAR(42),
   photo VARCHAR(42),
   created_at VARCHAR(42),
   update_at VARCHAR(42),
   validation VARCHAR(42),
   ref_customer VARCHAR(42),
-  PRIMARY KEY (ref_plant)
+  PRIMARY KEY (ref_photo)
 );
 
 CREATE TABLE HOUSE (
@@ -71,11 +65,10 @@ CREATE TABLE CUSTOMER (
   lastname VARCHAR(42),
   pseudo VARCHAR(42),
   phone_number VARCHAR(42),
-  photo VARCHAR(42),
-  role_id VARCHAR(42),
+  avatar VARCHAR(42),
+  isadmin VARCHAR(42),
   created_at VARCHAR(42),
   update_at VARCHAR(42),
-  ref_role VARCHAR(42),
   ref_house VARCHAR(42),
   PRIMARY KEY (ref_customer)
 );
@@ -86,10 +79,12 @@ CREATE TABLE COUNTRY (
   PRIMARY KEY (ref_country)
 );
 
-CREATE TABLE HOUSE_TYPE (
-  ref_house_type VARCHAR(42),
-  type VARCHAR(42),
-  PRIMARY KEY (ref_house_type)
+CREATE TABLE ABSENTEE (
+  ref_absentee VARCHAR(42),
+  starting_date VARCHAR(42),
+  ending_date VARCHAR(42),
+  ref_customer VARCHAR(42),
+  PRIMARY KEY (ref_absentee)
 );
 
 CREATE TABLE ANIMAL (
@@ -106,27 +101,24 @@ CREATE TABLE ANIMAL (
   PRIMARY KEY (ref_animal)
 );
 
-CREATE TABLE ROLE (
-  ref_role VARCHAR(42),
-  role VARCHAR(42),
-  PRIMARY KEY (ref_role)
-);
-
-CREATE TABLE ABSENTEE (
-  ref_absentee VARCHAR(42),
-  starting_date VARCHAR(42),
-  ending_date VARCHAR(42),
+CREATE TABLE PLANT (
+  ref_plant VARCHAR(42),
+  type VARCHAR(42),
+  notes VARCHAR(42),
+  photo VARCHAR(42),
+  created_at VARCHAR(42),
+  update_at VARCHAR(42),
+  validation VARCHAR(42),
   ref_customer VARCHAR(42),
-  PRIMARY KEY (ref_absentee)
+  PRIMARY KEY (ref_plant)
 );
 
-ALTER TABLE PHOTO ADD FOREIGN KEY (ref_house) REFERENCES HOUSE (ref_house);
 ALTER TABLE A_HOMESITTER ADD FOREIGN KEY (ref_customer homesitter) REFERENCES CUSTOMER (ref_customer);
 ALTER TABLE A_HOMESITTER ADD FOREIGN KEY (ref_customer) REFERENCES CUSTOMER (ref_customer);
-ALTER TABLE PLANT ADD FOREIGN KEY (ref_customer) REFERENCES CUSTOMER (ref_customer);
+ALTER TABLE PHOTO ADD FOREIGN KEY (ref_customer) REFERENCES CUSTOMER (ref_customer);
 ALTER TABLE HOUSE ADD FOREIGN KEY (ref_country) REFERENCES COUNTRY (ref_country);
 ALTER TABLE HOUSE ADD FOREIGN KEY (ref_house_type) REFERENCES HOUSE_TYPE (ref_house_type);
 ALTER TABLE CUSTOMER ADD FOREIGN KEY (ref_house) REFERENCES HOUSE (ref_house);
-ALTER TABLE CUSTOMER ADD FOREIGN KEY (ref_role) REFERENCES ROLE (ref_role);
-ALTER TABLE ANIMAL ADD FOREIGN KEY (ref_customer) REFERENCES CUSTOMER (ref_customer);
 ALTER TABLE ABSENTEE ADD FOREIGN KEY (ref_customer) REFERENCES CUSTOMER (ref_customer);
+ALTER TABLE ANIMAL ADD FOREIGN KEY (ref_customer) REFERENCES CUSTOMER (ref_customer);
+ALTER TABLE PLANT ADD FOREIGN KEY (ref_customer) REFERENCES CUSTOMER (ref_customer);

@@ -31,12 +31,15 @@ const {
 } = require("./middlewares/");
 const router = Router();
 
+// JWT road
+//! We verify with add_customerValidation (joi) that the format is correct
 router
 	.post("/signup", add_customerValidation, customerController.save)
 	.post("/token", authController.refreshToken)
 	.post("/signin", authController.signin)
 	.delete("/logout", authController.disconnect);
 
+	//! Double check on id with regex and joi (number between 1 and 9999)
 router
 	.get("/isAdmin", jwtMW, customerController.isAdmin)
 	.get("/customers", jwtMW, customerController.findAll)
@@ -46,6 +49,7 @@ router
 		paramsValidation,
 		customerController.findOne
 	)
+	//! We verify with update_customerValidation (joi) that the format is correct
 	.patch(
 		"/customers/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		jwtMW,

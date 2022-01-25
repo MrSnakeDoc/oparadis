@@ -104,6 +104,7 @@ CREATE TABLE ABSENTEE (
     customer_id int not null REFERENCES customer(id) ON DELETE CASCADE
 );
 
+--? The function update the updated_at field
 CREATE OR REPLACE FUNCTION trigger_set_timestamp()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -112,6 +113,8 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+
+--! TRIGGER will execute the function when an insert or an update is performed
 CREATE TRIGGER set_timestamp
 BEFORE UPDATE OR INSERT ON CUSTOMER
 FOR EACH ROW
@@ -137,8 +140,7 @@ BEFORE UPDATE OR INSERT ON PHOTO
 FOR EACH ROW
 EXECUTE PROCEDURE trigger_set_timestamp();
 
---? PSEUDO trigger
-
+--? The function fills the pseudo field with firstname 
 CREATE OR REPLACE FUNCTION trigger_set_pseudo() RETURNS trigger AS $$
     BEGIN
         NEW.pseudo := NEW.firstname;
@@ -146,6 +148,7 @@ CREATE OR REPLACE FUNCTION trigger_set_pseudo() RETURNS trigger AS $$
     END;
 $$ LANGUAGE plpgsql;
 
+--! TRIGGER with condition (IF pseudo is null or empty so execute function trigger_set_pseudo)
 CREATE TRIGGER set_pseudo
     BEFORE INSERT OR UPDATE ON CUSTOMER
     FOR EACH ROW

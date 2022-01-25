@@ -2,6 +2,7 @@
 
 BEGIN;
 
+--? the domain allows you to check and use it several times
 CREATE DOMAIN posint AS INT CHECK(VALUE >= 0);
 
 ALTER TABLE HOUSE 
@@ -108,8 +109,6 @@ CREATE or replace function house_full_find_one(int) returns house_full_find_all 
 	SELECT * FROM house_full_find_all WHERE id = $1;
 $$ LANGUAGE sql;
 
-
-
 CREATE VIEW house_find_all as
 	SELECT house.id,
 		house.title,
@@ -144,6 +143,5 @@ CREATE VIEW house_find_all as
 CREATE or replace function house_find_one(int) returns house_find_all as $$
 	SELECT * FROM house_find_all WHERE id = $1;
 $$ LANGUAGE sql;
-
 
 COMMIT;
