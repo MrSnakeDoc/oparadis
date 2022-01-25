@@ -1,0 +1,29 @@
+@host = https://oparadisapi.herokuapp.com
+
+###
+GET {{host}}/photos/ HTTP/1.1
+content-type: application/json
+###
+GET {{host}}/photos/1 HTTP/1.1
+content-type: application/json
+###
+POST {{host}}/photos HTTP/1.1
+content-type: application/json
+
+    {
+        "photo":"/src/house_photos/house22/house_22-123.jpg",
+        "customer_id": 1
+    }
+    
+###
+PATCH {{host}}/photos/101 HTTP/1.1
+content-type: application/json
+
+    {
+        "photo":"/src/house_photos/house22/housetest.jpg",
+        "customer_id": 1
+    }
+    
+###
+DELETE {{host}}/photos/101 HTTP/1.1
+content-type: application/json

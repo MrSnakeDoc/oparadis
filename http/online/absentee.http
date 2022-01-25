@@ -1,0 +1,31 @@
+@host = https://oparadisapi.herokuapp.com
+
+###
+GET {{host}}/absentees HTTP/1.1
+content-type: application/json
+###
+GET {{host}}/absentees/1 HTTP/1.1
+content-type: application/json
+###
+POST {{host}}/absentees HTTP/1.1
+content-type: application/json
+
+    {
+        "starting_date": "2022-03-10 00:00:00+00",
+        "ending_date": "2023-12-08 00:00:00+00",
+        "customer_id": 1
+    }
+
+###
+PATCH {{host}}/absentees/101 HTTP/1.1
+content-type: application/json
+
+    {
+        "starting_date": "2022-10-10 00:00:00+00",
+        "ending_date": "2023-10-08 00:00:00+00",
+        "customer_id": 1
+    }
+    
+###
+DELETE {{host}}/absentees/101 HTTP/1.1
+content-type: application/json

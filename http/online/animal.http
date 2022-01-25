@@ -1,0 +1,39 @@
+@host = https://oparadisapi.herokuapp.com
+
+###
+GET {{host}}/animals/ HTTP/1.1
+content-type: application/json
+
+###
+GET {{host}}/animals/1 HTTP/1.1
+content-type: application/json
+
+###
+POST {{host}}/animals HTTP/1.1
+content-type: application/json
+
+    {
+        "type": "cat",
+        "race": "main coon",
+        "diseases": "Renal failure",
+        "notes": "Garfield is very cute, large and very very cuddly",
+        "photo":"/src/animal_photos/customer123/animal22.jpg",
+        "customer_id": 1
+    }
+    
+###
+PATCH {{host}}/animals/101 HTTP/1.1
+content-type: application/json
+
+    {
+        "type": "dog",
+        "race": "deuschland",
+        "diseases": "Renal failure",
+        "notes": "Garfield is very cute, large and very very cuddly",
+        "photo":"/src/animal_photos/customer123/animal22.jpg",
+        "customer_id": 1
+    }
+    
+###
+DELETE {{host}}/animals/101 HTTP/1.1
+content-type: application/json

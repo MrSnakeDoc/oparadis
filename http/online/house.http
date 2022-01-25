@@ -1,0 +1,84 @@
+@host = https://oparadisapi.herokuapp.com
+
+
+###
+GET {{host}}/houses/full/ HTTP/1.1
+content-type: application/json
+
+###
+GET {{host}}/houses/full/24 HTTP/1.1
+content-type: application/json
+
+###
+GET {{host}}/houses HTTP/1.1
+content-type: application/json
+###
+GET {{host}}/houses/110 HTTP/1.1
+content-type: application/json
+###
+POST {{host}}/houses HTTP/1.1
+content-type: application/json
+
+    {
+        "address": "19 rue du boulet",
+        "zip_code": "75 010 CEDEX",
+        "city": "Montcuq",
+        "country": 76,
+        "type": 2,
+        "title": "Maison bleu",
+        "nb_rooms": 1,
+        "nb_bedrooms": 4,
+        "surface": 187,
+        "area": 666,
+        "floor": 0,
+        "description": "C'est une maison bleue Adossée à la colline On y vient à pied, on ne frappe pas Ceux qui vivent là, ont jeté la clé",
+        "latitude": "48.099071531610875",
+        "longitude": "-0.748887016329141",
+        "map": "https://maps.google.com/maps?q=48.099071531610875,-0.7488870163291419",
+         "internet": false,
+        "washing_machine": false,
+        "TV": false,
+        "hoven": false,
+        "microwave": false,
+        "dishwasher": false,
+        "bathtub": false,
+        "shower": false,
+        "parking": false,
+        "customer_id": 1
+    }
+
+###
+PATCH {{host}}/houses/101 HTTP/1.1
+content-type: application/json
+
+    {
+        "address": "19 rue du Pierre",
+        "zip_code": "75 010 CEDEX",
+        "city": "Montcuq",
+        "country":76,
+        "type": 2,
+        "title": "Maison bleu",
+        "nb_rooms": 2,
+        "nb_bedrooms": 4,
+        "surface": 187,
+        "area": 666,
+        "floor": 1,
+        "description": "C'est une maison bleue Adossée à la colline On y vient à pied, on ne frappe pas Ceux qui vivent là, ont jeté la clé",
+        "latitude": "48.099071531610875",
+        "longitude": "-0.748887016329141",
+        "map": "https://maps.google.com/maps?q=48.099071531610875,-0.7488870163291419",
+        "internet": true,
+        "washing_machine": true,
+        "TV": true,
+        "hoven": true,
+        "microwave": true,
+        "dishwasher": true,
+        "bathtub": true,
+        "shower": true,
+        "parking": true,
+        "customer_id": 1
+    }
+
+###
+DELETE {{host}}/houses/101 HTTP/1.1
+content-type: application/json
