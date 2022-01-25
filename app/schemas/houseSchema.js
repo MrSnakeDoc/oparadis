@@ -26,8 +26,8 @@ module.exports = {
 		bathtub: Joi.boolean(),
 		shower: Joi.boolean(),
 		parking: Joi.boolean(),
-		customer_id: Joi.number().integer()
-		// validation: Joi.boolean(),
+		customer_id: Joi.number().integer(),
+		validation: Joi.boolean(),
 }),
 
 	update_house: Joi.object({
@@ -55,7 +55,7 @@ module.exports = {
 		bathtub: Joi.boolean(),
 		shower: Joi.boolean(),
 		parking: Joi.boolean(),
-		customer_id: Joi.number().integer()
-		// validation: Joi.boolean(),
+		customer_id: Joi.number().integer(),
+		validation: Joi.boolean(),
 	}),
 };

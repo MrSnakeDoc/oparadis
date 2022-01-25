@@ -6,7 +6,7 @@ module.exports = {
 		race: Joi.string().max(20),
 		diseases: Joi.string().max(100),
 		notes: Joi.string().max(300),
-		photo: Joi.binary().encoding('base64'),
+		photo: Joi.string(),
 		customer_id: Joi.number().integer(),
 		Validation: Joi.boolean()
 	}),
@@ -16,7 +16,7 @@ module.exports = {
 		race: Joi.string().max(20),
 		diseases: Joi.string().max(100),
 		notes: Joi.string().max(300),
-		photo: Joi.binary().encoding('base64'),
+		photo: Joi.string(),
 		customer_id: Joi.number().integer(),
 		Validation: Joi.boolean()
 	}),

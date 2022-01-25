@@ -21,7 +21,7 @@ module.exports = {
 		lastname: Joi.string().required(),
 		pseudo: Joi.string().empty(""),
 		phone_number: Joi.string().pattern(re_phone).required(),
-		photo: Joi.string(),
+		avatar: Joi.string(),
 		isAdmin: Joi.boolean(),
 	}),
 	update_customer: Joi.object({
@@ -40,7 +40,7 @@ module.exports = {
 		lastname: Joi.string().required(),
 		pseudo: Joi.string().empty(""),
 		phone_number: Joi.string().pattern(re_phone).required(),
-		photo: Joi.string(),
+		avatar: Joi.string(),
 		isAdmin: Joi.boolean(),
 	}),
 };
