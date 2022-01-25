@@ -35,12 +35,17 @@ module.exports = {
 						description: "The phone number of the customer",
 						example: "0175492412",
 					},
-					photo: {
+					avatar: {
 						type: "string",
 						description: "The photo of the customer",
 						example: "base64 photo",
 					},
 					created_at: {
+						type: "timestamptz",
+						description: "The created_at of the customer",
+						example: "2023-12-08 00:00:00+00",
+					},
+					update_at: {
 						type: "timestamptz",
 						description: "The created_at of the customer",
 						example: "2023-12-08 00:00:00+00",

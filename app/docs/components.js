@@ -1,6 +1,80 @@
 module.exports = {
 	components: {
 		schemas: {
+			Signin: {
+				type: "object",
+				required: ["email", "password"],
+				properties: {
+					email: {
+						type: "string",
+						description: "The email of the customer",
+						required: true,
+						example: "jemoustique@gmail.com",
+					},
+					password: {
+						type: "string",
+						description: "The password of the customer",
+						required: true,
+						example: "jeanbon69",
+					},
+				},
+				example: {
+					email: "jemoustique@gmail.com",
+					password: "jeanbon",
+				},
+			},
+			Token: {
+				type: "object",
+				required: ["access_token", "refresh_token"],
+				properties: {
+					access_token: {
+						type: "string",
+						description: "Authentication: access_token",
+						required: true,
+						example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzAzMDcyMSwiZXhwIjoxNjQzMDMwNzUxfQ.-_F14vPYc5mXDPNgpYiwsVo_LeaZTEw93zc05goBIiw",
+					},
+					refresh_token: {
+						type: "string",
+						description: "Authentication: refresh_token",
+						required: true,
+						example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzEwMDYxMCwiZXhwIjoxNjQzMTA0MjEwfQ.5aU00qsTYoZaHwPWRaAytj36PfxqBNsYMPSugxxaCZw",
+					},
+				},
+				example: {
+					access_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzAzMDcyMSwiZXhwIjoxNjQzMDMwNzUxfQ.-_F14vPYc5mXDPNgpYiwsVo_LeaZTEw93zc05goBIiw",
+					refresh_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzEwMDYxMCwiZXhwIjoxNjQzMTA0MjEwfQ.5aU00qsTYoZaHwPWRaAytj36PfxqBNsYMPSugxxaCZw",
+				},
+			},
+			AccessToken: {
+				type: "object",
+				required: ["access_token", "refresh_token"],
+				properties: {
+					access_token: {
+						type: "string",
+						description: "Authentication: access_token",
+						required: true,
+						example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzAzMDcyMSwiZXhwIjoxNjQzMDMwNzUxfQ.-_F14vPYc5mXDPNgpYiwsVo_LeaZTEw93zc05goBIiw",
+					},
+				},
+				example: {
+					access_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzAzMDcyMSwiZXhwIjoxNjQzMDMwNzUxfQ.-_F14vPYc5mXDPNgpYiwsVo_LeaZTEw93zc05goBIiw",
+				},
+			},
+			RefreshToken: {
+				type: "object",
+				required: ["access_token", "refresh_token"],
+				properties: {
+					refresh_token: {
+						type: "string",
+						description: "Authentication: refresh_token",
+						required: true,
+						example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzEwMDYxMCwiZXhwIjoxNjQzMTA0MjEwfQ.5aU00qsTYoZaHwPWRaAytj36PfxqBNsYMPSugxxaCZw",
+					},
+				},
+				example: {
+					refresh_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzEwMDYxMCwiZXhwIjoxNjQzMTA0MjEwfQ.5aU00qsTYoZaHwPWRaAytj36PfxqBNsYMPSugxxaCZw",
+				},
+			},
 			Customer: {
 				type: "object",
 				required: ["email", "firstname", "lastname", "phone_number"],
@@ -35,16 +109,16 @@ module.exports = {
 						description: "The phone number of the customer",
 						example: "0175492412",
 					},
-					photo: {
+					avatar: {
 						type: "string",
 						description: "The photo of the customer",
-						example: "base64 photo",
+						example: "/link/photo52",
 					},
-					created_at: {
-						type: "timestamptz",
-						description: "The created_at of the customer",
-						example: "2023-12-08 00:00:00+00",
-					},
+					isAdmin: {
+						type: "boolean",
+						description: "Boolean that gives admin access",
+						example: false,
+					}
 				},
 				example: {
 					id: 5,
@@ -52,8 +126,8 @@ module.exports = {
 					firstname: "Jules-Edouard",
 					lastname: "Moustique",
 					phone_number: "0175492412",
-					photo: "base64 photo",
-					created_at: "2023-12-08 00:00:00+00",
+					photo: "/link/photo54",
+					isAdmin: false,
 				},
 			},
 			House: {
@@ -94,16 +168,16 @@ module.exports = {
 						example: "Troyes",
 					},
 					country: {
-						type: "string",
+						type: "integer",
 						description: "The country of the house",
 						required: true,
-						example: "France",
+						example: 76,
 					},
 					type: {
-						type: "string",
+						type: "integer",
 						description: "The type of the house",
 						required: true,
-						example: "Maison",
+						example: 5,
 					},
 					title: {
 						type: "string",
@@ -246,8 +320,8 @@ module.exports = {
 					adress: "19 rue du boulet",
 					zip_code: "75 010 CEDEX",
 					city: "Montcuq",
-					country: "France",
-					type: "Maison",
+					country: 76,
+					type: 5,
 					title: "Maison bleu",
 					nb_rooms: 2,
 					nb_bedrooms: 4,
@@ -308,7 +382,7 @@ module.exports = {
 					photo: {
 						type: "string",
 						description: "The photo of the animal",
-						example: "base64 photo",
+						example: "/link/photo45",
 					},
 					validation: {
 						type: "boolean",
@@ -325,15 +399,15 @@ module.exports = {
 				example: {
 					id: 5,
 					type: "cat",
-					race: "main coon",
+					race: "Turc Van",
 					diseases: "Renal failure",
 					notes: "Garfield is very cute, large and very very cuddly",
-					photo: "base64 photo",
+					photo: "/link/photo85",
 					validation: true,
 					customer_id: 22,
 				},
 			},
-			plant: {
+			Plant: {
 				type: "object",
 				required: ["type", "customer_id"],
 				properties: {
@@ -356,7 +430,7 @@ module.exports = {
 					photo: {
 						type: "string",
 						description: "The photo of plant",
-						example: "base64 photo",
+						example: "/link/photo87",
 					},
 					validation: {
 						type: "boolean",
@@ -368,7 +442,7 @@ module.exports = {
 					id: 5,
 					type: "Rose",
 					notes: "Water 3 by day",
-					photo: "base64 photo",
+					photo: "/link/photo32",
 					validation: true,
 					customer_id: 22,
 				},
@@ -408,7 +482,7 @@ module.exports = {
 					customer_id: 22,
 				},
 			},
-			house_type: {
+			Type: {
 				type: "object",
 				required: [],
 				properties: {
@@ -419,7 +493,7 @@ module.exports = {
 					},
 					type: {
 						type: "string",
-						description: "The type of the house_type",
+						description: "The type of house",
 						required: true,
 						example: "Maison",
 					},
@@ -442,14 +516,14 @@ module.exports = {
 						type: "string",
 						description: "The photo of the photo",
 						required: true,
-						example: "base64 photo",
+						example: "/link/photo22",
 					},
 					validation: {
 						type: "boolean",
 						description: "The validation of the photo",
 						example: false,
 					},
-					house_id: {
+					customer_id: {
 						type: "integer",
 						description: "The id of the house it belongs to",
 						required: true,
@@ -458,9 +532,9 @@ module.exports = {
 				},
 				example: {
 					id: 5,
-					photo: "base64 photo",
+					photo: "/link/photo33",
 					validation: false,
-					house_id: 22,
+					customer_id: 22,
 				},
 			},
 			Country: {

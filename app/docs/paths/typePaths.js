@@ -1,5 +1,5 @@
 module.exports = {
-	"/type": {
+	"/types": {
 		get: {
 			tags: ["Type CRUD operations"],
 			description: "Retrieve a list of all Types",
