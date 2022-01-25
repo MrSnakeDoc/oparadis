@@ -3,7 +3,7 @@ const { redis_url } = require("../config/");
 const db = createClient({ url: redis_url });
 db.connect();
 const prefix = "oparadis:";
-const timeout = 60 * 5;
+const timeout = 3600;
 const keys = [];
 
 const cache = async (request, response, next) => {

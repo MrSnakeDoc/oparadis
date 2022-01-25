@@ -2,9 +2,8 @@
 
 @access_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzAzMDcyMSwiZXhwIjoxNjQzMDMwNzUxfQ.-_F14vPYc5mXDPNgpYiwsVo_LeaZTEw93zc05goBIiw
 
-@refresh_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzAzMTEzMSwiZXhwIjoxNjQzMDM4MzMxfQ.opNAKolnWw7eyk-H4aZvVfg5aeKq14XvullHW1XGlMQ
+@refresh_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzEwMDYxMCwiZXhwIjoxNjQzMTA0MjEwfQ.5aU00qsTYoZaHwPWRaAytj36PfxqBNsYMPSugxxaCZw
 
-###
 POST {{host}}/signup HTTP/1.1
 content-type: application/json
 

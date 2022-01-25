@@ -9,7 +9,6 @@ module.exports = {
 		try {
 			const { email, password } = req.body;
 			const customer = await Customer.authFindOne(email);
-			// const token = await verifyToken
 			if (!customer) {
 				throw new Error({
 					message: "Invalid credentials",

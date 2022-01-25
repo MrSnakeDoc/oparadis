@@ -26,6 +26,7 @@ module.exports = {
 			throw err;
 		}
 	},
+
 	async deleteToken(id) {
 		try {
 			await db.del(`${prefix}${id}`);
