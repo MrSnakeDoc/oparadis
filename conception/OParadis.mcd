@@ -1,0 +1,19 @@
+DF1, 11 HOUSE, 1N HOUSE_TYPE
+HOUSE_TYPE: ref_house_type, type
+A HOMESITTER, 0N CUSTOMER, 0N> [homesitter] CUSTOMER
+PHOTO: ref_photo, photo, created_at, update_at, validation
+
+HOUSE: ref_house, address, zip_code, city, country, type, title, nb_rooms, nb_bedrooms, surface, area, floor, description, latitude, longitude, map, internet, washing_machine, tv, hoven, microwave, dishwasher, bathtub, shower, parking, created_at, update_at, validation
+HAS, 11 CUSTOMER, 11 HOUSE
+CUSTOMER: ref_customer, email, password, firstname, lastname, pseudo, phone_number, avatar, isAdmin, created_at, update_at
+POSSESS, 0N CUSTOMER, 11 PHOTO
+
+DF2, 11 HOUSE, 1N COUNTRY
+CAN BE, 0N CUSTOMER, 11 ABSENTEE
+CAN HAVE, 0N CUSTOMER, 11 ANIMAL
+CAN HAVE1, 0N CUSTOMER, 11 PLANT
+
+COUNTRY: ref_country, country
+ABSENTEE: ref_absentee, starting_date, ending_date
+ANIMAL: ref_animal, type, race, diseases, notes, photo, created_at, update_at, validation
+PLANT: ref_plant, type, notes, photo, created_at, update_at, validation

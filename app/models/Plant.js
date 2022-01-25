@@ -63,6 +63,7 @@ module.exports = class Plant {
 	 */
 	async save() {
 		try {
+			// We select the add function create a database(example function in migrations/deploy/function)
 			const result = await CoreModel.getRow("SELECT * FROM add_plant($1)", [
 				this,
 			]);
@@ -83,6 +84,7 @@ module.exports = class Plant {
 	 */
 	async update() {
 		try {
+			// We select the update function create a database(example function in migrations/deploy/function)
 			const result = await CoreModel.getRow("SELECT * FROM update_plant($1)", [
 				this,
 			]);

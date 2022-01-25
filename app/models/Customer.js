@@ -102,6 +102,7 @@ module.exports = class Customer {
 	 */
 	async save() {
 		try {
+			// We select the add function create a database(example function in sqitch/deploy/function)
 			const result = await CoreModel.getRow("SELECT * FROM add_customer($1)", [
 				this,
 			]);
@@ -123,6 +124,7 @@ module.exports = class Customer {
 	 */
 	async update() {
 		try {
+			// We select the update function create a database(example function in sqitch/deploy/function)
 			const result = await CoreModel.getRow(
 				"SELECT * FROM update_customer($1)",
 				[this]

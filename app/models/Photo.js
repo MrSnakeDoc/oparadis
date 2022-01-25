@@ -60,6 +60,7 @@ module.exports = class Photo {
 	 */
 	async save() {
 		try {
+			// We select the add function create a database(example function in migrations/deploy/function)
 			const result = await CoreModel.getRow("SELECT * FROM add_photo($1)", [
 				this,
 			]);
@@ -80,6 +81,7 @@ module.exports = class Photo {
 	 */
 	async update() {
 		try {
+			// We select the update function create a database(example function in migrations/deploy/function)
 			const result = await CoreModel.getRow("SELECT * FROM update_photo($1)", [
 				this,
 			]);

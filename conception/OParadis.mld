@@ -1,0 +1,27 @@
+%%mocodo
+:::
+HOUSE_TYPE: ref_house_type, type
+:
+A HOMESITTER: #ref_customer->CUSTOMER->ref_customer, _#ref_customer homesitter->CUSTOMER->ref_customer
+:
+PHOTO: ref_photo, photo, created_at, update_at, validation, #ref_customer->CUSTOMER->ref_customer
+:
+
+
+:
+HOUSE: ref_house, address, zip_code, city, country, type, title, nb_rooms, nb_bedrooms, surface, area, floor, description, latitude, longitude, map, internet, washing_machine, tv, hoven, microwave, dishwasher, bathtub, shower, parking, created_at, update_at, validation, #ref_house_type->HOUSE_TYPE->ref_house_type, #ref_country->COUNTRY->ref_country
+:::
+CUSTOMER: ref_customer, email, password, firstname, lastname, pseudo, phone_number, avatar, isAdmin, created_at, update_at, #ref_house->HOUSE->ref_house
+:::
+
+
+
+:
+COUNTRY: ref_country, country
+:
+ABSENTEE: ref_absentee, starting_date, ending_date, #ref_customer->CUSTOMER->ref_customer
+:
+ANIMAL: ref_animal, type, race, diseases, notes, photo, created_at, update_at, validation, #ref_customer->CUSTOMER->ref_customer
+:
+PLANT: ref_plant, type, notes, photo, created_at, update_at, validation, #ref_customer->CUSTOMER->ref_customer
+:

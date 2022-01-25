@@ -62,6 +62,7 @@ module.exports = class Absentee {
 	 */
 	async save() {
 		try {
+			// We select the add function create a database(example function in migrations/deploy/function)
 			const results = await CoreModel.getRow("SELECT * FROM add_absentee($1)", [
 				this,
 			]);
@@ -82,6 +83,7 @@ module.exports = class Absentee {
 	 */
 	async update() {
 		try {
+			// We select the update function create a database(example function in migrations/deploy/function)
 			const results = await CoreModel.getRow("SELECT * FROM update_absentee($1)", [
 				this,
 			]);
