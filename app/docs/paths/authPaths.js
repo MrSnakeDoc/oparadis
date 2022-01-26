@@ -42,8 +42,8 @@ module.exports = {
 	"/signin": {
 		post: {
 			tags: ["Authentication CRUD operations"],
-			description: "Return the created Customer",
-			summary: "Return the Customer newly created",
+			description: "Return an access token and a refresh token",
+			summary: "Return an access token and a refresh token",
 			requestBody: {
 				content: {
 					"application/json": {
@@ -82,8 +82,8 @@ module.exports = {
 	"/token": {
 		post: {
 			tags: ["Authentication CRUD operations"],
-			description: "Return the created Customer",
-			summary: "Return the Customer newly created",
+			description: "Return a new access token",
+			summary: "Return a new access token",
 			requestBody: {
 				content: {
 					"application/json": {
@@ -96,7 +96,7 @@ module.exports = {
 			},
 			responses: {
 				200: {
-					description: "Customer was authenticated",
+					description: "Access Token was successfully refreshed",
 					content: {
 						"application/json": {
 							schema: {
@@ -122,20 +122,9 @@ module.exports = {
 	"/logout": {
 		delete: {
 			tags: ["Authentication CRUD operations"],
-			description: "Delete the Type with the provided id",
-			summary: "Delete a label by id",
-			parameters: [
-				{
-					in: "path",
-					name: "id",
-					schema: {
-						type: "integer",
-						example: 30,
-					},
-					required: true,
-					description: "id",
-				},
-			],
+			description: "Delete the refresh token and renders it inactive",
+			summary: "Delete a refresh token",
+			parameters: [],
 			responses: {
 				200: {
 					description: "The label was successfully deleted",

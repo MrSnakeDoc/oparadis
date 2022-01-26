@@ -2,12 +2,23 @@ module.exports = {
 	"/isAdmin": {
 		get: {
 			tags: ["Customer CRUD operations"],
-			description: "Retrieve a list of all customers",
-			summary: "Return a list of all customers",
-			parameters: [],
+			description: "Gives the status admin or not of a customer",
+			summary: "Gives the status admin or not of a customer",
+			parameters: [
+				{
+					in: "path",
+					name: "id",
+					schema: {
+						type: "integer",
+						example: 17,
+					},
+					required: true,
+					description: "id",
+				},
+			],
 			responses: {
 				200: {
-					description: "Customers were obtained",
+					description: "Status was obtained",
 					content: {
 						"application/json": {
 							schema: {
@@ -66,12 +77,23 @@ module.exports = {
 	"/customers/{id}": {
 		get: {
 			tags: ["Customer CRUD operations"],
-			description: "Retrieve a list of all Customers with category associated",
-			summary: "Return a list of all Customers",
-			parameters: [],
+			description: "Retrieve the customer with the given id",
+			summary: "Return a customer with the given id",
+			parameters: [
+				{
+					in: "path",
+					name: "id",
+					schema: {
+						type: "integer",
+						example: 17,
+					},
+					required: true,
+					description: "id",
+				},
+			],
 			responses: {
 				200: {
-					description: "Customers were obtained",
+					description: "Customer was obtained",
 					content: {
 						"application/json": {
 							schema: {
@@ -141,7 +163,7 @@ module.exports = {
 		delete: {
 			tags: ["Customer CRUD operations"],
 			description: "Delete the customer with the provided id",
-			summary: "Delete a label by id",
+			summary: "Delete a customer by id",
 			parameters: [
 				{
 					in: "path",
@@ -156,7 +178,7 @@ module.exports = {
 			],
 			responses: {
 				200: {
-					description: "The label was successfully deleted",
+					description: "The Customer was successfully deleted",
 				},
 				400: {
 					description: "Wrong ID",

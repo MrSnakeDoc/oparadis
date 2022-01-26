@@ -115,7 +115,6 @@ module.exports = {
 						schema: {
 							type: "object",
 							$ref: "#/components/schemas/House",
-							
 						},
 					},
 				},
@@ -148,8 +147,8 @@ module.exports = {
 	"/houses/{id}": {
 		get: {
 			tags: ["House CRUD operations"],
-			description: "Retrieve a list of all posts with category associated",
-			summary: "Return a list of all posts",
+			description: "Retrieve the house with the given id",
+			summary: "Return the house with the given id",
 			parameters: [
 				{
 					in: "path",
@@ -164,7 +163,7 @@ module.exports = {
 			],
 			responses: {
 				200: {
-					description: "House were obtained",
+					description: "House was obtained",
 					content: {
 						"application/json": {
 							schema: {

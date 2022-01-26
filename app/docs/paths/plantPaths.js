@@ -147,7 +147,7 @@ module.exports = {
 		delete: {
 			tags: ["Plant CRUD operations"],
 			description: "Delete the Plant with the provided id",
-			summary: "Delete a label by id",
+			summary: "Delete a plant with the provided id",
 			parameters: [
 				{
 					in: "path",

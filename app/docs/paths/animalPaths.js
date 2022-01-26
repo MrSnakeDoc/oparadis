@@ -147,7 +147,7 @@ module.exports = {
 		delete: {
 			tags: ["Animal CRUD operations"],
 			description: "Delete the Animal with the provided id",
-			summary: "Delete a label by id",
+			summary: "Delete an animal with the provided id",
 			parameters: [
 				{
 					in: "path",
