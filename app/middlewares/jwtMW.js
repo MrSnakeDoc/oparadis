@@ -4,11 +4,11 @@ module.exports = (req, res, next) => {
 		const token =
 			req.headers.authorization && req.headers.authorization.split(" ")[1];
 		if (!token) {
-			res.sentStatus(401);
+			return res.sendStatus(401);
 		}
 		const payload = jwt.validateToken(token);
 		if (!payload.data) {
-			res.sendStatus(403);
+			return res.sendStatus(403);
 		}
 		req.userId = payload.data;
 		next();
