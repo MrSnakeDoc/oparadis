@@ -147,7 +147,7 @@ module.exports = {
 		delete: {
 			tags: ["Absentee CRUD operations"],
 			description: "Delete the Absentee with the provided id",
-			summary: "Delete a label by id",
+			summary: "Delete a absentee with the provided id",
 			parameters: [
 				{
 					in: "path",
