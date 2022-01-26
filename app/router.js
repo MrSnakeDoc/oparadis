@@ -34,14 +34,16 @@ const router = Router();
 // JWT road
 //! We verify with add_customerValidation (joi) that the format is correct
 router
-	.post("/signup", add_customerValidation, customerController.save)
-	.post("/token", authController.refreshToken)
+	.get("/isAdmin", jwtMW, authController.isAdmin)
+	.post("/signup", add_customerValidation, authController.signup)
 	.post("/signin", authController.signin)
+	.post("/token", authController.refreshToken)
 	.delete("/logout", authController.disconnect);
 
-	//! Double check on id with regex and joi (number between 1 and 9999)
+router.patch("/isAdmin/:id", authController.update_isAdmin);
+
+//! Double check on id with regex and joi (number between 1 and 9999)
 router
-	.get("/isAdmin", jwtMW, customerController.isAdmin)
 	.get("/customers", jwtMW, customerController.findAll)
 	.get(
 		"/customers/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
@@ -56,6 +58,11 @@ router
 		paramsValidation,
 		update_customerValidation,
 		customerController.update
+	)
+	.patch(
+		"/customers/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])/password",
+		paramsValidation,
+		customerController.update_password
 	)
 	.delete(
 		"/customers/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",

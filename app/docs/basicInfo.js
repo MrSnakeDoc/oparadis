@@ -6,7 +6,7 @@ module.exports = {
 		version: "1.0.0", // version number
 		contact: {
 			name: "O'Paradis",
-			url: "https://e06-data-oblog-mrsnakedoc.herokuapp.com/",
+			url: "https://oparadisapi.herokuapp.com/",
 			email: "info@email.com",
 		},
 	},

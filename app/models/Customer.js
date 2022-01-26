@@ -24,27 +24,6 @@ module.exports = class Customer {
 	 * @returns {Array<Customer>} All Customers in database
 	 * @throw {Error} An error
 	 */
-	static async isAdmin() {
-		try {
-			const results = await CoreModel.getArray(
-				"SELECT id, isAdmin FROM customer"
-			);
-			return results ? new Customer(results) : undefined;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
-			}
-			throw error;
-		}
-	}
-
-	/**
-	 * Retrieves all Customers from database
-	 * @static
-	 * @async
-	 * @returns {Array<Customer>} All Customers in database
-	 * @throw {Error} An error
-	 */
 	static async findAll() {
 		try {
 			const results = await CoreModel.getArray("SELECT * FROM customer");
@@ -79,43 +58,6 @@ module.exports = class Customer {
 		}
 	}
 
-	static async authFindOne(email) {
-		try {
-			const results = await CoreModel.getRow(
-				"SELECT * FROM customer where email = $1",
-				[email]
-			);
-			return results ? new Customer(results) : undefined;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
-			}
-			throw error;
-		}
-	}
-
-	/**
-	 * Creates a new Customer in database
-	 * @async
-	 * @returns {Object<Customer>} Creates a new Customer in database
-	 * @throw {Error} An error
-	 */
-	async save() {
-		try {
-			// We select the add function create a database(example function in sqitch/deploy/function)
-			const result = await CoreModel.getRow("SELECT * FROM add_customer($1)", [
-				this,
-			]);
-			return result ? new Customer(result) : undefined;
-		} catch (error) {
-			if (error.detail) {
-				console.log(error);
-				throw new Error(error.detail);
-			}
-			throw error;
-		}
-	}
-
 	/**
 	 * Updates a Customer in database
 	 * @async
@@ -138,6 +80,26 @@ module.exports = class Customer {
 			throw error;
 		}
 	}
+
+	async update_password() {
+		try {
+			// We select the update function create a database(example function in sqitch/deploy/function)
+			console.log(this);
+			const result = await CoreModel.getRow(
+				"SELECT * FROM update_password($1)",
+				[this]
+			);
+			console.log(result);
+			return result ? new Customer(result) : undefined;
+		} catch (error) {
+			console.log(error);
+			if (error.detail) {
+				throw new Error(error.detail);
+			}
+			throw error;
+		}
+	}
+
 	/**
 	 * Delete a Customer in database
 	 * @async

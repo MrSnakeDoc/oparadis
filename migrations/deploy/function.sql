@@ -3,8 +3,8 @@
 BEGIN;
 
 create or replace function add_customer(json) returns customer as $$
-	insert into "customer"(email, password, firstname, lastname, pseudo, phone_number, avatar, isAdmin)
-		values ($1->>'email', $1->>'password', $1->>'firstname', $1->>'lastname', $1->>'pseudo', $1->>'phone_number', $1->>'avatar', ($1->>'isAdmin')::boolean) returning *;
+	insert into "customer"(email, password, firstname, lastname, pseudo, phone_number, avatar)
+		values ($1->>'email', $1->>'password', $1->>'firstname', $1->>'lastname', $1->>'pseudo', $1->>'phone_number', $1->>'avatar') returning *;
 $$ language sql strict;
 
 create or replace function update_customer(json) returns customer as $$
@@ -15,10 +15,23 @@ create or replace function update_customer(json) returns customer as $$
 		lastname = $1->>'lastname',
 		pseudo = $1->>'pseudo',
 		phone_number = $1->>'phone_number',
-		avatar = $1->>'avatar',
+		avatar = $1->>'avatar'
+    where id = ($1->>'id')::int returning *;
+$$ language sql strict;
+
+create or replace function update_isAdmin(json) returns customer as $$
+	update "customer" set 
 		isAdmin = ($1->>'isAdmin')::boolean
     where id = ($1->>'id')::int returning *;
 $$ language sql strict;
+
+
+create or replace function update_password(json) returns customer as $$
+	update "customer" set 
+		password = $1->>'password'
+    where id = ($1->>'id')::int returning customer;
+$$ language sql strict;
+
 
 create or replace function add_animal(json) returns animal as $$
 	insert into "animal"("type", race, diseases, notes, photo, customer_id)

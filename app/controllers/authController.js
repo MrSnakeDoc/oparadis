@@ -1,35 +1,48 @@
 const bcrypt = require("bcrypt");
-const { Customer, BaseError } = require("../models");
-const { makeToken, generateRefreshToken } = require("../services/jwt");
+const { Authentication, BaseError } = require("../models");
+const {
+	makeToken,
+	generateRefreshToken,
+	validateRefreshedToken,
+} = require("../services/jwt");
 const { cache, verifyToken, deleteToken } = require("../services/tokenCache");
-const { validateRefreshedToken } = require("../services/jwt");
+const { encrypt } = require("../services/encrypt");
 
 module.exports = {
+	async signup(req, res) {
+		try {
+			// delete field repeat_password
+			delete req.body.repeat_password;
+			// encrypt the password
+			req.body.password = await encrypt(req.body.password);
+			const customer = await new Authentication(req.body).signup();
+			delete customer.password;
+			res.status(201).json(customer);
+		} catch (err) {
+			console.log(err);
+			res.status(500).json(new BaseError(err));
+		}
+	},
+
 	async signin(req, res) {
 		try {
-			// we retrieve the email to verify that it 
-			// exists and we verify the password 
+			// we retrieve the email to verify that it
+			// exists and we verify the password
 			const { email, password } = req.body;
-			const customer = await Customer.authFindOne(email);
+			const customer = await Authentication.authFindOne(email);
 			if (!customer) {
-				throw new Error({
-					message: "Invalid credentials",
-					code: 401,
-				});
+				return res.sendStatus(401);
 			}
 			const verifiedPassword = await bcrypt.compare(
 				password,
 				customer.password
 			);
-			if (!verifiedPassword) {
-				throw new Error({
-					message: "Invalid credentials",
-					code: 401,
-				});
+			if (verifiedPassword === false) {
+				return res.sendStatus(401);
 			}
-			// We create a token with a short validity 
-			// and a token(refresh) with a long validity 
-			// then a store the token(refresh) and the 
+			// We create a token with a short validity
+			// and a token(refresh) with a long validity
+			// then a store the token(refresh) and the
 			// associated id to be able to check it
 			const token = {
 				access_token: `Bearer ${makeToken(customer.id)}`,
@@ -38,10 +51,7 @@ module.exports = {
 			cache(customer.id, token.refresh_token.split(" ")[1]);
 			res.status(200).json(token);
 		} catch (error) {
-			if (error.detail) {
-				throw new BaseError(error.detail);
-			}
-			throw error;
+			res.status(500).json(error);
 		}
 	},
 
@@ -49,7 +59,7 @@ module.exports = {
 		try {
 			const token =
 				req.headers.authorization && req.headers.authorization.split(" ")[1];
-			// checks that the token has the authorization 
+			// checks that the token has the authorization
 			if (!token) {
 				return res.sendStatus(401);
 			}
@@ -97,6 +107,30 @@ module.exports = {
 				return res.sendStatus(401);
 			}
 			return res.json(error.message);
+		}
+	},
+
+	async isAdmin(req, res) {
+		try {
+			// We check if the customer is admin
+			const customer = await Authentication.isAdmin(+req.params.id);
+			if (!customer.id) res.status(204);
+			res.json(customer);
+		} catch (err) {
+			res.status(500).json(new BaseError(err));
+		}
+	},
+
+	async update_isAdmin(req, res) {
+		try {
+			// Change the value of isAdmin of the customer
+			const customer = await Authentication({
+				id: +req.params.id,
+				...req.body,
+			}).update_isAdmin();
+			res.json(customer);
+		} catch (err) {
+			res.status(500).json(new BaseError(err));
 		}
 	},
 };

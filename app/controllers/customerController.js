@@ -2,16 +2,6 @@ const { Customer, BaseError } = require("../models");
 const { encrypt } = require("../services/encrypt");
 
 module.exports = {
-	async isAdmin(req, res) {
-		try {
-			// We check if the customer is admin
-			const customer = await Customer.isAdmin(+req.params.id);
-			if (!customer.id) res.status(204);
-			res.json(customer);
-		} catch (err) {
-			res.status(500).json(new BaseError(err));
-		}
-	},
 	async findAll(_, res) {
 		try {
 			const customers = await Customer.findAll();
@@ -30,31 +20,37 @@ module.exports = {
 			res.status(500).json(new BaseError(err));
 		}
 	},
-	async save(req, res) {
-		try {
-			// delete field repeat_password
-			delete req.body.repeat_password;
-			// encrypt the password
-			req.body.password = await encrypt(req.body.password);
-			const customer = await new Customer(req.body).save();
-			res.status(201).json(customer);
-		} catch (err) {
-			res.status(500).json(new BaseError(err));
-		}
-	},
+
 	async update(req, res) {
 		try {
-			// delete field repeat_password
-			delete req.body.repeat_password;
-			// encrypt the password
-			req.body.password = await encrypt(req.body.password);
 			if (req.body.pseudo === "") delete req.body.pseudo;
-			// We pass the id in the object to update a 
+			// We pass the id in the object to update a
 			const customer = await new Customer({
 				id: +req.params.id,
 				...req.body,
 			}).update();
 			res.json(customer);
+		} catch (err) {
+			res.status(500).json(new BaseError(err));
+		}
+	},
+
+	async update_password(req, res) {
+		try {
+			delete req.body.repeat_password;
+			req.body.password = await encrypt(req.body.password);
+			console.log(
+				"old password => $2b$10$Xj34WZEN1dLxMgnEZdQ34uXZZzoYumnrjgAIL7Jt08OZ7QF/GhpRu"
+			);
+			console.log("new password =>", req.body.password);
+
+			// We pass the id in the object to update a
+			const customer = await new Customer({
+				id: +req.params.id,
+				...req.body,
+			}).update_password();
+			if (!customer) throw new Error({ code: 204 });
+			res.sendStatus(200);
 		} catch (err) {
 			res.status(500).json(new BaseError(err));
 		}

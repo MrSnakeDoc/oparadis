@@ -3,7 +3,7 @@ if (process.env.NODE_ENV === "prod") {
 	servers = {
 		servers: [
 			{
-				url: "https://e06-data-oblog-mrsnakedoc.herokuapp.com/",
+				url: "https://oparadisapi.herokuapp.com/",
 			},
 		],
 	};
