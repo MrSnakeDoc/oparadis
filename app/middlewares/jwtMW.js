@@ -1,8 +1,9 @@
+const { port } = require("../config/");
 const jwt = require("../services/jwt");
 
 module.exports = (req, res, next) => {
 	try {
-		if (req.headers.host === "localhost:5000") {
+		if (req.headers.host === `localhost:${port}`) {
 			next();
 		} else {
 			const token =
