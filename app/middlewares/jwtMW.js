@@ -1,12 +1,8 @@
-require("dotenv").config();
 const jwt = require("../services/jwt");
 
 module.exports = (req, res, next) => {
 	try {
-		if (
-			req.headers.host === "localhost:5000" ||
-			req.headers.host === `localhost:${port}`
-		) {
+		if (req.headers.host === "localhost:5000") {
 			next();
 		} else {
 			const token =
