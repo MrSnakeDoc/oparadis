@@ -1,6 +1,75 @@
 module.exports = {
 	components: {
 		schemas: {
+			Signup: {
+				type: "object",
+				required: ["email", "firstname", "lastname", "phone_number"],
+				properties: {
+					id: {
+						type: "integer",
+						description: "The auto-generated id",
+						example: 1,
+					},
+					email: {
+						type: "string",
+						description: "The email of the customer",
+						required: true,
+						example: "jemoustique@gmail.com",
+					},
+					password: {
+						type: "string",
+						description: "Password of the customer",
+						required: true,
+						example: "$paradis12",
+					},
+					repeat_password: {
+						type: "string",
+						description: "Repeated_password of the customer",
+						required: true,
+						example: "$paradis12",
+					},
+					firstname: {
+						type: "string",
+						description: "The firstname of the customer",
+						required: true,
+						example: "Jules-Edouard",
+					},
+					lastname: {
+						type: "string",
+						description: "The lastname of the customer",
+						required: true,
+						example: "Moustique",
+					},
+					pseudo: {
+						type: "string",
+						description: "Pseudo of the customer",
+						example: "The Moustique",
+					},
+					phone_number: {
+						type: "string",
+						format: "Phone number",
+						required: true,
+						description: "The phone number of the customer",
+						example: "0175492412",
+					},
+					avatar: {
+						type: "string",
+						description: "The photo of the customer",
+						example: "/link/photo52",
+					},
+				},
+				example: {
+					id: 5,
+					email: "jemoustique@gmail.com",
+					password: "$paradis12",
+					repeat_password: "$paradis12",
+					firstname: "Jules-Edouard",
+					lastname: "Moustique",
+					pseudo: "The Moustique",
+					phone_number: "0175492412",
+					avatar: "/link/photo54",
+				},
+			},
 			Signin: {
 				type: "object",
 				required: ["email", "password"],
@@ -31,18 +100,22 @@ module.exports = {
 						type: "string",
 						description: "Authentication: access_token",
 						required: true,
-						example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzAzMDcyMSwiZXhwIjoxNjQzMDMwNzUxfQ.-_F14vPYc5mXDPNgpYiwsVo_LeaZTEw93zc05goBIiw",
+						example:
+							"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzAzMDcyMSwiZXhwIjoxNjQzMDMwNzUxfQ.-_F14vPYc5mXDPNgpYiwsVo_LeaZTEw93zc05goBIiw",
 					},
 					refresh_token: {
 						type: "string",
 						description: "Authentication: refresh_token",
 						required: true,
-						example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzEwMDYxMCwiZXhwIjoxNjQzMTA0MjEwfQ.5aU00qsTYoZaHwPWRaAytj36PfxqBNsYMPSugxxaCZw",
+						example:
+							"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzEwMDYxMCwiZXhwIjoxNjQzMTA0MjEwfQ.5aU00qsTYoZaHwPWRaAytj36PfxqBNsYMPSugxxaCZw",
 					},
 				},
 				example: {
-					access_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzAzMDcyMSwiZXhwIjoxNjQzMDMwNzUxfQ.-_F14vPYc5mXDPNgpYiwsVo_LeaZTEw93zc05goBIiw",
-					refresh_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzEwMDYxMCwiZXhwIjoxNjQzMTA0MjEwfQ.5aU00qsTYoZaHwPWRaAytj36PfxqBNsYMPSugxxaCZw",
+					access_token:
+						"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzAzMDcyMSwiZXhwIjoxNjQzMDMwNzUxfQ.-_F14vPYc5mXDPNgpYiwsVo_LeaZTEw93zc05goBIiw",
+					refresh_token:
+						"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzEwMDYxMCwiZXhwIjoxNjQzMTA0MjEwfQ.5aU00qsTYoZaHwPWRaAytj36PfxqBNsYMPSugxxaCZw",
 				},
 			},
 			AccessToken: {
@@ -53,11 +126,13 @@ module.exports = {
 						type: "string",
 						description: "Authentication: access_token",
 						required: true,
-						example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzAzMDcyMSwiZXhwIjoxNjQzMDMwNzUxfQ.-_F14vPYc5mXDPNgpYiwsVo_LeaZTEw93zc05goBIiw",
+						example:
+							"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzAzMDcyMSwiZXhwIjoxNjQzMDMwNzUxfQ.-_F14vPYc5mXDPNgpYiwsVo_LeaZTEw93zc05goBIiw",
 					},
 				},
 				example: {
-					access_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzAzMDcyMSwiZXhwIjoxNjQzMDMwNzUxfQ.-_F14vPYc5mXDPNgpYiwsVo_LeaZTEw93zc05goBIiw",
+					access_token:
+						"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzAzMDcyMSwiZXhwIjoxNjQzMDMwNzUxfQ.-_F14vPYc5mXDPNgpYiwsVo_LeaZTEw93zc05goBIiw",
 				},
 			},
 			RefreshToken: {
@@ -68,11 +143,13 @@ module.exports = {
 						type: "string",
 						description: "Authentication: refresh_token",
 						required: true,
-						example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzEwMDYxMCwiZXhwIjoxNjQzMTA0MjEwfQ.5aU00qsTYoZaHwPWRaAytj36PfxqBNsYMPSugxxaCZw",
+						example:
+							"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzEwMDYxMCwiZXhwIjoxNjQzMTA0MjEwfQ.5aU00qsTYoZaHwPWRaAytj36PfxqBNsYMPSugxxaCZw",
 					},
 				},
 				example: {
-					refresh_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzEwMDYxMCwiZXhwIjoxNjQzMTA0MjEwfQ.5aU00qsTYoZaHwPWRaAytj36PfxqBNsYMPSugxxaCZw",
+					refresh_token:
+						"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzEwMDYxMCwiZXhwIjoxNjQzMTA0MjEwfQ.5aU00qsTYoZaHwPWRaAytj36PfxqBNsYMPSugxxaCZw",
 				},
 			},
 			Customer: {
@@ -102,6 +179,11 @@ module.exports = {
 						required: true,
 						example: "Moustique",
 					},
+					pseudo: {
+						type: "string",
+						description: "Pseudo of the customer",
+						example: "The Moustique",
+					},
 					phone_number: {
 						type: "string",
 						format: "Phone number",
@@ -114,17 +196,13 @@ module.exports = {
 						description: "The photo of the customer",
 						example: "/link/photo52",
 					},
-					isAdmin: {
-						type: "boolean",
-						description: "Boolean that gives admin access",
-						example: false,
-					}
 				},
 				example: {
 					id: 5,
 					email: "jemoustique@gmail.com",
 					firstname: "Jules-Edouard",
 					lastname: "Moustique",
+					pseudo: "The Moustique",
 					phone_number: "0175492412",
 					photo: "/link/photo54",
 					isAdmin: false,

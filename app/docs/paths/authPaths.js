@@ -1,5 +1,5 @@
 module.exports = {
-    "/signup": {
+	"/signup": {
 		post: {
 			tags: ["Authentication CRUD operations"],
 			description: "Return the created customer",
@@ -9,7 +9,7 @@ module.exports = {
 					"application/json": {
 						schema: {
 							type: "object",
-							$ref: "#/components/schemas/Customer",
+							$ref: "#/components/schemas/Signup",
 						},
 					},
 				},
@@ -21,7 +21,7 @@ module.exports = {
 						"application/json": {
 							schema: {
 								items: {
-									$ref: "#/components/schemas/Customer",
+									$ref: "#/components/schemas/Signup",
 								},
 							},
 						},
@@ -79,7 +79,7 @@ module.exports = {
 			},
 		},
 	},
-    "/token": {
+	"/token": {
 		post: {
 			tags: ["Authentication CRUD operations"],
 			description: "Return the created Customer",
@@ -119,37 +119,37 @@ module.exports = {
 			},
 		},
 	},
-    "/logout": {        
-        delete: {
-            tags: ["Authentication CRUD operations"],
-            description: "Delete the Type with the provided id",
-            summary: "Delete a label by id",
-            parameters: [
-                {
-                    in: "path",
-                    name: "id",
-                    schema: {
-                        type: "integer",
-                        example: 30,
-                    },
-                    required: true,
-                    description: "id",
-                },
-            ],
-            responses: {
-                200: {
-                    description: "The label was successfully deleted",
-                },
-                400: {
-                    description: "Wrong ID",
-                },
-                403: {
-                    description: "Forbidden",
-                },
-                404: {
-                    description: "Type not found",
-                },
-            },
-        },
-    }
+	"/logout": {
+		delete: {
+			tags: ["Authentication CRUD operations"],
+			description: "Delete the Type with the provided id",
+			summary: "Delete a label by id",
+			parameters: [
+				{
+					in: "path",
+					name: "id",
+					schema: {
+						type: "integer",
+						example: 30,
+					},
+					required: true,
+					description: "id",
+				},
+			],
+			responses: {
+				200: {
+					description: "The label was successfully deleted",
+				},
+				400: {
+					description: "Wrong ID",
+				},
+				403: {
+					description: "Forbidden",
+				},
+				404: {
+					description: "Type not found",
+				},
+			},
+		},
+	},
 };

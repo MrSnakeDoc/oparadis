@@ -22,7 +22,6 @@ module.exports = {
 		pseudo: Joi.string().empty(""),
 		phone_number: Joi.string().pattern(re_phone).required(),
 		avatar: Joi.string(),
-		isAdmin: Joi.boolean(),
 	}),
 	update_customer: Joi.object({
 		email: Joi.string()
