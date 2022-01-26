@@ -8,14 +8,14 @@ POST {{host}}/signup HTTP/1.1
 content-type: application/json
 
 {
-    "email": "a@a.com",
+    "email": "a@ab.com",
     "password": "Paradis13$",
     "repeat_password": "Paradis13$",
     "firstname": "a",
     "lastname": "a",
     "pseudo": "Abdul",
     "phone_number": "0134538467",
-    "photo":"/src/customer_photos/customer123.jpg",
+    "avatar":"/src/customer_photos/customer123.jpg",
     "isAdmin": false
 }
 
@@ -24,7 +24,7 @@ POST {{host}}/signin HTTP/1.1
 content-type: application/json
 
 {
-    "email": "a@a.com",
+    "email": "a@ab.com",
     "password": "Paradis13$"
 }
 
