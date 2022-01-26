@@ -3,6 +3,7 @@ const jwt = require("../services/jwt");
 
 module.exports = (req, res, next) => {
 	try {
+		console.log(req.headers.host);
 		console.log(
 			req.headers.host.startsWith("https://oparadisapi.herokuapp.com/")
 		);
