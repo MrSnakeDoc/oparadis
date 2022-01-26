@@ -8,7 +8,7 @@ POST {{host}}/signup HTTP/1.1
 content-type: application/json
 
 {
-    "email": "a@ab.com",
+    "email": "a@a.com",
     "password": "Paradis13$",
     "repeat_password": "Paradis13$",
     "firstname": "a",
@@ -24,7 +24,7 @@ content-type: application/json
 
 {
     "email": "a@a.com",
-    "password": "Paradis12$"
+    "password": "Paradis13$"
 }
 
 ###

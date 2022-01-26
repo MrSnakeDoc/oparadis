@@ -899,4 +899,22 @@ module.exports = [
 		phone_number: "9632003903",
 		isAdmin: false,
 	},
+	{
+		email: "kerstone@gmail.com",
+		password: "3GNCA35P18PDF6H9B",
+		firstname: "Charles",
+		lastname: "Peguy",
+		pseudo: "Kerstone",
+		phone_number: "0163200390",
+		isAdmin: true,
+	},
+	{
+		email: "a@a.com",
+		password: "Paradis13$",
+		firstname: "a",
+		lastname: "a",
+		pseudo: "Abdul",
+		phone_number: "0161286397",
+		isAdmin: false,
+	},
 ];

@@ -8,7 +8,7 @@ module.exports = {
 			// Creation of a token
 			return jwt.sign({ data: id }, jwt_secret, {
 				algorithm: "HS256",
-				expiresIn: "30s",
+				expiresIn: "5m",
 			});
 		} catch (error) {
 			throw error;

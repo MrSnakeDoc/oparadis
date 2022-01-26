@@ -14,9 +14,7 @@ const cache = async (request, response, next) => {
 		return response.json(cachedValue);
 	}
 	const originalResponseJson = response.json.bind(response);
-	console.log(response.json);
 	response.json = async (data) => {
-		console.log(data);
 		const str = JSON.stringify(data);
 		keys.push(key);
 		await db.set(key, str, { EX: timeout, NX: true });

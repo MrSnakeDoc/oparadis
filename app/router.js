@@ -31,8 +31,8 @@ const {
 } = require("./middlewares/");
 const router = Router();
 
-	// JWT road
-	//! We verify with add_customerValidation (joi) that the format is correct
+// JWT road
+//! We verify with add_customerValidation (joi) that the format is correct
 router
 	.get("/isAdmin", jwtMW, authController.isAdmin)
 	.post("/signup", add_customerValidation, flush, authController.signup)

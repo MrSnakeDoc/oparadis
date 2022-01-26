@@ -88,8 +88,8 @@ module.exports = {
 					},
 				},
 				example: {
-					email: "jemoustique@gmail.com",
-					password: "jeanbon",
+					email: "a@a.com",
+					password: "Paradis13$",
 				},
 			},
 			Token: {
