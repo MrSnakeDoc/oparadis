@@ -10,11 +10,11 @@ module.exports = {
 			.email({
 				minDomainSegments: 2,
 				maxDomainSegments: 3,
-				tlds: { allow: ["com", "net", "fr", "it"] },
+				// tlds: { allow: ["com", "net", "fr", "it"] },
 			})
 			.required(),
 		password: Joi.string()
-			.pattern(new RegExp(/^[a-zA-Z0-9-_$@#!?]{8,30}$/))
+			.pattern(new RegExp(/^[a-zA-Z0-9-_$@#!?]{1,30}$/))
 			.required(),
 		repeat_password: Joi.ref("password"),
 		firstname: Joi.string().required(),
@@ -28,7 +28,7 @@ module.exports = {
 			.email({
 				minDomainSegments: 2,
 				maxDomainSegments: 3,
-				tlds: { allow: ["com", "net", "fr", "it"] },
+				// tlds: { allow: ["com", "net", "fr", "it"] },
 			})
 			.required(),
 		password: Joi.string()
