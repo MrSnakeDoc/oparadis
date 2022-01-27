@@ -12,6 +12,7 @@ const CoreModel = require("./CoreModel");
  */
 module.exports = class Customer {
 	constructor(obj = {}) {
+		delete obj.password;
 		for (const prop in obj) {
 			this[prop] = obj[prop];
 		}
@@ -73,26 +74,6 @@ module.exports = class Customer {
 			);
 			return result ? new Customer(result) : undefined;
 		} catch (error) {
-			console.log(error);
-			if (error.detail) {
-				throw new Error(error.detail);
-			}
-			throw error;
-		}
-	}
-
-	async update_password() {
-		try {
-			// We select the update function create a database(example function in sqitch/deploy/function)
-			console.log(this);
-			const result = await CoreModel.getRow(
-				"SELECT * FROM update_password($1)",
-				[this]
-			);
-			console.log(result);
-			return result ? new Customer(result) : undefined;
-		} catch (error) {
-			console.log(error);
 			if (error.detail) {
 				throw new Error(error.detail);
 			}

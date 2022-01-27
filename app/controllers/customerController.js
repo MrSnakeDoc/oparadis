@@ -35,26 +35,6 @@ module.exports = {
 		}
 	},
 
-	async update_password(req, res) {
-		try {
-			delete req.body.repeat_password;
-			req.body.password = await encrypt(req.body.password);
-			console.log(
-				"old password => $2b$10$Xj34WZEN1dLxMgnEZdQ34uXZZzoYumnrjgAIL7Jt08OZ7QF/GhpRu"
-			);
-			console.log("new password =>", req.body.password);
-
-			// We pass the id in the object to update a
-			const customer = await new Customer({
-				id: +req.params.id,
-				...req.body,
-			}).update_password();
-			if (!customer) throw new Error({ code: 204 });
-			res.sendStatus(200);
-		} catch (err) {
-			res.status(500).json(new BaseError(err));
-		}
-	},
 	async delete(req, res) {
 		try {
 			await Customer.delete(+req.params.id);

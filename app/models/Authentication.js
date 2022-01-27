@@ -88,4 +88,20 @@ module.exports = class Authentication {
 			throw error;
 		}
 	}
+
+	async update_password() {
+		try {
+			// We select the update function create a database(example function in sqitch/deploy/function)
+			const result = await CoreModel.getRow(
+				"SELECT * FROM update_password($1)",
+				[this]
+			);
+			return result ? new Authentication(result) : undefined;
+		} catch (error) {
+			if (error.detail) {
+				throw new Error(error.detail);
+			}
+			throw error;
+		}
+	}
 };

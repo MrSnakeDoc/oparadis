@@ -64,7 +64,7 @@ router
 	.patch(
 		"/customers/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])/password",
 		paramsValidation,
-		customerController.update_password
+		authController.update_password
 	)
 	.delete(
 		"/customers/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",

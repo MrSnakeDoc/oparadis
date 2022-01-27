@@ -133,4 +133,19 @@ module.exports = {
 			res.status(500).json(new BaseError(err));
 		}
 	},
+	async update_password(req, res) {
+		try {
+			delete req.body.repeat_password;
+			req.body.password = await encrypt(req.body.password);
+			// We pass the id in the object to update a
+			const customer = await new Authentication({
+				id: +req.params.id,
+				...req.body,
+			}).update_password();
+			if (!customer) throw new Error({ code: 204 });
+			return res.sendStatus(200);
+		} catch (err) {
+			res.status(500).json(new BaseError(err));
+		}
+	},
 };
