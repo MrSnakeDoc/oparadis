@@ -13,7 +13,7 @@ module.exports = {
 	async findOne(req, res) {
 		try {
 			const animal = await Animal.findOne(+req.params.id);
-			if(!animal.id) res.status(204);
+			if(!animal) res.status(204);
 			res.json(animal);
 		} catch (err) {
 			res.status(500).json(new BaseError(err));
@@ -34,6 +34,7 @@ module.exports = {
 				id: +req.params.id,
 				...req.body,
 			}).update();
+			if (!animal.id) res.status(204);
 			res.json(animal);
 		} catch (err) {
 			res.status(500).json(new BaseError(err));

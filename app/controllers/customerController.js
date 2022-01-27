@@ -29,6 +29,7 @@ module.exports = {
 				id: +req.params.id,
 				...req.body,
 			}).update();
+			if (!customer.id) res.status(204);
 			res.json(customer);
 		} catch (err) {
 			res.status(500).json(new BaseError(err));
@@ -37,7 +38,7 @@ module.exports = {
 
 	async delete(req, res) {
 		try {
-			await Customer.delete(+req.params.id);
+			const customer = await Customer.delete(+req.params.id);
 			res.json("Customer Deleted");
 		} catch (err) {
 			res.status(500).json(new BaseError(err));

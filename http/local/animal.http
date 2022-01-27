@@ -22,7 +22,7 @@ content-type: application/json
     }
     
 ###
-PATCH {{host}}/animals/101 HTTP/1.1
+PATCH {{host}}/animals/1 HTTP/1.1
 content-type: application/json
 
     {

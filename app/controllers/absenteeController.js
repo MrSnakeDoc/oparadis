@@ -13,13 +13,12 @@ module.exports = {
 	async findOne(req, res) {
 		try {
 			const absentee = await Absentee.findOne(+req.params.id);
-			if(!absentee.id) res.status(204);
+			if(!absentee) res.status(204);
 			res.json(absentee);
 		} catch (err) {
 			res.status(500).json(new BaseError(err));
 		}
 	},
-
 	async save(req, res) {
 		try {
 			const absentee = await new Absentee(req.body).save();
@@ -34,6 +33,7 @@ module.exports = {
 				id: +req.params.id,
 				...req.body,
 			}).update();
+			if (!absentee.id) res.status(204);
 			res.json(absentee);
 		} catch (err) {
 			res.status(500).json(new BaseError(err));

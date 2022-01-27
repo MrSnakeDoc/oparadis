@@ -13,7 +13,7 @@ module.exports = {
 	async findOne(req, res) {
 		try {
 			const country = await Country.findOne(+req.params.id);
-			if(!country.id) res.status(204);
+			if(!country) res.status(204);
 			res.json(country);
 		} catch (err) {
 			res.status(500).json(new BaseError(err));

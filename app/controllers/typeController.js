@@ -13,7 +13,7 @@ module.exports = {
 	async findOne(req, res) {
 		try {
 			const type = await Type.findOne(+req.params.id);
-			if(!type.id) res.status(204);
+			if(!type) res.status(204);
 			res.json(type);
 		} catch (err) {
 			res.status(500).json(new BaseError(err));
@@ -38,6 +38,7 @@ module.exports = {
 				id: +req.params.id,
 				...req.body,
 			}).update();
+			if (!type.id) res.status(204);
 			res.json(type);
 		} catch (err) {
 			res.status(500).json(new BaseError(err));

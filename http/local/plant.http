@@ -5,7 +5,7 @@ GET {{host}}/plants/ HTTP/1.1
 content-type: application/json
 
 ###
-GET {{host}}/plants/1 HTTP/1.1
+GET {{host}}/plants/3 HTTP/1.1
 content-type: application/json
 
 ###
@@ -20,16 +20,16 @@ content-type: application/json
     }
     
 ###
-PATCH {{host}}/plants/101 HTTP/1.1
+PATCH {{host}}/plants/1 HTTP/1.1
 content-type: application/json
 
     {
-        "type": "Menthe",
+        "type": "Menthes",
         "notes": "Arroser 1 fois tous les deux jours",
         "photo":"/src/animal_photos/customer123/animal22.jpg",
         "customer_id": 1
     }
     
 ###
-DELETE {{host}}/plants/101 HTTP/1.1
+DELETE {{host}}/plants/1 HTTP/1.1
 content-type: application/json
