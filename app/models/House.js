@@ -43,12 +43,11 @@ module.exports = class House {
 				`select * from house_full_find_all`
 			);
 			return results.map((result) => new House(result));
-		} catch (error) {
-			console.log(error);
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 
@@ -68,10 +67,9 @@ module.exports = class House {
 				[id]
 			);
 			return results ? new House(results) : undefined;
-		} catch (error) {
-			console.log(error);
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
 			throw error;
 		}
@@ -89,9 +87,9 @@ module.exports = class House {
 			// We select the view to create a database(example view in migrations/deploy/domain)
 			const results = await CoreModel.getArray(`select * from house_find_all`);
 			return results.map((result) => new House(result));
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
 			throw error;
 		}
@@ -115,11 +113,11 @@ module.exports = class House {
 				[id]
 			);
 			return results ? new House(results) : undefined;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 
@@ -136,9 +134,9 @@ module.exports = class House {
 				this,
 			]);
 			return result ? new House(result) : undefined;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
 			throw error;
 		}
@@ -157,12 +155,11 @@ module.exports = class House {
 				this,
 			]);
 			return result ? new House(result) : undefined;
-		} catch (error) {
-			console.log(error);
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 	/**
@@ -175,11 +172,11 @@ module.exports = class House {
 		try {
 			await CoreModel.getRow("delete from house where id = $1", [id]);
 			return;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 };

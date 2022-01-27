@@ -6,7 +6,7 @@ module.exports = {
 			const photo = await Photo.findAll();
 			res.json(photo);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 
@@ -16,7 +16,7 @@ module.exports = {
 			if(!photo) res.status(204);
 			res.json(photo);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 
@@ -25,7 +25,7 @@ module.exports = {
 			const photo = await new Photo(req.body).save();
 			res.status(201).json(photo);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 	async update(req, res) {
@@ -37,7 +37,7 @@ module.exports = {
 			if (!photo.id) res.status(204);
 			res.json(photo);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 	async delete(req, res) {
@@ -45,7 +45,7 @@ module.exports = {
 			await Photo.delete(+req.params.id);
 			res.json("Photo Deleted");
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 };

@@ -17,10 +17,10 @@ module.exports = {
 			req.body.password = await encrypt(req.body.password);
 			const customer = await new Authentication(req.body).signup();
 			delete customer.password;
+			console.log('controller:', customer);
 			res.status(201).json(customer);
 		} catch (err) {
-			console.log(err);
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message, 500));
 		}
 	},
 
@@ -50,8 +50,8 @@ module.exports = {
 			};
 			cache(customer.id, token.refresh_token.split(" ")[1]);
 			res.status(200).json(token);
-		} catch (error) {
-			res.status(500).json(error);
+		} catch (err) {
+			res.status(500).json(new BaseError(err.message, 500));
 		}
 	},
 
@@ -75,11 +75,11 @@ module.exports = {
 			}
 			//Make a token
 			res.json({ access_token: makeToken(payload.data) });
-		} catch (error) {
-			if (error.message === "invalid token") {
+		} catch (err) {
+			if (err.message === "invalid token") {
 				return res.sendStatus(401);
 			}
-			return res.json(error.message);
+			return res.json(err.message);
 		}
 	},
 	async disconnect(req, res) {
@@ -102,11 +102,11 @@ module.exports = {
 				return res.sendStatus(500);
 			}
 			res.sendStatus(204);
-		} catch (error) {
-			if (error.message === "invalid token") {
+		} catch (err) {
+			if (err.message === "invalid token") {
 				return res.sendStatus(401);
 			}
-			return res.json(error.message);
+			return res.json(err.message);
 		}
 	},
 
@@ -117,7 +117,7 @@ module.exports = {
 			if (!customer.id) res.status(204);
 			res.json(customer);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 
@@ -130,7 +130,7 @@ module.exports = {
 			}).update_isAdmin();
 			res.json(customer);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 	async update_password(req, res) {
@@ -145,7 +145,7 @@ module.exports = {
 			if (!customer) throw new Error({ code: 204 });
 			return res.sendStatus(200);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 };

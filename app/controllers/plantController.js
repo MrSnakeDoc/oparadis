@@ -6,7 +6,7 @@ module.exports = {
 			const plant = await Plant.findAll();
 			res.json(plant);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 
@@ -16,7 +16,7 @@ module.exports = {
 			if(!plant) res.status(204);
 			res.json(plant);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 
@@ -25,8 +25,7 @@ module.exports = {
 			const plant = await new Plant(req.body).save();
 			res.status(201).json(plant);
 		} catch (err) {
-			console.log(err);
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 	async update(req, res) {
@@ -38,7 +37,7 @@ module.exports = {
 			if (!plant.id) res.status(204);
 			res.json(plant);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 	async delete(req, res) {
@@ -46,7 +45,7 @@ module.exports = {
 			await Plant.delete(+req.params.id);
 			res.json("Plant Deleted");
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 };

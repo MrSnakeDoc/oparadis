@@ -27,11 +27,11 @@ module.exports = class Type {
 		try {
 			const results = await CoreModel.getArray("SELECT * FROM house_type");
 			return results.map((result) => new Type(result));
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 
@@ -49,11 +49,11 @@ module.exports = class Type {
 				[id]
 			);
 			return result ? new Type(result) : undefined;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 
@@ -68,11 +68,11 @@ module.exports = class Type {
 			// We select the add function create a database(example function in migrations/deploy/function)
 			const result = await CoreModel.getRow("SELECT * FROM add_type($1)", [this]);
 			return result ? new Type(result) : undefined;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 
@@ -89,11 +89,11 @@ module.exports = class Type {
 				this,
 			]);
 			return result ? new Type(result) : undefined;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 	/**
@@ -106,11 +106,11 @@ module.exports = class Type {
 		try {
 			await CoreModel.getRow("delete from house_type where id = $1", [id]);
 			return;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 };

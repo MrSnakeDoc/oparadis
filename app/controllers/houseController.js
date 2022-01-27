@@ -6,7 +6,7 @@ module.exports = {
 			const houses = await House.findAllFull();
 			res.json(houses);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 
@@ -16,7 +16,7 @@ module.exports = {
 			if(!house.id) res.status(204);
 			res.json(house);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 
@@ -25,7 +25,7 @@ module.exports = {
 			const house = await House.findAll();
 			res.json(house);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 
@@ -35,7 +35,7 @@ module.exports = {
 			if(!house.id) res.status(204);
 			res.json(house);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 
@@ -44,7 +44,7 @@ module.exports = {
 			const house = await new House(req.body).save();
 			res.status(201).json(house);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 	async update(req, res) {
@@ -56,7 +56,7 @@ module.exports = {
 			if (!house.id) res.status(204);
 			res.json(house);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 	async delete(req, res) {
@@ -64,7 +64,7 @@ module.exports = {
 			await House.delete(+req.params.id);
 			res.json("House Deleted");
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 };

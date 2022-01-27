@@ -25,11 +25,11 @@ module.exports = class Plant {
 		try {
 			const results = await CoreModel.getArray("SELECT * FROM plant");
 			return results.map((result) => new Plant(result));
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 
@@ -47,11 +47,11 @@ module.exports = class Plant {
 				[id]
 			);
 			return result ? new Plant(result) : undefined;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 
@@ -68,11 +68,11 @@ module.exports = class Plant {
 				this,
 			]);
 			return result ? new Plant(result) : undefined;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 
@@ -89,11 +89,11 @@ module.exports = class Plant {
 				this,
 			]);
 			return result ? new Plant(result) : undefined;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 	/**
@@ -106,11 +106,11 @@ module.exports = class Plant {
 		try {
 			await CoreModel.getRow("delete from plant where id = $1", [id]);
 			return;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 };

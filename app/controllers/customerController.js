@@ -1,5 +1,4 @@
 const { Customer, BaseError } = require("../models");
-const { encrypt } = require("../services/encrypt");
 
 module.exports = {
 	async findAll(_, res) {
@@ -7,7 +6,7 @@ module.exports = {
 			const customers = await Customer.findAll();
 			res.json(customers);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 	async findOne(req, res) {
@@ -17,7 +16,7 @@ module.exports = {
 			if (!customer.id) res.status(204);
 			res.json(customer);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 
@@ -32,16 +31,16 @@ module.exports = {
 			if (!customer.id) res.status(204);
 			res.json(customer);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 
 	async delete(req, res) {
 		try {
-			const customer = await Customer.delete(+req.params.id);
+			await Customer.delete(+req.params.id);
 			res.json("Customer Deleted");
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 };
