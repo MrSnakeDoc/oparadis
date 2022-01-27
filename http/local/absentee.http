@@ -17,7 +17,7 @@ content-type: application/json
     }
 
 ###
-PATCH {{host}}/absentees/101 HTTP/1.1
+PATCH {{host}}/absentees/1 HTTP/1.1
 content-type: application/json
 
     {
@@ -27,5 +27,5 @@ content-type: application/json
     }
     
 ###
-DELETE {{host}}/absentees/101 HTTP/1.1
+DELETE {{host}}/absentees/1 HTTP/1.1
 content-type: application/json

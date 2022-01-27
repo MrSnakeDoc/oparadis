@@ -86,7 +86,7 @@ router
 	.get(
 		"/houses/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
-		cache,
+		// cache,
 		houseController.findOne
 	)
 	.post("/houses", add_houseValidation, flush, houseController.save)
@@ -109,7 +109,7 @@ router
 	.get(
 		"/animals/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
-		cache,
+		// cache,
 		animalController.findOne
 	)
 	.post("/animals", add_animalValidation, flush, animalController.save)
@@ -132,7 +132,7 @@ router
 	.get(
 		"/photos/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
-		cache,
+		// cache,
 		photoController.findOne
 	)
 	.post("/photos", add_photoValidation, flush, photoController.save)
@@ -155,7 +155,7 @@ router
 	.get(
 		"/absentees/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
-		cache,
+		// cache,
 		absenteeController.findOne
 	)
 	.post("/absentees", add_absenteeValidation, flush, absenteeController.save)
@@ -178,7 +178,7 @@ router
 	.get(
 		"/plants/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
-		cache,
+		// cache,
 		plantController.findOne
 	)
 	.post("/plants", add_plantValidation, flush, plantController.save)
@@ -201,7 +201,7 @@ router
 	.get(
 		"/types/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
-		cache,
+		// cache,
 		typeController.findOne
 	)
 	.post("/types", add_typeValidation, flush, typeController.save)

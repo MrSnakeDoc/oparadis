@@ -13,7 +13,7 @@ module.exports = {
 	async findOne(req, res) {
 		try {
 			const photo = await Photo.findOne(+req.params.id);
-			if(!photo.id) res.status(204);
+			if(!photo) res.status(204);
 			res.json(photo);
 		} catch (err) {
 			res.status(500).json(new BaseError(err));
@@ -34,6 +34,7 @@ module.exports = {
 				id: +req.params.id,
 				...req.body,
 			}).update();
+			if (!photo.id) res.status(204);
 			res.json(photo);
 		} catch (err) {
 			res.status(500).json(new BaseError(err));

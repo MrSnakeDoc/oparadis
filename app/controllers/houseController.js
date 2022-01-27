@@ -53,6 +53,7 @@ module.exports = {
 				id: +req.params.id,
 				...req.body,
 			}).update();
+			if (!house.id) res.status(204);
 			res.json(house);
 		} catch (err) {
 			res.status(500).json(new BaseError(err));
