@@ -29,11 +29,11 @@ module.exports = class Customer {
 		try {
 			const results = await CoreModel.getArray("SELECT * FROM customer");
 			return results.map((result) => new Customer(result));
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 
@@ -51,11 +51,11 @@ module.exports = class Customer {
 				[id]
 			);
 			return results ? new Customer(results) : undefined;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 
@@ -73,11 +73,11 @@ module.exports = class Customer {
 				[this]
 			);
 			return result ? new Customer(result) : undefined;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 
@@ -91,11 +91,11 @@ module.exports = class Customer {
 		try {
 			await CoreModel.getRow("delete from customer where id = $1", [id]);
 			return;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 };

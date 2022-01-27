@@ -6,7 +6,7 @@ module.exports = {
 			const absentee = await Absentee.findAll();
 			res.json(absentee);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 
@@ -16,7 +16,7 @@ module.exports = {
 			if(!absentee) res.status(204);
 			res.json(absentee);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 	async save(req, res) {
@@ -24,7 +24,7 @@ module.exports = {
 			const absentee = await new Absentee(req.body).save();
 			res.status(201).json(absentee);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 	async update(req, res) {
@@ -36,7 +36,7 @@ module.exports = {
 			if (!absentee.id) res.status(204);
 			res.json(absentee);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 	async delete(req, res) {
@@ -44,7 +44,7 @@ module.exports = {
 			await Absentee.delete(+req.params.id);
 			res.json("Absentee Deleted");
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 };

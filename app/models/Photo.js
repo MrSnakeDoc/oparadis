@@ -23,11 +23,11 @@ module.exports = class Photo {
 		try {
 			const results = await CoreModel.getArray("SELECT * FROM photo");
 			return results.map((result) => new Photo(result));
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 
@@ -44,11 +44,11 @@ module.exports = class Photo {
 				id,
 			]);
 			return result ? new Photo(result) : undefined;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 
@@ -65,11 +65,11 @@ module.exports = class Photo {
 				this,
 			]);
 			return result ? new Photo(result) : undefined;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 
@@ -86,11 +86,11 @@ module.exports = class Photo {
 				this,
 			]);
 			return result ? new Photo(result) : undefined;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 	/**
@@ -103,11 +103,11 @@ module.exports = class Photo {
 		try {
 			await CoreModel.getRow("delete from photo where id = $1", [id]);
 			return;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 };

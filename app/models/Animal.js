@@ -21,17 +21,17 @@ module.exports = class Animal {
 	 * @static
 	 * @async
 	 * @returns {Array<Animal>} All Animals in database
-	 * @throw {Error} An error
+	 * @throw {err} An err
 	 */
 	static async findAll() {
 		try {
 			const results = await CoreModel.getArray("SELECT * FROM animal");
 			return results.map((result) => new Animal(result));
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 
@@ -40,7 +40,7 @@ module.exports = class Animal {
 	 * @static
 	 * @async
 	 * @returns {Object<Animal>} One Animal in database
-	 * @throw {Error} An error
+	 * @throw {err} An err
 	 */
 	static async findOne(id) {
 		try {
@@ -50,11 +50,11 @@ module.exports = class Animal {
 				[id]
 			);
 			return result ? new Animal(result) : undefined;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 
@@ -62,7 +62,7 @@ module.exports = class Animal {
 	 * Creates a new Animal in database
 	 * @async
 	 * @returns {Object<Animal>} Creates a new Animal in database
-	 * @throw {Error} An error
+	 * @throw {err} An err
 	 */
 	async save() {
 		try {
@@ -71,11 +71,11 @@ module.exports = class Animal {
 				this,
 			]);
 			return result ? new Animal(result) : undefined;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 
@@ -83,7 +83,7 @@ module.exports = class Animal {
 	 * Updates a Animal in database
 	 * @async
 	 * @returns {Object<Animal>} Updates a Animal in database
-	 * @throw {Error} An error
+	 * @throw {err} An err
 	 */
 	async update() {
 		try {
@@ -92,28 +92,28 @@ module.exports = class Animal {
 				this,
 			]);
 			return result ? new Animal(result) : undefined;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 	/**
 	 * Delete a Animal in database
 	 * @async
 	 * @returns {Object<Animal>} Delete a Animal in database
-	 * @throw {Error} An error
+	 * @throw {err} An err
 	 */
 	static async delete(id) {
 		try {
 			await CoreModel.getRow("delete from animal where id = $1", [id]);
 			return;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 };

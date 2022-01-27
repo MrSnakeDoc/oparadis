@@ -27,9 +27,9 @@ module.exports = class Country {
 		try {
 			const results = await CoreModel.getArray("SELECT * FROM country");
 			return results.map((result) => new Country(result));
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
 			throw error;
 		}
@@ -48,9 +48,9 @@ module.exports = class Country {
 				id,
 			]);
 			return result ? new Country(result) : undefined;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
 			throw error;
 		}

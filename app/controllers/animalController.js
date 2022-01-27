@@ -6,7 +6,7 @@ module.exports = {
 			const animal = await Animal.findAll();
 			res.json(animal);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 
@@ -16,7 +16,7 @@ module.exports = {
 			if(!animal) res.status(204);
 			res.json(animal);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 
@@ -25,7 +25,7 @@ module.exports = {
 			const animal = await new Animal(req.body).save();
 			res.status(201).json(animal);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 	async update(req, res) {
@@ -37,7 +37,7 @@ module.exports = {
 			if (!animal.id) res.status(204);
 			res.json(animal);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 	async delete(req, res) {
@@ -45,7 +45,7 @@ module.exports = {
 			await Animal.delete(+req.params.id);
 			res.json("Animal Deleted");
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 };

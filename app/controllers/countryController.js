@@ -6,7 +6,7 @@ module.exports = {
 			const countries = await Country.findAll();
 			res.json(countries);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 
@@ -16,7 +16,7 @@ module.exports = {
 			if(!country) res.status(204);
 			res.json(country);
 		} catch (err) {
-			res.status(500).json(new BaseError(err));
+			res.status(500).json(new BaseError(err.message));
 		}
 	},
 };

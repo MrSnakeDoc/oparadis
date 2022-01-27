@@ -22,7 +22,7 @@ module.exports = class Authentication {
 	 * @static
 	 * @async
 	 * @returns {Array<Customer>} All Customers in database
-	 * @throw {Error} An error
+	 * @throw {err} An err
 	 */
 	static async isAdmin() {
 		try {
@@ -30,11 +30,11 @@ module.exports = class Authentication {
 				"SELECT id, isAdmin FROM customer"
 			);
 			return results ? new Authentication(results) : undefined;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 
@@ -44,11 +44,11 @@ module.exports = class Authentication {
 				this,
 			]);
 			return results ? new Authentication(results) : undefined;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 
@@ -59,11 +59,11 @@ module.exports = class Authentication {
 				[email]
 			);
 			return results ? new Authentication(results) : undefined;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 
@@ -71,7 +71,7 @@ module.exports = class Authentication {
 	 * Creates a new Customer in database
 	 * @async
 	 * @returns {Object<Customer>} Creates a new Customer in database
-	 * @throw {Error} An error
+	 * @throw {err} An err
 	 */
 	async signup() {
 		try {
@@ -79,13 +79,13 @@ module.exports = class Authentication {
 			const result = await CoreModel.getRow("SELECT * FROM add_customer($1)", [
 				this,
 			]);
+			console.log('model:', result);
 			return result ? new Authentication(result) : undefined;
-		} catch (error) {
-			if (error.detail) {
-				console.log(error);
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 
@@ -97,11 +97,11 @@ module.exports = class Authentication {
 				[this]
 			);
 			return result ? new Authentication(result) : undefined;
-		} catch (error) {
-			if (error.detail) {
-				throw new Error(error.detail);
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
 			}
-			throw error;
+			throw err;
 		}
 	}
 };
