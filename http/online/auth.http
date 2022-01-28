@@ -1,8 +1,8 @@
-@host = http://localhost:5000
+@host = https://oparadisapi.herokuapp.com
 
 @access_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzAzMDcyMSwiZXhwIjoxNjQzMDMwNzUxfQ.-_F14vPYc5mXDPNgpYiwsVo_LeaZTEw93zc05goBIiw
 
-@refresh_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDIsImlhdCI6MTY0MzI5OTk5OSwiZXhwIjoxNjQzMzAzNTk5fQ.j4KygcT-refJoXdPNIXhTsnGTL0nC950cuij-rmBaPo
+@refresh_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDIsImlhdCI6MTY0MzMwMDExOSwiZXhwIjoxNjQzMzAzNzE5fQ.VvmYygFEQPo_WvFG_TAFRO4r5aAL5ZYvut3hZdp_wMw
 
 POST {{host}}/signup HTTP/1.1
 content-type: application/json

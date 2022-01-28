@@ -31,10 +31,6 @@ module.exports = {
 				// tlds: { allow: ["com", "net", "fr", "it"] },
 			})
 			.required(),
-		password: Joi.string()
-			.pattern(/^[a-zA-Z0-9-_$@#!?]{8,30}$/)
-			.required(),
-		repeat_password: Joi.ref("password"),
 		firstname: Joi.string().required(),
 		lastname: Joi.string().required(),
 		pseudo: Joi.string().empty(""),
@@ -43,20 +39,3 @@ module.exports = {
 		isAdmin: Joi.boolean(),
 	}),
 };
-
-// +33164662903
-// +33264662903
-// +33364662903
-// +33464662903
-// +33564662903
-// +33664662903
-// +33764662903
-// +33864662903
-// 0164662903
-// 0264662903
-// 0364662903
-// 0464662903
-// 0564662903
-// 0664662903
-// 0764662903
-// 0864662903
