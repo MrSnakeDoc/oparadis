@@ -2,7 +2,11 @@
 
 @access_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzAzMDcyMSwiZXhwIjoxNjQzMDMwNzUxfQ.-_F14vPYc5mXDPNgpYiwsVo_LeaZTEw93zc05goBIiw
 
+<<<<<<< HEAD
 @refresh_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDIsImlhdCI6MTY0MzMwMDExOSwiZXhwIjoxNjQzMzAzNzE5fQ.VvmYygFEQPo_WvFG_TAFRO4r5aAL5ZYvut3hZdp_wMw
+=======
+@refresh_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDcsImlhdCI6MTY0MzIxMzQwNywiZXhwIjoxNjQzMjE3MDA3fQ.weWgjn-sgmI4NZRp3HD21p4Ba8fynMpvwuqUDn6ECfc
+>>>>>>> schema
 
 POST {{host}}/signup HTTP/1.1
 content-type: application/json
