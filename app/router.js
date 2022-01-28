@@ -42,9 +42,7 @@ router
 	.post("/token", authController.refreshToken)
 	.delete("/logout", authController.disconnect);
 
-router
-	.patch("/isAdmin/:id", authController.update_isAdmin)
-	.patch("./customers/password", update_passwordValidation, authController.update_password);
+router.patch("/isAdmin/:id", authController.update_isAdmin);
 
 //! Double check on id with regex and joi (number between 1 and 9999)
 router
@@ -68,6 +66,7 @@ router
 	.patch(
 		"/customers/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])/password",
 		paramsValidation,
+		update_passwordValidation,
 		authController.update_password
 	)
 	.delete(
