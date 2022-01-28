@@ -17,7 +17,7 @@ module.exports = {
 			req.body.password = await encrypt(req.body.password);
 			const customer = await new Authentication(req.body).signup();
 			delete customer.password;
-			console.log('controller:', customer);
+			console.log("controller:", customer);
 			res.status(201).json(customer);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message, 500));
@@ -49,8 +49,8 @@ module.exports = {
 				refresh_token: `Bearer ${generateRefreshToken(customer.id)}`,
 			};
 			cache(customer.id, token.refresh_token.split(" ")[1]);
-			res.setHeader('Authorization',token.access_token)
-			res.setHeader('RefreshToken',token.refresh_token)
+			res.setHeader("Authorization", token.access_token);
+			res.setHeader("RefreshToken", token.refresh_token);
 			delete customer.password;
 			delete customer.isadmin;
 			res.status(200).json(customer);
@@ -78,7 +78,8 @@ module.exports = {
 				return res.sendStatus(401);
 			}
 			//Make a token
-			res.json({ access_token: makeToken(payload.data) });
+			res.setHeader("Authorization", makeToken(payload.data));
+			res.json("Ok");
 		} catch (err) {
 			if (err.message === "invalid token") {
 				return res.sendStatus(401);

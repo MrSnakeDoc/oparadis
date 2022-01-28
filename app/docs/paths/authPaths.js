@@ -42,8 +42,8 @@ module.exports = {
 	"/signin": {
 		post: {
 			tags: ["Authentication CRUD operations"],
-			description: "Return an access token and a refresh token",
-			summary: "Return an access token and a refresh token",
+			description: "Return an access token and a refresh token in headers",
+			summary: "Return an access token and a refresh token in headers",
 			requestBody: {
 				content: {
 					"application/json": {
@@ -56,12 +56,13 @@ module.exports = {
 			},
 			responses: {
 				200: {
-					description: "Customer was authenticated",
+					description:
+						"Customer was authenticated - Access token and refresh token returned in headers",
 					content: {
 						"application/json": {
 							schema: {
 								items: {
-									$ref: "#/components/schemas/Token",
+									$ref: "#/components/schemas/Customer",
 								},
 							},
 						},
@@ -82,8 +83,9 @@ module.exports = {
 	"/token": {
 		post: {
 			tags: ["Authentication CRUD operations"],
-			description: "Return a new access token",
-			summary: "Return a new access token",
+			description:
+				"Return a new access token - Needed : Refresh token in headers!",
+			summary: "Return a new access token in headers",
 			requestBody: {
 				content: {
 					"application/json": {
@@ -96,7 +98,8 @@ module.exports = {
 			},
 			responses: {
 				200: {
-					description: "Access Token was successfully refreshed",
+					description:
+						"Access Token was successfully refreshed - Access Token returned in headers",
 					content: {
 						"application/json": {
 							schema: {
@@ -122,12 +125,13 @@ module.exports = {
 	"/logout": {
 		delete: {
 			tags: ["Authentication CRUD operations"],
-			description: "Delete the refresh token and renders it inactive",
+			description: `Delete the refresh token and renders it inactive: Needed: Refresh token in headers`,
 			summary: "Delete a refresh token",
 			parameters: [],
 			responses: {
 				200: {
-					description: "The label was successfully deleted",
+					description:
+						"The refresh token was successfully deleted was successfully logged out",
 				},
 				400: {
 					description: "Wrong ID",
