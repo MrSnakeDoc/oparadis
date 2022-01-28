@@ -53,7 +53,6 @@ module.exports = {
 				"Authorization",
 				"RefreshToken",
 			]);
-			// res.setHeader("Access-Control-Expose-Headers", "RefreshToken");
 			res.setHeader("Authorization", token.access_token);
 			res.setHeader("RefreshToken", token.refresh_token);
 			delete customer.password;

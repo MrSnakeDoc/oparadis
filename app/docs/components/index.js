@@ -4,6 +4,7 @@ const Token = require("./Token");
 const AccessToken = require("./AccessToken");
 const RefreshToken = require("./RefreshToken");
 const Customer = require("./Customer");
+const House = require("./House");
 const Animal = require("./Animal");
 const Plant = require("./Plant");
 const Absentee = require("./Absentee");
@@ -18,6 +19,7 @@ module.exports = {
 	...AccessToken,
 	...RefreshToken,
 	...Customer,
+	...House,
 	...Animal,
 	...Plant,
 	...Absentee,
