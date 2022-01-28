@@ -49,6 +49,7 @@ module.exports = {
 				refresh_token: `Bearer ${generateRefreshToken(customer.id)}`,
 			};
 			cache(customer.id, token.refresh_token.split(" ")[1]);
+			res.setHeader("Access-Control-Expose-Headers", "Authorization");
 			res.setHeader("Authorization", token.access_token);
 			res.setHeader("RefreshToken", token.refresh_token);
 			delete customer.password;
