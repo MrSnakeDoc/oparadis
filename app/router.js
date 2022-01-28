@@ -13,7 +13,9 @@ const {
 const { cache, flush } = require("./services/cache");
 const {
 	jwtMW,
-	add_customerValidation,
+	signin_Validation,
+	update_passwordValidation,
+	signup_Validation,
 	update_customerValidation,
 	add_houseValidation,
 	update_houseValidation,
@@ -35,12 +37,14 @@ const router = Router();
 //! We verify with add_customerValidation (joi) that the format is correct
 router
 	.get("/isAdmin", jwtMW, authController.isAdmin)
-	.post("/signup", add_customerValidation, flush, authController.signup)
-	.post("/signin", authController.signin)
+	.post("/signup", signup_Validation, flush, authController.signup)
+	.post("/signin", signin_Validation, authController.signin)
 	.post("/token", authController.refreshToken)
 	.delete("/logout", authController.disconnect);
 
-router.patch("/isAdmin/:id", authController.update_isAdmin);
+router
+	.patch("/isAdmin/:id", authController.update_isAdmin)
+	.patch("./customers/password", update_passwordValidation, authController.update_password);
 
 //! Double check on id with regex and joi (number between 1 and 9999)
 router

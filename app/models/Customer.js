@@ -12,7 +12,7 @@ const CoreModel = require("./CoreModel");
  */
 module.exports = class Customer {
 	constructor(obj = {}) {
-		delete obj.isAdmin;
+		delete obj.isadmin;
 		delete obj.password;
 		for (const prop in obj) {
 			this[prop] = obj[prop];

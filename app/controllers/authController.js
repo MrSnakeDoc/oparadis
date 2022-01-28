@@ -49,7 +49,11 @@ module.exports = {
 				refresh_token: `Bearer ${generateRefreshToken(customer.id)}`,
 			};
 			cache(customer.id, token.refresh_token.split(" ")[1]);
-			res.status(200).json(token);
+			res.setHeader('Authorization',token.access_token)
+			res.setHeader('RefreshToken',token.refresh_token)
+			delete customer.password;
+			delete customer.isadmin;
+			res.status(200).json(customer);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message, 500));
 		}
@@ -133,6 +137,7 @@ module.exports = {
 			res.status(500).json(new BaseError(err.message));
 		}
 	},
+
 	async update_password(req, res) {
 		try {
 			delete req.body.repeat_password;
