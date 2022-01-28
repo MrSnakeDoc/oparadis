@@ -12,15 +12,15 @@ module.exports = {
 				maxDomainSegments: 3,
 				// tlds: { allow: ["com", "net", "fr", "it"] },
 			})
-			.required(),
+			.required().error(new Error('Exemple : Winnie.l.ourson@gmiel.com')),
 		password: Joi.string()
 			.pattern(new RegExp(/^[a-zA-Z0-9-_$@#!?]{1,30}$/))
-			.required(),
+			.required().error(new Error('Le mot de passe peut comporter des minuscules, des majuscules, et ces caractéres spéciaux -_$@#!?')),
 		repeat_password: Joi.ref("password"),
-		firstname: Joi.string().required(),
-		lastname: Joi.string().required(),
+		firstname: Joi.string().required().error(new Error('Message : Merci de remplir ce champs')),
+		lastname: Joi.string().required().error(new Error('Message : Merci de remplir ce champs')),
 		pseudo: Joi.string().empty(""),
-		phone_number: Joi.string().pattern(re_phone).required(),
+		phone_number: Joi.string().pattern(re_phone).required().error(new Error('Message : Merci de remplir ce champs')),
 		avatar: Joi.string(),
 	}),
 	update_customer: Joi.object({
@@ -30,17 +30,12 @@ module.exports = {
 				maxDomainSegments: 3,
 				// tlds: { allow: ["com", "net", "fr", "it"] },
 			})
-			.required(),
-		password: Joi.string()
-			.pattern(/^[a-zA-Z0-9-_$@#!?]{8,30}$/)
-			.required(),
-		repeat_password: Joi.ref("password"),
-		firstname: Joi.string().required(),
-		lastname: Joi.string().required(),
+			.required().error(new Error('Exemple : Winnie.l.ourson@gmiel.com')),
+		firstname: Joi.string().required().error(new Error('Message : Merci de remplir ce champs')),
+		lastname: Joi.string().required().error(new Error('Message : Merci de remplir ce champs')),
 		pseudo: Joi.string().empty(""),
-		phone_number: Joi.string().pattern(re_phone).required(),
+		phone_number: Joi.string().pattern(re_phone).required().error(new Error('Message : Merci de remplir ce champs')),
 		avatar: Joi.string(),
-		isAdmin: Joi.boolean(),
 	}),
 };
 
