@@ -9,8 +9,8 @@ content-type: application/json
 
 {
     "email": "a@ab.com",
-    "password": "Paradis13$onfgoinfoignfdoigiofdgoindfignfoingoifngdingoidfngoin",
-    "repeat_password": "Paradis13$onfgoinfoignfdoigiofdgoindfignfoingoifngdingoidfngoin",
+    "password": "Paradis13$",
+    "repeat_password": "Paradis13$",
     "firstname": "a",
     "lastname": "a",
     "pseudo": "Abdul",

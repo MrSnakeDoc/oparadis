@@ -2,7 +2,9 @@ const { validateBody, validateParams } = require("./validationMW");
 const {
 	bodySchema,
 	paramsSchema,
-	add_customer,
+	signup,
+	signin,
+	update_password,
 	update_customer,
 	add_house,
 	update_house,
@@ -19,7 +21,9 @@ const {
 } = require("../schemas/");
 
 module.exports = {
-	add_customerValidation: validateBody(add_customer),
+	signup_Validation: validateBody(signup),
+	signin_Validation: validateBody(signin),
+	update_passwordValidation: validateBody(update_password),
 	update_customerValidation: validateBody(update_customer),
 	add_houseValidation: validateBody(add_house),
 	update_houseValidation: validateBody(update_house),
