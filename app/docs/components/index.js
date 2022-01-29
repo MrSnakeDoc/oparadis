@@ -11,6 +11,7 @@ const Absentee = require("./Absentee");
 const Type = require("./Type");
 const Photo = require("./Photo");
 const Country = require("./Country");
+const Password = require("./Password");
 
 module.exports = {
 	...Signup,
@@ -26,4 +27,5 @@ module.exports = {
 	...Type,
 	...Photo,
 	...Country,
+	...Password,
 };

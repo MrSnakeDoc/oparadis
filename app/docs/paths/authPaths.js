@@ -145,4 +145,47 @@ module.exports = {
 			},
 		},
 	},
+	"/isAdmin": {
+		get: {
+			tags: ["Authentication CRUD operations"],
+			description: "Gives the status admin or not of a customer",
+			summary: "Gives the status admin or not of a customer",
+			parameters: [
+				{
+					in: "path",
+					name: "id",
+					schema: {
+						type: "integer",
+						example: 17,
+					},
+					required: true,
+					description: "id",
+				},
+			],
+			responses: {
+				200: {
+					description: "Status was obtained",
+					content: {
+						"application/json": {
+							schema: {
+								type: "array",
+								items: {
+									$ref: "#/components/schemas/Customer",
+								},
+							},
+						},
+					},
+				},
+				400: {
+					description: "Bad request",
+				},
+				403: {
+					description: "Forbidden",
+				},
+				404: {
+					description: "List of customers not found",
+				},
+			},
+		},
+	},
 };

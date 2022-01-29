@@ -32,16 +32,6 @@ Authorization: Bearer {{access_token}}
 }
 
 ###
-PATCH {{host}}/customers/107/password HTTP/1.1
-content-type: application/json
-Authorization: Bearer {{access_token}}
-
-{
-    "password": "Paradis12$",
-    "repeat_password": "Paradis12$"
-}
-
-###
 DELETE {{host}}/customers/101 HTTP/1.1
 content-type: application/json
 Authorization: Bearer {{access_token}}

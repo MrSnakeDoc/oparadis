@@ -1,47 +1,4 @@
 module.exports = {
-	"/isAdmin": {
-		get: {
-			tags: ["Customer CRUD operations"],
-			description: "Gives the status admin or not of a customer",
-			summary: "Gives the status admin or not of a customer",
-			parameters: [
-				{
-					in: "path",
-					name: "id",
-					schema: {
-						type: "integer",
-						example: 17,
-					},
-					required: true,
-					description: "id",
-				},
-			],
-			responses: {
-				200: {
-					description: "Status was obtained",
-					content: {
-						"application/json": {
-							schema: {
-								type: "array",
-								items: {
-									$ref: "#/components/schemas/Customer",
-								},
-							},
-						},
-					},
-				},
-				400: {
-					description: "Bad request",
-				},
-				403: {
-					description: "Forbidden",
-				},
-				404: {
-					description: "List of customers not found",
-				},
-			},
-		},
-	},
 	"/customers": {
 		get: {
 			tags: ["Customer CRUD operations"],
@@ -182,6 +139,49 @@ module.exports = {
 				},
 				400: {
 					description: "Wrong ID",
+				},
+				403: {
+					description: "Forbidden",
+				},
+				404: {
+					description: "customer not found",
+				},
+			},
+		},
+	},
+	"/customers/{id}/password": {
+		patch: {
+			tags: ["Customer CRUD operations"],
+			description: "Change the customer password",
+			summary: "Change the customer password",
+			parameters: [
+				{
+					in: "path",
+					name: "id",
+					schema: {
+						type: "integer",
+						example: 102,
+					},
+					required: true,
+					description: "id",
+				},
+			],
+			requestBody: {
+				content: {
+					"application/json": {
+						schema: {
+							type: "object",
+							$ref: "#/components/schemas/Password",
+						},
+					},
+				},
+			},
+			responses: {
+				200: {
+					description: "Password was updated successfully",
+				},
+				400: {
+					description: "Some fields cannot be empty",
 				},
 				403: {
 					description: "Forbidden",

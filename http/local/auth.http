@@ -1,8 +1,8 @@
 @host = http://localhost:5000
 
-@access_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxMDEsImVtYWlsIjoia2Vyc3RvbmVAZ21haWwuY29tIiwiZmlyc3RuYW1lIjoiQ2hhcmxlcyIsImxhc3RuYW1lIjoiUGVndXkiLCJwc2V1ZG8iOiJLZXJzdG9uZSIsInBob25lX251bWJlciI6IjAxNjMyMDAzOTAiLCJhdmF0YXIiOm51bGwsImlzYWRtaW4iOnRydWUsImNyZWF0ZWRfYXQiOiIyMDIyLTAxLTI2VDE3OjQwOjQ3Ljg4MFoiLCJ1cGRhdGVkX2F0IjoiMjAyMi0wMS0yNlQxNzo0MDo0Ny44ODBaIn0sImlhdCI6MTY0MzQ2MzA3MSwiZXhwIjoxNjQzNDYzMzcxfQ.iZpbXZdNvi1ygMvMgi2OjY3uYKSaUJv_cKov039NbpA
+@access_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxMDIsImVtYWlsIjoiYUBhLmNvbSIsImZpcnN0bmFtZSI6ImEiLCJsYXN0bmFtZSI6ImEiLCJwc2V1ZG8iOiJBYmR1bCIsInBob25lX251bWJlciI6IjAxNjEyODYzOTciLCJhdmF0YXIiOm51bGwsImlzYWRtaW4iOmZhbHNlLCJjcmVhdGVkX2F0IjoiMjAyMi0wMS0yNlQxNzo0MDo0OC4wNDBaIiwidXBkYXRlZF9hdCI6IjIwMjItMDEtMjlUMTY6MTc6MDcuNzU1WiJ9LCJpYXQiOjE2NDM0NzMwNzQsImV4cCI6MTY0MzQ3MzM3NH0.g8LNdwEl9fR1UqsLv806vyoWmdOqoqVVRaBj-WEZZNU
 
-@refresh_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxMDEsImVtYWlsIjoia2Vyc3RvbmVAZ21haWwuY29tIiwiZmlyc3RuYW1lIjoiQ2hhcmxlcyIsImxhc3RuYW1lIjoiUGVndXkiLCJwc2V1ZG8iOiJLZXJzdG9uZSIsInBob25lX251bWJlciI6IjAxNjMyMDAzOTAiLCJhdmF0YXIiOm51bGwsImlzYWRtaW4iOnRydWUsImNyZWF0ZWRfYXQiOiIyMDIyLTAxLTI2VDE3OjQwOjQ3Ljg4MFoiLCJ1cGRhdGVkX2F0IjoiMjAyMi0wMS0yNlQxNzo0MDo0Ny44ODBaIn0sImlhdCI6MTY0MzQ2MzA3MSwiZXhwIjoxNjQzNDY2NjcxfQ.YtH5y13HDt7TzWuTLPSghg2NpqNNmv2aGQSG7smixnE
+@refresh_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxMDIsImVtYWlsIjoiYUBhLmNvbSIsImZpcnN0bmFtZSI6ImEiLCJsYXN0bmFtZSI6ImEiLCJwc2V1ZG8iOiJBYmR1bCIsInBob25lX251bWJlciI6IjAxNjEyODYzOTciLCJhdmF0YXIiOm51bGwsImlzYWRtaW4iOmZhbHNlLCJjcmVhdGVkX2F0IjoiMjAyMi0wMS0yNlQxNzo0MDo0OC4wNDBaIiwidXBkYXRlZF9hdCI6IjIwMjItMDEtMjlUMTY6MTc6MDcuNzU1WiJ9LCJpYXQiOjE2NDM0NzMwNzQsImV4cCI6MTY0MzQ3NjY3NH0.Wq8aEo_exKg2xjr1vthuv5sqS7IadWQ7YpZokles0fA
 
 ###
 POST {{host}}/signup HTTP/1.1
@@ -19,7 +19,7 @@ content-type: application/json
     "avatar":"/src/customer_photos/customer123.jpg"
 }
 
-###
+### Connexion User
 POST {{host}}/signin HTTP/1.1
 content-type: application/json
 
@@ -27,6 +27,18 @@ content-type: application/json
     "email": "a@a.com",
     "password": "Paradis13$"
 }
+
+### Update Password
+PATCH {{host}}/customers/102/password HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{access_token}}
+
+{
+    "ancient_password": "Paradis12$",
+    "password": "Paradis13$",
+    "repeat_password": "Paradis13$"
+}
+
 
 ###
 POST {{host}}/signin HTTP/1.1

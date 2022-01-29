@@ -111,7 +111,7 @@ module.exports = {
 			if (!deleted) {
 				return res.sendStatus(500);
 			}
-			res.sendStatus(204);
+			res.sendStatus(200);
 		} catch (err) {
 			if (err.message === "invalid token") {
 				return res.sendStatus(401);
@@ -146,9 +146,20 @@ module.exports = {
 
 	async update_password(req, res) {
 		try {
+			const pass = await Authentication.getPassword(+req.params.id);
+			const verifiedPassword = await bcrypt.compare(
+				req.body.ancient_password,
+				pass.password
+			);
+			verifiedPassword
+				? null
+				: res.status(401).json("ancient_password is incorrect");
+			req.body.password !== req.body.repeat_password
+				? res.status(401).json("password and repeat_password must be the same")
+				: null;
 			delete req.body.repeat_password;
 			req.body.password = await encrypt(req.body.password);
-			// We pass the id in the object to update a
+			//? We pass the id in the object to update the password
 			const customer = await new Authentication({
 				id: +req.params.id,
 				...req.body,
