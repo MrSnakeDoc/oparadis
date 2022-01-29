@@ -12,6 +12,7 @@ const {
 } = require("./controllers/");
 const { cache, flush } = require("./services/cache");
 const {
+	adminMW,
 	jwtMW,
 	signin_Validation,
 	update_passwordValidation,
@@ -42,7 +43,7 @@ router
 	.post("/token", authController.refreshToken)
 	.delete("/logout", authController.disconnect);
 
-router.patch("/isAdmin/:id", authController.update_isAdmin);
+router.patch("/isAdmin/:id", jwtMW, adminMW, authController.update_isAdmin);
 
 //! Double check on id with regex and joi (number between 1 and 9999)
 router

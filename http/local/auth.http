@@ -1,14 +1,15 @@
 @host = http://localhost:5000
 
-@access_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDEsImlhdCI6MTY0MzAzMDcyMSwiZXhwIjoxNjQzMDMwNzUxfQ.-_F14vPYc5mXDPNgpYiwsVo_LeaZTEw93zc05goBIiw
+@access_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxMDEsImVtYWlsIjoia2Vyc3RvbmVAZ21haWwuY29tIiwiZmlyc3RuYW1lIjoiQ2hhcmxlcyIsImxhc3RuYW1lIjoiUGVndXkiLCJwc2V1ZG8iOiJLZXJzdG9uZSIsInBob25lX251bWJlciI6IjAxNjMyMDAzOTAiLCJhdmF0YXIiOm51bGwsImlzYWRtaW4iOnRydWUsImNyZWF0ZWRfYXQiOiIyMDIyLTAxLTI2VDE3OjQwOjQ3Ljg4MFoiLCJ1cGRhdGVkX2F0IjoiMjAyMi0wMS0yNlQxNzo0MDo0Ny44ODBaIn0sImlhdCI6MTY0MzQ2MzA3MSwiZXhwIjoxNjQzNDYzMzcxfQ.iZpbXZdNvi1ygMvMgi2OjY3uYKSaUJv_cKov039NbpA
 
-@refresh_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDIsImlhdCI6MTY0MzI5OTk5OSwiZXhwIjoxNjQzMzAzNTk5fQ.j4KygcT-refJoXdPNIXhTsnGTL0nC950cuij-rmBaPo
+@refresh_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxMDEsImVtYWlsIjoia2Vyc3RvbmVAZ21haWwuY29tIiwiZmlyc3RuYW1lIjoiQ2hhcmxlcyIsImxhc3RuYW1lIjoiUGVndXkiLCJwc2V1ZG8iOiJLZXJzdG9uZSIsInBob25lX251bWJlciI6IjAxNjMyMDAzOTAiLCJhdmF0YXIiOm51bGwsImlzYWRtaW4iOnRydWUsImNyZWF0ZWRfYXQiOiIyMDIyLTAxLTI2VDE3OjQwOjQ3Ljg4MFoiLCJ1cGRhdGVkX2F0IjoiMjAyMi0wMS0yNlQxNzo0MDo0Ny44ODBaIn0sImlhdCI6MTY0MzQ2MzA3MSwiZXhwIjoxNjQzNDY2NjcxfQ.YtH5y13HDt7TzWuTLPSghg2NpqNNmv2aGQSG7smixnE
 
+###
 POST {{host}}/signup HTTP/1.1
 content-type: application/json
 
 {
-    "email": "a@ab.com",
+    "email": "a@a.com",
     "password": "Paradis13$",
     "repeat_password": "Paradis13$",
     "firstname": "a",
@@ -25,6 +26,15 @@ content-type: application/json
 {
     "email": "a@a.com",
     "password": "Paradis13$"
+}
+
+###
+POST {{host}}/signin HTTP/1.1
+content-type: application/json
+
+{
+    "email": "kerstone@gmail.com",
+	"password": "3GNCA35P18PDF6H9B"
 }
 
 ###

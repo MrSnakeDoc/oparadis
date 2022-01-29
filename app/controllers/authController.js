@@ -40,13 +40,14 @@ module.exports = {
 			if (verifiedPassword === false) {
 				return res.sendStatus(401);
 			}
+			delete customer.password;
 			// We create a token with a short validity
 			// and a token(refresh) with a long validity
 			// then a store the token(refresh) and the
 			// associated id to be able to check it
 			const token = {
-				access_token: `Bearer ${makeToken(customer.id)}`,
-				refresh_token: `Bearer ${generateRefreshToken(customer.id)}`,
+				access_token: `Bearer ${makeToken(customer)}`,
+				refresh_token: `Bearer ${generateRefreshToken(customer)}`,
 			};
 			cache(customer.id, token.refresh_token.split(" ")[1]);
 			res.setHeader("Access-Control-Expose-Headers", [
@@ -55,7 +56,6 @@ module.exports = {
 			]);
 			res.setHeader("Authorization", token.access_token);
 			res.setHeader("RefreshToken", token.refresh_token);
-			delete customer.password;
 			delete customer.isadmin;
 			res.status(200).json(customer);
 		} catch (err) {
@@ -77,11 +77,12 @@ module.exports = {
 				return res.sendStatus(403);
 			}
 			// Checks that the token exists in redis
-			const verifiedToken = await verifyToken(payload.data, token);
+			const verifiedToken = await verifyToken(payload.data.id, token);
 			if (!verifiedToken) {
 				return res.sendStatus(401);
 			}
 			//Make a token
+			res.setHeader("Access-Control-Expose-Headers", "Authorization");
 			res.setHeader("Authorization", makeToken(payload.data));
 			res.json("Ok");
 		} catch (err) {
@@ -102,11 +103,11 @@ module.exports = {
 			if (!payload.data) {
 				return res.sendStatus(403);
 			}
-			const verifiedToken = await verifyToken(payload.data, token);
+			const verifiedToken = await verifyToken(payload.data.id, token);
 			if (!verifiedToken) {
 				return res.sendStatus(401);
 			}
-			const deleted = await deleteToken(payload.data);
+			const deleted = await deleteToken(payload.data.id);
 			if (!deleted) {
 				return res.sendStatus(500);
 			}

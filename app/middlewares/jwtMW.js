@@ -18,7 +18,7 @@ module.exports = (req, res, next) => {
 			if (!payload.data) {
 				return res.sendStatus(403);
 			}
-			req.userId = payload.data;
+			req.user = payload.data;
 			next();
 		}
 	} catch (error) {

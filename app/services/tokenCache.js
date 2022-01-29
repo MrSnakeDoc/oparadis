@@ -39,12 +39,4 @@ module.exports = {
 			throw err;
 		}
 	},
-
-	async flush(key) {
-		try {
-			await db.del(key);
-		} catch (error) {
-			throw error;
-		}
-	},
 };
