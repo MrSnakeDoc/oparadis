@@ -2,56 +2,31 @@ const app = require("../server");
 const request = require("supertest");
 const { Customer } = require("../app/models/");
 
-console.log(process.env.pg_url);
-
-// beforeEach(async () => await Customer.findAllFull());
-
-// describe("#Customer.findAllFull", () => {
-// 	test("should return an object", async () => {
-// 		await expect(typeof Customer.findAllFull()).resolves.toBe("array");
-// 	});
-// 	test("contains test", async () => {
-// 		await expect(Customer.findAllFull()).resolves.toContainEqual(
-// 			expect.objectContaining({
-// 				id: expect.any(Number),
-// 				email: expect.any(Array),
-// 				firstname: expect.any(String),
-// 				lastname: expect.any(String),
-// 				phone_number: expect.any(String),
-// 				customer_url: expect.any(String || null),
-// 				house: expect.any(Array || null),
-// 				animals: expect.any(Array || null),
-// 				absentee: expect.any(Array || null),
-// 			})
-// 		);
-// 	});
-// 	// test("should return a firstname included in the data source", () => {
-// 	// 	expect(data).toContain(getRandomName());
-// 	// });
-// });
-describe("Test route GET /customer/full", () => {
-	it("should return a response with status 200", async () => {
-		const response = await request(app).get("/customer/full");
-		expect(response.status).to.equal(200);
+describe("Test route GET /customers", () => {
+	test("should return a response with status 200", async () => {
+		const response = await request(app).get("/customers");
+		expect(response.statusCode).toBe(200);
 	});
-	it("shoul return an array in response.body", async () => {
-		const response = await request(app).get("/customer/full");
-		expect(response.body).to.be.a("array");
+	test("should return an array in response.body", async () => {
+		const response = await request(app).get("/customers");
+		expect(typeof response.body).toBe("object");
 	});
-	it("should return an array of objects in response.body", async () => {
-		const response = await request(app).get("/customer/full");
-		expect(response.body).toContainEqual(
-			expect.objectContaining({
-				id: expect.any(Number),
-				email: expect.any(Array),
-				firstname: expect.any(String),
-				lastname: expect.any(String),
-				phone_number: expect.any(String),
-				customer_url: expect.any(String || null),
-				house: expect.any(Array || null),
-				animals: expect.any(Array || null),
-				absentee: expect.any(Array || null),
-			})
-		);
+	test("should return an array of objects in response.body", async () => {
+		const response = await request(app).get("/customers");
+		console.log(response.body[0].isAdmin);
+		console.log(typeof response.body[0].isAdmin);
+		expect(typeof response.body[0].id).toBe("number");
+		expect(typeof response.body[0].email).toBe("string");
+		expect(typeof response.body[0].firstname).toBe("string");
+		expect(typeof response.body[0].lastname).toBe("string");
+		expect(typeof response.body[0].pseudo).toBe("string");
+		expect(typeof response.body[0].phone_number).toBe("string");
+		expect(typeof response.body[0].avatar).toBeOneOf([
+			"string",
+			null,
+			"object",
+		]);
+		expect(typeof response.body[0].created_at).toBe("string");
+		expect(typeof response.body[0].updated_at).toBe("string");
 	});
 });

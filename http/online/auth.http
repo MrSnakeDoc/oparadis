@@ -4,6 +4,7 @@
 
 @refresh_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDcsImlhdCI6MTY0MzIxMzQwNywiZXhwIjoxNjQzMjE3MDA3fQ.weWgjn-sgmI4NZRp3HD21p4Ba8fynMpvwuqUDn6ECfc
 
+###
 POST {{host}}/signup HTTP/1.1
 content-type: application/json
 
@@ -18,13 +19,34 @@ content-type: application/json
     "avatar":"/src/customer_photos/customer123.jpg"
 }
 
-###
+### Connexion User
 POST {{host}}/signin HTTP/1.1
 content-type: application/json
 
 {
     "email": "a@a.com",
     "password": "Paradis13$"
+}
+
+### Update Password
+PATCH {{host}}/customers/102/password HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{access_token}}
+
+{
+    "ancient_password": "Paradis12$",
+    "password": "Paradis13$",
+    "repeat_password": "Paradis13$"
+}
+
+
+###
+POST {{host}}/signin HTTP/1.1
+content-type: application/json
+
+{
+    "email": "kerstone@gmail.com",
+	"password": "3GNCA35P18PDF6H9B"
 }
 
 ###

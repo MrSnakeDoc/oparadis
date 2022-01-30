@@ -37,6 +37,12 @@
 	},
 	"devDependencies": {
 		"jest": "^27.4.7",
+		"jest-extended": "^2.0.0",
 		"supertest": "^6.2.1"
+	},
+	"jest": {
+		"setupFilesAfterEnv": [
+			"jest-extended/all"
+		]
 	}
 }

@@ -4,6 +4,7 @@ module.exports = {
 	async findAllFull(_, res) {
 		try {
 			const houses = await House.findAllFull();
+			if (!houses) res.status(404);
 			res.json(houses);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message));
@@ -13,7 +14,7 @@ module.exports = {
 	async findOneFull(req, res) {
 		try {
 			const house = await House.findOneFull(+req.params.id);
-			if(!house.id) res.status(204);
+			if (!house.id) res.status(404);
 			res.json(house);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message));
@@ -23,6 +24,7 @@ module.exports = {
 	async findAll(_, res) {
 		try {
 			const house = await House.findAll();
+			if (!house) res.status(404);
 			res.json(house);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message));
@@ -32,7 +34,7 @@ module.exports = {
 	async findOne(req, res) {
 		try {
 			const house = await House.findOne(+req.params.id);
-			if(!house.id) res.status(204);
+			if (!house.id) res.status(404);
 			res.json(house);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message));

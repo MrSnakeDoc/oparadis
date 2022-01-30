@@ -37,7 +37,7 @@ module.exports = class House {
 	 */
 	static async findAllFull() {
 		try {
-			// We select the function to create a database 
+			// We select the function to create a database
 			// that contains a select with join of the database
 			const results = await CoreModel.getArray(
 				`select * from house_full_find_all`
@@ -60,7 +60,7 @@ module.exports = class House {
 	 */
 	static async findOneFull(id) {
 		try {
-			// We select the function to create a database 
+			// We select the function to create a database
 			// that contains a select with join where id = id($1)
 			const results = await CoreModel.getRow(
 				`select * from house_full_find_one($1)`,
@@ -104,9 +104,9 @@ module.exports = class House {
 	 */
 	static async findOne(id) {
 		try {
-			// We select the function to create a database 
+			// We select the function to create a database
 			// that contains a select * from house_find_all where id = id($1)
-			// select * from house_find_all refers to the view 
+			// select * from house_find_all refers to the view
 			// (example function with select in migrations/deploy/domain)
 			const results = await CoreModel.getRow(
 				`select * from house_find_one($1)`,
@@ -129,10 +129,12 @@ module.exports = class House {
 	 */
 	async save() {
 		try {
+			console.log("test model");
 			// We select the add function to create a database(example function in migration/deploy/function)
 			const result = await CoreModel.getRow("SELECT * FROM add_house($1)", [
 				this,
 			]);
+			console.log(result);
 			return result ? new House(result) : undefined;
 		} catch (err) {
 			if (err.detail) {
