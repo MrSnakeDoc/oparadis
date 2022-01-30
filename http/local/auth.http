@@ -2,7 +2,7 @@
 
 @access_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxMDIsImVtYWlsIjoiYUBhLmNvbSIsImZpcnN0bmFtZSI6ImEiLCJsYXN0bmFtZSI6ImEiLCJwc2V1ZG8iOiJBYmR1bCIsInBob25lX251bWJlciI6IjAxNjEyODYzOTciLCJhdmF0YXIiOm51bGwsImlzYWRtaW4iOmZhbHNlLCJjcmVhdGVkX2F0IjoiMjAyMi0wMS0yNlQxNzo0MDo0OC4wNDBaIiwidXBkYXRlZF9hdCI6IjIwMjItMDEtMjlUMTY6MTc6MDcuNzU1WiJ9LCJpYXQiOjE2NDM0NzMwNzQsImV4cCI6MTY0MzQ3MzM3NH0.g8LNdwEl9fR1UqsLv806vyoWmdOqoqVVRaBj-WEZZNU
 
-@refresh_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxMDIsImVtYWlsIjoiYUBhLmNvbSIsImZpcnN0bmFtZSI6ImEiLCJsYXN0bmFtZSI6ImEiLCJwc2V1ZG8iOiJBYmR1bCIsInBob25lX251bWJlciI6IjAxNjEyODYzOTciLCJhdmF0YXIiOm51bGwsImlzYWRtaW4iOmZhbHNlLCJjcmVhdGVkX2F0IjoiMjAyMi0wMS0yNlQxNzo0MDo0OC4wNDBaIiwidXBkYXRlZF9hdCI6IjIwMjItMDEtMjlUMTY6MTc6MDcuNzU1WiJ9LCJpYXQiOjE2NDM0NzMwNzQsImV4cCI6MTY0MzQ3NjY3NH0.Wq8aEo_exKg2xjr1vthuv5sqS7IadWQ7YpZokles0fA
+@refresh_token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxMDIsImVtYWlsIjoiYUBhLmNvbSIsImZpcnN0bmFtZSI6ImEiLCJsYXN0bmFtZSI6ImEiLCJwc2V1ZG8iOiJBYmR1bCIsInBob25lX251bWJlciI6IjAxNjEyODYzOTciLCJhdmF0YXIiOm51bGwsImlzYWRtaW4iOmZhbHNlLCJjcmVhdGVkX2F0IjoiMjAyMi0wMS0yNlQxNzo0MDo0OC4wNDBaIiwidXBkYXRlZF9hdCI6IjIwMjItMDEtMjlUMTY6MTg6MzUuNTE4WiJ9LCJpYXQiOjE2NDM1NTgwMTcsImV4cCI6MTY0MzU2MTYxN30.JmWgI3LXkRADaL18o1qDft5IGaneh78ztjohez5g4co
 
 ###
 POST {{host}}/signup HTTP/1.1
@@ -31,7 +31,7 @@ content-type: application/json
 ### Update Password
 PATCH {{host}}/customers/102/password HTTP/1.1
 content-type: application/json
-Authorization: Bearer {{access_token}}
+Authorization: {{access_token}}
 
 {
     "ancient_password": "Paradis12$",
@@ -52,9 +52,9 @@ content-type: application/json
 ###
 POST {{host}}/token HTTP/1.1
 content-type: application/json
-Authorization: Bearer {{refresh_token}}
+Authorization: {{refresh_token}}
 
 ###
 DELETE {{host}}/logout HTTP/1.1
 content-type: application/json
-Authorization: Bearer {{refresh_token}}
+Authorization: {{refresh_token}}
