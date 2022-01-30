@@ -56,7 +56,6 @@ module.exports = {
 			]);
 			res.setHeader("Authorization", token.access_token);
 			res.setHeader("RefreshToken", token.refresh_token);
-			delete customer.id;
 			delete customer.isadmin;
 			res.status(200).json(customer);
 		} catch (err) {

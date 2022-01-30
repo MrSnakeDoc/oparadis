@@ -3,10 +3,10 @@ const jwt = require("jsonwebtoken");
 const { jwt_secret, refresh_jwt_secret } = require("../config");
 
 module.exports = {
-	makeToken(id) {
+	makeToken(user) {
 		try {
 			// Creation of a token
-			return jwt.sign({ data: id }, jwt_secret, {
+			return jwt.sign({ data: user }, jwt_secret, {
 				algorithm: "HS256",
 				expiresIn: "5m",
 			});
@@ -23,10 +23,10 @@ module.exports = {
 		}
 	},
 
-	generateRefreshToken(id) {
+	generateRefreshToken(user) {
 		try {
 			// Creation of a new token
-			return jwt.sign({ data: id }, refresh_jwt_secret, {
+			return jwt.sign({ data: user }, refresh_jwt_secret, {
 				algorithm: "HS256",
 				expiresIn: "3600s",
 			});
