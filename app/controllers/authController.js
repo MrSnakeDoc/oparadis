@@ -31,16 +31,16 @@ module.exports = {
 			const customer = await Authentication.authFindOne(email);
 			console.log(customer);
 			if (!customer) {
-				return res.sendStatus(401);
+				return res.status(401).send("Customer does not exist");
 			}
 			const verifiedPassword = await bcrypt.compare(
 				password,
 				customer.password
 			);
 			console.log(verifiedPassword);
-			// if (verifiedPassword === false) {
-			// 	return res.sendStatus(401);
-			// }
+			if (verifiedPassword === false) {
+				return res.status(401).send("Password does not match");
+			}
 			// delete customer.password;
 			// // We create a token with a short validity
 			// // and a token(refresh) with a long validity
