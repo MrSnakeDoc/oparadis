@@ -28,37 +28,33 @@ module.exports = {
 			// exists and we verify the password
 			const { email, password } = req.body;
 			const customer = await Authentication.authFindOne(email);
-			console.log(customer);
 			if (!customer) {
 				return res.status(401).send("Customer does not exist");
 			}
 			const verifiedPassword = await compare(password, customer.password);
-			console.log(verifiedPassword);
 			if (verifiedPassword === false) {
 				return res.status(401).send("Password does not match");
 			}
-			// delete customer.password;
-			// // We create a token with a short validity
-			// // and a token(refresh) with a long validity
-			// // then a store the token(refresh) and the
-			// // associated id to be able to check it
-			// const access_token = await makeToken(customer);
-			// const refresh_token = await generateRefreshToken(customer);
-			// const token = {
-			// 	access_token: `Bearer ${access_token}`,
-			// 	refresh_token: `Bearer ${refresh_token}`,
-			// };
-			// cache(customer.id, token.refresh_token.split(" ")[1]);
-			// res.setHeader("Access-Control-Expose-Headers", [
-			// 	"Authorization",
-			// 	"RefreshToken",
-			// ]);
-			// res.setHeader("Authorization", token.access_token);
-			// res.setHeader("RefreshToken", token.refresh_token);
-			// delete customer.isadmin;
-			// console.log(customer);
-			// res.status(200).json(customer);
-			res.send("ok");
+			delete customer.password;
+			// We create a token with a short validity
+			// and a token(refresh) with a long validity
+			// then a store the token(refresh) and the
+			// associated id to be able to check it
+			const access_token = await makeToken(customer);
+			const refresh_token = await generateRefreshToken(customer);
+			const token = {
+				access_token: `Bearer ${access_token}`,
+				refresh_token: `Bearer ${refresh_token}`,
+			};
+			cache(customer.id, token.refresh_token.split(" ")[1]);
+			res.setHeader("Access-Control-Expose-Headers", [
+				"Authorization",
+				"RefreshToken",
+			]);
+			res.setHeader("Authorization", token.access_token);
+			res.setHeader("RefreshToken", token.refresh_token);
+			delete customer.isadmin;
+			res.status(200).json(customer);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message, 500));
 		}
