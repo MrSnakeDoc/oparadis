@@ -43,7 +43,7 @@ router
 	.post("/token", authController.refreshToken)
 	.delete("/logout", authController.disconnect);
 
-router.patch("/isAdmin/:id", jwtMW, adminMW, authController.update_isAdmin);
+router.patch("/isAdmin/:id", jwtMW, authController.update_isAdmin);
 
 //! Double check on id with regex and joi (number between 1 and 9999)
 router

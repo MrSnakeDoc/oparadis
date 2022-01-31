@@ -17,7 +17,6 @@ module.exports = {
 			req.body.password = await encrypt(req.body.password);
 			const customer = await new Authentication(req.body).signup();
 			delete customer.password;
-			console.log("controller:", customer);
 			res.status(201).json(customer);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message, 500));

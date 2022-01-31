@@ -79,7 +79,6 @@ module.exports = class Authentication {
 			const result = await CoreModel.getRow("SELECT * FROM add_customer($1)", [
 				this,
 			]);
-			console.log("model:", result);
 			return result ? new Authentication(result) : undefined;
 		} catch (err) {
 			if (err.detail) {
