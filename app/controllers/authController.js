@@ -48,7 +48,7 @@ module.exports = {
 				access_token: `Bearer ${makeToken(customer)}`,
 				refresh_token: `Bearer ${generateRefreshToken(customer)}`,
 			};
-			cache(customer.id, token.refresh_token.split(" ")[1]);
+			// cache(customer.id, token.refresh_token.split(" ")[1]);
 			res.setHeader("Access-Control-Expose-Headers", [
 				"Authorization",
 				"RefreshToken",
@@ -56,6 +56,7 @@ module.exports = {
 			res.setHeader("Authorization", token.access_token);
 			res.setHeader("RefreshToken", token.refresh_token);
 			delete customer.isadmin;
+			console.log(customer);
 			res.status(200).json(customer);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message, 500));
