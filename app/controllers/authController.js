@@ -30,14 +30,14 @@ module.exports = {
 			const { email, password } = req.body;
 			const customer = await Authentication.authFindOne(email);
 			console.log(customer);
-			// if (!customer) {
-			// 	return res.sendStatus(401);
-			// }
-			// const verifiedPassword = await bcrypt.compare(
-			// 	password,
-			// 	customer.password
-			// );
-			// console.log(verifiedPassword);
+			if (!customer) {
+				return res.sendStatus(401);
+			}
+			const verifiedPassword = await bcrypt.compare(
+				password,
+				customer.password
+			);
+			console.log(verifiedPassword);
 			// if (verifiedPassword === false) {
 			// 	return res.sendStatus(401);
 			// }
