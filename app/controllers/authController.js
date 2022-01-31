@@ -27,40 +27,41 @@ module.exports = {
 		try {
 			// we retrieve the email to verify that it
 			// exists and we verify the password
-			const { email, password } = req.body;
-			const customer = await Authentication.authFindOne(email);
-			if (!customer) {
-				return res.sendStatus(401);
-			}
-			const verifiedPassword = await bcrypt.compare(
-				password,
-				customer.password
-			);
-			console.log(verifiedPassword);
-			if (verifiedPassword === false) {
-				return res.sendStatus(401);
-			}
-			delete customer.password;
-			// We create a token with a short validity
-			// and a token(refresh) with a long validity
-			// then a store the token(refresh) and the
-			// associated id to be able to check it
-			const access_token = await makeToken(customer);
-			const refresh_token = await generateRefreshToken(customer);
-			const token = {
-				access_token: `Bearer ${access_token}`,
-				refresh_token: `Bearer ${refresh_token}`,
-			};
-			cache(customer.id, token.refresh_token.split(" ")[1]);
-			res.setHeader("Access-Control-Expose-Headers", [
-				"Authorization",
-				"RefreshToken",
-			]);
-			res.setHeader("Authorization", token.access_token);
-			res.setHeader("RefreshToken", token.refresh_token);
-			delete customer.isadmin;
-			console.log(customer);
-			res.status(200).json(customer);
+			// const { email, password } = req.body;
+			// const customer = await Authentication.authFindOne(email);
+			// if (!customer) {
+			// 	return res.sendStatus(401);
+			// }
+			// const verifiedPassword = await bcrypt.compare(
+			// 	password,
+			// 	customer.password
+			// );
+			// console.log(verifiedPassword);
+			// if (verifiedPassword === false) {
+			// 	return res.sendStatus(401);
+			// }
+			// delete customer.password;
+			// // We create a token with a short validity
+			// // and a token(refresh) with a long validity
+			// // then a store the token(refresh) and the
+			// // associated id to be able to check it
+			// const access_token = await makeToken(customer);
+			// const refresh_token = await generateRefreshToken(customer);
+			// const token = {
+			// 	access_token: `Bearer ${access_token}`,
+			// 	refresh_token: `Bearer ${refresh_token}`,
+			// };
+			// cache(customer.id, token.refresh_token.split(" ")[1]);
+			// res.setHeader("Access-Control-Expose-Headers", [
+			// 	"Authorization",
+			// 	"RefreshToken",
+			// ]);
+			// res.setHeader("Authorization", token.access_token);
+			// res.setHeader("RefreshToken", token.refresh_token);
+			// delete customer.isadmin;
+			// console.log(customer);
+			// res.status(200).json(customer);
+			res.send("ok");
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message, 500));
 		}

@@ -45,8 +45,8 @@ POST {{host}}/signin HTTP/1.1
 content-type: application/json
 
 {
-    "email": "kerstone@gmail.com",
-	"password": "3GNCA35P18PDF6H9B"
+    "email": "o@o.com",
+	"password": "Paradis13$"
 }
 
 ###
