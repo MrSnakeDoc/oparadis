@@ -1,7 +1,5 @@
-const { createClient } = require("redis");
-const { redis_url } = require("../config/");
-const db = createClient({ url: redis_url });
-db.connect();
+const db = require("../redis");
+
 // oparadis:token: for the connect to redis
 const prefix = "oparadis:token:";
 const timeout = 7200;
