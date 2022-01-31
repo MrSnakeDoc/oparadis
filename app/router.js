@@ -47,12 +47,12 @@ router.patch("/isAdmin/:id", jwtMW, authController.update_isAdmin);
 
 //! Double check on id with regex and joi (number between 1 and 9999)
 router
-	.get("/customers", jwtMW, cache, customerController.findAll)
+	.get("/customers", jwtMW, customerController.findAll)
 	.get(
 		"/customers/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		jwtMW,
 		paramsValidation,
-		cache,
+
 		customerController.findOne
 	)
 	//! We verify with update_customerValidation (joi) that the format is correct
@@ -79,18 +79,18 @@ router
 	);
 
 router
-	.get("/houses/full", cache, houseController.findAllFull)
+	.get("/houses/full", houseController.findAllFull)
 	.get(
 		"/houses/full/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
-		cache,
+
 		houseController.findOneFull
 	)
-	.get("/houses", cache, houseController.findAll)
+	.get("/houses", houseController.findAll)
 	.get(
 		"/houses/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
-		cache,
+
 		houseController.findOne
 	)
 	.post("/houses", add_houseValidation, flush, houseController.save)
@@ -109,11 +109,11 @@ router
 	);
 
 router
-	.get("/animals", cache, animalController.findAll)
+	.get("/animals", animalController.findAll)
 	.get(
 		"/animals/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
-		cache,
+
 		animalController.findOne
 	)
 	.post("/animals", add_animalValidation, flush, animalController.save)
@@ -132,11 +132,11 @@ router
 	);
 
 router
-	.get("/photos", cache, photoController.findAll)
+	.get("/photos", photoController.findAll)
 	.get(
 		"/photos/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
-		cache,
+
 		photoController.findOne
 	)
 	.post("/photos", add_photoValidation, flush, photoController.save)
@@ -155,11 +155,11 @@ router
 	);
 
 router
-	.get("/absentees", cache, absenteeController.findAll)
+	.get("/absentees", absenteeController.findAll)
 	.get(
 		"/absentees/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
-		cache,
+
 		absenteeController.findOne
 	)
 	.post("/absentees", add_absenteeValidation, flush, absenteeController.save)
@@ -178,11 +178,11 @@ router
 	);
 
 router
-	.get("/plants", cache, plantController.findAll)
+	.get("/plants", plantController.findAll)
 	.get(
 		"/plants/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
-		cache,
+
 		plantController.findOne
 	)
 	.post("/plants", add_plantValidation, flush, plantController.save)
@@ -201,11 +201,11 @@ router
 	);
 
 router
-	.get("/types", cache, typeController.findAll)
+	.get("/types", typeController.findAll)
 	.get(
 		"/types/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
-		cache,
+
 		typeController.findOne
 	)
 	.post("/types", add_typeValidation, flush, typeController.save)
@@ -223,13 +223,11 @@ router
 		typeController.delete
 	);
 
-router
-	.get("/countries", cache, countryController.findAll)
-	.get(
-		"/countries/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
-		paramsValidation,
-		cache,
-		countryController.findOne
-	);
+router.get("/countries", countryController.findAll).get(
+	"/countries/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+	paramsValidation,
+
+	countryController.findOne
+);
 
 module.exports = router;
