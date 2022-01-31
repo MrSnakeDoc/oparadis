@@ -89,7 +89,7 @@ module.exports = {
 			//Make a token
 			res.setHeader("Access-Control-Expose-Headers", "Authorization");
 			res.setHeader("Authorization", makeToken(payload.data));
-			res.json("Ok");
+			res.status(200).json(payload.data);
 		} catch (err) {
 			if (err.message === "invalid token") {
 				return res.sendStatus(401);
