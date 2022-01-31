@@ -36,6 +36,7 @@ module.exports = {
 				password,
 				customer.password
 			);
+			console.log(verifiedPassword);
 			if (verifiedPassword === false) {
 				return res.sendStatus(401);
 			}
