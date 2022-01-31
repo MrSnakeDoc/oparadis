@@ -13,7 +13,7 @@ module.exports = {
 	async findOne(req, res) {
 		try {
 			const animal = await Animal.findOne(+req.params.id);
-			if(!animal) res.status(204);
+			if(!animal) res.status(404).json('Not found');
 			res.json(animal);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message));
@@ -34,7 +34,7 @@ module.exports = {
 				id: +req.params.id,
 				...req.body,
 			}).update();
-			if (!animal.id) res.status(204);
+			if (!animal.id) res.status(404).json('Not found');
 			res.json(animal);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message));
@@ -43,7 +43,7 @@ module.exports = {
 	async delete(req, res) {
 		try {
 			await Animal.delete(+req.params.id);
-			res.json("Animal Deleted");
+			res.status(204);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message));
 		}
