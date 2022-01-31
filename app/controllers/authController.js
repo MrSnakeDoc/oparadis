@@ -68,10 +68,10 @@ module.exports = {
 
 	async refreshToken(req, res) {
 		try {
-			const token =
+			const ref_token =
 				req.headers.authorization && req.headers.authorization.split(" ")[1];
 			// checks that the token has the authorization
-			if (!token) {
+			if (!ref_token) {
 				return res.sendStatus(401);
 			}
 			// Checks the validity of the token
@@ -85,7 +85,7 @@ module.exports = {
 				return res.sendStatus(401);
 			}
 			const access_token = await makeToken(customer);
-			const refresh_token = req.headers.authorization;
+			const refresh_token = ref_token;
 			const token = {
 				access_token: `Bearer ${access_token}`,
 				refresh_token: `Bearer ${refresh_token}`,
