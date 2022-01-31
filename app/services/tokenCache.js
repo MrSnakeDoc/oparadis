@@ -1,4 +1,7 @@
-const db = require("../redis");
+const { createClient } = require("redis");
+const { redis_url } = require("../config/");
+const db = createClient({ url: redis_url });
+db.connect();
 
 // oparadis:token: for the connect to redis
 const prefix = "oparadis:token:";

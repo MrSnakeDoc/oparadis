@@ -51,7 +51,7 @@ module.exports = {
 				access_token: `Bearer ${access_token}`,
 				refresh_token: `Bearer ${refresh_token}`,
 			};
-			// cache(customer.id, token.refresh_token.split(" ")[1]);
+			cache(customer.id, token.refresh_token.split(" ")[1]);
 			res.setHeader("Access-Control-Expose-Headers", [
 				"Authorization",
 				"RefreshToken",
@@ -75,16 +75,16 @@ module.exports = {
 				return res.sendStatus(401);
 			}
 			// Checks the validity of the token
-			const payload = validateRefreshedToken(token);
+			const payload = validateRefreshedToken(ref_token);
 			if (!payload.data) {
 				return res.sendStatus(403);
 			}
 			// Checks that the token exists in redis
-			const verifiedToken = await verifyToken(payload.data.id, token);
+			const verifiedToken = await verifyToken(payload.data.id, ref_token);
 			if (!verifiedToken) {
 				return res.sendStatus(401);
 			}
-			const access_token = await makeToken(customer);
+			const access_token = await makeToken(payload.data);
 			const refresh_token = ref_token;
 			const token = {
 				access_token: `Bearer ${access_token}`,
