@@ -37,22 +37,23 @@ const router = Router();
 // JWT road
 //! We verify with add_customerValidation (joi) that the format is correct
 router
-	.get("/isAdmin", authController.isAdmin)
+	.get("/isAdmin", jwtMW, authController.isAdmin)
 	.post("/signup", signup_Validation, flush, authController.signup)
 	.post("/signin", signin_Validation, authController.signin)
 	.post("/token", authController.refreshToken)
 	.delete("/logout", authController.disconnect);
 
-router.patch("/isAdmin/:id", authController.update_isAdmin);
+router.patch("/isAdmin/:id", jwtMW, authController.update_isAdmin);
 
 //! Double check on id with regex and joi (number between 1 and 9999)
 router
-	.get("/customers", customerController.findAll)
+	.get("/customers", jwtMW, cache, customerController.findAll)
 	.get(
 		"/customers/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 
 		paramsValidation,
-
+		jwtMW,
+		cache,
 		customerController.findOne
 	)
 	//! We verify with update_customerValidation (joi) that the format is correct
@@ -61,36 +62,39 @@ router
 
 		paramsValidation,
 		update_customerValidation,
+		jwtMW,
 		flush,
 		customerController.update
 	)
 	.patch(
 		"/customers/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])/password",
 		paramsValidation,
+		jwtMW,
+		flush,
 		update_passwordValidation,
 		authController.update_password
 	)
 	.delete(
 		"/customers/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
-
 		paramsValidation,
+		jwtMW,
 		flush,
 		customerController.delete
 	);
 
 router
-	.get("/houses/full", houseController.findAllFull)
+	.get("/houses/full", cache, houseController.findAllFull)
 	.get(
 		"/houses/full/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
-
+		cache,
 		houseController.findOneFull
 	)
-	.get("/houses", houseController.findAll)
+	.get("/houses", jwtMW, cache, houseController.findAll)
 	.get(
 		"/houses/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
-
+		cache,
 		houseController.findOne
 	)
 	.post("/houses", add_houseValidation, flush, houseController.save)
@@ -109,11 +113,11 @@ router
 	);
 
 router
-	.get("/animals", animalController.findAll)
+	.get("/animals", cache, animalController.findAll)
 	.get(
 		"/animals/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
-
+		cache,
 		animalController.findOne
 	)
 	.post("/animals", add_animalValidation, flush, animalController.save)
@@ -132,11 +136,11 @@ router
 	);
 
 router
-	.get("/photos", photoController.findAll)
+	.get("/photos", cache, photoController.findAll)
 	.get(
 		"/photos/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
-
+		cache,
 		photoController.findOne
 	)
 	.post("/photos", add_photoValidation, flush, photoController.save)
@@ -155,11 +159,11 @@ router
 	);
 
 router
-	.get("/absentees", absenteeController.findAll)
+	.get("/absentees", cache, absenteeController.findAll)
 	.get(
 		"/absentees/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
-
+		cache,
 		absenteeController.findOne
 	)
 	.post("/absentees", add_absenteeValidation, flush, absenteeController.save)
@@ -178,11 +182,11 @@ router
 	);
 
 router
-	.get("/plants", plantController.findAll)
+	.get("/plants", cache, plantController.findAll)
 	.get(
 		"/plants/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
-
+		cache,
 		plantController.findOne
 	)
 	.post("/plants", add_plantValidation, flush, plantController.save)
@@ -201,11 +205,11 @@ router
 	);
 
 router
-	.get("/types", typeController.findAll)
+	.get("/types", cache, typeController.findAll)
 	.get(
 		"/types/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
-
+		cache,
 		typeController.findOne
 	)
 	.post("/types", add_typeValidation, flush, typeController.save)
@@ -223,11 +227,13 @@ router
 		typeController.delete
 	);
 
-router.get("/countries", countryController.findAll).get(
-	"/countries/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
-	paramsValidation,
-
-	countryController.findOne
-);
+router
+	.get("/countries", cache, countryController.findAll)
+	.get(
+		"/countries/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		paramsValidation,
+		cache,
+		countryController.findOne
+	);
 
 module.exports = router;
