@@ -132,7 +132,7 @@ module.exports = {
 		try {
 			// We check if the customer is admin
 			const customer = await Authentication.isAdmin(+req.params.id);
-			if (!customer.id) res.status(204);
+			if (!customer.id) res.status(404).json('Not found');
 			res.json(customer);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message));
@@ -172,7 +172,7 @@ module.exports = {
 				id: +req.params.id,
 				...req.body,
 			}).update_password();
-			if (!customer) throw new Error({ code: 204 });
+			if (!customer) throw new Error({ code: 404 });
 			return res.sendStatus(200);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message));

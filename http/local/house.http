@@ -6,7 +6,7 @@ GET {{host}}/houses/full/ HTTP/1.1
 content-type: application/json
 
 ###
-GET {{host}}/houses/full/10 HTTP/1.1
+GET {{host}}/houses/full/1 HTTP/1.1
 content-type: application/json
 
 ###
@@ -35,7 +35,7 @@ content-type: application/json
         "latitude": "48.099071531610875",
         "longitude": "-0.748887016329141",
         "map": "https://maps.google.com/maps?q=48.099071531610875,-0.7488870163291419",
-         "internet": false,
+        "internet": false,
         "washing_machine": false,
         "TV": false,
         "hoven": false,
