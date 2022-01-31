@@ -27,8 +27,9 @@ module.exports = {
 		try {
 			// we retrieve the email to verify that it
 			// exists and we verify the password
-			// const { email, password } = req.body;
-			// const customer = await Authentication.authFindOne(email);
+			const { email, password } = req.body;
+			const customer = await Authentication.authFindOne(email);
+			console.log(customer);
 			// if (!customer) {
 			// 	return res.sendStatus(401);
 			// }
