@@ -6,7 +6,7 @@ const {
 	validateRefreshedToken,
 } = require("../services/jwt");
 const { cache, verifyToken, deleteToken } = require("../services/tokenCache");
-const { encrypt } = require("../services/encrypt");
+const { encrypt, compare } = require("../services/encrypt");
 
 module.exports = {
 	async signup(req, res) {
@@ -33,10 +33,7 @@ module.exports = {
 			if (!customer) {
 				return res.status(401).send("Customer does not exist");
 			}
-			const verifiedPassword = await bcrypt.compare(
-				password,
-				customer.password
-			);
+			const verifiedPassword = await compare(password, customer.password);
 			console.log(verifiedPassword);
 			if (verifiedPassword === false) {
 				return res.status(401).send("Password does not match");

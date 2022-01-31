@@ -8,4 +8,7 @@ module.exports = {
 			throw error;
 		}
 	},
+	async compare(password, hash) {
+		return await bcrypt.compare(password, hash);
+	},
 };
