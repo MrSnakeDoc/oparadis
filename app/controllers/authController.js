@@ -46,9 +46,7 @@ module.exports = {
 			// then a store the token(refresh) and the
 			// associated id to be able to check it
 			const access_token = await makeToken(customer);
-			console.log(access_token);
 			const refresh_token = await generateRefreshToken(customer);
-			console.log(refresh_token);
 			const token = {
 				access_token: `Bearer ${access_token}`,
 				refresh_token: `Bearer ${refresh_token}`,
@@ -86,9 +84,19 @@ module.exports = {
 			if (!verifiedToken) {
 				return res.sendStatus(401);
 			}
+			const access_token = await makeToken(customer);
+			const refresh_token = req.headers.authorization;
+			const token = {
+				access_token: `Bearer ${access_token}`,
+				refresh_token: `Bearer ${refresh_token}`,
+			};
 			//Make a token
-			res.setHeader("Access-Control-Expose-Headers", "Authorization");
-			res.setHeader("Authorization", makeToken(payload.data));
+			res.setHeader("Access-Control-Expose-Headers", [
+				"Authorization",
+				"RefreshToken",
+			]);
+			res.setHeader("Authorization", token.access_token);
+			res.setHeader("RefreshToken", token.refresh_token);
 			res.status(200).json(payload.data);
 		} catch (err) {
 			if (err.message === "invalid token") {
