@@ -44,9 +44,13 @@ module.exports = {
 			// and a token(refresh) with a long validity
 			// then a store the token(refresh) and the
 			// associated id to be able to check it
+			const access_token = await makeToken(customer);
+			console.log(access_token);
+			const refresh_token = await generateRefreshToken(customer);
+			console.log(refresh_token);
 			const token = {
-				access_token: `Bearer ${makeToken(customer)}`,
-				refresh_token: `Bearer ${generateRefreshToken(customer)}`,
+				access_token: `Bearer ${access_token}`,
+				refresh_token: `Bearer ${refresh_token}`,
 			};
 			// cache(customer.id, token.refresh_token.split(" ")[1]);
 			res.setHeader("Access-Control-Expose-Headers", [
