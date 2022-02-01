@@ -90,7 +90,7 @@ router
 		cache,
 		houseController.findOneFull
 	)
-	.get("/houses", jwtMW, cache, houseController.findAll)
+	.get("/houses", cache, houseController.findAll)
 	.get(
 		"/houses/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
