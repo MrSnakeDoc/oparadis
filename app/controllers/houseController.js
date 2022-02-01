@@ -9,7 +9,15 @@ module.exports = {
 			res.status(500).json(new BaseError(err.message));
 		}
 	},
-
+	async findFour(_, res) {
+		try {
+			const houses = await House.findFour();
+			console.log(houses);
+			res.json(houses);
+		} catch (err) {
+			res.status(500).json(new BaseError(err.message));
+		}
+	},
 	async findOneFull(req, res) {
 		try {
 			const house = await House.findOneFull(+req.params.id);

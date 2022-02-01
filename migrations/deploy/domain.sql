@@ -108,7 +108,7 @@ CREATE VIEW house_full_find_all as
 
 CREATE or replace function house_full_find_one(int) returns house_full_find_all as $$
 	SELECT * FROM house_full_find_all WHERE id = $1;
-$$ LANGUAGE sql;
+$$ LANGUAGE sql strict;
 
 CREATE VIEW house_find_all as
 	SELECT house.id,
@@ -144,6 +144,9 @@ CREATE VIEW house_find_all as
 
 CREATE or replace function house_find_one(int) returns house_find_all as $$
 	SELECT * FROM house_find_all WHERE id = $1;
-$$ LANGUAGE sql;
+$$ LANGUAGE sql strict;
+
+CREATE VIEW house_find_four as
+	SELECT * FROM house ORDER BY updated_at DESC LIMIT 4;
 
 COMMIT;

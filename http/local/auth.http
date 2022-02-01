@@ -1,14 +1,13 @@
 @host = http://localhost:5000
 
-@access_token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxMDIsImVtYWlsIjoiYUBhLmNvbSIsImZpcnN0bmFtZSI6ImEiLCJsYXN0bmFtZSI6ImEiLCJwc2V1ZG8iOiJBYmR1bCIsInBob25lX251bWJlciI6IjAxNjEyODYzOTciLCJhdmF0YXIiOm51bGwsImlzYWRtaW4iOmZhbHNlLCJjcmVhdGVkX2F0IjoiMjAyMi0wMS0yNlQxNzo0MDo0OC4wNDBaIiwidXBkYXRlZF9hdCI6IjIwMjItMDEtMjlUMTY6MTg6MzUuNTE4WiJ9LCJpYXQiOjE2NDM2Mjk1NjksImV4cCI6MTY0MzYyOTg2OX0.YRR0SrTnq6njF_epz7hls8Y0TbOIujFjlGU3ZBwRC6E
+@access_token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxMDQsImVtYWlsIjoib0BhLmNvbSIsImZpcnN0bmFtZSI6Im8iLCJsYXN0bmFtZSI6Im8iLCJwc2V1ZG8iOiJKYWNxdW91IGxlIGNyb3F1YW50IiwicGhvbmVfbnVtYmVyIjoiMDE4NDU0NjQxNyIsImF2YXRhciI6Ii9zcmMvY3VzdG9tZXJfcGhvdG9zL2N1c3RvbWVyMTI2LmpwZyIsImlzYWRtaW4iOmZhbHNlLCJjcmVhdGVkX2F0IjoiMjAyMi0wMi0wMVQxMzoxNjowNS42NzNaIiwidXBkYXRlZF9hdCI6IjIwMjItMDItMDFUMTM6MTY6MDUuNjczWiJ9LCJpYXQiOjE2NDM3MjQ1ODcsImV4cCI6MTY0MzcyNDg4N30.FFpWLxskIO8c4DDSd-RkOfuPogPOBJnhaVj83ZUro6A
 
-@refresh_token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxMDMsImVtYWlsIjoib0BvLmNvbSIsImZpcnN0bmFtZSI6Im8iLCJsYXN0bmFtZSI6Im8iLCJwc2V1ZG8iOiJKYWNxdW91IGxlIGNyb3F1YW50IiwicGhvbmVfbnVtYmVyIjoiMDE4NDU0NjQxNyIsImF2YXRhciI6Ii9zcmMvY3VzdG9tZXJfcGhvdG9zL2N1c3RvbWVyMTI2LmpwZyIsImlzYWRtaW4iOmZhbHNlLCJjcmVhdGVkX2F0IjoiMjAyMi0wMS0zMVQwODo0NTo0Mi41NjZaIiwidXBkYXRlZF9hdCI6IjIwMjItMDEtMzFUMDg6NDU6NDIuNTY2WiJ9LCJpYXQiOjE2NDM2MzgwNDMsImV4cCI6MTY0MzY0MTY0M30.ilvDTJklsCyXZdPjnNLThvfOWksZHMNxi9P9qtZdjt0
-###
+@refresh_token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxMDQsImVtYWlsIjoib0BhLmNvbSIsImZpcnN0bmFtZSI6Im8iLCJsYXN0bmFtZSI6Im8iLCJwc2V1ZG8iOiJKYWNxdW91IGxlIGNyb3F1YW50IiwicGhvbmVfbnVtYmVyIjoiMDE4NDU0NjQxNyIsImF2YXRhciI6Ii9zcmMvY3VzdG9tZXJfcGhvdG9zL2N1c3RvbWVyMTI2LmpwZyIsImlzYWRtaW4iOmZhbHNlLCJjcmVhdGVkX2F0IjoiMjAyMi0wMi0wMVQxMzoxNjowNS42NzNaIiwidXBkYXRlZF9hdCI6IjIwMjItMDItMDFUMTM6MTY6MDUuNjczWiJ9LCJpYXQiOjE2NDM3MjQ4NDgsImV4cCI6MTY0MzcyODQ0OH0.AzdxpZGgGF-65hh9YSLyk9kVeL6c3DY-bEs-TrXogWw
 POST {{host}}/signup HTTP/1.1
 content-type: application/json
 
 {
-    "email": "o@o.com",
+    "email": "o@a.com",
     "password": "Paradis13$",
     "repeat_password": "Paradis13$",
     "firstname": "o",
@@ -23,7 +22,7 @@ POST {{host}}/signin HTTP/1.1
 content-type: application/json
 
 {
-    "email": "a@a.com",
+    "email": "o@a.com",
     "password": "Paradis13$"
 }
 

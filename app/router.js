@@ -83,23 +83,27 @@ router
 	);
 
 router
-	.get("/houses/full", cache, houseController.findAllFull)
+	.get("/houses/full", jwtMW, cache, houseController.findAllFull)
+	.get("/housesfour", cache, houseController.findFour)
 	.get(
 		"/houses/full/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		jwtMW,
 		paramsValidation,
 		cache,
 		houseController.findOneFull
 	)
-	.get("/houses", jwtMW, cache, houseController.findAll)
+	.get("/houses", cache, houseController.findAll)
 	.get(
 		"/houses/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		jwtMW,
 		paramsValidation,
 		cache,
 		houseController.findOne
 	)
-	.post("/houses", add_houseValidation, flush, houseController.save)
+	.post("/houses", jwtMW, add_houseValidation, flush, houseController.save)
 	.patch(
 		"/houses/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		jwtMW,
 		paramsValidation,
 		update_houseValidation,
 		flush,
@@ -107,22 +111,25 @@ router
 	)
 	.delete(
 		"/houses/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		jwtMW,
 		paramsValidation,
 		flush,
 		houseController.delete
 	);
 
 router
-	.get("/animals", cache, animalController.findAll)
+	.get("/animals", jwtMW, cache, animalController.findAll)
 	.get(
 		"/animals/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		jwtMW,
 		paramsValidation,
 		cache,
 		animalController.findOne
 	)
-	.post("/animals", add_animalValidation, flush, animalController.save)
+	.post("/animals", jwtMW, add_animalValidation, flush, animalController.save)
 	.patch(
 		"/animals/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		jwtMW,
 		paramsValidation,
 		update_animalValidation,
 		flush,
@@ -130,22 +137,25 @@ router
 	)
 	.delete(
 		"/animals/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		jwtMW,
 		paramsValidation,
 		flush,
 		animalController.delete
 	);
 
 router
-	.get("/photos", cache, photoController.findAll)
+	.get("/photos", jwtMW, cache, photoController.findAll)
 	.get(
 		"/photos/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		jwtMW,
 		paramsValidation,
 		cache,
 		photoController.findOne
 	)
-	.post("/photos", add_photoValidation, flush, photoController.save)
+	.post("/photos", jwtMW, add_photoValidation, flush, photoController.save)
 	.patch(
 		"/photos/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		jwtMW,
 		paramsValidation,
 		update_photoValidation,
 		flush,
@@ -153,22 +163,25 @@ router
 	)
 	.delete(
 		"/photos/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		jwtMW,
 		paramsValidation,
 		flush,
 		photoController.delete
 	);
 
 router
-	.get("/absentees", cache, absenteeController.findAll)
+	.get("/absentees", jwtMW, cache, absenteeController.findAll)
 	.get(
 		"/absentees/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		jwtMW,
 		paramsValidation,
 		cache,
 		absenteeController.findOne
 	)
-	.post("/absentees", add_absenteeValidation, flush, absenteeController.save)
+	.post("/absentees", jwtMW, add_absenteeValidation, flush, absenteeController.save)
 	.patch(
 		"/absentees/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		jwtMW,
 		paramsValidation,
 		update_absenteeValidation,
 		flush,
@@ -176,22 +189,25 @@ router
 	)
 	.delete(
 		"/absentees/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		jwtMW,
 		paramsValidation,
 		flush,
 		absenteeController.delete
 	);
 
 router
-	.get("/plants", cache, plantController.findAll)
+	.get("/plants", jwtMW, cache, plantController.findAll)
 	.get(
 		"/plants/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		jwtMW,
 		paramsValidation,
 		cache,
 		plantController.findOne
 	)
-	.post("/plants", add_plantValidation, flush, plantController.save)
+	.post("/plants", jwtMW, add_plantValidation, flush, plantController.save)
 	.patch(
 		"/plants/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		jwtMW,
 		paramsValidation,
 		update_plantValidation,
 		flush,
@@ -199,22 +215,25 @@ router
 	)
 	.delete(
 		"/plants/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		jwtMW,
 		paramsValidation,
 		flush,
 		plantController.delete
 	);
 
 router
-	.get("/types", cache, typeController.findAll)
+	.get("/types", jwtMW, cache, typeController.findAll)
 	.get(
 		"/types/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		jwtMW,
 		paramsValidation,
 		cache,
 		typeController.findOne
 	)
-	.post("/types", add_typeValidation, flush, typeController.save)
+	.post("/types", jwtMW, add_typeValidation, flush, typeController.save)
 	.patch(
 		"/types/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		jwtMW,
 		paramsValidation,
 		update_typeValidation,
 		flush,
@@ -222,15 +241,17 @@ router
 	)
 	.delete(
 		"/types/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		jwtMW,
 		paramsValidation,
 		flush,
 		typeController.delete
 	);
 
 router
-	.get("/countries", cache, countryController.findAll)
+	.get("/countries", jwtMW, cache, countryController.findAll)
 	.get(
 		"/countries/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
+		jwtMW,
 		paramsValidation,
 		cache,
 		countryController.findOne

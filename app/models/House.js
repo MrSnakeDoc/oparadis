@@ -50,7 +50,21 @@ module.exports = class House {
 			throw err;
 		}
 	}
-
+	static async findFour() {
+		try {
+			// We select the function to create a database
+			// that contains a select with join of the database
+			const results = await CoreModel.getArray(
+				`SELECT * FROM house_find_four`
+			);
+			return results.map((result) => new House(result));
+		} catch (err) {
+			if (err.detail) {
+				throw new Error(err.detail);
+			}
+			throw err;
+		}
+	}
 	/**
 	 * Retrieves one House with his owner, animals, and abscenses from database
 	 * @static
