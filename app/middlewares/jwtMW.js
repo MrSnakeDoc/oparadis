@@ -1,4 +1,3 @@
-const { port } = require("../config/");
 const jwt = require("../services/jwt");
 
 module.exports = (req, res, next) => {

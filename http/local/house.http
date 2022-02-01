@@ -1,23 +1,36 @@
 @host = http://localhost:5000
 
+@access_token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxMDQsImVtYWlsIjoib0BhLmNvbSIsImZpcnN0bmFtZSI6Im8iLCJsYXN0bmFtZSI6Im8iLCJwc2V1ZG8iOiJKYWNxdW91IGxlIGNyb3F1YW50IiwicGhvbmVfbnVtYmVyIjoiMDE4NDU0NjQxNyIsImF2YXRhciI6Ii9zcmMvY3VzdG9tZXJfcGhvdG9zL2N1c3RvbWVyMTI2LmpwZyIsImlzYWRtaW4iOmZhbHNlLCJjcmVhdGVkX2F0IjoiMjAyMi0wMi0wMVQxMzoxNjowNS42NzNaIiwidXBkYXRlZF9hdCI6IjIwMjItMDItMDFUMTM6MTY6MDUuNjczWiJ9LCJpYXQiOjE2NDM3MjQ4NDgsImV4cCI6MTY0MzcyNTE0OH0.xALy0zmKItkjR3S1s6FYO2I2pv8h_iINNxmdzODZgJg
 
 ###
-GET {{host}}/houses/full/ HTTP/1.1
+GET {{host}}/houses/full HTTP/1.1
 content-type: application/json
+Authorization: {{access_token}}
 
 ###
 GET {{host}}/houses/full/1 HTTP/1.1
 content-type: application/json
+Authorization: {{access_token}}
+
+###
+GET {{host}}/ HTTP/1.1
+content-type: application/json
+# Authorization: {{access_token}}
 
 ###
 GET {{host}}/houses HTTP/1.1
 content-type: application/json
+# Authorization: {{access_token}}
+
 ###
 GET {{host}}/houses/10 HTTP/1.1
 content-type: application/json
+Authorization: {{access_token}}
+
 ###
 POST {{host}}/houses HTTP/1.1
 content-type: application/json
+Authorization: {{access_token}}
 
     {
         "address": "19 rue du boulet",
@@ -50,7 +63,7 @@ content-type: application/json
 ###
 PATCH {{host}}/houses/101 HTTP/1.1
 content-type: application/json
-
+Authorization: {{access_token}}
     {
         "address": "19 rue du Pierre",
         "zip_code": "75 010 CEDEX",
@@ -82,3 +95,4 @@ content-type: application/json
 ###
 DELETE {{host}}/houses/101 HTTP/1.1
 content-type: application/json
+Authorization: {{access_token}}
