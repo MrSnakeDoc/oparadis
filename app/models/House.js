@@ -187,6 +187,7 @@ module.exports = class House {
 	static async delete(id) {
 		try {
 			await CoreModel.getRow("delete from house where id = $1", [id]);
+			console.log('return');
 			return;
 		} catch (err) {
 			if (err.detail) {

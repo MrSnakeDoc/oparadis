@@ -38,7 +38,7 @@ module.exports = {
 	async delete(req, res) {
 		try {
 			await Customer.delete(+req.params.id);
-			res.status(204);
+			res.sendStatus(204);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message));
 		}

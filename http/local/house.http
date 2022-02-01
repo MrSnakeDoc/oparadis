@@ -61,9 +61,10 @@ Authorization: {{access_token}}
     }
 
 ###
-PATCH {{host}}/houses/101 HTTP/1.1
+PATCH {{host}}/houses/1 HTTP/1.1
 content-type: application/json
 Authorization: {{access_token}}
+
     {
         "address": "19 rue du Pierre",
         "zip_code": "75 010 CEDEX",
@@ -93,6 +94,6 @@ Authorization: {{access_token}}
     }
 
 ###
-DELETE {{host}}/houses/101 HTTP/1.1
+DELETE {{host}}/houses/105 HTTP/1.1
 content-type: application/json
 Authorization: {{access_token}}
