@@ -83,7 +83,7 @@ router
 	);
 
 router
-	.get("/houses/full", jwtMW, cache, houseController.findAllFull)
+	.get("/houses/full", cache, houseController.findAllFull)
 	.get("/housesfour", cache, houseController.findFour)
 	.get(
 		"/houses/full/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
