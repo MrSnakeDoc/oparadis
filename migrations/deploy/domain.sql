@@ -14,7 +14,6 @@ ALTER TABLE HOUSE
 
 CREATE VIEW house_full_find_all as
 	SELECT house.id,
-			house.title,
 			house.address,
 			house.zip_code,
 			house.city,
@@ -22,6 +21,7 @@ CREATE VIEW house_full_find_all as
 				where house.country = country.id) as country,
 			(select json_agg(json_build_object(house_type.id,house_type.type)) from house_type
 				where house_type.id = house.type) as type,
+			house.title,
 			house.nb_rooms,
 			house.nb_bedrooms,
 			house.surface,
@@ -34,6 +34,7 @@ CREATE VIEW house_full_find_all as
 			house.internet,
 			house.washing_machine,
 			house.TV,
+			house.hoven,
 			house.microwave,
 			house.dishwasher,
 			house.bathtub,
@@ -111,7 +112,6 @@ $$ LANGUAGE sql;
 
 CREATE VIEW house_find_all as
 	SELECT house.id,
-		house.title,
 		house.address,
 		house.zip_code,
 		house.city,
@@ -119,6 +119,7 @@ CREATE VIEW house_find_all as
 			where house.country = country.id) as country,
 		(select json_agg(json_build_object(house_type.id,house_type.type)) from house_type
 			where house_type.id = house.type) as type,
+		house.title,
 		house.nb_rooms,
 		house.nb_bedrooms,
 		house.surface,
@@ -131,6 +132,7 @@ CREATE VIEW house_find_all as
 		house.internet,
 		house.washing_machine,
 		house.TV,
+		house.hoven,
 		house.microwave,
 		house.dishwasher,
 		house.bathtub,

@@ -13,7 +13,7 @@ module.exports = {
 		try {
 			const customer = await Customer.findOne(+req.params.id);
 			// If customer not exist so return status 204 (No Content)
-			if (!customer.id) res.status(204);
+			if (!customer.id) res.status(404).json('Not found');
 			res.json(customer);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message));
@@ -28,7 +28,7 @@ module.exports = {
 				id: +req.params.id,
 				...req.body,
 			}).update();
-			if (!customer.id) res.status(204);
+			if (!customer.id) res.status(404).json('Not found');
 			res.json(customer);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message));
@@ -38,7 +38,7 @@ module.exports = {
 	async delete(req, res) {
 		try {
 			await Customer.delete(+req.params.id);
-			res.json("Customer Deleted");
+			res.status(204);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message));
 		}
