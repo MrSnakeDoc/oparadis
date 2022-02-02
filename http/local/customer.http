@@ -1,37 +1,33 @@
 @host = http://localhost:5000
-@access_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoxMDMsImlhdCI6MTY0MzIwMzEzOSwiZXhwIjoxNjQzMjAzMTY5fQ.i7gqD8WXtMMr54cedvi5jQRk51TBJqtW1fm81AglsEk
+@access_token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxMDUsImVtYWlsIjoib0BhLmNvbSIsImZpcnN0bmFtZSI6Im8iLCJsYXN0bmFtZSI6Im8iLCJwc2V1ZG8iOiJKYWNxdW91IGxlIGNyb3F1YW50IiwicGhvbmVfbnVtYmVyIjoiMDE4NDU0NjQxNyIsImF2YXRhciI6Ii9zcmMvY3VzdG9tZXJfcGhvdG9zL2N1c3RvbWVyMTI2LmpwZyIsImlzYWRtaW4iOmZhbHNlLCJjcmVhdGVkX2F0IjoiMjAyMi0wMi0wMlQxODowOToxMC45ODNaIiwidXBkYXRlZF9hdCI6IjIwMjItMDItMDJUMTg6MDk6MTAuOTgzWiJ9LCJpYXQiOjE2NDM4MjUzNjQsImV4cCI6MTY0MzgyNTY2NH0.WKMJFrrHyLqufl0fS-v0pVdot0kEpOjXcy6dOa6O7SA
 # CUSTOMER
 
 ###
 GET {{host}}/customers HTTP/1.1
 content-type: application/json
-Authorization: Bearer {{access_token}}
-
+Authorization: {{access_token}}
 
 ###
 GET {{host}}/customers/1 HTTP/1.1
 content-type: application/json
-Authorization: Bearer {{access_token}}
+Authorization: {{access_token}}
 
 
 ###
-PATCH {{host}}/customers/101 HTTP/1.1
+PATCH {{host}}/customers/105 HTTP/1.1
 content-type: application/json
-Authorization: Bearer {{access_token}}
+Authorization: {{access_token}}
 
 {
-    "email": "a@a.com",
-    "password": "Paradis13$",
-    "repeat_password": "Paradis13$",
+    "email": "o@a.com",
     "firstname": "Misa",
     "lastname": "JarJar Binks",
     "pseudo": "Kerstone",
     "phone_number": "0134538467",
-    "photo":"/src/customer_photos/customer25.jpg",
-    "isAdmin": true
+    "avatar":"/src/customer_photos/customer25.jpg"
 }
 
 ###
-DELETE {{host}}/customers/101 HTTP/1.1
+DELETE {{host}}/customers/105 HTTP/1.1
 content-type: application/json
-Authorization: Bearer {{access_token}}
+Authorization: {{access_token}}

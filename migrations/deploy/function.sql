@@ -10,7 +10,6 @@ $$ language sql strict;
 create or replace function update_customer(json) returns customer as $$
 	update "customer" set 
 		email = $1->>'email',
-    	password = $1->>'password',
 		firstname = $1->>'firstname',
 		lastname = $1->>'lastname',
 		pseudo = $1->>'pseudo',

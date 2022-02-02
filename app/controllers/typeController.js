@@ -13,8 +13,7 @@ module.exports = {
 	async findOne(req, res) {
 		try {
 			const type = await Type.findOne(+req.params.id);
-			if(!type) res.status(404).json('Not found');
-			res.json(type);
+			!type.id ? res.status(404).json('Not found') : res.json(type);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message));
 		}
@@ -38,8 +37,7 @@ module.exports = {
 				id: +req.params.id,
 				...req.body,
 			}).update();
-			if (!type.id) res.status(404).json('Not found');
-			res.json(type);
+			!type.id ? res.status(404).json('Not found') : res.json(type);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message));
 		}

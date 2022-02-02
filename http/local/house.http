@@ -1,8 +1,7 @@
 @host = http://localhost:5000
 
-@access_token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxMDQsImVtYWlsIjoib0BhLmNvbSIsImZpcnN0bmFtZSI6Im8iLCJsYXN0bmFtZSI6Im8iLCJwc2V1ZG8iOiJKYWNxdW91IGxlIGNyb3F1YW50IiwicGhvbmVfbnVtYmVyIjoiMDE4NDU0NjQxNyIsImF2YXRhciI6Ii9zcmMvY3VzdG9tZXJfcGhvdG9zL2N1c3RvbWVyMTI2LmpwZyIsImlzYWRtaW4iOmZhbHNlLCJjcmVhdGVkX2F0IjoiMjAyMi0wMi0wMVQxMzoxNjowNS42NzNaIiwidXBkYXRlZF9hdCI6IjIwMjItMDItMDFUMTM6MTY6MDUuNjczWiJ9LCJpYXQiOjE2NDM3MjQ4NDgsImV4cCI6MTY0MzcyNTE0OH0.xALy0zmKItkjR3S1s6FYO2I2pv8h_iINNxmdzODZgJg
+@access_token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxMDMsImVtYWlsIjoib0BhLmNvbSIsImZpcnN0bmFtZSI6Im8iLCJsYXN0bmFtZSI6Im8iLCJwc2V1ZG8iOiJKYWNxdW91IGxlIGNyb3F1YW50IiwicGhvbmVfbnVtYmVyIjoiMDE4NDU0NjQxNyIsImF2YXRhciI6Ii9zcmMvY3VzdG9tZXJfcGhvdG9zL2N1c3RvbWVyMTI2LmpwZyIsImlzYWRtaW4iOmZhbHNlLCJjcmVhdGVkX2F0IjoiMjAyMi0wMi0wMlQxNToyOTo1OC41ODZaIiwidXBkYXRlZF9hdCI6IjIwMjItMDItMDJUMTU6Mjk6NTguNTg2WiJ9LCJpYXQiOjE2NDM4MjQ1NDQsImV4cCI6MTY0MzgyNDg0NH0.WMYE36NeeKE7VsErvkTzPaNzcHrYai-3caJHjlaqllk
 
-###
 GET {{host}}/houses/full HTTP/1.1
 content-type: application/json
 Authorization: {{access_token}}
@@ -57,11 +56,11 @@ Authorization: {{access_token}}
         "bathtub": false,
         "shower": false,
         "parking": false,
-        "customer_id": 1
+        "customer_id": 103
     }
 
 ###
-PATCH {{host}}/houses/1 HTTP/1.1
+PATCH {{host}}/houses/103 HTTP/1.1
 content-type: application/json
 Authorization: {{access_token}}
 
@@ -90,10 +89,10 @@ Authorization: {{access_token}}
         "bathtub": true,
         "shower": true,
         "parking": true,
-        "customer_id": 1
+        "customer_id": 102
     }
 
 ###
-DELETE {{host}}/houses/105 HTTP/1.1
+DELETE {{host}}/houses/102 HTTP/1.1
 content-type: application/json
 Authorization: {{access_token}}

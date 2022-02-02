@@ -143,12 +143,10 @@ module.exports = class House {
 	 */
 	async save() {
 		try {
-			console.log("test model");
 			// We select the add function to create a database(example function in migration/deploy/function)
 			const result = await CoreModel.getRow("SELECT * FROM add_house($1)", [
 				this,
 			]);
-			console.log(result);
 			return result ? new House(result) : undefined;
 		} catch (err) {
 			if (err.detail) {
