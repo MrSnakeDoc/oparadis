@@ -20,8 +20,7 @@ module.exports = {
 	async findOneFull(req, res) {
 		try {
 			const house = await House.findOneFull(+req.params.id);
-			if (!house.id) res.status(404).json('Not found');
-			res.json(house);
+			!house.id ? res.status(404).json('Not found') : res.json(house);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message));
 		}
@@ -39,8 +38,7 @@ module.exports = {
 	async findOne(req, res) {
 		try {
 			const house = await House.findOne(+req.params.id);
-			if (!house.id) res.status(404).json('Not found');
-			res.json(house);
+			!house.id ? res.status(404).json('Not found') : res.json(house);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message));
 		}
@@ -60,8 +58,8 @@ module.exports = {
 				id: +req.params.id,
 				...req.body,
 			}).update();
-			if (!house.id) res.status(404).json('Not found');
-			res.json(house);
+			!house.id ? res.status(404).json('Not found') : res.json(house);
+			
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message));
 		}
@@ -69,7 +67,6 @@ module.exports = {
 	async delete(req, res) {
 		try {
 			await House.delete(+req.params.id);
-			console.log('controller');
 			res.sendStatus(204);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message));

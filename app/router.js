@@ -61,6 +61,7 @@ router
 		"/customers/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		jwtMW,
+		securityMW,
 		update_customerValidation,
 		flush,
 		customerController.update
@@ -69,14 +70,16 @@ router
 		"/customers/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])/password",
 		paramsValidation,
 		jwtMW,
-		flush,
+		securityMW,
 		update_passwordValidation,
+		flush,
 		authController.update_password
 	)
 	.delete(
 		"/customers/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		jwtMW,
+		securityMW,
 		flush,
 		customerController.delete
 	);
@@ -104,6 +107,7 @@ router
 		"/houses/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		jwtMW,
+		securityMW,
 		update_houseValidation,
 		flush,
 		houseController.update
@@ -131,6 +135,7 @@ router
 		"/animals/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		jwtMW,
+		securityMW,
 		update_animalValidation,
 		flush,
 		animalController.update
@@ -139,6 +144,7 @@ router
 		"/animals/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		jwtMW,
+		securityMW,
 		flush,
 		animalController.delete
 	);
@@ -157,6 +163,7 @@ router
 		"/photos/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		jwtMW,
+		securityMW,
 		update_photoValidation,
 		flush,
 		photoController.update
@@ -165,6 +172,7 @@ router
 		"/photos/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		jwtMW,
+		securityMW,
 		flush,
 		photoController.delete
 	);
@@ -183,6 +191,7 @@ router
 		"/absentees/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		jwtMW,
+		securityMW,
 		update_absenteeValidation,
 		flush,
 		absenteeController.update
@@ -191,6 +200,7 @@ router
 		"/absentees/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		jwtMW,
+		securityMW,
 		flush,
 		absenteeController.delete
 	);
@@ -209,6 +219,7 @@ router
 		"/plants/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		jwtMW,
+		securityMW,
 		update_plantValidation,
 		flush,
 		plantController.update
@@ -217,6 +228,7 @@ router
 		"/plants/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		jwtMW,
+		securityMW,
 		flush,
 		plantController.delete
 	);
@@ -235,6 +247,7 @@ router
 		"/types/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		jwtMW,
+		securityMW,
 		update_typeValidation,
 		flush,
 		typeController.update
@@ -243,6 +256,7 @@ router
 		"/types/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		jwtMW,
+		securityMW,
 		flush,
 		typeController.delete
 	);

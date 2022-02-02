@@ -13,8 +13,7 @@ module.exports = {
 	async findOne(req, res) {
 		try {
 			const plant = await Plant.findOne(+req.params.id);
-			if(!plant) res.status(404).json('Not found');
-			res.json(plant);
+			!plant.id ? res.status(404).json('Not found') : res.json(plant);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message));
 		}
@@ -34,8 +33,7 @@ module.exports = {
 				id: +req.params.id,
 				...req.body,
 			}).update();
-			if (!plant.id) res.status(404).json('Not found');
-			res.json(plant);
+			!plant.id ? res.status(404).json('Not found') : res.json(plant);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message));
 		}

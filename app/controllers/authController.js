@@ -61,7 +61,6 @@ module.exports = {
 	},
 
 	async refreshToken(req, res) {
-		console.log(req.headers);
 		try {
 			const ref_token =
 				req.headers.authorization && req.headers.authorization.split(" ")[1];
