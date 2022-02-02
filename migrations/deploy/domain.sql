@@ -147,6 +147,6 @@ CREATE or replace function house_find_one(int) returns house_find_all as $$
 $$ LANGUAGE sql strict;
 
 CREATE VIEW house_find_four as
-	SELECT * FROM house ORDER BY updated_at DESC LIMIT 4;
+	SELECT * FROM house_find_all ORDER BY updated_at DESC LIMIT 4;
 
 COMMIT;

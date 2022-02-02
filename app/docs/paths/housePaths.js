@@ -31,6 +31,38 @@ module.exports = {
 			},
 		},
 	},
+	"/housesfour": {
+		get: {
+			tags: ["House CRUD operations"],
+			description: "Retrieve a list of 4 houses",
+			summary: "Return a list of 4 houses",
+			parameters: [],
+			responses: {
+				200: {
+					description: "houses were obtained",
+					content: {
+						"application/json": {
+							schema: {
+								type: "array",
+								items: {
+									$ref: "#/components/schemas/House",
+								},
+							},
+						},
+					},
+				},
+				400: {
+					description: "Bad request",
+				},
+				403: {
+					description: "Forbidden",
+				},
+				404: {
+					description: "List of Houses not found",
+				},
+			},
+		},
+	},
 	"/houses/full/{id}": {
 		get: {
 			tags: ["House CRUD operations"],
