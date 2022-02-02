@@ -13,6 +13,7 @@ const {
 const { cache, flush } = require("./services/cache");
 const {
 	adminMW,
+	securityMW,
 	jwtMW,
 	signin_Validation,
 	update_passwordValidation,
@@ -111,6 +112,7 @@ router
 		"/houses/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		jwtMW,
+		securityMW,
 		flush,
 		houseController.delete
 	);

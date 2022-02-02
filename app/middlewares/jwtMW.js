@@ -3,7 +3,7 @@ const jwt = require("../services/jwt");
 module.exports = (req, res, next) => {
 	try {
 		if (
-			req.headers.host === "localhost:5000" ||
+			// req.headers.host === "localhost:5000" ||
 			req.headers.host === "oparadisapi.herokuapp.com" ||
 			req.headers.host.startsWith(`127.0.0.1`)
 		) {
