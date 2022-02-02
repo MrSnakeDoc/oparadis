@@ -1,11 +1,11 @@
 -- Revert oparadis:domain from pg
 
 BEGIN;
-DROP VIEW IF EXISTS house_find_four();
+DROP VIEW IF EXISTS house_find_four;
 
-DROP FUNCTION IF EXISTS house_find_one(int);
+DROP FUNCTION IF EXISTS house_find_one;
 
-DROP FUNCTION IF EXISTS house_full_find_one(int);
+DROP FUNCTION IF EXISTS house_full_find_one;
 
 DROP VIEW IF EXISTS house_full_find_all;
 
