@@ -91,7 +91,8 @@ CREATE VIEW house_full_find_all as
 			(SELECT array_agg(json_build_object(
 				'id', id,
 				'starting_date', starting_date,
-				'ending_date', ending_date)
+				'ending_date', ending_date,
+				'house_sitter',house_sitter)
 			ORDER BY absentee.id asc)
 			FROM absentee WHERE absentee.customer_id= customer.id)
 			AS absentee

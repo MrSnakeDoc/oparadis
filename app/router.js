@@ -45,6 +45,8 @@ router
 
 router.patch("/isAdmin/:id", jwtMW, authController.update_isAdmin);
 
+router.get("/", cache, houseController.findFour);
+
 //! Double check on id with regex and joi (number between 1 and 9999)
 router
 	.get("/customers", jwtMW, cache, customerController.findAll)
@@ -82,7 +84,6 @@ router
 
 router
 	.get("/houses/full", cache, houseController.findAllFull)
-	.get("/housesfour", cache, houseController.findFour)
 	.get(
 		"/houses/full/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
@@ -176,7 +177,13 @@ router
 		cache,
 		absenteeController.findOne
 	)
-	.post("/absentees", jwtMW, add_absenteeValidation, flush, absenteeController.save)
+	.post(
+		"/absentees",
+		jwtMW,
+		add_absenteeValidation,
+		flush,
+		absenteeController.save
+	)
 	.patch(
 		"/absentees/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,

@@ -129,7 +129,8 @@ create or replace function update_absentee(json) returns absentee as $$
 	update "absentee" set 
 		starting_date = ($1->>'starting_date')::date,
 		ending_date = ($1->>'ending_date')::date,
-		customer_id = ($1->>'customer_id')::int
+		customer_id = ($1->>'customer_id')::int,
+		house_sitter = ($1->>'house_sitter')::int
     where id = ($1->>'id')::int returning *;
 $$ language sql strict;
 

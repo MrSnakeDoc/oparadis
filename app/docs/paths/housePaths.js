@@ -1,9 +1,9 @@
 module.exports = {
-	"/houses/full": {
+	"/": {
 		get: {
-			tags: ["House CRUD operations"],
-			description: "Retrieve a list of all houses",
-			summary: "Return a list of all houses",
+			tags: ["Home CRUD operations"],
+			description: "Retrieve a list of 4 houses",
+			summary: "Return a list of 4 houses",
 			parameters: [],
 			responses: {
 				200: {
@@ -31,11 +31,11 @@ module.exports = {
 			},
 		},
 	},
-	"/housesfour": {
+	"/houses/full": {
 		get: {
 			tags: ["House CRUD operations"],
-			description: "Retrieve a list of 4 houses",
-			summary: "Return a list of 4 houses",
+			description: "Retrieve a list of all houses",
+			summary: "Return a list of all houses",
 			parameters: [],
 			responses: {
 				200: {

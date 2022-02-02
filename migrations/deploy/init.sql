@@ -102,7 +102,7 @@ CREATE TABLE ABSENTEE (
     starting_date TIMESTAMPTZ not null,
     ending_date TIMESTAMPTZ not null check (starting_date < ending_date),
     customer_id int not null REFERENCES customer(id) ON DELETE CASCADE,
-    house_sitter int REFERENCES house(id) on delete cascade default null
+    house_sitter int REFERENCES customer(id) on delete cascade default null
 );
 
 --? The function update the updated_at field
