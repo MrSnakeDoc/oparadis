@@ -6,4 +6,5 @@ module.exports = {
 	jwt_secret: process.env.JWT_SECRET,
 	refresh_jwt_secret: process.env.REFRESH_JWT_SECRET,
 	salt: process.env.SALT || 10,
+	host_online : process.env.HOST_ONLINE,
 };
