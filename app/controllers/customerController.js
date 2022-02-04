@@ -1,4 +1,5 @@
 const { Customer, BaseError } = require("../models");
+const { cloud } = require('../services/cloud');
 
 module.exports = {
 	async findAll(_, res) {

@@ -1,4 +1,5 @@
 const { Plant, BaseError } = require("../models");
+const { cloudCreate } = require('../services/cloud');
 
 module.exports = {
 	async findAll(_, res) {
@@ -21,6 +22,7 @@ module.exports = {
 
 	async save(req, res) {
 		try {
+			if(req.body.photo) req.body.photo = await cloudCreate(req.body.photo);
 			const plant = await new Plant(req.body).save();
 			res.status(201).json(plant);
 		} catch (err) {
