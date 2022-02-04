@@ -96,3 +96,7 @@ Authorization: {{access_token}}
 DELETE {{host}}/houses/102 HTTP/1.1
 content-type: application/json
 Authorization: {{access_token}}
+
+    {
+        "customer_id": 103
+    }
