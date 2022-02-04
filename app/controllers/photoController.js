@@ -1,4 +1,5 @@
 const { Photo, BaseError } = require("../models");
+const { cloud } = require('../services/cloud');
 
 module.exports = {
 	async findAll(_, res) {
@@ -21,8 +22,10 @@ module.exports = {
 
 	async save(req, res) {
 		try {
-			const photo = await new Photo(req.body).save();
-			res.status(201).json(photo);
+			req.body.photo = cloud(req.body.photo);
+			console.log(req.body.photo);
+			// const photo = await new Photo(req.body).save();
+			// res.status(201).json(photo);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message));
 		}
