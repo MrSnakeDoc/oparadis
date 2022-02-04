@@ -8,7 +8,7 @@ content-type: application/json
 Authorization: {{access_token}}
 
 ###
-GET {{host}}/photos/1 HTTP/1.1
+GET {{host}}/photos/102 HTTP/1.1
 content-type: application/json
 Authorization: {{access_token}}
 
@@ -18,7 +18,7 @@ content-type: application/json
 Authorization: {{access_token}}
 
     {
-        "photo":"/src/house_photos/house22/house_22-123.jpg",
+        "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAeAB4AAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwMDAwYEBAMFBwYHBwcGBwcICQsJCAgKCAcHCg0KCgsMDAwMBwkODw0MDgsMDAz/2wBDAQICAgMDAwYDAwYMCAcIDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAz/wAARCAAaABgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9/KKK/nR0T9u7xl+yb4H+NXivwL8Tfjf8Nbv44fGD4jfEzwVpQ+Fwl0nxf4aHhu71Sw122l1DRJpGjkvIdLjn23AWG0kaV44FLXKgH9D3hPxZpfj3wrpuu6FqWn61omtWkV/p+oWFwlza39vKgeKaKVCUkjdGVlZSQwIIJBorx/8A4JleE9V8Bf8ABNv9nzQtd0zUNF1vRfhr4csNQ0+/t3trqwuItLtklhlicB45EdWVlYAqQQQCKKAPUPil8J/C3xx8CX3hbxr4a8P+MPDOqeX9s0jW9Oh1Cwu/LkWWPzIJVaN9siI43A4ZFI5ANfnB+xp/wRp139oj4beH9P8A2wNK8Qf8WO0qX4Y/D7w1oni+ODRJND/sLR9MvdXju9MS11GT+0ntL3NvezYS3umha3H3j+n9FAHn/wAC/wBk74Wfsv8A9qf8K0+GngD4d/255X9pf8Ix4etNI/tDyt/led9njTzNnmybd2dvmPjG40V6BRQB/9k=",
         "customer_id": 1
     }
     
@@ -28,7 +28,7 @@ content-type: application/json
 Authorization: {{access_token}}
 
     {
-        "photo":"/src/house_photos/house22/housetest.jpg",
+        "photo":"blablablaaaa.jpg",
         "customer_id": 1
     }
     

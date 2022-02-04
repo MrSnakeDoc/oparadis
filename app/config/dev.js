@@ -7,4 +7,7 @@ module.exports = {
 	refresh_jwt_secret: process.env.REFRESH_JWT_SECRET,
 	salt: process.env.SALT || 10,
 	host_online : process.env.HOST_ONLINE,
+	cloud_name : process.env.CLOUD_NAME,
+	api_key : process.env.API_KEY,
+	api_secret : process.env.API_SECRET,
 };
