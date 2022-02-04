@@ -23,8 +23,8 @@ POST {{host}}/signin HTTP/1.1
 content-type: application/json
 
 {
-    "email": "o@a.com",
-    "password": "Paradis13$"
+    "email": "Helene_Kozey@hotmail.com",
+    "password": "1FTEF0732X3VLUC6G"
 }
 
 ### Update Password

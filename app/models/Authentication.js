@@ -55,7 +55,7 @@ module.exports = class Authentication {
 	static async authFindOne(email) {
 		try {
 			const results = await CoreModel.getRow(
-				"SELECT * FROM customer where email = $1",
+				"SELECT * FROM customer_all_id where email = $1",
 				[email]
 			);
 			return results ? new Authentication(results) : undefined;
