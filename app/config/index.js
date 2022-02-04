@@ -3,8 +3,6 @@ const prodConfig = require("./prod.js");
 
 const env = process.env.NODE_ENV;
 
-let envConfig = {};
-
 switch (env) {
 	case "development":
 	case "dev":

@@ -1,4 +1,3 @@
-const { send } = require("express/lib/response");
 const CoreModel = require("./CoreModel");
 
 /**
@@ -85,9 +84,10 @@ module.exports = class Absentee {
 	async update() {
 		try {
 			// We select the update function create a database(example function in migrations/deploy/function)
-			const results = await CoreModel.getRow("SELECT * FROM update_absentee($1)", [
-				this,
-			]);
+			const results = await CoreModel.getRow(
+				"SELECT * FROM update_absentee($1)",
+				[this]
+			);
 			return results ? new Absentee(results) : undefined;
 		} catch (err) {
 			if (err.detail) {
