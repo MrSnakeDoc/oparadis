@@ -7,6 +7,7 @@
 		"start": "NODE_ENV=prod node -r dotenv/config index.js",
 		"dev": "NODE_ENV=dev nodemon -r dotenv/config index.js",
 		"data": "node ./data/import_data.js",
+		"write": "node ./data/writefile.js",
 		"test": "NODE_ENV=dev jest --verbose --forceExit"
 	},
 	"repository": {

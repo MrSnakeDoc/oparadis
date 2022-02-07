@@ -19,18 +19,6 @@ const axios = require("axios");
 				if (table === "customer") {
 					elem.password = bcrypt.hashSync(elem.password, salt);
 				}
-				if (table === "house") {
-					const { data } = await axios({
-						method: "get",
-						url: `https://api-adresse.data.gouv.fr/search/?q=${elem.address
-							.split(" ")
-							.join("+")}&postcode=${elem.zip_code}&autocomplete=0`,
-					});
-					const coordinates = data.features[0].geometry.coordinates;
-					elem.latitude = coordinates[1];
-					elem.longitude = coordinates[0];
-					elem.map = `https://maps.google.com/maps?q=${elem.latitude},${elem.longitude}`;
-				}
 				const keysArray = Object.keys(fullData[table][0]).map((key) => key); //? output : [name, age, address]
 				const keys = keysArray.join(", ");
 				const values = keysArray
