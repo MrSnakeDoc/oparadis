@@ -1,5 +1,5 @@
 const { Animal, BaseError } = require("../models");
-const { cloudCreate } = require('../services/cloud');
+const { cloudCreate, cloudDelete } = require('../services/cloud');
 
 module.exports = {
 	async findAll(_, res) {
@@ -31,6 +31,13 @@ module.exports = {
 	},
 	async update(req, res) {
 		try {
+			if(req.body.photo){
+				// Delete old image
+				const animal = await Animal.findOne(+req.params.id);				
+				await cloudDelete(animal.photo);
+				// Create new image
+				req.body.photo = await cloudCreate(req.body.photo);
+			};
 			const animal = await new Animal({
 				id: +req.params.id,
 				...req.body,
@@ -43,6 +50,8 @@ module.exports = {
 	},
 	async delete(req, res) {
 		try {
+			const animal = await Animal.findOne(+req.params.id);
+			await cloudDelete(animal.photo);
 			await Animal.delete(+req.params.id);
 			res.sendStatus(204);
 		} catch (err) {
