@@ -1,5 +1,4 @@
 const { Customer, BaseError } = require("../models");
-const { cloudCreate, cloudDelete } = require('../services/cloud');
 
 module.exports = {
 	async findAll(_, res) {
@@ -22,13 +21,6 @@ module.exports = {
 
 	async update(req, res) {
 		try {
-			if(req.body.avatar){
-				// Delete old image
-				const customer = await Customer.findOne(+req.params.id);				
-				await cloudDelete(customer.avatar);
-				// Create new image
-				req.body.avatar = await cloudCreate(req.body.avatar);
-			};
 			if (req.body.pseudo === "") delete req.body.pseudo;
 			// We pass the id in the object to update a
 			const customer = await new Customer({
@@ -43,8 +35,6 @@ module.exports = {
 
 	async delete(req, res) {
 		try {
-			const customer = await Customer.findOne(+req.params.id);
-			await cloudDelete(customer.avatar);
 			await Customer.delete(+req.params.id);
 			res.sendStatus(204);
 		} catch (err) {

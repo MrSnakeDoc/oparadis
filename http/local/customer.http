@@ -14,25 +14,25 @@ Authorization: {{access_token}}
 
 
 ###
-PATCH {{host}}/customers/105 HTTP/1.1
+PATCH {{host}}/customers/108 HTTP/1.1
 content-type: application/json
 Authorization: {{access_token}}
 
 {
-    "email": "o@a.com",
+    "email": "o@w.com",
     "firstname": "Misa",
     "lastname": "JarJar Binks",
     "pseudo": "Kerstone",
     "phone_number": "0134538467",
     "avatar":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAaCAIAAAAi3QukAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAAtSURBVEhLY+xgEGWgBmCC0hSDUYMIg1GDCINRgwiDUYMIg1GDCINRgwgBBgYAU7QA0Su7uLMAAAAASUVORK5CYII=",
-    "url": ""
+    "url": "http://res.cloudinary.com/dhwbw94lc/image/upload/v1644242558/edte7iganmhqdju5o14g.png"
 }
 
 ###
-DELETE {{host}}/customers/105 HTTP/1.1
+DELETE {{host}}/customers/108 HTTP/1.1
 content-type: application/json
 Authorization: {{access_token}}
 
 {
-    "url": ""
+    "url": "http://res.cloudinary.com/dhwbw94lc/image/upload/v1644242639/dixqwl2rifgc0mhtgdjf.png"
 }

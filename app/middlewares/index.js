@@ -4,8 +4,10 @@ const adminMW = require("./adminMW");
 const securityMW = require("./securityMW");
 const { validateBody, validateQuery } = require("./validationMW");
 const validationFn = require("./validationFn");
+const cloudMW = require('./cloudMW');
 
 module.exports = {
+	cloudMW,
 	adminMW,
 	securityMW,
 	bodySanitizer,

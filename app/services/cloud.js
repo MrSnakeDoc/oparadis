@@ -14,4 +14,3 @@ module.exports = {
     return;		
   },
 };
-// cloudinary.image(data, {width: 500, height: 500});

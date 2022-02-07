@@ -26,7 +26,7 @@ Authorization: {{access_token}}
     }
     
 ###
-PATCH {{host}}/animals/1 HTTP/1.1
+PATCH {{host}}/animals/101 HTTP/1.1
 content-type: application/json
 Authorization: {{access_token}}
 
@@ -36,7 +36,7 @@ Authorization: {{access_token}}
         "diseases": "Renal failure",
         "notes": "Garfield is very cute, large and very very cuddly",
         "photo":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAaCAIAAAAi3QukAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAAtSURBVEhLY+xgEGWgBmCC0hSDUYMIg1GDCINRgwiDUYMIg1GDCINRgwgBBgYAU7QA0Su7uLMAAAAASUVORK5CYII=",
-        "url": "",
+        "url": "https://res.cloudinary.com/dhwbw94lc/image/upload/v1644238780/iwebhzkzuzprzjaisdhd.png",
         "customer_id": 1
     }
     
@@ -46,6 +46,6 @@ content-type: application/json
 Authorization: {{access_token}}
 
     {
-        "url": "",
+        "url": "http://res.cloudinary.com/dhwbw94lc/image/upload/v1644238806/uikul10rbbngmxbtyeen.png",
         "customer_id": 1
     }
