@@ -23,22 +23,22 @@ Authorization: {{access_token}}
     }
     
 ###
-PATCH {{host}}/photos/109 HTTP/1.1
+PATCH {{host}}/photos/104 HTTP/1.1
 content-type: application/json
 Authorization: {{access_token}}
 
     {
         "photo":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAaCAIAAAAi3QukAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAAtSURBVEhLY+xgEGWgBmCC0hSDUYMIg1GDCINRgwiDUYMIg1GDCINRgwgBBgYAU7QA0Su7uLMAAAAASUVORK5CYII=",
-        "url": "",
+        "url": "http://res.cloudinary.com/dhwbw94lc/image/upload/v1644242730/jcvsluvjgpbpvmndlhtx.png",
         "customer_id": 1
     }
     
 ###
-DELETE {{host}}/photos/111 HTTP/1.1
+DELETE {{host}}/photos/104 HTTP/1.1
 content-type: application/json
 Authorization: {{access_token}}
 
     {
-        "url": "",
+        "url": "http://res.cloudinary.com/dhwbw94lc/image/upload/v1644242777/adtml7gp1tnn9aoi8ca0.png",
         "customer_id": 1
     }

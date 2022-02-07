@@ -1,5 +1,4 @@
 const { Animal, BaseError } = require("../models");
-const { cloudCreate, cloudDelete } = require('../services/cloud');
 
 module.exports = {
 	async findAll(_, res) {
@@ -22,7 +21,6 @@ module.exports = {
 
 	async save(req, res) {
 		try {
-			if(req.body.photo) req.body.photo = await cloudCreate(req.body.photo);
 			const animal = await new Animal(req.body).save();
 			res.status(201).json(animal);
 		} catch (err) {
@@ -31,13 +29,6 @@ module.exports = {
 	},
 	async update(req, res) {
 		try {
-			if(req.body.photo){
-				// Delete old image
-				const animal = await Animal.findOne(+req.params.id);				
-				await cloudDelete(animal.photo);
-				// Create new image
-				req.body.photo = await cloudCreate(req.body.photo);
-			};
 			const animal = await new Animal({
 				id: +req.params.id,
 				...req.body,
@@ -50,8 +41,6 @@ module.exports = {
 	},
 	async delete(req, res) {
 		try {
-			const animal = await Animal.findOne(+req.params.id);
-			await cloudDelete(animal.photo);
 			await Animal.delete(+req.params.id);
 			res.sendStatus(204);
 		} catch (err) {

@@ -6,7 +6,6 @@ const {
 } = require("../services/jwt");
 const { cache, verifyToken, deleteToken } = require("../services/tokenCache");
 const { encrypt, compare } = require("../services/encrypt");
-const { cloudCreate } = require('../services/cloud');
 
 module.exports = {
 	async signup(req, res) {
@@ -16,7 +15,6 @@ module.exports = {
 			// encrypt the password
 			req.body.password = await encrypt(req.body.password);
 			// connection api cloudinary
-			if(req.body.avatar) req.body.avatar = await cloudCreate(req.body.avatar);
 			const customer = await new Authentication(req.body).signup();
 			delete customer.password;
 			res.status(201).json(customer);

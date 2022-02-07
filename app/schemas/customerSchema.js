@@ -17,7 +17,7 @@ module.exports = {
 		lastname: Joi.string().required().error(new Error('This field is required')),
 		pseudo: Joi.string().empty(""),
 		phone_number: Joi.string().pattern(re_phone).required().error(new Error('Message : Your phone number must begin with +33 or 0, example : +33164662903 , 0164662903')),
-		avatar: Joi.string(),
-		url: Joi.string(),
+		avatar: Joi.string().empty(""),
+		url: Joi.string().empty(""),
 	}),
 };

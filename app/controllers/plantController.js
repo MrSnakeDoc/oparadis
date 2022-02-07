@@ -1,5 +1,4 @@
 const { Plant, BaseError } = require("../models");
-const { cloudCreate, cloudDelete } = require('../services/cloud');
 
 module.exports = {
 	async findAll(_, res) {
@@ -22,7 +21,6 @@ module.exports = {
 
 	async save(req, res) {
 		try {
-			if(req.body.photo) req.body.photo = await cloudCreate(req.body.photo);
 			const plant = await new Plant(req.body).save();
 			res.status(201).json(plant);
 		} catch (err) {
@@ -31,13 +29,6 @@ module.exports = {
 	},
 	async update(req, res) {
 		try {
-			if(req.body.photo){
-				// Delete old image
-				const plant = await Plant.findOne(+req.params.id);				
-				await cloudDelete(plant.photo);
-				// Create new image
-				req.body.photo = await cloudCreate(req.body.photo);
-			};
 			const plant = await new Plant({
 				id: +req.params.id,
 				...req.body,
@@ -49,8 +40,6 @@ module.exports = {
 	},
 	async delete(req, res) {
 		try {
-			const plant = await Plant.findOne(+req.params.id);
-			await cloudDelete(plant.photo);
 			await Plant.delete(+req.params.id);
 			res.sendStatus(204);
 		} catch (err) {

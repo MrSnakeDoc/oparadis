@@ -12,6 +12,7 @@ const {
 } = require("./controllers/");
 const { cache, flush } = require("./services/cache");
 const {
+	cloudMW,
 	adminMW,
 	jwtMW,
 	signin_Validation,
@@ -38,7 +39,7 @@ const router = Router();
 //! We verify with add_customerValidation (joi) that the format is correct
 router
 	.get("/isAdmin", jwtMW, authController.isAdmin)
-	.post("/signup", signup_Validation, flush, authController.signup)
+	.post("/signup", signup_Validation, cloudMW, flush, authController.signup)
 	.post("/signin", signin_Validation, authController.signin)
 	.post("/token", authController.refreshToken)
 	.delete("/logout", authController.disconnect);
@@ -63,6 +64,7 @@ router
 		paramsValidation,
 		jwtMW,
 		update_customerValidation,
+		cloudMW,
 		flush,
 		customerController.update
 	)
@@ -78,6 +80,7 @@ router
 		"/customers/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		jwtMW,
+		cloudMW,
 		flush,
 		customerController.delete
 	);
@@ -99,12 +102,13 @@ router
 		cache,
 		houseController.findOne
 	)
-	.post("/houses", jwtMW, add_houseValidation, flush, houseController.save)
+	.post("/houses", jwtMW, add_houseValidation, cloudMW, flush, houseController.save)
 	.patch(
 		"/houses/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		jwtMW,
 		update_houseValidation,
+		cloudMW,
 		flush,
 		houseController.update
 	)
@@ -112,6 +116,7 @@ router
 		"/houses/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		jwtMW,
+		cloudMW,
 		flush,
 		houseController.delete
 	);
@@ -125,12 +130,13 @@ router
 		cache,
 		animalController.findOne
 	)
-	.post("/animals", jwtMW, add_animalValidation, flush, animalController.save)
+	.post("/animals", jwtMW, add_animalValidation, cloudMW, flush, animalController.save)
 	.patch(
 		"/animals/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		jwtMW,
 		update_animalValidation,
+		cloudMW,
 		flush,
 		animalController.update
 	)
@@ -138,6 +144,7 @@ router
 		"/animals/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		jwtMW,
+		cloudMW,
 		flush,
 		animalController.delete
 	);
@@ -151,12 +158,13 @@ router
 		cache,
 		photoController.findOne
 	)
-	.post("/photos", jwtMW, add_photoValidation, flush, photoController.save)
+	.post("/photos", jwtMW, add_photoValidation, cloudMW, flush, photoController.save)
 	.patch(
 		"/photos/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		jwtMW,
 		update_photoValidation,
+		cloudMW,
 		flush,
 		photoController.update
 	)
@@ -164,6 +172,7 @@ router
 		"/photos/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		jwtMW,
+		cloudMW,
 		flush,
 		photoController.delete
 	);
@@ -181,6 +190,7 @@ router
 		"/absentees",
 		jwtMW,
 		add_absenteeValidation,
+		cloudMW,
 		flush,
 		absenteeController.save
 	)
@@ -189,6 +199,7 @@ router
 		paramsValidation,
 		jwtMW,
 		update_absenteeValidation,
+		cloudMW,
 		flush,
 		absenteeController.update
 	)
@@ -196,6 +207,7 @@ router
 		"/absentees/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		jwtMW,
+		cloudMW,
 		flush,
 		absenteeController.delete
 	);
@@ -209,12 +221,13 @@ router
 		cache,
 		plantController.findOne
 	)
-	.post("/plants", jwtMW, add_plantValidation, flush, plantController.save)
+	.post("/plants", jwtMW, add_plantValidation, cloudMW, flush, plantController.save)
 	.patch(
 		"/plants/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		jwtMW,
 		update_plantValidation,
+		cloudMW,
 		flush,
 		plantController.update
 	)
@@ -222,6 +235,7 @@ router
 		"/plants/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		jwtMW,
+		cloudMW,
 		flush,
 		plantController.delete
 	);
@@ -235,12 +249,13 @@ router
 		cache,
 		typeController.findOne
 	)
-	.post("/types", jwtMW, add_typeValidation, flush, typeController.save)
+	.post("/types", jwtMW, add_typeValidation, cloudMW, flush, typeController.save)
 	.patch(
 		"/types/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		jwtMW,
 		update_typeValidation,
+		cloudMW,
 		flush,
 		typeController.update
 	)
@@ -248,6 +263,7 @@ router
 		"/types/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,
 		jwtMW,
+		cloudMW,
 		flush,
 		typeController.delete
 	);
