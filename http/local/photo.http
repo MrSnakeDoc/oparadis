@@ -29,6 +29,7 @@ Authorization: {{access_token}}
 
     {
         "photo":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAaCAIAAAAi3QukAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAAtSURBVEhLY+xgEGWgBmCC0hSDUYMIg1GDCINRgwiDUYMIg1GDCINRgwgBBgYAU7QA0Su7uLMAAAAASUVORK5CYII=",
+        "url": "",
         "customer_id": 1
     }
     
@@ -38,5 +39,6 @@ content-type: application/json
 Authorization: {{access_token}}
 
     {
+        "url": "",
         "customer_id": 1
     }

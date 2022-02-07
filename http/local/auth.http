@@ -15,7 +15,7 @@ content-type: application/json
     "lastname": "o",
     "pseudo": "Jacquou le croquant",
     "phone_number": "0184546417",
-    "avatar":"/src/customer_photos/customer126.jpg"
+    "avatar":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAaCAIAAAAi3QukAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABCSURBVEhLrccxDQAwDMCw8odRdIWxP6c1yY9n9v7oWc961rOe9axnPetZz3rWs571rGc961nPetaznvWsZz3rzd4DxkTAjrVWJ/YAAAAASUVORK5CYII="
 }
 
 ### Connexion User

@@ -17,6 +17,7 @@ module.exports = {
 		diseases: Joi.string().max(100).error(new Error('Characters limit up to 100')),
 		notes: Joi.string().max(300).error(new Error('Characters limit up to 300')),
 		photo: Joi.string(),
+		url: Joi.string(),
 		customer_id: Joi.number().integer().error(new Error('Expected type integer')),
 		Validation: Joi.boolean().error(new Error('Expected type boolean')),
 	}),
