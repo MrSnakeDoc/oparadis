@@ -504,13 +504,6 @@ module.exports = [
 		customer_id: 61,
 	},
 	{
-		type: "Calathea",
-		photo:
-			"https://res.cloudinary.com/oparadis/image/upload/v1644240779/plants/z6cizt9ylfhsahsk0tl5.jpg",
-		validation: true,
-		customer_id: 2,
-	},
-	{
 		type: "Alocasia",
 		photo:
 			"https://res.cloudinary.com/oparadis/image/upload/v1644240777/plants/pwfms8r3rvj3y5dwrj1t.jpg",

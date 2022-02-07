@@ -569,13 +569,6 @@ module.exports = [
 	{
 		type: "Chouette",
 		photo:
-			"https://res.cloudinary.com/oparadis/image/upload/v1644238505/animals/ptfngy9vtpmsqnu1z3hl.jpg",
-		validation: true,
-		customer_id: 2,
-	},
-	{
-		type: "Chouette",
-		photo:
 			"https://res.cloudinary.com/oparadis/image/upload/v1644238507/animals/bbfukrjbkyrglq7crkxx.jpg",
 		validation: true,
 		customer_id: 16,
