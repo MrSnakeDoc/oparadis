@@ -600,11 +600,6 @@ module.exports = [
 		customer_id: 80,
 	},
 	{
-		photo: "",
-		validation: true,
-		customer_id: 1,
-	},
-	{
 		photo:
 			"https://res.cloudinary.com/oparadis/image/upload/v1644235850/houses/h4h3pxj2fmp7v8d04auj.jpg",
 		validation: true,

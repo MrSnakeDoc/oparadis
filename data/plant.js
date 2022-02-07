@@ -699,4 +699,46 @@ module.exports = [
 		validation: true,
 		customer_id: 24,
 	},
+	{
+		type: "Ficus",
+		photo:
+			"https://res.cloudinary.com/oparadis/image/upload/v1644240779/plants/z6cizt9ylfhsahsk0tl5.jpg",
+		validation: true,
+		customer_id: 1,
+	},
+	{
+		type: "Cactus",
+		photo:
+			"https://res.cloudinary.com/oparadis/image/upload/v1644240775/plants/eo78dsmaxdgojeac4xqm.jpg",
+		validation: true,
+		customer_id: 1,
+	},
+	{
+		type: "Orchidée",
+		photo:
+			"https://res.cloudinary.com/oparadis/image/upload/v1644240775/plants/ee549ui6p5x1cciwznfs.jpg",
+		validation: true,
+		customer_id: 1,
+	},
+	{
+		type: "Dragonia",
+		photo:
+			"https://res.cloudinary.com/oparadis/image/upload/v1644240778/plants/vfekjdvewqblpwtqjetp.jpg",
+		validation: true,
+		customer_id: 2,
+	},
+	{
+		type: "Calathea",
+		photo:
+			"https://res.cloudinary.com/oparadis/image/upload/v1644240777/plants/rapk5txm6yvrcxlrvofz.jpg",
+		validation: true,
+		customer_id: 2,
+	},
+	{
+		type: "Phalangère",
+		photo:
+			"https://res.cloudinary.com/oparadis/image/upload/v1644240776/plants/zry0eyh3y7abg13dmgio.jpg",
+		validation: true,
+		customer_id: 2,
+	},
 ];

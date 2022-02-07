@@ -699,4 +699,46 @@ module.exports = [
 		validation: true,
 		customer_id: 83,
 	},
+	{
+		type: "Cat",
+		photo:
+			"https://res.cloudinary.com/oparadis/image/upload/v1644238507/animals/ofyyk8o0kihrm4asnji9.jpg",
+		validation: true,
+		customer_id: 1,
+	},
+	{
+		type: "Cat",
+		photo:
+			"https://res.cloudinary.com/oparadis/image/upload/v1644238507/animals/bbfukrjbkyrglq7crkxx.jpg",
+		validation: true,
+		customer_id: 1,
+	},
+	{
+		type: "Pig",
+		photo:
+			"https://res.cloudinary.com/oparadis/image/upload/v1644238505/animals/atzfntbxahbcmjfqns9e.jpg",
+		validation: true,
+		customer_id: 1,
+	},
+	{
+		type: "Ferret",
+		photo:
+			"https://res.cloudinary.com/oparadis/image/upload/v1644238503/animals/m6gzpfbadq2eqieno1qz.jpg",
+		validation: true,
+		customer_id: 2,
+	},
+	{
+		type: "Rabbit",
+		photo:
+			"https://res.cloudinary.com/oparadis/image/upload/v1644238504/animals/x8ax4keijqcs0zsxbrgr.jpg",
+		validation: true,
+		customer_id: 2,
+	},
+	{
+		type: "Dog",
+		photo:
+			"https://res.cloudinary.com/oparadis/image/upload/v1644238506/animals/bgs5xkv81o3ilqipf7l8.jpg",
+		validation: true,
+		customer_id: 2,
+	},
 ];
