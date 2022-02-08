@@ -3,7 +3,6 @@ const client = require("../app/database");
 const bcrypt = require("bcrypt");
 const fullData = require("./");
 const salt = 10;
-const axios = require("axios");
 
 (async () => {
 	try {
