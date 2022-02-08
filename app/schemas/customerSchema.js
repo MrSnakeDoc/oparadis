@@ -13,8 +13,8 @@ module.exports = {
 				tlds: { allow: ["com", "net", "fr", "it"] },
 			})
 			.required().error(new Error('Example : Winnie.l.ourson@gmiel.com, domain authorized : com, net, fr, it, io')),
-		firstname: Joi.string().required().error(new Error('This field is required')),
-		lastname: Joi.string().required().error(new Error('This field is required')),
+		firstname: Joi.string().required().error(new Error('firstname: This field is required')),
+		lastname: Joi.string().required().error(new Error('lastname: This field is required')),
 		pseudo: Joi.string().empty(""),
 		phone_number: Joi.string().pattern(re_phone).required().error(new Error('Message : Your phone number must begin with +33 or 0, example : +33164662903 , 0164662903')),
 		avatar: Joi.string().empty(""),
