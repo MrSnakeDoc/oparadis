@@ -28,8 +28,12 @@ module.exports = async (req, res, next) => {
             }
         }
         else if (req.method === "DELETE"){
-            await cloudDelete(req.body.url);
-            next();
+            if(req.body.url){
+                await cloudDelete(req.body.url);
+                next();
+            } else{
+                next();
+            }
         } else{
             next();
         }
