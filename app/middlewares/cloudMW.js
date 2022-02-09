@@ -14,15 +14,27 @@ module.exports = async (req, res, next) => {
             }
         } else if (req.method === "PATCH"){
             if(req.body.photo){
-                await cloudDelete(req.body.url);
-                req.body.photo = await cloudCreatePhoto(req.body.photo);
-                delete req.body.url;
-                next();
+                if(req.body.url){
+                    await cloudDelete(req.body.url);
+                    req.body.photo = await cloudCreatePhoto(req.body.photo);
+                    delete req.body.url;
+                    next();
+                }else{
+                    req.body.photo = await cloudCreatePhoto(req.body.photo);
+                    delete req.body.url;
+                    next();
+                }
             } else if (req.body.avatar) {
-                await cloudDelete(req.body.url);
-                req.body.avatar = await cloudCreateAvatar(req.body.avatar);
-                delete req.body.url;
-                next();
+                if(req.body.url){
+                    await cloudDelete(req.body.url);
+                    req.body.photo = await cloudCreateAvatar(req.body.photo);
+                    delete req.body.url;
+                    next();
+                }else{
+                    req.body.photo = await cloudCreateAvatar(req.body.photo);
+                    delete req.body.url;
+                    next();
+                }
             } else {
                 next();
             }
