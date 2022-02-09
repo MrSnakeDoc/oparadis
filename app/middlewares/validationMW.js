@@ -1,5 +1,6 @@
 module.exports = {
 	validateBody: (schema) => (req, res, next) => {
+		// console.log("body =>", req.body);
 		const { error } = schema.validate(req.body);
 		if (error) {
 			res.status(400).json(error.message);
