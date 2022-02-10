@@ -25,8 +25,8 @@ module.exports = {
 			.required()
 			.error(new Error("type: This field is required, expected type integer")),
 		title: Joi.string()
-			.max(30)
-			.error(new Error("title: characters limit up to 30")),
+			.max(100)
+			.error(new Error("title: characters limit up to 100")),
 		nb_rooms: Joi.number()
 			.integer()
 			.error(new Error("nb_rooms: Expected type integer")),
@@ -93,8 +93,8 @@ module.exports = {
 			.required()
 			.error(new Error("type: This field is required")),
 		title: Joi.string()
-			.max(30)
-			.error(new Error("title: characters limit up to 30")),
+			.max(100)
+			.error(new Error("title: characters limit up to 100")),
 		nb_rooms: Joi.number()
 			.integer()
 			.error(new Error("nb_rooms: expected type integer")),
