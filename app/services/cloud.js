@@ -24,7 +24,7 @@ module.exports = {
 			.splice(1, 1)
 			.map(
 				(x) =>
-					`https://res.cloudinary.com/oparadis/image/upload/c_scale,w_200,c_fill,r_max//${x}`
+					`https://res.cloudinary.com/oparadis/image/upload/w_200,h_200,c_fill,g_face,r_max/${x}`
 			)
 			.join();
 		return result.url;
