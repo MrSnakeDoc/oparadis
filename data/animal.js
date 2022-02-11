@@ -693,14 +693,18 @@ module.exports = [
 		customer_id: 83,
 	},
 	{
-		type: "Cat",
+		type: "Dog",
+		race: "Nicolas",
+		notes: "Misère à poils",
 		photo:
-			"https://res.cloudinary.com/oparadis/image/upload/c_scale,w_800/c_scale,w_1280/v1644238507/animals/ofyyk8o0kihrm4asnji9.jpg",
+			"https://res.cloudinary.com/oparadis/image/upload/c_scale,w_1280/v1644238506/animals/bgs5xkv81o3ilqipf7l8.jpg",
 		validation: true,
 		customer_id: 1,
 	},
 	{
 		type: "Cat",
+		race: "Jimmy",
+		notes: "Lui donner des pokemons à manger!",
 		photo:
 			"https://res.cloudinary.com/oparadis/image/upload/c_scale,w_800/c_scale,w_1280/v1644238507/animals/bbfukrjbkyrglq7crkxx.jpg",
 		validation: true,

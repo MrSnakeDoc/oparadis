@@ -18,7 +18,7 @@ const salt = 10;
 				if (table === "customer") {
 					elem.password = bcrypt.hashSync(elem.password, salt);
 				}
-				const keysArray = Object.keys(fullData[table][0]).map((key) => key); //? output : [name, age, address]
+				const keysArray = Object.keys(elem).map((key) => key); //? output : [name, age, address]
 				const keys = keysArray.join(", ");
 				const values = keysArray
 					.map((element, ind) => `$${ind + 1}`)

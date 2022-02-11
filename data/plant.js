@@ -693,7 +693,8 @@ module.exports = [
 		customer_id: 24,
 	},
 	{
-		type: "Ficus",
+		type: "Flore",
+		notes: "Prendre soin d'elle autant qu'elle prend soin de ses élèves",
 		photo:
 			"https://res.cloudinary.com/oparadis/image/upload/c_scale,w_800/c_scale,w_1280/v1644240779/plants/z6cizt9ylfhsahsk0tl5.jpg",
 		validation: true,
