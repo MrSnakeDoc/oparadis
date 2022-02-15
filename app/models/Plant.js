@@ -6,6 +6,10 @@ const CoreModel = require("./CoreModel");
  * @property {string} type
  * @property {string} notes
  * @property {string} photo
+ * @property {date} created_at
+ * @property {date} updated_at
+ * @property {boolean} validation
+ * @property {number} customer_id
  */
 module.exports = class Plant {
 	constructor(obj = {}) {
@@ -42,10 +46,9 @@ module.exports = class Plant {
 	 */
 	static async findOne(id) {
 		try {
-			const result = await CoreModel.getRow(
-				"SELECT * FROM plant WHERE id=$1",
-				[id]
-			);
+			const result = await CoreModel.getRow("SELECT * FROM plant WHERE id=$1", [
+				id,
+			]);
 			return result ? new Plant(result) : undefined;
 		} catch (err) {
 			if (err.detail) {

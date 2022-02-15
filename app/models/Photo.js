@@ -4,6 +4,10 @@ const CoreModel = require("./CoreModel");
  * @typedef {Object} Animal
  * @property {number} id
  * @property {string} photo
+ * @property {date} created_at
+ * @property {date} updated_at
+ * @property {boolean} validation
+ * @property {number} customer_id
  */
 module.exports = class Photo {
 	constructor(obj = {}) {

@@ -8,6 +8,7 @@ const CoreModel = require("./CoreModel");
  * @property {string} diseases
  * @property {string} notes
  * @property {string} photo
+ * @property {number} customer_id
  */
 module.exports = class Animal {
 	constructor(obj = {}) {
@@ -45,7 +46,6 @@ module.exports = class Animal {
 	static async findOne(id) {
 		try {
 			const result = await CoreModel.getRow(
-				
 				"SELECT * FROM animal WHERE id=$1",
 				[id]
 			);
@@ -102,7 +102,7 @@ module.exports = class Animal {
 	/**
 	 * Delete a Animal in database
 	 * @async
-	 * @returns {Object<Animal>} Delete a Animal in database
+	 * @returns {null} Delete an Animal in database
 	 * @throw {err} An err
 	 */
 	static async delete(id) {

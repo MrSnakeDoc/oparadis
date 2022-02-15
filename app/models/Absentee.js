@@ -6,6 +6,8 @@ const CoreModel = require("./CoreModel");
  * @property {number} id
  * @property {string} starting_date
  * @property {string} ending_date
+ * @property {number} customer_id
+ * @property {number} home_sitter
  */
 module.exports = class Absentee {
 	constructor(obj = {}) {
@@ -85,9 +87,10 @@ module.exports = class Absentee {
 	async update() {
 		try {
 			// We select the update function create a database(example function in migrations/deploy/function)
-			const results = await CoreModel.getRow("SELECT * FROM update_absentee($1)", [
-				this,
-			]);
+			const results = await CoreModel.getRow(
+				"SELECT * FROM update_absentee($1)",
+				[this]
+			);
 			return results ? new Absentee(results) : undefined;
 		} catch (err) {
 			if (err.detail) {
@@ -99,7 +102,7 @@ module.exports = class Absentee {
 	/**
 	 * Delete a Absentee in database
 	 * @async
-	 * @returns {Object<Absentee>} Delete a Absentee in database
+	 * @returns {null} Delete an Absentee in database
 	 * @throw {err} An err
 	 */
 	static async delete(id) {

@@ -8,7 +8,10 @@ const CoreModel = require("./CoreModel");
  * @property {string} lastname
  * @property {string} pseudo
  * @property {string} phone_number
- * @property {string} photo
+ * @property {string} avatar
+ * @property {boolean} isAdmin
+ * @property {date} created_at
+ * @property {date} updated_at
  */
 module.exports = class Customer {
 	constructor(obj = {}) {

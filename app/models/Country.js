@@ -1,13 +1,9 @@
 const CoreModel = require("./CoreModel");
 
 /**
- * @typedef {Object} Animal
+ * @typedef {Object} Country
  * @property {number} id
- * @property {string} type
- * @property {string} race
- * @property {string} diseases
- * @property {string} notes
- * @property {string} photo
+ * @property {string} country
  */
 module.exports = class Country {
 	constructor(obj = {}) {
@@ -44,9 +40,10 @@ module.exports = class Country {
 	 */
 	static async findOne(id) {
 		try {
-			const result = await CoreModel.getRow("SELECT * FROM country WHERE id=$1", [
-				id,
-			]);
+			const result = await CoreModel.getRow(
+				"SELECT * FROM country WHERE id=$1",
+				[id]
+			);
 			return result ? new Country(result) : undefined;
 		} catch (err) {
 			if (err.detail) {

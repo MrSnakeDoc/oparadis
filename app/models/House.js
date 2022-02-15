@@ -18,7 +18,19 @@ const CoreModel = require("./CoreModel");
  * @property {number} latitude
  * @property {number} longitude
  * @property {number} map
- * @property {number} id
+ * @property {boolean} internet
+ * @property {boolean} washing_machine
+ * @property {boolean} TV
+ * @property {boolean} hoven
+ * @property {boolean} microwave
+ * @property {boolean} dishwasher
+ * @property {boolean} bathtub
+ * @property {boolean} shower
+ * @property {boolean} parking
+ * @property {date} created_at
+ * @property {date} updated_at
+ * @property {boolean} validation
+ * @property {number} customer_id
  */
 
 module.exports = class House {
@@ -54,9 +66,7 @@ module.exports = class House {
 		try {
 			// We select the function to create a database
 			// that contains a select with join of the database
-			const results = await CoreModel.getArray(
-				`SELECT * FROM house_find_four`
-			);
+			const results = await CoreModel.getArray(`SELECT * FROM house_find_four`);
 			return results.map((result) => new House(result));
 		} catch (err) {
 			if (err.detail) {

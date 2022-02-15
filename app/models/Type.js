@@ -1,13 +1,9 @@
 const CoreModel = require("./CoreModel");
 
 /**
- * @typedef {Object} Animal
+ * @typedef {Object} Type
  * @property {number} id
  * @property {string} type
- * @property {string} race
- * @property {string} diseases
- * @property {string} notes
- * @property {string} photo
  */
 module.exports = class Type {
 	constructor(obj = {}) {
@@ -66,7 +62,9 @@ module.exports = class Type {
 	async save() {
 		try {
 			// We select the add function create a database(example function in migrations/deploy/function)
-			const result = await CoreModel.getRow("SELECT * FROM add_type($1)", [this]);
+			const result = await CoreModel.getRow("SELECT * FROM add_type($1)", [
+				this,
+			]);
 			return result ? new Type(result) : undefined;
 		} catch (err) {
 			if (err.detail) {

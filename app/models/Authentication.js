@@ -8,7 +8,10 @@ const CoreModel = require("./CoreModel");
  * @property {string} lastname
  * @property {string} pseudo
  * @property {string} phone_number
- * @property {string} photo
+ * @property {string} avatar
+ * @property {boolean} isAdmin
+ * @property {date} created_at
+ * @property {date} updated_at
  */
 module.exports = class Authentication {
 	constructor(obj = {}) {
@@ -21,13 +24,14 @@ module.exports = class Authentication {
 	 * Retrieves all Customers from database
 	 * @static
 	 * @async
-	 * @returns {Array<Customer>} All Customers in database
+	 * @returns {Object<Customer>} returns the value isAdmin of the user with the given id
 	 * @throw {err} An err
 	 */
-	static async isAdmin() {
+	static async isAdmin(id) {
 		try {
 			const results = await CoreModel.getArray(
-				"SELECT id, isAdmin FROM customer"
+				"SELECT id, isAdmin FROM customer where id = $1",
+				[id]
 			);
 			return results ? new Authentication(results) : undefined;
 		} catch (err) {
@@ -38,6 +42,13 @@ module.exports = class Authentication {
 		}
 	}
 
+	/**
+	 * Retrieves all Customers from database
+	 * @static
+	 * @async
+	 * @returns {Object<Customer>} Update the value isAdmin of the customer with the given id
+	 * @throw {err} An err
+	 */
 	async update_isAdmin() {
 		try {
 			const results = await CoreModel.getRow("SELECT * FROM update_isAdmin", [
@@ -52,6 +63,13 @@ module.exports = class Authentication {
 		}
 	}
 
+	/**
+	 * Retrieves all Customers from database
+	 * @static
+	 * @async
+	 * @returns {Object<Customer>} Returns the customer with the given email for authentication
+	 * @throw {err} An err
+	 */
 	static async authFindOne(email) {
 		try {
 			const results = await CoreModel.getRow(
@@ -88,6 +106,13 @@ module.exports = class Authentication {
 		}
 	}
 
+	/**
+	 * Retrieves all Customers from database
+	 * @static
+	 * @async
+	 * @returns {Object<Customer>} Returns the password of the customer with given id to compare it(jwt)
+	 * @throw {err} An err
+	 */
 	static async getPassword(id) {
 		try {
 			const result = await CoreModel.getRow(
@@ -103,6 +128,13 @@ module.exports = class Authentication {
 		}
 	}
 
+	/**
+	 * Retrieves all Customers from database
+	 * @static
+	 * @async
+	 * @returns {Object<Customer>} Updates the password of the customer with the given id
+	 * @throw {err} An err
+	 */
 	async update_password() {
 		try {
 			// We select the update function create a database(example function in sqitch/deploy/function)
