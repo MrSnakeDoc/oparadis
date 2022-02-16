@@ -48,6 +48,7 @@ module.exports = {
 				refresh_token: `Bearer ${refresh_token}`,
 			};
 			cache(customer.id, token.refresh_token.split(" ")[1]);
+			// allows the client to access the header 
 			res.setHeader("Access-Control-Expose-Headers", [
 				"Authorization",
 				"RefreshToken",
@@ -79,13 +80,13 @@ module.exports = {
 			if (!verifiedToken) {
 				return res.sendStatus(401);
 			}
+			//Make a token
 			const access_token = await makeToken(payload.data);
 			const refresh_token = ref_token;
 			const token = {
 				access_token: `Bearer ${access_token}`,
 				refresh_token: `Bearer ${refresh_token}`,
 			};
-			//Make a token
 			res.setHeader("Access-Control-Expose-Headers", [
 				"Authorization",
 				"RefreshToken",
@@ -115,6 +116,7 @@ module.exports = {
 			if (!verifiedToken) {
 				return res.sendStatus(401);
 			}
+			//delete token
 			const deleted = await deleteToken(payload.data.id);
 			if (!deleted) {
 				return res.sendStatus(500);

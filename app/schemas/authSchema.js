@@ -3,7 +3,9 @@ const Joi = require("joi");
 const re_phone = RegExp(
 	/^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-7](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/
 );
-
+// JOI : - ref(refers to another field)
+//regex : [a-zA-Z0-9-_$@#!?]{1,30} authorized lowercase, uppercase,
+// its special characters(-_$@#!?), between 1 and 30 characters
 module.exports = {
 	signup: Joi.object({
 		email: Joi.string()

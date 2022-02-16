@@ -1,5 +1,6 @@
 const Joi = require("joi");
 
+// JOI : - date(all date formats)
 module.exports = {
 	add_absentee: Joi.object({
 		starting_date: Joi.date().required().error(new Error('starting_date: This field is required, expected type date')),

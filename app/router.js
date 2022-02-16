@@ -35,8 +35,13 @@ const {
 } = require("./middlewares/");
 const router = Router();
 
-// JWT road
-//! We verify with add_customerValidation (joi) that the format is correct
+// JOI : we use JOI (Validation) to check the formats of receipts from the client(string, number, boolean).
+// cache : we use cache (BDD REDIS) to temporarily store data in order to limit queries in POSTGRESQL
+// flush : we use flush (BDD REDIS) delete data 
+// jwtMW : check access permission
+// cloudMW : recover photos in base 64
+// regex : Double check on id with regex (exple:[1-9]) and joi (number between 1 and 9999)
+
 router
 	.get("/isAdmin", jwtMW, authController.isAdmin)
 	.post("/signup", signup_Validation, cloudMW, flush, authController.signup)
@@ -48,7 +53,6 @@ router.patch("/isAdmin/:id", jwtMW, authController.update_isAdmin);
 
 router.get("/", cache, houseController.findFour);
 
-//! Double check on id with regex and joi (number between 1 and 9999)
 router
 	.get("/customers", jwtMW, cache, customerController.findAll)
 	.get(
@@ -58,7 +62,6 @@ router
 		cache,
 		customerController.findOne
 	)
-	//! We verify with update_customerValidation (joi) that the format is correct
 	.patch(
 		"/customers/:id([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])",
 		paramsValidation,

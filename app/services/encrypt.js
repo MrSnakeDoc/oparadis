@@ -1,5 +1,7 @@
 const bcrypt = require("bcrypt");
 const { salt } = require("../config");
+
+// Method use Bcrypt for hash password and compare password
 module.exports = {
 	async encrypt(password) {
 		try {

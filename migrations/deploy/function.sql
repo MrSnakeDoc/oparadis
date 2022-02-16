@@ -2,11 +2,13 @@
 
 BEGIN;
 
+-- function sql for create
 create or replace function add_customer(json) returns customer as $$
 	insert into "customer"(email, password, firstname, lastname, pseudo, phone_number, avatar)
 		values ($1->>'email', $1->>'password', $1->>'firstname', $1->>'lastname', $1->>'pseudo', $1->>'phone_number', $1->>'avatar') returning *;
 $$ language sql strict;
 
+-- function sql for update
 create or replace function update_customer(json) returns customer as $$
 	update "customer" set 
 		email = $1->>'email',

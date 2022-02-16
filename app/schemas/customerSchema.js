@@ -1,9 +1,14 @@
 const Joi = require("joi");
 
+// regex for verify the format phone number
 const re_phone = RegExp(
 	/^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-7](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/
 );
-
+// JOI : - object(expected format)
+//		 - email({option})
+//       - error(return a error message under string)
+//       - pattern(lets use a regex)
+//       - empty(allow an empty field)
 module.exports = {
 	update_customer: Joi.object({
 		email: Joi.string()

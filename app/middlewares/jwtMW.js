@@ -15,6 +15,7 @@ module.exports = (req, res, next) => {
 			if (!token) {
 				return res.sendStatus(401);
 			}
+			//validateToken return an object
 			const payload = jwt.validateToken(token);
 			if (!payload.data) {
 				return res.sendStatus(403);

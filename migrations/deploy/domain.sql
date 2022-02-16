@@ -4,7 +4,7 @@ BEGIN;
 
 --? the domain allows you to check and use it several times
 CREATE DOMAIN posint AS INT CHECK(VALUE >= 0);
-
+-- change the type of a field
 ALTER TABLE HOUSE 
     ALTER COLUMN nb_rooms TYPE posint,
     ALTER COLUMN nb_bedrooms TYPE posint,
@@ -12,6 +12,7 @@ ALTER TABLE HOUSE
     ALTER COLUMN area TYPE posint,
     ALTER COLUMN "floor" TYPE posint;
 
+-- view allows to call a select from sql
 CREATE VIEW house_full_find_all as
 	SELECT house.id,
 			house.address,
@@ -107,6 +108,7 @@ CREATE VIEW house_full_find_all as
 	GROUP BY customer.id, house.id
 	ORDER BY house.id;
 
+-- function sql return an select
 CREATE or replace function house_full_find_one(int) returns house_full_find_all as $$
 	SELECT * FROM house_full_find_all WHERE id = $1;
 $$ LANGUAGE sql strict;

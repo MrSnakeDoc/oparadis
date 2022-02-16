@@ -1,5 +1,7 @@
 const Joi = require("joi");
 
+// JOI : - max(limit max character)
+// 		 - boolean(need boolean)
 module.exports = {
 	add_animal: Joi.object({
 		type: Joi.string().max(100).required().error(new Error('type: This field is required, Characters limit up to 100')),
