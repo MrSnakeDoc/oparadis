@@ -27,11 +27,11 @@ module.exports = async (req, res, next) => {
             } else if (req.body.avatar) {
                 if(req.body.url){
                     await cloudDelete(req.body.url);
-                    req.body.photo = await cloudCreateAvatar(req.body.photo);
+                    req.body.avatar = await cloudCreateAvatar(req.body.avatar);
                     delete req.body.url;
                     next();
                 }else{
-                    req.body.photo = await cloudCreateAvatar(req.body.photo);
+                    req.body.avatar = await cloudCreateAvatar(req.body.avatar);
                     delete req.body.url;
                     next();
                 }
