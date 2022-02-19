@@ -14,7 +14,6 @@ module.exports = {
 			delete req.body.repeat_password;
 			// encrypt the password
 			req.body.password = await encrypt(req.body.password);
-			// connection api cloudinary
 			const customer = await new Authentication(req.body).signup();
 			delete customer.password;
 			res.status(201).json(customer);
