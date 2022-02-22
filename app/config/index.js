@@ -1,9 +1,6 @@
 const devConfig = require("./dev.js");
 const prodConfig = require("./prod.js");
-
 const env = process.env.NODE_ENV;
-
-let envConfig = {};
 
 switch (env) {
 	case "development":
