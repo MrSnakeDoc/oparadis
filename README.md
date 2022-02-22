@@ -1,6 +1,6 @@
 <h1 style="text-align:center; color:#00A9FF">Oparadis Backend<h1>
 
-[![license](https://img.shields.io/github/license/nhn/tui.editor.svg)]()
+[![license](https://img.shields.io/github/license/nhn/tui.editor.svg)](https://github.com/MrSnakeDoc/oparadis/blob/dev/licence)
 [![NPM version](https://img.shields.io/badge/NodeJS-16.13.0-blue)](https://nodejs.org/en/)
 [![Express](https://img.shields.io/badge/express-4.17.1-blue)](http://expressjs.com/)
 [![PostgreSQL Version](https://img.shields.io/badge/PostgreSQL-14-orange)](https://www.postgresql.org/)
