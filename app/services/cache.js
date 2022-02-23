@@ -10,24 +10,21 @@ const keys = [];
 const cache = async (request, response, next) => {
 	// create an entry key for redis (create from a backup)
 	const key = `${prefix}${request.url}`;
-	// existys(key) veirfy if the key exists
+	// db.exists(key) verify if the key exists
 	if (await db.exists(key)) {
-		//get: stock response
+		//get: retrieve the value of the key
 		const cachedString = await db.get(key);
-		// parse : transform the backup into JSON recover
+		// parse : transform the backup into JSON
 		const cachedValue = JSON.parse(cachedString);
 		return response.json(cachedValue);
 	}
-	// bind : The bind() method creates a new function which, 
-	// when it is called, has as its context this the value passed as a 
-	// parameter and possibly a series of arguments which will precede 
-	// those provided when calling the function created.
+	// bind : With the bind() method, an object can borrow a method from another object.
 	const originalResponseJson = response.json.bind(response);
 	response.json = async (data) => {
 		// stringify :  converts a JavaScript value to a JSON string
 		const str = JSON.stringify(data);
 		keys.push(key);
-		// set : create a backup with a key and stock str
+		// set : creates a backup with a key and store it in redis
 		await db.set(key, str, { EX: timeout, NX: true });
 		originalResponseJson(data);
 	};
@@ -36,6 +33,7 @@ const cache = async (request, response, next) => {
 
 // Method for delete the cache
 const flush = async (request, response, next) => {
+	let key;
 	while ((key = keys.shift())) {
 		await db.del(key);
 	}

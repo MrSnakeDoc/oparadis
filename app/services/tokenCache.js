@@ -3,7 +3,7 @@ const { redis_url } = require("../config/");
 const db = createClient({ url: redis_url });
 db.connect();
 
-// oparadis:token: for the connect to redis
+// oparadis:token: prefix of the key used to store in redis
 const prefix = "oparadis:token:";
 const timeout = 7200;
 
@@ -22,7 +22,7 @@ module.exports = {
 
 	async verifyToken(id, token) {
 		try {
-			// Checks if token exists and compar
+			// Checks if token exists and compares it with the token provided
 			const verifiedToken = await db.get(`${prefix}${id}`);
 			return verifiedToken === token ? true : undefined;
 		} catch (err) {
