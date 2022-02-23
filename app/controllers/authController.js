@@ -48,7 +48,7 @@ module.exports = {
 				refresh_token: `Bearer ${refresh_token}`,
 			};
 			cache(customer.id, token.refresh_token.split(" ")[1]);
-			// allows the client to access the header 
+			// allows the client to access the header
 			res.setHeader("Access-Control-Expose-Headers", [
 				"Authorization",
 				"RefreshToken",
@@ -134,7 +134,7 @@ module.exports = {
 		try {
 			// We check if the customer is admin
 			const customer = await Authentication.isAdmin(+req.params.id);
-			if (!customer.id) res.status(404).json('Not found');
+			if (!customer.id) res.status(404).json("Not found");
 			res.json(customer);
 		} catch (err) {
 			res.status(500).json(new BaseError(err.message));
@@ -144,7 +144,7 @@ module.exports = {
 	async update_isAdmin(req, res) {
 		try {
 			// Change the value of isAdmin of the customer
-			const customer = await Authentication({
+			const customer = await new Authentication({
 				id: +req.params.id,
 				...req.body,
 			}).update_isAdmin();

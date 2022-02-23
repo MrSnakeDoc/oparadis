@@ -15,6 +15,7 @@ module.exports = {
 				expiresIn: "5m",
 			});
 		} catch (error) {
+			console.error(error);
 			throw error;
 		}
 	},
@@ -23,26 +24,29 @@ module.exports = {
 			// Checks the validity of the token return an object with the data stored in the jwt
 			return jwt.verify(token, jwt_secret, { algorithm: "HS256" });
 		} catch (error) {
+			console.error(error);
 			throw error;
 		}
 	},
 
 	generateRefreshToken(user) {
 		try {
-			// Creation of a new token return token
+			// Creation of a new refresh token and return this refresh token
 			return jwt.sign({ data: user }, refresh_jwt_secret, {
 				algorithm: "HS256",
 				expiresIn: "3600s",
 			});
 		} catch (error) {
+			console.error(error);
 			throw error;
 		}
 	},
 	validateRefreshedToken(token) {
 		try {
-			// Checks the validity of the token
+			// Checks the validity of the refresh token
 			return jwt.verify(token, refresh_jwt_secret, { algorithm: "HS256" });
 		} catch (error) {
+			console.error(error);
 			throw error;
 		}
 	},

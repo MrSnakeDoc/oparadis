@@ -12,9 +12,9 @@ const salt = 10;
 		await client.query(
 			`TRUNCATE ${tables.join(", ")} RESTART IDENTITY cascade`
 		);
-		for (table of tables) {
+		for (const table of tables) {
 			console.log("table =>", table);
-			for (elem of fullData[table]) {
+			for (const elem of fullData[table]) {
 				if (table === "customer") {
 					elem.password = bcrypt.hashSync(elem.password, salt);
 				}

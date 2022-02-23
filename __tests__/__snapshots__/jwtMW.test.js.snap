@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`jwtMW 0 1`] = `undefined`;
+
+exports[`jwtMW 1 1`] = `undefined`;
+
+exports[`jwtMW 2 1`] = `undefined`;
+
+exports[`jwtMW 3 1`] = `undefined`;
+
+exports[`jwtMW 4 1`] = `undefined`;
+
+exports[`jwtMW 5 1`] = `-Infinity`;
