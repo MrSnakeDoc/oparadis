@@ -10,7 +10,12 @@ const app = express();
 
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(docs));
 
-app.use(cors());
+app.use(
+	cors({
+		origin: "https://o_paradis.surge.sh/",
+		optionsSuccessStatus: 200,
+	})
+);
 
 app.use(express.json());
 
