@@ -102,7 +102,7 @@ $ CREATE DATABASE oparadis
 
 Then you need to fill your .env file with environment variables.
 
-```
+```bash
 $ cp .env.example .env
 ```
 
@@ -110,7 +110,7 @@ You will need to create an account on [Cloudinary](https://cloudinary.com/) and 
 
 Open your .env file and add these lines to your .env file:
 
-```
+```.env
 DATABASE_URL = postgresql://root:root@localhost:55432/oparadis
 REDIS_URL = redis://default:root@localhost:6379
 JWT_SECRET = addyourlongsecretstring
