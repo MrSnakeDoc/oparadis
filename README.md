@@ -65,6 +65,24 @@ As a matter of fact, all similar websites are only oriented to retired people. W
 
 ## Setup
 
+Clone `dev` branch into your personal repository. Clone it to local computer. Install node modules. Before starting development, you should check if there are any errors.
+
+With https:
+
+```bash
+$ git clone https://github.com/MrSnakeDoc/oparadis.git
+$ npm install
+$ npm run dev
+```
+
+With ssh:
+
+```bash
+$ git clone git@github.com:MrSnakeDoc/oparadis.git
+$ npm install
+$ npm run dev
+```
+
 First you need to have two database local or remote.
 
 For local with docker:
@@ -100,22 +118,4 @@ REFRESH_JWT_SECRET = addyourlongsecretstring
 CLOUD_NAME = yourcloud_name
 API_KEY = yourapikey
 API_SECRET = yourapisecret
-```
-
-Clone `dev` branch into your personal repository. Clone it to local computer. Install node modules. Before starting development, you should check if there are any errors.
-
-With https:
-
-```bash
-$ git clone https://github.com/MrSnakeDoc/oparadis.git
-$ npm install
-$ npm run dev
-```
-
-With ssh:
-
-```bash
-$ git clone git@github.com:MrSnakeDoc/oparadis.git
-$ npm install
-$ npm run dev
 ```
