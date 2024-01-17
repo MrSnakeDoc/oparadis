@@ -1,11 +1,11 @@
 module.exports = (req, res, next) => {
-	if (req.method === "PATCH") {
-		+req.params.id !== req.user.id &&
-		req.user.id !== req.body.customer_id &&
-		req.user.id !== +req.params.id
-			? res.sendStatus(401)
-			: next();
-	} else {
-		req.user.id !== +req.params.id ? res.sendStatus(401) : next();
-	}
+	const userId = +req.user.id;
+	const paramId = +req.params.id;
+  
+	if (userId !== paramId) return res.sendStatus(401);
+  
+	if (req.method === 'PATCH' && userId !== req.body.customer_id)
+	  return res.sendStatus(401);
+  
+	next();
 };

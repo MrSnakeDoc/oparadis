@@ -1,13 +1,14 @@
 const { host_online } = require('../config/');
 
 module.exports = (req, res, next) => {
-	if (
-		req.headers.host === "localhost:5000" ||
-		req.headers.host === host_online ||
-		req.headers.host.startsWith(`127.0.0.1`)
-	) {
-		next();
-	} else {
-		req.user.isadmin ? next() : res.sendStatus(403);
-	}
+	const { host } = req.headers
+
+	const isLocalHost = host === "localhost:5000" || host.startsWith("127.0.0.1");
+  	const isHostOnline = host === host_online;
+  	const isAdmin = req?.user?.isadmin;
+
+	if (!isLocalHost &&	!isHostOnline && !isAdmin) res.sendStatus(403);
+	
+	next();
 };
+

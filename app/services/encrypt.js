@@ -12,7 +12,6 @@ module.exports = {
 		}
 	},
 	async compare(password, hash) {
-		const compared = await bcrypt.compare(password, hash);
-		return compared;
+		return await bcrypt.compare(password, hash);
 	},
 };

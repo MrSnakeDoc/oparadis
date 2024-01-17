@@ -1,55 +1,39 @@
-const { cloudCreatePhoto, cloudCreateAvatar, cloudDelete } = require('../services/cloud');
+const {
+  cloudCreatePhoto,
+  cloudCreateAvatar,
+  cloudDelete,
+} = require('../services/cloud');
+
+const handleUpload = async (req) => {
+  const { url } = req.body;
+  const { method } = req;
+  const { body } = req;
+  const photoType = body.photo ? 'photo' : 'avatar';
+  if (body[photoType]) {
+    if (method === 'PATCH' && url) {
+      await cloudDelete(url);
+      delete req.body.url;
+    }
+    body[photoType] = await (photoType === 'photo'
+      ? cloudCreatePhoto
+      : cloudCreateAvatar)(body[photoType]);
+  }
+};
+
+const handleDelete = async (url) => await cloudDelete(url);
 
 module.exports = async (req, res, next) => {
-    try {
-        if(req.method === "POST"){
-            if(req.body.photo){
-                req.body.photo = await cloudCreatePhoto(req.body.photo);
-                next();
-            } else if (req.body.avatar){
-                req.body.avatar = await cloudCreateAvatar(req.body.avatar);
-                next();
-            }else {
-                next();
-            }
-        } else if (req.method === "PATCH"){
-            if(req.body.photo){
-                if(req.body.url){
-                    await cloudDelete(req.body.url);
-                    req.body.photo = await cloudCreatePhoto(req.body.photo);
-                    delete req.body.url;
-                    next();
-                }else{
-                    req.body.photo = await cloudCreatePhoto(req.body.photo);
-                    delete req.body.url;
-                    next();
-                }
-            } else if (req.body.avatar) {
-                if(req.body.url){
-                    await cloudDelete(req.body.url);
-                    req.body.avatar = await cloudCreateAvatar(req.body.avatar);
-                    delete req.body.url;
-                    next();
-                }else{
-                    req.body.avatar = await cloudCreateAvatar(req.body.avatar);
-                    delete req.body.url;
-                    next();
-                }
-            } else {
-                next();
-            }
-        }
-        else if (req.method === "DELETE"){
-            if(req.body.url){
-                await cloudDelete(req.body.url);
-                next();
-            } else{
-                next();
-            }
-        } else{
-            next();
-        }
-    } catch (error) {
-		console.log('cloudMW', error);
-    }
+  const { url } = req.body;
+  const { method } = req;
+
+  try {
+    if (['POST', 'PATCH'].includes(method)) await handleUpload(req);
+
+    if (req.method === 'DELETE' && url) await handleDelete(url);
+
+    next();
+  } catch (error) {
+    console.log('cloudMW', error);
+    res.status(500).send(error);
+  }
 };
